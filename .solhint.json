@@ -1,0 +1,8 @@
+{
+  "extends": "default",
+  "rules": {
+    "indent": false,
+    "no-mix-tabs-and-spaces": false,
+    "compiler-fixed": false
+  }
+}
