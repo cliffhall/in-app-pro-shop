@@ -1,0 +1,26 @@
+{
+  "name": "in-game-pro-shop",
+  "version": "1.0.0",
+  "description": "An Ethereum blockchain-based system for in-game purchases",
+  "main": "truffle.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "ganache:start": "ganache-cli -p 7545"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cliffhall/in-game-pro-shop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cliffhall/in-game-pro-shop/issues"
+  },
+  "homepage": "https://github.com/cliffhall/in-game-pro-shop#readme",
+  "dependencies": {
+    "openzeppelin-solidity": "1.11.0"
+  }
+}

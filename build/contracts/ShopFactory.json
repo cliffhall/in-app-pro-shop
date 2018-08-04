@@ -44,6 +44,15 @@
       "type": "function"
     },
     {
+      "constant": false,
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
       "constant": true,
       "inputs": [],
       "name": "owner",
@@ -61,7 +70,7 @@
       "constant": false,
       "inputs": [
         {
-          "name": "newOwner",
+          "name": "_newOwner",
           "type": "address"
         }
       ],
@@ -86,6 +95,18 @@
         }
       ],
       "name": "NewShop",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipRenounced",
       "type": "event"
     },
     {
@@ -120,24 +141,24 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x6080604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555061083f806100536000396000f30060806040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063184392e814610072578063713aca74146100e35780638da5cb5b14610198578063e674d1f6146101ef578063f2fde38b14610258575b600080fd5b34801561007e57600080fd5b506100a1600480360381019080803560001916906020019092919050505061029b565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100ef57600080fd5b5061010e600480360381019080803590602001909291905050506102ce565b60405180836000191660001916815260200180602001828103825283818151815260200191508051906020019080838360005b8381101561015c578082015181840152602081019050610141565b50505050905090810190601f1680156101895780820380516001836020036101000a031916815260200191505b50935050505060405180910390f35b3480156101a457600080fd5b506101ad610399565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156101fb57600080fd5b50610256600480360381019080803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091929192905050506103be565b005b34801561026457600080fd5b50610299600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610619565b005b60026020528060005260406000206000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6001818154811015156102dd57fe5b9060005260206000209060020201600091509050806000015490806001018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561038f5780601f106103645761010080835404028352916020019161038f565b820191906000526020600020905b81548152906001019060200180831161037257829003601f168201915b5050505050905082565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600081426040516020018083805190602001908083835b6020831015156103fa57805182526020820191506020810190506020830392506103d5565b6001836020036101000a038019825116818451168082178552505050505050905001828152602001925050506040516020818303038152906040526040518082805190602001908083835b60208310151561046a5780518252602082019150602081019050602083039250610445565b6001836020036101000a038019825116818451168082178552505050505050905001915050604051809103902090506001604080519081016040528083600019168152602001848152509080600181540180825580915050906001820390600052602060002090600202016000909192909190915060008201518160000190600019169055602082015181600101908051906020019061050b92919061076e565b505050503360026000836000191660001916815260200190815260200160002060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055507f6313bf4c16ed0f7dfc973b6d1402585b4a3222667028027be75d7c44d23c51c5818360405180836000191660001916815260200180602001828103825283818151815260200191508051906020019080838360005b838110156105da5780820151818401526020810190506105bf565b50505050905090810190601f1680156106075780820380516001836020036101000a031916815260200191505b50935050505060405180910390a15050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561067457600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16141515156106b057600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106107af57805160ff19168380011785556107dd565b828001600101855582156107dd579182015b828111156107dc5782518255916020019190600101906107c1565b5b5090506107ea91906107ee565b5090565b61081091905b8082111561080c5760008160009055506001016107f4565b5090565b905600a165627a7a72305820a8be1f2bba0a69cbaee03bb1e4a4cac15e01ba6925d9ca14005e211da93571b70029",
-  "deployedBytecode": "0x60806040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063184392e814610072578063713aca74146100e35780638da5cb5b14610198578063e674d1f6146101ef578063f2fde38b14610258575b600080fd5b34801561007e57600080fd5b506100a1600480360381019080803560001916906020019092919050505061029b565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100ef57600080fd5b5061010e600480360381019080803590602001909291905050506102ce565b60405180836000191660001916815260200180602001828103825283818151815260200191508051906020019080838360005b8381101561015c578082015181840152602081019050610141565b50505050905090810190601f1680156101895780820380516001836020036101000a031916815260200191505b50935050505060405180910390f35b3480156101a457600080fd5b506101ad610399565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156101fb57600080fd5b50610256600480360381019080803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091929192905050506103be565b005b34801561026457600080fd5b50610299600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610619565b005b60026020528060005260406000206000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6001818154811015156102dd57fe5b9060005260206000209060020201600091509050806000015490806001018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561038f5780601f106103645761010080835404028352916020019161038f565b820191906000526020600020905b81548152906001019060200180831161037257829003601f168201915b5050505050905082565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600081426040516020018083805190602001908083835b6020831015156103fa57805182526020820191506020810190506020830392506103d5565b6001836020036101000a038019825116818451168082178552505050505050905001828152602001925050506040516020818303038152906040526040518082805190602001908083835b60208310151561046a5780518252602082019150602081019050602083039250610445565b6001836020036101000a038019825116818451168082178552505050505050905001915050604051809103902090506001604080519081016040528083600019168152602001848152509080600181540180825580915050906001820390600052602060002090600202016000909192909190915060008201518160000190600019169055602082015181600101908051906020019061050b92919061076e565b505050503360026000836000191660001916815260200190815260200160002060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055507f6313bf4c16ed0f7dfc973b6d1402585b4a3222667028027be75d7c44d23c51c5818360405180836000191660001916815260200180602001828103825283818151815260200191508051906020019080838360005b838110156105da5780820151818401526020810190506105bf565b50505050905090810190601f1680156106075780820380516001836020036101000a031916815260200191505b50935050505060405180910390a15050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561067457600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16141515156106b057600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106107af57805160ff19168380011785556107dd565b828001600101855582156107dd579182015b828111156107dc5782518255916020019190600101906107c1565b5b5090506107ea91906107ee565b5090565b61081091905b8082111561080c5760008160009055506001016107f4565b5090565b905600a165627a7a72305820a8be1f2bba0a69cbaee03bb1e4a4cac15e01ba6925d9ca14005e211da93571b70029",
-  "sourceMap": "52:457:2:-;;;522:10:1;514:5;;:18;;;;;;;;;;;;;;;;;;52:457:2;;;;;;",
-  "deployedSourceMap": "52:457:2:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;235:47;;8:9:-1;5:2;;;30:1;27;20:12;5:2;235:47:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;210:19;;8:9:-1;5:2;;;30:1;27;20:12;5:2;210:19:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;210:19:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;242:20:1;;8:9:-1;5:2;;;30:1;27;20:12;5:2;242:20:1;;;;;;;;;;;;;;;;;;;;;;;;;;;289:218:2;;8:9:-1;5:2;;;30:1;27;20:12;5:2;289:218:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;875:188:1;;8:9:-1;5:2;;;30:1;27;20:12;5:2;875:188:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;235:47:2;;;;;;;;;;;;;;;;;;;;;;:::o;210:19::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;242:20:1:-;;;;;;;;;;;;;:::o;289:218:2:-;340:10;380:5;387:3;363:28;;;;;;;;;;;;;;;36:153:-1;66:2;61:3;58:11;51:19;36:153;;;182:3;176:10;171:3;164:23;98:2;93:3;89:12;82:19;;123:2;118:3;114:12;107:19;;148:2;143:3;139:12;132:19;;36:153;;;274:1;267:3;263:2;259:12;254:3;250:22;246:30;315:4;311:9;305:3;299:10;295:26;356:4;350:3;344:10;340:21;389:7;380;377:20;372:3;365:33;3:399;;;363:28:2;;;;;;;;;;;;;;;;;49:4:-1;39:7;30;26:21;22:32;13:7;6:49;363:28:2;;;353:39;;;;;;;;;;;;;36:153:-1;66:2;61:3;58:11;51:19;36:153;;;182:3;176:10;171:3;164:23;98:2;93:3;89:12;82:19;;123:2;118:3;114:12;107:19;;148:2;143:3;139:12;132:19;;36:153;;;274:1;267:3;263:2;259:12;254:3;250:22;246:30;315:4;311:9;305:3;299:10;295:26;356:4;350:3;344:10;340:21;389:7;380;377:20;372:3;365:33;3:399;;;353:39:2;;;;;;;;;;;;;;;;340:52;;402:5;413:15;;;;;;;;;418:2;413:15;;;;;;;422:5;413:15;;;402:27;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;402:27:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;457:10;439:11;:15;451:2;439:15;;;;;;;;;;;;;;;;;;:28;;;;;;;;;;;;;;;;;;482:18;490:2;494:5;482:18;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;482:18:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;289:218;;:::o;875:188:1:-;680:5;;;;;;;;;;;666:19;;:10;:19;;;658:28;;;;;;;;975:1;955:22;;:8;:22;;;;947:31;;;;;;;;1021:8;993:37;;1014:5;;;;;;;;;;;993:37;;;;;;;;;;;;1048:8;1040:5;;:16;;;;;;;;;;;;;;;;;;875:188;:::o;52:457:2:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
-  "source": "pragma solidity ^0.4.24;\n\nimport \"./Ownable.sol\";\n\n\ncontract ShopFactory is Ownable {\n\n    event NewShop(bytes32 shopId, string name);\n\n    struct Shop {\n        bytes32 shopId;\n        string name;\n    }\n\n    Shop[] public shops;\n    mapping (bytes32 => address) public shopToOwner;\n\n    function createShop(string _name) public {\n        bytes32 id = keccak256(abi.encodePacked(_name, now));\n        shops.push(Shop(id, _name));\n        shopToOwner[id] = msg.sender;\n        emit NewShop(id, _name);\n    }\n}",
+  "bytecode": "0x6080604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555061096f806100536000396000f300608060405260043610610078576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063184392e81461007d578063713aca74146100ee578063715018a6146101a35780638da5cb5b146101ba578063e674d1f614610211578063f2fde38b1461027a575b600080fd5b34801561008957600080fd5b506100ac60048036038101908080356000191690602001909291905050506102bd565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100fa57600080fd5b50610119600480360381019080803590602001909291905050506102f0565b60405180836000191660001916815260200180602001828103825283818151815260200191508051906020019080838360005b8381101561016757808201518184015260208101905061014c565b50505050905090810190601f1680156101945780820380516001836020036101000a031916815260200191505b50935050505060405180910390f35b3480156101af57600080fd5b506101b86103bb565b005b3480156101c657600080fd5b506101cf6104bd565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561021d57600080fd5b50610278600480360381019080803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091929192905050506104e2565b005b34801561028657600080fd5b506102bb600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061073d565b005b60026020528060005260406000206000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6001818154811015156102ff57fe5b9060005260206000209060020201600091509050806000015490806001018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103b15780601f10610386576101008083540402835291602001916103b1565b820191906000526020600020905b81548152906001019060200180831161039457829003601f168201915b5050505050905082565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561041657600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167ff8df31144d9c2f0f6b59d69b8b98abd5459d07f2742c4df920b25aae33c6482060405160405180910390a260008060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600081426040516020018083805190602001908083835b60208310151561051e57805182526020820191506020810190506020830392506104f9565b6001836020036101000a038019825116818451168082178552505050505050905001828152602001925050506040516020818303038152906040526040518082805190602001908083835b60208310151561058e5780518252602082019150602081019050602083039250610569565b6001836020036101000a038019825116818451168082178552505050505050905001915050604051809103902090506001604080519081016040528083600019168152602001848152509080600181540180825580915050906001820390600052602060002090600202016000909192909190915060008201518160000190600019169055602082015181600101908051906020019061062f92919061089e565b505050503360026000836000191660001916815260200190815260200160002060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055507f6313bf4c16ed0f7dfc973b6d1402585b4a3222667028027be75d7c44d23c51c5818360405180836000191660001916815260200180602001828103825283818151815260200191508051906020019080838360005b838110156106fe5780820151818401526020810190506106e3565b50505050905090810190601f16801561072b5780820380516001836020036101000a031916815260200191505b50935050505060405180910390a15050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561079857600080fd5b6107a1816107a4565b50565b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16141515156107e057600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106108df57805160ff191683800117855561090d565b8280016001018555821561090d579182015b8281111561090c5782518255916020019190600101906108f1565b5b50905061091a919061091e565b5090565b61094091905b8082111561093c576000816000905550600101610924565b5090565b905600a165627a7a7230582034a70a7b438378b2033c1832660ec26eed57d13bdb2296837bf627bddd7981570029",
+  "deployedBytecode": "0x608060405260043610610078576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063184392e81461007d578063713aca74146100ee578063715018a6146101a35780638da5cb5b146101ba578063e674d1f614610211578063f2fde38b1461027a575b600080fd5b34801561008957600080fd5b506100ac60048036038101908080356000191690602001909291905050506102bd565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100fa57600080fd5b50610119600480360381019080803590602001909291905050506102f0565b60405180836000191660001916815260200180602001828103825283818151815260200191508051906020019080838360005b8381101561016757808201518184015260208101905061014c565b50505050905090810190601f1680156101945780820380516001836020036101000a031916815260200191505b50935050505060405180910390f35b3480156101af57600080fd5b506101b86103bb565b005b3480156101c657600080fd5b506101cf6104bd565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561021d57600080fd5b50610278600480360381019080803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091929192905050506104e2565b005b34801561028657600080fd5b506102bb600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061073d565b005b60026020528060005260406000206000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6001818154811015156102ff57fe5b9060005260206000209060020201600091509050806000015490806001018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103b15780601f10610386576101008083540402835291602001916103b1565b820191906000526020600020905b81548152906001019060200180831161039457829003601f168201915b5050505050905082565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561041657600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167ff8df31144d9c2f0f6b59d69b8b98abd5459d07f2742c4df920b25aae33c6482060405160405180910390a260008060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600081426040516020018083805190602001908083835b60208310151561051e57805182526020820191506020810190506020830392506104f9565b6001836020036101000a038019825116818451168082178552505050505050905001828152602001925050506040516020818303038152906040526040518082805190602001908083835b60208310151561058e5780518252602082019150602081019050602083039250610569565b6001836020036101000a038019825116818451168082178552505050505050905001915050604051809103902090506001604080519081016040528083600019168152602001848152509080600181540180825580915050906001820390600052602060002090600202016000909192909190915060008201518160000190600019169055602082015181600101908051906020019061062f92919061089e565b505050503360026000836000191660001916815260200190815260200160002060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055507f6313bf4c16ed0f7dfc973b6d1402585b4a3222667028027be75d7c44d23c51c5818360405180836000191660001916815260200180602001828103825283818151815260200191508051906020019080838360005b838110156106fe5780820151818401526020810190506106e3565b50505050905090810190601f16801561072b5780820380516001836020036101000a031916815260200191505b50935050505060405180910390a15050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561079857600080fd5b6107a1816107a4565b50565b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16141515156107e057600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106108df57805160ff191683800117855561090d565b8280016001018555821561090d579182015b8281111561090c5782518255916020019190600101906108f1565b5b50905061091a919061091e565b5090565b61094091905b8082111561093c576000816000905550600101610924565b5090565b905600a165627a7a7230582034a70a7b438378b2033c1832660ec26eed57d13bdb2296837bf627bddd7981570029",
+  "sourceMap": "91:457:0:-;;;575:10:1;567:5;;:18;;;;;;;;;;;;;;;;;;91:457:0;;;;;;",
+  "deployedSourceMap": "91:457:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;274:47;;8:9:-1;5:2;;;30:1;27;20:12;5:2;274:47:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;249:19;;8:9:-1;5:2;;;30:1;27;20:12;5:2;249:19:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;249:19:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1001:111:1;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1001:111:1;;;;;;238:20;;8:9:-1;5:2;;;30:1;27;20:12;5:2;238:20:1;;;;;;;;;;;;;;;;;;;;;;;;;;;328:218:0;;8:9:-1;5:2;;;30:1;27;20:12;5:2;328:218:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1274:103:1;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1274:103:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;274:47:0;;;;;;;;;;;;;;;;;;;;;;:::o;249:19::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;1001:111:1:-;719:5;;;;;;;;;;;705:19;;:10;:19;;;697:28;;;;;;;;1077:5;;;;;;;;;;;1058:25;;;;;;;;;;;;1105:1;1089:5;;:18;;;;;;;;;;;;;;;;;;1001:111::o;238:20::-;;;;;;;;;;;;;:::o;328:218:0:-;379:10;419:5;426:3;402:28;;;;;;;;;;;;;;;36:153:-1;66:2;61:3;58:11;51:19;36:153;;;182:3;176:10;171:3;164:23;98:2;93:3;89:12;82:19;;123:2;118:3;114:12;107:19;;148:2;143:3;139:12;132:19;;36:153;;;274:1;267:3;263:2;259:12;254:3;250:22;246:30;315:4;311:9;305:3;299:10;295:26;356:4;350:3;344:10;340:21;389:7;380;377:20;372:3;365:33;3:399;;;402:28:0;;;;;;;;;;;;;;;;;49:4:-1;39:7;30;26:21;22:32;13:7;6:49;402:28:0;;;392:39;;;;;;;;;;;;;36:153:-1;66:2;61:3;58:11;51:19;36:153;;;182:3;176:10;171:3;164:23;98:2;93:3;89:12;82:19;;123:2;118:3;114:12;107:19;;148:2;143:3;139:12;132:19;;36:153;;;274:1;267:3;263:2;259:12;254:3;250:22;246:30;315:4;311:9;305:3;299:10;295:26;356:4;350:3;344:10;340:21;389:7;380;377:20;372:3;365:33;3:399;;;392:39:0;;;;;;;;;;;;;;;;379:52;;441:5;452:15;;;;;;;;;457:2;452:15;;;;;;;461:5;452:15;;;441:27;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;441:27:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;496:10;478:11;:15;490:2;478:15;;;;;;;;;;;;;;;;;;:28;;;;;;;;;;;;;;;;;;521:18;529:2;533:5;521:18;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;521:18:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;328:218;;:::o;1274:103:1:-;719:5;;;;;;;;;;;705:19;;:10;:19;;;697:28;;;;;;;;1343:29;1362:9;1343:18;:29::i;:::-;1274:103;:::o;1512:171::-;1603:1;1582:23;;:9;:23;;;;1574:32;;;;;;;;1645:9;1617:38;;1638:5;;;;;;;;;;;1617:38;;;;;;;;;;;;1669:9;1661:5;;:17;;;;;;;;;;;;;;;;;;1512:171;:::o;91:457:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.24;\n\nimport 'openzeppelin-solidity/contracts/ownership/Ownable.sol';\n\ncontract ShopFactory is Ownable {\n\n    event NewShop(bytes32 shopId, string name);\n\n    struct Shop {\n        bytes32 shopId;\n        string name;\n    }\n\n    Shop[] public shops;\n    mapping (bytes32 => address) public shopToOwner;\n\n    function createShop(string _name) public {\n        bytes32 id = keccak256(abi.encodePacked(_name, now));\n        shops.push(Shop(id, _name));\n        shopToOwner[id] = msg.sender;\n        emit NewShop(id, _name);\n    }\n}",
   "sourcePath": "/Users/cliff/Documents/in-game-pro-shop/contracts/ShopFactory.sol",
   "ast": {
     "absolutePath": "/Users/cliff/Documents/in-game-pro-shop/contracts/ShopFactory.sol",
     "exportedSymbols": {
       "ShopFactory": [
-        189
+        60
       ]
     },
-    "id": 190,
+    "id": 61,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 130,
+        "id": 1,
         "literals": [
           "solidity",
           "^",
@@ -145,16 +166,16 @@
           ".24"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:2"
+        "src": "0:24:0"
       },
       {
-        "absolutePath": "/Users/cliff/Documents/in-game-pro-shop/contracts/Ownable.sol",
-        "file": "./Ownable.sol",
-        "id": 131,
+        "absolutePath": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+        "file": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+        "id": 2,
         "nodeType": "ImportDirective",
-        "scope": 190,
-        "sourceUnit": 129,
-        "src": "26:23:2",
+        "scope": 61,
+        "sourceUnit": 147,
+        "src": "26:63:0",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -164,31 +185,31 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 132,
+              "id": 3,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 128,
-              "src": "76:7:2",
+              "referencedDeclaration": 146,
+              "src": "115:7:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$128",
+                "typeIdentifier": "t_contract$_Ownable_$146",
                 "typeString": "contract Ownable"
               }
             },
-            "id": 133,
+            "id": 4,
             "nodeType": "InheritanceSpecifier",
-            "src": "76:7:2"
+            "src": "115:7:0"
           }
         ],
         "contractDependencies": [
-          128
+          146
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 189,
+        "id": 60,
         "linearizedBaseContracts": [
-          189,
-          128
+          60,
+          146
         ],
         "name": "ShopFactory",
         "nodeType": "ContractDefinition",
@@ -196,21 +217,21 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 139,
+            "id": 10,
             "name": "NewShop",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 138,
+              "id": 9,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 135,
+                  "id": 6,
                   "indexed": false,
                   "name": "shopId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 139,
-                  "src": "105:14:2",
+                  "scope": 10,
+                  "src": "144:14:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -218,10 +239,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 134,
+                    "id": 5,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "105:7:2",
+                    "src": "144:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -232,12 +253,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 137,
+                  "id": 8,
                   "indexed": false,
                   "name": "name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 139,
-                  "src": "121:11:2",
+                  "scope": 10,
+                  "src": "160:11:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -245,10 +266,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 136,
+                    "id": 7,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "121:6:2",
+                    "src": "160:6:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -258,21 +279,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "104:29:2"
+              "src": "143:29:0"
             },
-            "src": "91:43:2"
+            "src": "130:43:0"
           },
           {
             "canonicalName": "ShopFactory.Shop",
-            "id": 144,
+            "id": 15,
             "members": [
               {
                 "constant": false,
-                "id": 141,
+                "id": 12,
                 "name": "shopId",
                 "nodeType": "VariableDeclaration",
-                "scope": 144,
-                "src": "162:14:2",
+                "scope": 15,
+                "src": "201:14:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -280,10 +301,10 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 140,
+                  "id": 11,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "162:7:2",
+                  "src": "201:7:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -294,11 +315,11 @@
               },
               {
                 "constant": false,
-                "id": 143,
+                "id": 14,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
-                "scope": 144,
-                "src": "186:11:2",
+                "scope": 15,
+                "src": "225:11:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -306,10 +327,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 142,
+                  "id": 13,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "186:6:2",
+                  "src": "225:6:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -321,42 +342,42 @@
             ],
             "name": "Shop",
             "nodeType": "StructDefinition",
-            "scope": 189,
-            "src": "140:64:2",
+            "scope": 60,
+            "src": "179:64:0",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 147,
+            "id": 18,
             "name": "shops",
             "nodeType": "VariableDeclaration",
-            "scope": 189,
-            "src": "210:19:2",
+            "scope": 60,
+            "src": "249:19:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_struct$_Shop_$144_storage_$dyn_storage",
+              "typeIdentifier": "t_array$_t_struct$_Shop_$15_storage_$dyn_storage",
               "typeString": "struct ShopFactory.Shop[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 145,
+                "id": 16,
                 "name": "Shop",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 144,
-                "src": "210:4:2",
+                "referencedDeclaration": 15,
+                "src": "249:4:0",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Shop_$144_storage_ptr",
+                  "typeIdentifier": "t_struct$_Shop_$15_storage_ptr",
                   "typeString": "struct ShopFactory.Shop"
                 }
               },
-              "id": 146,
+              "id": 17,
               "length": null,
               "nodeType": "ArrayTypeName",
-              "src": "210:6:2",
+              "src": "249:6:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_struct$_Shop_$144_storage_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_struct$_Shop_$15_storage_$dyn_storage_ptr",
                 "typeString": "struct ShopFactory.Shop[]"
               }
             },
@@ -365,11 +386,11 @@
           },
           {
             "constant": false,
-            "id": 151,
+            "id": 22,
             "name": "shopToOwner",
             "nodeType": "VariableDeclaration",
-            "scope": 189,
-            "src": "235:47:2",
+            "scope": 60,
+            "src": "274:47:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -377,28 +398,28 @@
               "typeString": "mapping(bytes32 => address)"
             },
             "typeName": {
-              "id": 150,
+              "id": 21,
               "keyType": {
-                "id": 148,
+                "id": 19,
                 "name": "bytes32",
                 "nodeType": "ElementaryTypeName",
-                "src": "244:7:2",
+                "src": "283:7:0",
                 "typeDescriptions": {
                   "typeIdentifier": "t_bytes32",
                   "typeString": "bytes32"
                 }
               },
               "nodeType": "Mapping",
-              "src": "235:28:2",
+              "src": "274:28:0",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_bytes32_$_t_address_$",
                 "typeString": "mapping(bytes32 => address)"
               },
               "valueType": {
-                "id": 149,
+                "id": 20,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "255:7:2",
+                "src": "294:7:0",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
@@ -410,22 +431,22 @@
           },
           {
             "body": {
-              "id": 187,
+              "id": 58,
               "nodeType": "Block",
-              "src": "330:177:2",
+              "src": "369:177:0",
               "statements": [
                 {
                   "assignments": [
-                    157
+                    28
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 157,
+                      "id": 28,
                       "name": "id",
                       "nodeType": "VariableDeclaration",
-                      "scope": 188,
-                      "src": "340:10:2",
+                      "scope": 59,
+                      "src": "379:10:0",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -433,10 +454,10 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 156,
+                        "id": 27,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
-                        "src": "340:7:2",
+                        "src": "379:7:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -446,7 +467,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 165,
+                  "id": 36,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
@@ -455,12 +476,12 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 161,
+                            "id": 32,
                             "name": "_name",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 153,
-                            "src": "380:5:2",
+                            "referencedDeclaration": 24,
+                            "src": "419:5:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
                               "typeString": "string memory"
@@ -468,12 +489,12 @@
                           },
                           {
                             "argumentTypes": null,
-                            "id": 162,
+                            "id": 33,
                             "name": "now",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 206,
-                            "src": "387:3:2",
+                            "referencedDeclaration": 163,
+                            "src": "426:3:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
@@ -493,18 +514,18 @@
                           ],
                           "expression": {
                             "argumentTypes": null,
-                            "id": 159,
+                            "id": 30,
                             "name": "abi",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 191,
-                            "src": "363:3:2",
+                            "referencedDeclaration": 148,
+                            "src": "402:3:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_abi",
                               "typeString": "abi"
                             }
                           },
-                          "id": 160,
+                          "id": 31,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -512,13 +533,13 @@
                           "memberName": "encodePacked",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": null,
-                          "src": "363:16:2",
+                          "src": "402:16:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_abiencodepacked_pure$__$returns$_t_bytes_memory_ptr_$",
                             "typeString": "function () pure returns (bytes memory)"
                           }
                         },
-                        "id": 163,
+                        "id": 34,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -526,7 +547,7 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "363:28:2",
+                        "src": "402:28:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes_memory_ptr",
                           "typeString": "bytes memory"
@@ -540,18 +561,18 @@
                           "typeString": "bytes memory"
                         }
                       ],
-                      "id": 158,
+                      "id": 29,
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 198,
-                      "src": "353:9:2",
+                      "referencedDeclaration": 155,
+                      "src": "392:9:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_sha3_pure$__$returns$_t_bytes32_$",
                         "typeString": "function () pure returns (bytes32)"
                       }
                     },
-                    "id": 164,
+                    "id": 35,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -559,14 +580,14 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "353:39:2",
+                    "src": "392:39:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "340:52:2"
+                  "src": "379:52:0"
                 },
                 {
                   "expression": {
@@ -577,12 +598,12 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 170,
+                            "id": 41,
                             "name": "id",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 157,
-                            "src": "418:2:2",
+                            "referencedDeclaration": 28,
+                            "src": "457:2:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
                               "typeString": "bytes32"
@@ -590,12 +611,12 @@
                           },
                           {
                             "argumentTypes": null,
-                            "id": 171,
+                            "id": 42,
                             "name": "_name",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 153,
-                            "src": "422:5:2",
+                            "referencedDeclaration": 24,
+                            "src": "461:5:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
                               "typeString": "string memory"
@@ -613,18 +634,18 @@
                               "typeString": "string memory"
                             }
                           ],
-                          "id": 169,
+                          "id": 40,
                           "name": "Shop",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 144,
-                          "src": "413:4:2",
+                          "referencedDeclaration": 15,
+                          "src": "452:4:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_struct$_Shop_$144_storage_ptr_$",
+                            "typeIdentifier": "t_type$_t_struct$_Shop_$15_storage_ptr_$",
                             "typeString": "type(struct ShopFactory.Shop storage pointer)"
                           }
                         },
-                        "id": 172,
+                        "id": 43,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -632,9 +653,9 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "413:15:2",
+                        "src": "452:15:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Shop_$144_memory",
+                          "typeIdentifier": "t_struct$_Shop_$15_memory",
                           "typeString": "struct ShopFactory.Shop memory"
                         }
                       }
@@ -642,24 +663,24 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Shop_$144_memory",
+                          "typeIdentifier": "t_struct$_Shop_$15_memory",
                           "typeString": "struct ShopFactory.Shop memory"
                         }
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 166,
+                        "id": 37,
                         "name": "shops",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 147,
-                        "src": "402:5:2",
+                        "referencedDeclaration": 18,
+                        "src": "441:5:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_Shop_$144_storage_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_struct$_Shop_$15_storage_$dyn_storage",
                           "typeString": "struct ShopFactory.Shop storage ref[] storage ref"
                         }
                       },
-                      "id": 168,
+                      "id": 39,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -667,13 +688,13 @@
                       "memberName": "push",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "402:10:2",
+                      "src": "441:10:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Shop_$144_storage_$returns$_t_uint256_$",
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Shop_$15_storage_$returns$_t_uint256_$",
                         "typeString": "function (struct ShopFactory.Shop storage ref) returns (uint256)"
                       }
                     },
-                    "id": 173,
+                    "id": 44,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -681,20 +702,20 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "402:27:2",
+                    "src": "441:27:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 174,
+                  "id": 45,
                   "nodeType": "ExpressionStatement",
-                  "src": "402:27:2"
+                  "src": "441:27:0"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 180,
+                    "id": 51,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -703,26 +724,26 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 175,
+                        "id": 46,
                         "name": "shopToOwner",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 151,
-                        "src": "439:11:2",
+                        "referencedDeclaration": 22,
+                        "src": "478:11:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_bytes32_$_t_address_$",
                           "typeString": "mapping(bytes32 => address)"
                         }
                       },
-                      "id": 177,
+                      "id": 48,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 176,
+                        "id": 47,
                         "name": "id",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 157,
-                        "src": "451:2:2",
+                        "referencedDeclaration": 28,
+                        "src": "490:2:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -733,7 +754,7 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "439:15:2",
+                      "src": "478:15:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -745,18 +766,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 178,
+                        "id": 49,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 204,
-                        "src": "457:3:2",
+                        "referencedDeclaration": 161,
+                        "src": "496:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 179,
+                      "id": 50,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -764,21 +785,21 @@
                       "memberName": "sender",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "457:10:2",
+                      "src": "496:10:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "439:28:2",
+                    "src": "478:28:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 181,
+                  "id": 52,
                   "nodeType": "ExpressionStatement",
-                  "src": "439:28:2"
+                  "src": "478:28:0"
                 },
                 {
                   "eventCall": {
@@ -786,12 +807,12 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 183,
+                        "id": 54,
                         "name": "id",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 157,
-                        "src": "490:2:2",
+                        "referencedDeclaration": 28,
+                        "src": "529:2:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -799,12 +820,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 184,
+                        "id": 55,
                         "name": "_name",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 153,
-                        "src": "494:5:2",
+                        "referencedDeclaration": 24,
+                        "src": "533:5:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
                           "typeString": "string memory"
@@ -822,18 +843,18 @@
                           "typeString": "string memory"
                         }
                       ],
-                      "id": 182,
+                      "id": 53,
                       "name": "NewShop",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 139,
-                      "src": "482:7:2",
+                      "referencedDeclaration": 10,
+                      "src": "521:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bytes32,string memory)"
                       }
                     },
-                    "id": 185,
+                    "id": 56,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -841,20 +862,20 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "482:18:2",
+                    "src": "521:18:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 186,
+                  "id": 57,
                   "nodeType": "EmitStatement",
-                  "src": "477:23:2"
+                  "src": "516:23:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 188,
+            "id": 59,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -862,16 +883,16 @@
             "name": "createShop",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 154,
+              "id": 25,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 153,
+                  "id": 24,
                   "name": "_name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 188,
-                  "src": "309:12:2",
+                  "scope": 59,
+                  "src": "348:12:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -879,10 +900,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 152,
+                    "id": 23,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "309:6:2",
+                    "src": "348:6:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -892,40 +913,40 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "308:14:2"
+              "src": "347:14:0"
             },
             "payable": false,
             "returnParameters": {
-              "id": 155,
+              "id": 26,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "330:0:2"
+              "src": "369:0:0"
             },
-            "scope": 189,
-            "src": "289:218:2",
+            "scope": 60,
+            "src": "328:218:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 190,
-        "src": "52:457:2"
+        "scope": 61,
+        "src": "91:457:0"
       }
     ],
-    "src": "0:509:2"
+    "src": "0:548:0"
   },
   "legacyAST": {
     "absolutePath": "/Users/cliff/Documents/in-game-pro-shop/contracts/ShopFactory.sol",
     "exportedSymbols": {
       "ShopFactory": [
-        189
+        60
       ]
     },
-    "id": 190,
+    "id": 61,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 130,
+        "id": 1,
         "literals": [
           "solidity",
           "^",
@@ -933,16 +954,16 @@
           ".24"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:2"
+        "src": "0:24:0"
       },
       {
-        "absolutePath": "/Users/cliff/Documents/in-game-pro-shop/contracts/Ownable.sol",
-        "file": "./Ownable.sol",
-        "id": 131,
+        "absolutePath": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+        "file": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+        "id": 2,
         "nodeType": "ImportDirective",
-        "scope": 190,
-        "sourceUnit": 129,
-        "src": "26:23:2",
+        "scope": 61,
+        "sourceUnit": 147,
+        "src": "26:63:0",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -952,31 +973,31 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 132,
+              "id": 3,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 128,
-              "src": "76:7:2",
+              "referencedDeclaration": 146,
+              "src": "115:7:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$128",
+                "typeIdentifier": "t_contract$_Ownable_$146",
                 "typeString": "contract Ownable"
               }
             },
-            "id": 133,
+            "id": 4,
             "nodeType": "InheritanceSpecifier",
-            "src": "76:7:2"
+            "src": "115:7:0"
           }
         ],
         "contractDependencies": [
-          128
+          146
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 189,
+        "id": 60,
         "linearizedBaseContracts": [
-          189,
-          128
+          60,
+          146
         ],
         "name": "ShopFactory",
         "nodeType": "ContractDefinition",
@@ -984,21 +1005,21 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 139,
+            "id": 10,
             "name": "NewShop",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 138,
+              "id": 9,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 135,
+                  "id": 6,
                   "indexed": false,
                   "name": "shopId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 139,
-                  "src": "105:14:2",
+                  "scope": 10,
+                  "src": "144:14:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1006,10 +1027,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 134,
+                    "id": 5,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "105:7:2",
+                    "src": "144:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -1020,12 +1041,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 137,
+                  "id": 8,
                   "indexed": false,
                   "name": "name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 139,
-                  "src": "121:11:2",
+                  "scope": 10,
+                  "src": "160:11:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1033,10 +1054,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 136,
+                    "id": 7,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "121:6:2",
+                    "src": "160:6:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -1046,21 +1067,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "104:29:2"
+              "src": "143:29:0"
             },
-            "src": "91:43:2"
+            "src": "130:43:0"
           },
           {
             "canonicalName": "ShopFactory.Shop",
-            "id": 144,
+            "id": 15,
             "members": [
               {
                 "constant": false,
-                "id": 141,
+                "id": 12,
                 "name": "shopId",
                 "nodeType": "VariableDeclaration",
-                "scope": 144,
-                "src": "162:14:2",
+                "scope": 15,
+                "src": "201:14:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1068,10 +1089,10 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 140,
+                  "id": 11,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "162:7:2",
+                  "src": "201:7:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -1082,11 +1103,11 @@
               },
               {
                 "constant": false,
-                "id": 143,
+                "id": 14,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
-                "scope": 144,
-                "src": "186:11:2",
+                "scope": 15,
+                "src": "225:11:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1094,10 +1115,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 142,
+                  "id": 13,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "186:6:2",
+                  "src": "225:6:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -1109,42 +1130,42 @@
             ],
             "name": "Shop",
             "nodeType": "StructDefinition",
-            "scope": 189,
-            "src": "140:64:2",
+            "scope": 60,
+            "src": "179:64:0",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 147,
+            "id": 18,
             "name": "shops",
             "nodeType": "VariableDeclaration",
-            "scope": 189,
-            "src": "210:19:2",
+            "scope": 60,
+            "src": "249:19:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_struct$_Shop_$144_storage_$dyn_storage",
+              "typeIdentifier": "t_array$_t_struct$_Shop_$15_storage_$dyn_storage",
               "typeString": "struct ShopFactory.Shop[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 145,
+                "id": 16,
                 "name": "Shop",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 144,
-                "src": "210:4:2",
+                "referencedDeclaration": 15,
+                "src": "249:4:0",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Shop_$144_storage_ptr",
+                  "typeIdentifier": "t_struct$_Shop_$15_storage_ptr",
                   "typeString": "struct ShopFactory.Shop"
                 }
               },
-              "id": 146,
+              "id": 17,
               "length": null,
               "nodeType": "ArrayTypeName",
-              "src": "210:6:2",
+              "src": "249:6:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_struct$_Shop_$144_storage_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_struct$_Shop_$15_storage_$dyn_storage_ptr",
                 "typeString": "struct ShopFactory.Shop[]"
               }
             },
@@ -1153,11 +1174,11 @@
           },
           {
             "constant": false,
-            "id": 151,
+            "id": 22,
             "name": "shopToOwner",
             "nodeType": "VariableDeclaration",
-            "scope": 189,
-            "src": "235:47:2",
+            "scope": 60,
+            "src": "274:47:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -1165,28 +1186,28 @@
               "typeString": "mapping(bytes32 => address)"
             },
             "typeName": {
-              "id": 150,
+              "id": 21,
               "keyType": {
-                "id": 148,
+                "id": 19,
                 "name": "bytes32",
                 "nodeType": "ElementaryTypeName",
-                "src": "244:7:2",
+                "src": "283:7:0",
                 "typeDescriptions": {
                   "typeIdentifier": "t_bytes32",
                   "typeString": "bytes32"
                 }
               },
               "nodeType": "Mapping",
-              "src": "235:28:2",
+              "src": "274:28:0",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_bytes32_$_t_address_$",
                 "typeString": "mapping(bytes32 => address)"
               },
               "valueType": {
-                "id": 149,
+                "id": 20,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "255:7:2",
+                "src": "294:7:0",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
@@ -1198,22 +1219,22 @@
           },
           {
             "body": {
-              "id": 187,
+              "id": 58,
               "nodeType": "Block",
-              "src": "330:177:2",
+              "src": "369:177:0",
               "statements": [
                 {
                   "assignments": [
-                    157
+                    28
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 157,
+                      "id": 28,
                       "name": "id",
                       "nodeType": "VariableDeclaration",
-                      "scope": 188,
-                      "src": "340:10:2",
+                      "scope": 59,
+                      "src": "379:10:0",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -1221,10 +1242,10 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 156,
+                        "id": 27,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
-                        "src": "340:7:2",
+                        "src": "379:7:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -1234,7 +1255,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 165,
+                  "id": 36,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
@@ -1243,12 +1264,12 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 161,
+                            "id": 32,
                             "name": "_name",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 153,
-                            "src": "380:5:2",
+                            "referencedDeclaration": 24,
+                            "src": "419:5:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
                               "typeString": "string memory"
@@ -1256,12 +1277,12 @@
                           },
                           {
                             "argumentTypes": null,
-                            "id": 162,
+                            "id": 33,
                             "name": "now",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 206,
-                            "src": "387:3:2",
+                            "referencedDeclaration": 163,
+                            "src": "426:3:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
@@ -1281,18 +1302,18 @@
                           ],
                           "expression": {
                             "argumentTypes": null,
-                            "id": 159,
+                            "id": 30,
                             "name": "abi",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 191,
-                            "src": "363:3:2",
+                            "referencedDeclaration": 148,
+                            "src": "402:3:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_abi",
                               "typeString": "abi"
                             }
                           },
-                          "id": 160,
+                          "id": 31,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -1300,13 +1321,13 @@
                           "memberName": "encodePacked",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": null,
-                          "src": "363:16:2",
+                          "src": "402:16:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_abiencodepacked_pure$__$returns$_t_bytes_memory_ptr_$",
                             "typeString": "function () pure returns (bytes memory)"
                           }
                         },
-                        "id": 163,
+                        "id": 34,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1314,7 +1335,7 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "363:28:2",
+                        "src": "402:28:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes_memory_ptr",
                           "typeString": "bytes memory"
@@ -1328,18 +1349,18 @@
                           "typeString": "bytes memory"
                         }
                       ],
-                      "id": 158,
+                      "id": 29,
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 198,
-                      "src": "353:9:2",
+                      "referencedDeclaration": 155,
+                      "src": "392:9:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_sha3_pure$__$returns$_t_bytes32_$",
                         "typeString": "function () pure returns (bytes32)"
                       }
                     },
-                    "id": 164,
+                    "id": 35,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1347,14 +1368,14 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "353:39:2",
+                    "src": "392:39:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "340:52:2"
+                  "src": "379:52:0"
                 },
                 {
                   "expression": {
@@ -1365,12 +1386,12 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 170,
+                            "id": 41,
                             "name": "id",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 157,
-                            "src": "418:2:2",
+                            "referencedDeclaration": 28,
+                            "src": "457:2:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
                               "typeString": "bytes32"
@@ -1378,12 +1399,12 @@
                           },
                           {
                             "argumentTypes": null,
-                            "id": 171,
+                            "id": 42,
                             "name": "_name",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 153,
-                            "src": "422:5:2",
+                            "referencedDeclaration": 24,
+                            "src": "461:5:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
                               "typeString": "string memory"
@@ -1401,18 +1422,18 @@
                               "typeString": "string memory"
                             }
                           ],
-                          "id": 169,
+                          "id": 40,
                           "name": "Shop",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 144,
-                          "src": "413:4:2",
+                          "referencedDeclaration": 15,
+                          "src": "452:4:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_struct$_Shop_$144_storage_ptr_$",
+                            "typeIdentifier": "t_type$_t_struct$_Shop_$15_storage_ptr_$",
                             "typeString": "type(struct ShopFactory.Shop storage pointer)"
                           }
                         },
-                        "id": 172,
+                        "id": 43,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1420,9 +1441,9 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "413:15:2",
+                        "src": "452:15:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Shop_$144_memory",
+                          "typeIdentifier": "t_struct$_Shop_$15_memory",
                           "typeString": "struct ShopFactory.Shop memory"
                         }
                       }
@@ -1430,24 +1451,24 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Shop_$144_memory",
+                          "typeIdentifier": "t_struct$_Shop_$15_memory",
                           "typeString": "struct ShopFactory.Shop memory"
                         }
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 166,
+                        "id": 37,
                         "name": "shops",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 147,
-                        "src": "402:5:2",
+                        "referencedDeclaration": 18,
+                        "src": "441:5:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_Shop_$144_storage_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_struct$_Shop_$15_storage_$dyn_storage",
                           "typeString": "struct ShopFactory.Shop storage ref[] storage ref"
                         }
                       },
-                      "id": 168,
+                      "id": 39,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1455,13 +1476,13 @@
                       "memberName": "push",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "402:10:2",
+                      "src": "441:10:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Shop_$144_storage_$returns$_t_uint256_$",
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Shop_$15_storage_$returns$_t_uint256_$",
                         "typeString": "function (struct ShopFactory.Shop storage ref) returns (uint256)"
                       }
                     },
-                    "id": 173,
+                    "id": 44,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1469,20 +1490,20 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "402:27:2",
+                    "src": "441:27:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 174,
+                  "id": 45,
                   "nodeType": "ExpressionStatement",
-                  "src": "402:27:2"
+                  "src": "441:27:0"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 180,
+                    "id": 51,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1491,26 +1512,26 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 175,
+                        "id": 46,
                         "name": "shopToOwner",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 151,
-                        "src": "439:11:2",
+                        "referencedDeclaration": 22,
+                        "src": "478:11:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_bytes32_$_t_address_$",
                           "typeString": "mapping(bytes32 => address)"
                         }
                       },
-                      "id": 177,
+                      "id": 48,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 176,
+                        "id": 47,
                         "name": "id",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 157,
-                        "src": "451:2:2",
+                        "referencedDeclaration": 28,
+                        "src": "490:2:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -1521,7 +1542,7 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "439:15:2",
+                      "src": "478:15:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -1533,18 +1554,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 178,
+                        "id": 49,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 204,
-                        "src": "457:3:2",
+                        "referencedDeclaration": 161,
+                        "src": "496:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 179,
+                      "id": 50,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1552,21 +1573,21 @@
                       "memberName": "sender",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "457:10:2",
+                      "src": "496:10:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "439:28:2",
+                    "src": "478:28:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 181,
+                  "id": 52,
                   "nodeType": "ExpressionStatement",
-                  "src": "439:28:2"
+                  "src": "478:28:0"
                 },
                 {
                   "eventCall": {
@@ -1574,12 +1595,12 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 183,
+                        "id": 54,
                         "name": "id",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 157,
-                        "src": "490:2:2",
+                        "referencedDeclaration": 28,
+                        "src": "529:2:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -1587,12 +1608,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 184,
+                        "id": 55,
                         "name": "_name",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 153,
-                        "src": "494:5:2",
+                        "referencedDeclaration": 24,
+                        "src": "533:5:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
                           "typeString": "string memory"
@@ -1610,18 +1631,18 @@
                           "typeString": "string memory"
                         }
                       ],
-                      "id": 182,
+                      "id": 53,
                       "name": "NewShop",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 139,
-                      "src": "482:7:2",
+                      "referencedDeclaration": 10,
+                      "src": "521:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bytes32,string memory)"
                       }
                     },
-                    "id": 185,
+                    "id": 56,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1629,20 +1650,20 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "482:18:2",
+                    "src": "521:18:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 186,
+                  "id": 57,
                   "nodeType": "EmitStatement",
-                  "src": "477:23:2"
+                  "src": "516:23:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 188,
+            "id": 59,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1650,16 +1671,16 @@
             "name": "createShop",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 154,
+              "id": 25,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 153,
+                  "id": 24,
                   "name": "_name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 188,
-                  "src": "309:12:2",
+                  "scope": 59,
+                  "src": "348:12:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1667,10 +1688,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 152,
+                    "id": 23,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "309:6:2",
+                    "src": "348:6:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -1680,27 +1701,27 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "308:14:2"
+              "src": "347:14:0"
             },
             "payable": false,
             "returnParameters": {
-              "id": 155,
+              "id": 26,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "330:0:2"
+              "src": "369:0:0"
             },
-            "scope": 189,
-            "src": "289:218:2",
+            "scope": 60,
+            "src": "328:218:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 190,
-        "src": "52:457:2"
+        "scope": 61,
+        "src": "91:457:0"
       }
     ],
-    "src": "0:509:2"
+    "src": "0:548:0"
   },
   "compiler": {
     "name": "solc",
@@ -1718,8 +1739,14 @@
       "links": {},
       "address": "0xba3c95a51eee21f3dcf4023ce937548e9f0e4ca2",
       "transactionHash": "0x23dd141d36a4ed85a31dd219dece3700b0d13f161634d78cbe19f8a44507b6a3"
+    },
+    "1533407472654": {
+      "events": {},
+      "links": {},
+      "address": "0x5f79fe6597661b5727dbb43f9a6e574acde7b332",
+      "transactionHash": "0xca0bac176ab4c02bfe6c25beb9a4a15595c85e4d01222b00d3c657f14e3a79af"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-07-29T22:10:09.981Z"
+  "updatedAt": "2018-08-04T19:42:25.468Z"
 }
