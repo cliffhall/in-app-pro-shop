@@ -1,10 +1,10 @@
 # in-game-pro-shop
 An Ethereum blockchain-based system for in-game purchases
 
-## Status
+## STATUS
 Work in progress.
 
-## Premise
+## PREMISE
 An interesting potential for apps built on Ethereum is that they can
 incorporate existing smart contracts that live on the blockchain.
 
@@ -24,4 +24,35 @@ by choosing to support those NFTs.
 
 The goal of In-game Pro Shop is to allow game developers to add in-game
 purchases quickly with an existing system, and also to make it easy for
-them to support assets from other games if they so choose. 
+them to support assets from other games if they so choose.
+
+# DEVELOPER SETUP
+### Build / Run / Deploy Prerequisites
+ * [Node](https://nodejs.org/en/download/) 7.7 or above (also installs npm)
+
+### Install Node modules
+```cd path/to/in-game-pro-shop``` (instructions in this document will assume you are at this path)
+``` npm install```
+
+### Install Ganache CLI
+```npm install -g ganache-cli```
+
+### Install Truffle
+```npm install -g truffle```
+
+## DEVELOPMENT TASKS
+### Start Ganache CLI
+An Ethereum client, will start up a local blockchain for testing.
+```npm run ganache:start```
+
+### Start Truffle console
+Communicates with the Ethereum client, allows compiling, migrating, debugging, etc.
+```truffle console```
+
+#### Compile contracts
+*truffle(development)>* ```compile```
+
+#### Migrate contracts, replacing previous deployments
+*truffle(development)>* ```migrate --reset```
+
+
