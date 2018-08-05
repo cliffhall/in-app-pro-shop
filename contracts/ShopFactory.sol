@@ -1,23 +1,29 @@
 pragma solidity ^0.4.24;
 
-import 'openzeppelin-solidity/contracts/ownership/Ownable.sol';
+import "openzeppelin-solidity/contracts/token/ERC721/ERC721BasicToken.sol";
 
-contract ShopFactory is Ownable {
 
-    event NewShop(bytes32 shopId, string name);
+contract ShopFactory is ERC721BasicToken {
+
+    event NewShop(uint shopId, string name);
 
     struct Shop {
-        bytes32 shopId;
+        uint id;
         string name;
     }
 
     Shop[] public shops;
-    mapping (bytes32 => address) public shopToOwner;
+    mapping (uint => address) public shopToOwner;
 
     function createShop(string _name) public {
-        bytes32 id = keccak256(abi.encodePacked(_name, now));
+        uint id = shops.length;
         shops.push(Shop(id, _name));
+        addTokenTo(msg.sender, id);
         shopToOwner[id] = msg.sender;
         emit NewShop(id, _name);
+    }
+
+    function getShopName(uint _id) public view returns (string) {
+        return shops[_id].name;
     }
 }
