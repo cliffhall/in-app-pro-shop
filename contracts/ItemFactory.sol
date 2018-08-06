@@ -1,32 +1,33 @@
 pragma solidity ^0.4.24;
 
-import "openzeppelin-solidity/contracts/token/ERC721/ERC721BasicToken.sol";
+import "./ProShopBase.sol";
 
 
-contract ItemFactory is ERC721BasicToken {
+contract ItemFactory is ProShopBase {
 
-    event NewItem(uint itemId, string name);
-
-    struct Item {
-        uint id;
-        string name;
-    }
+    event NewItem(uint shopId, uint itemId, string name);
 
     Item[] public items;
     mapping (uint => address) public itemToOwner;
     mapping (address => uint) public ownerItemCount;
 
-    function createItem(string _name) public {
-        uint id = items.length;
-        items.push(Item(id, _name));
-        addTokenTo(msg.sender, id);
-        itemToOwner[id] = msg.sender;
+    function createItem(address _owner,
+                        uint _shopId,
+                        string _itemType,
+                        string _name,
+                        string _desc,
+                        bool _consumable ) public {
+        uint itemId = items.length;
+        Item memory item = Item(_owner, _shopId, itemId, _itemType, _name, _desc, _consumable, false);
+        items.push(item);
+        addTokenTo(msg.sender, itemId);
+        itemToOwner[itemId] = msg.sender;
         ownerItemCount[msg.sender]++;
-        emit NewItem(id, _name);
+        emit NewItem(_shopId, itemId, _name);
     }
 
-    function getItemName(uint _id) public view returns (string) {
-        return items[_id].name;
+    function getItemName(uint _itemId) public view returns (string) {
+        return items[_itemId].name;
     }
 
 }
