@@ -26,6 +26,36 @@ contract ProShopBase is AccessControl, ERC721Token {
     string public constant TOKEN_SYMBOL = "IGPSI";
 
     /**
+     * @notice All of the Shops
+     */
+    Shop[] public shops;
+
+    /**
+     * @notice All of the Items
+     */
+    Item[] public items;
+
+    /**
+     * @dev Mapping of Shop ID to Owner Address
+     */
+    mapping (uint => address) public shopToOwner;
+
+    /**
+     * @dev Mapping of Item ID to Owner Address
+     */
+    mapping (uint => address) public itemToOwner;
+
+    /**
+     * @dev Mapping of Item ID to Shop ID
+     */
+    mapping (uint => uint) public itemToShop;
+
+    /**
+     * @dev Mapping of Owner Address to Item Count
+     */
+    mapping (address => uint) public ownerItemCount;
+
+    /**
      * @notice the attributes of an item
      */
     struct Attribute {
@@ -45,7 +75,7 @@ contract ProShopBase is AccessControl, ERC721Token {
      */
     struct Item {
 
-        // Owner of the item
+        // Owner of the item owner, _shopId, itemId, _itemType, _name, _desc, _consumable, false
         address owner;
 
         // The shop this item belongs to
@@ -70,7 +100,8 @@ contract ProShopBase is AccessControl, ERC721Token {
         bool consumed;
 
         // The attributes of the item
-        mapping(uint => Attribute) attributes;
+        // TODO: Why can't this be an array
+        // mapping(uint => Attribute) attributes;
     }
 
     /**

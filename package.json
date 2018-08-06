@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "ganache:start": "ganache-cli -p 7545"
+    "ganache:start": "ganache-cli -p 7545 -d -m 'cabbage inflict doctor valve address roast bring club fiber celery lab render'"
   },
   "repository": {
     "type": "git",
