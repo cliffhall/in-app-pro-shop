@@ -1,12 +1,12 @@
-var ShopFactory = artifacts.require("./ShopFactory.sol");
+var ProShopCore = artifacts.require("./ProShopCore.sol");
 
 module.exports = deployer => {
     deployer.then(async () => {
 
-        const shopFactory = await deployer.deploy(ShopFactory);
+        const proShopCore = await deployer.deploy(ProShopCore);
 
         // Deploy any sibling contracts...
 
-        await shopFactory.unpause();
+        await proShopCore.unpause();
     });
 };

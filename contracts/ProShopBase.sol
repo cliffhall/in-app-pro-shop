@@ -31,6 +31,11 @@ contract ProShopBase is AccessControl, ERC721Token {
     Shop[] public shops;
 
     /**
+     * @notice All of the SKUs
+     */
+    SKU[] public skus;
+
+    /**
      * @notice All of the Items
      */
     Item[] public items;
@@ -39,6 +44,16 @@ contract ProShopBase is AccessControl, ERC721Token {
      * @dev Mapping of Shop ID to Owner Address
      */
     mapping (uint => address) public shopToOwner;
+
+    /**
+     * @dev Mapping of SKU ID to Shop ID
+     */
+    mapping (uint => uint) public skuToShop;
+
+    /**
+     * @dev Mapping of Shop ID to SKU Count
+     */
+    mapping (uint => uint) public shopSKUCount;
 
     /**
      * @dev Mapping of Item ID to Owner Address
@@ -75,7 +90,7 @@ contract ProShopBase is AccessControl, ERC721Token {
      */
     struct Item {
 
-        // Owner of the item owner, _shopId, itemId, _itemType, _name, _desc, _consumable, false
+        // Owner of the item
         address owner;
 
         // The shop this item belongs to
@@ -98,6 +113,42 @@ contract ProShopBase is AccessControl, ERC721Token {
 
         // Has the item been consumed?
         bool consumed;
+
+        // The attributes of the item
+        // TODO: Why can't this be an array
+        // mapping(uint => Attribute) attributes;
+    }
+
+    /**
+ * @notice Structure of a Pro Shop SKU (Shopkeeping Unit)
+ */
+    struct SKU {
+
+        // The shop this SKU belongs to
+        uint shopId;
+
+        // The id of this SKU
+        uint skuId;
+
+        // Type of the SKU
+        string itemType;
+
+        // Name of the item
+        string name;
+
+        // Description of the SKU
+        string description;
+
+        // Can it be consumed (used up)
+        bool consumable;
+
+        // Is there a limit to the number of Items that can
+        // be created from this SKU?
+        bool isLimited;
+
+        // If limited, what is the maximum number that
+        // can be created?
+        uint limit;
 
         // The attributes of the item
         // TODO: Why can't this be an array

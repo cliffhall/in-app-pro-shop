@@ -1,9 +1,9 @@
 pragma solidity ^0.4.24;
 
-import "./ProShopBase.sol";
+import "./SKUFactory.sol";
 
 
-contract ItemFactory is ProShopBase {
+contract ItemFactory is SKUFactory {
 
     /**
      * @notice emitted upon the creation of an Item

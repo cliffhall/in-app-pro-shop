@@ -1,12 +1,12 @@
 pragma solidity ^0.4.24;
 
-import "./ItemFactory.sol";
+import "./ProShopBase.sol";
 
 
 /**
  * Functionality related to maintaining shops
  */
-contract ShopFactory is ItemFactory {
+contract ShopFactory is ProShopBase {
 
     /**
      * @dev emitted upon creation of a shop
@@ -30,4 +30,7 @@ contract ShopFactory is ItemFactory {
     function getShopName(uint _shopId) public view returns (string) {
         return shops[_shopId].name;
     }
+
+
+
 }
