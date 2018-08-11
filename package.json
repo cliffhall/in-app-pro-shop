@@ -1,7 +1,7 @@
 {
-  "name": "in-game-pro-shop",
+  "name": "in-app-pro-shop",
   "version": "1.0.0",
-  "description": "An Ethereum blockchain-based system for in-game purchases",
+  "description": "An Ethereum blockchain-based system for in-app purchases",
   "main": "truffle.js",
   "directories": {
     "test": "test"
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cliffhall/in-game-pro-shop.git"
+    "url": "git+https://github.com/cliffhall/in-app-pro-shop.git"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "None",
   "bugs": {
-    "url": "https://github.com/cliffhall/in-game-pro-shop/issues"
+    "url": "https://github.com/cliffhall/in-app-pro-shop/issues"
   },
-  "homepage": "https://github.com/cliffhall/in-game-pro-shop#readme",
+  "homepage": "https://github.com/cliffhall/in-app-pro-shop#readme",
   "dependencies": {
     "openzeppelin-solidity": "1.11.0"
   }
