@@ -31,14 +31,15 @@ them to support assets from other apps if they so choose.
  * [Node](https://nodejs.org/en/download/) 7.7 or above (also installs npm)
 
 ### Install Node modules
-```cd path/to/in-app-pro-shop``` (instructions in this document will assume you are at this path)
-``` npm install```
+* ```cd path/to/in-app-pro-shop``` (instructions in this document will assume you are at this path)
+
+* ``` npm install```
 
 ### Install Ganache CLI
-```npm install -g ganache-cli```
+* ```npm install -g ganache-cli```
 
 ### Install Truffle
-```npm install -g truffle```
+* ```npm install -g truffle```
 
 ## DEVELOPMENT TASKS
 ### Start Ganache CLI

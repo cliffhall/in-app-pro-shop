@@ -1,6 +1,7 @@
 pragma solidity ^0.4.24;
 
 import "openzeppelin-solidity/contracts/token/ERC721/ERC721Token.sol";
+import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 
 import "./AccessControl.sol";
 
@@ -9,26 +10,32 @@ import "./AccessControl.sol";
  * @title ProShopBase
  * @notice Defines structs for the In-game Pro Shop System
  */
-contract ProShopBase is AccessControl, ERC721Token {
+contract ProShopBase is ERC721Token {
 
+    using SafeMath for uint256;
 
-    constructor() ERC721Token(TOKEN_NAME, TOKEN_SYMBOL) {
+    constructor() public ERC721Token(TOKEN_NAME, TOKEN_SYMBOL) {
     }
 
     /**
      * @notice Name of the non fungible token
      */
-    string public constant TOKEN_NAME = "InGameProShopItem";
+    string public constant TOKEN_NAME = "InAppProShopItem";
 
     /**
      * @notice Symbol of the non fungible token
      */
-    string public constant TOKEN_SYMBOL = "IGPSI";
+    string public constant TOKEN_SYMBOL = "IAPS";
 
     /**
      * @notice All of the Shops
      */
     Shop[] public shops;
+
+    /**
+     * @notice All of the SKU Types
+     */
+    SKUType[] public skuTypes;
 
     /**
      * @notice All of the SKUs
@@ -43,32 +50,52 @@ contract ProShopBase is AccessControl, ERC721Token {
     /**
      * @dev Mapping of Shop ID to Owner Address
      */
-    mapping (uint => address) public shopToOwner;
+    mapping (uint256 => address) public shopToOwner;
+
+    /**
+     * @dev Mapping of Owner Address to Shop Count
+     */
+    mapping (address => uint256) public ownerShopCount;
+
+    /**
+     * @dev Mapping of SKU Type ID to Shop ID
+     */
+    mapping (uint256 => uint256) public skuTypeToShop;
+
+    /**
+     * @dev Mapping of Shop ID to SKU Type Count
+     */
+    mapping (uint256 => uint256) public shopTypeCount;
 
     /**
      * @dev Mapping of SKU ID to Shop ID
      */
-    mapping (uint => uint) public skuToShop;
+    mapping (uint256 => uint256) public skuToShop;
+
+    /**
+     * @dev Mapping of Shop ID to SKU Type Count
+     */
+    mapping (uint256 => uint256) public shopSKUTypeCount;
 
     /**
      * @dev Mapping of Shop ID to SKU Count
      */
-    mapping (uint => uint) public shopSKUCount;
+    mapping (uint256 => uint256) public shopSKUCount;
 
     /**
      * @dev Mapping of Item ID to Owner Address
      */
-    mapping (uint => address) public itemToOwner;
+    mapping (uint256 => address) public itemToOwner;
 
     /**
      * @dev Mapping of Item ID to Shop ID
      */
-    mapping (uint => uint) public itemToShop;
+    mapping (uint256 => uint256) public itemToShop;
 
     /**
      * @dev Mapping of Owner Address to Item Count
      */
-    mapping (address => uint) public ownerItemCount;
+    mapping (address => uint256) public ownerItemCount;
 
     /**
      * @notice the attributes of an item
@@ -82,7 +109,7 @@ contract ProShopBase is AccessControl, ERC721Token {
         string description;
 
         // Value of the attribute (optional)
-        uint value;
+        uint256 value;
     }
 
     /**
@@ -94,13 +121,13 @@ contract ProShopBase is AccessControl, ERC721Token {
         address owner;
 
         // The shop this item belongs to
-        uint shopId;
+        uint256 shopId;
 
         // The id of this item
-        uint itemId;
+        uint256 itemId;
 
-        // Type of the item
-        string itemType;
+        // Id of SKU Type of this item
+        uint256 skuTypeId;
 
         // Name of the item
         string name;
@@ -116,22 +143,60 @@ contract ProShopBase is AccessControl, ERC721Token {
 
         // The attributes of the item
         // TODO: Why can't this be an array
-        // mapping(uint => Attribute) attributes;
+        // mapping(uint256 => Attribute) attributes;
     }
 
     /**
- * @notice Structure of a Pro Shop SKU (Shopkeeping Unit)
- */
+     * @notice Structure of a Pro Shop
+     */
+    struct Shop {
+
+        // Owner of the item
+        address owner;
+
+        // The id of this shop
+        uint256 shopId;
+
+        // Name of the item
+        string name;
+
+        // Description of the shop
+        string description;
+
+    }
+
+    /**
+     * @notice the attributes of an item
+     */
+    struct SKUType {
+
+        // ID of the Shop this SKU Type belongs to
+        uint256 shopId;
+
+        // ID of the SKU Type
+        uint256 skuTypeId;
+
+        // Name of the SKU Type
+        string name;
+
+        // Description of the SKU Type (optional)
+        string description;
+
+    }
+
+    /**
+     * @notice Structure of a Pro Shop SKU (Shopkeeping Unit)
+     */
     struct SKU {
 
         // The shop this SKU belongs to
-        uint shopId;
+        uint256 shopId;
 
         // The id of this SKU
-        uint skuId;
+        uint256 skuId;
 
         // Type of the SKU
-        string itemType;
+        uint256 skuTypeId;
 
         // Name of the item
         string name;
@@ -148,31 +213,11 @@ contract ProShopBase is AccessControl, ERC721Token {
 
         // If limited, what is the maximum number that
         // can be created?
-        uint limit;
+        uint256 limit;
 
         // The attributes of the item
         // TODO: Why can't this be an array
-        // mapping(uint => Attribute) attributes;
+        // mapping(uint256 => Attribute) attributes;
     }
-
-    /**
-     * @notice Structure of a Pro Shop
-     */
-    struct Shop {
-
-        // Owner of the item
-        address owner;
-
-        // The id of this shop
-        uint shopId;
-
-        // Name of the item
-        string name;
-
-        // Description of the shop
-        string description;
-
-    }
-
 
 }
