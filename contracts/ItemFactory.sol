@@ -15,12 +15,14 @@ contract ItemFactory is SKUFactory {
      */
     function createItem(
         uint256 _shopId,
-        uint256 _skuId,
-        bool _consumable
+        uint256 _skuId
     )
         public
         returns (uint256)
     {
+        // Make sure the item can be minted
+        require(canMintItem(_skuId) == true);
+
         // Get the item id
         uint256 itemId = items.length;
 
@@ -31,19 +33,30 @@ contract ItemFactory is SKUFactory {
         uint256 skuTypeId = skus[_skuId].skuTypeId;
 
         // Create and store Item
-        items.push(Item(owner, _shopId, itemId, skuTypeId, _skuId, _consumable, false));
-
-        // Mint the associated token
-        super._mint(owner, itemId);
+        items.push(Item(owner, _shopId, itemId, skuTypeId, _skuId, false));
 
         // Map the Item ID to the Shop
         itemToShop[itemId] = _shopId;
+
+        // Add the item to the Shop's list of Items minted
+        shopItems[_shopId].push(itemId);
+
+        // Add the item to the SKU's list of Items minted
+        skuItems[_skuId].push(itemId);
+
+        // Mint the token
+        super._mint(owner, itemId);
 
         // Emit event with the name of the new Item
         emit NewItem(_shopId, itemId, getItemName(itemId));
 
         // Return the new Item ID
         return itemId;
+    }
+
+    function canMintItem(uint256 _skuId) public view returns (bool) {
+        SKU memory sku = skus[_skuId];
+        return (!sku.limited || (getSKUItemCount(_skuId) < sku.limit));
     }
 
     /**
@@ -58,5 +71,19 @@ contract ItemFactory is SKUFactory {
      */
     function getItemType(uint256 _itemId) public view returns (string) {
         return getSKUTypeName(items[_itemId].skuTypeId);
+    }
+
+    /**
+     * @notice Get the count of minted Items associated with a given Shop
+     */
+    function getShopItemCount(uint256 _shopId) public view returns (uint256) {
+        return shopItems[_shopId].length;
+    }
+
+    /**
+     * @notice Get the count of minted Items associated with a given SKU
+     */
+    function getSKUItemCount(uint256 _skuId) public view returns (uint256) {
+        return skuItems[_skuId].length;
     }
 }

@@ -4,10 +4,16 @@ contract('SKUFactory', function(accounts) {
 
     let inst, shopId, skuTypeId;
     const shopOwner = accounts[2];
+    const notShopOwner = accounts[3];
     const shopName = "Rarely Beagle Pawn";
     const shopDesc = "Great mutts, cheap!";
     const skuTypeName = "Weapons";
     const skuTypeDesc = "Things that make you go ouch!";
+    const skuName = "Magic Sword";
+    const skuDesc = "Flaming. Kills Orcs.";
+    const consumable = false;
+    const limited = true;
+    const limit = 5000;
 
     // Set up a shop for this test suite
     before(async () => {
@@ -20,6 +26,18 @@ contract('SKUFactory', function(accounts) {
 
         // Now call the function for real and write the data
         await inst.createShop(shopName, shopDesc, {from: shopOwner});
+
+    });
+
+    it("should not allow someone other than shop owner to create a SKU Type for a Shop", async function() {
+
+        try {
+            await inst.createSKUType(shopId, skuTypeName, skuTypeDesc, {from: notShopOwner});
+            throw null;
+        } catch (error) {
+            assert(error, "Expected an error but did not get one");
+        }
+
 
     });
 
@@ -36,15 +54,24 @@ contract('SKUFactory', function(accounts) {
         const name = await inst.getSKUTypeName(skuTypeId);
         assert.equal(name, skuTypeName, "SKU Type name wasn't returned");
 
+        // This is a view function, so it doesn't create a transaction, returns expected value
+        const skuTypeCount = await inst.getShopSKUTypeCount(shopId);
+        assert.equal(skuTypeCount, 1, "Shop SKU Type count wasn't correct");
+
+    });
+
+    it("should not allow someone other than shop owner to create a SKU for a Shop", async function() {
+
+        try {
+            await inst.createSKU(shopId, skuTypeId, skuName, skuDesc, consumable, limited, limit, {from: notShopOwner});
+            throw null;
+        } catch (error) {
+            assert(error, "Expected an error but did not get one");
+        }
+
     });
 
     it("should allow a shop owner to create a SKU of an existing SKU Type for their Shop", async function() {
-
-        const skuName = "Magic Sword";
-        const skuDesc = "Flaming. Kills Orcs.";
-        const consumable = false;
-        const limited = true;
-        const limit = 5000;
 
         // Verify that SKU Type from previous test in suite is still there
         const typeName = await inst.getSKUTypeName(skuTypeId);
@@ -57,9 +84,17 @@ contract('SKUFactory', function(accounts) {
         // Now do it for real
         await inst.createSKU(shopId, skuTypeId, skuName, skuDesc, consumable, limited, limit, {from: shopOwner});
 
-        // This is a view function, so it doesn't create a transaction, returns expected value
+        // Get the name of the SKU
         const name = await inst.getSKUName(skuId);
         assert.equal(name, skuName, "SKU name wasn't returned");
+
+        // Get the count of SKUs for the Shop
+        const skuCount = await inst.getShopSKUCount(shopId);
+        assert.equal(skuCount, 1, "Shop SKU count wasn't correct");
+
+        // Get the SKU count for the SKU Type
+        const skuTypeSKUCount = await inst.getSKUTypeSKUCount(skuTypeId);
+        assert.equal(skuTypeSKUCount, 1, "SKU Type SKU count wasn't correct");
 
     });
 

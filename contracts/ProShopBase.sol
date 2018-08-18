@@ -58,19 +58,14 @@ contract ProShopBase is ERC721Token {
     mapping (address => uint256[]) public ownedShops;
 
     /**
-     * @dev Mapping of Owner Address to Shop Count
-     */
-    mapping (address => uint256) public ownerShopCount;
-
-    /**
      * @dev Mapping of SKU Type ID to Shop ID
      */
     mapping (uint256 => uint256) public skuTypeToShop;
 
     /**
-     * @dev Mapping of Shop ID to SKU Type Count
+     * @dev Mapping of Shop ID to SKU Type list
      */
-    mapping (uint256 => uint256) public shopTypeCount;
+    mapping (uint256 => uint256[]) public shopSKUTypes;
 
     /**
      * @dev Mapping of SKU ID to Shop ID
@@ -78,19 +73,29 @@ contract ProShopBase is ERC721Token {
     mapping (uint256 => uint256) public skuToShop;
 
     /**
-     * @dev Mapping of Shop ID to SKU Type Count
+     * @dev Mapping of SKU Type ID to SKU list
      */
-    mapping (uint256 => uint256) public shopSKUTypeCount;
+    mapping (uint256 => uint256[]) public skuTypeSKUs;
 
     /**
-     * @dev Mapping of Shop ID to SKU Count
+     * @dev Mapping of Shop ID to SKU list
      */
-    mapping (uint256 => uint256) public shopSKUCount;
+    mapping (uint256 => uint256[]) public shopSKUs;
+
+    /**
+     * @dev Mapping of SKU id to Item list
+     */
+    mapping (uint256 => uint256[]) public skuItems;
 
     /**
      * @dev Mapping of Item ID to Shop ID
      */
     mapping (uint256 => uint256) public itemToShop;
+
+    /**
+     * @dev Mapping of Shop ID to SKU list
+     */
+    mapping (uint256 => uint256[]) public shopItems;
 
     /**
      * @notice the attributes of an item
@@ -126,9 +131,6 @@ contract ProShopBase is ERC721Token {
 
         // Id of SKU of this item
         uint256 skuId;
-
-        // Can it be consumed (used up)
-        bool consumable;
 
         // Has the item been consumed?
         bool consumed;
@@ -200,8 +202,8 @@ contract ProShopBase is ERC721Token {
         bool consumable;
 
         // Is there a limit to the number of Items that can
-        // be created from this SKU?
-        bool isLimited;
+        // be minted from this SKU?
+        bool limited;
 
         // If limited, what is the maximum number that
         // can be created?

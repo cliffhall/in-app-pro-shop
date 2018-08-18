@@ -2,6 +2,7 @@ pragma solidity ^0.4.24;
 
 import "./AccessControl.sol";
 
+
 /**
  * Functionality related to maintaining shops
  */
@@ -33,9 +34,8 @@ contract ShopFactory is AccessControl {
         // Map Shop ID to owner address
         shopToOwner[shopId] = owner;
 
-        // Bump up owner's shop count
-        uint256 count = ownerShopCount[owner];
-        ownerShopCount[owner] = count.add(1);
+        // Add Shop ID to Owner's Shops list
+        ownedShops[owner].push(shopId);
 
         // Give the owner the ROLE_SHOP_OWNER role
         addRole(owner, ROLE_SHOP_OWNER);
@@ -55,9 +55,9 @@ contract ShopFactory is AccessControl {
     }
 
     /**
-     * @notice Get the count of shops associated with a given owner
+     * @notice Get the count of Shops associated with a given Owner
      */
-    function getShopCount(address owner) public view returns (uint256) {
-        return ownerShopCount[owner];
+    function getShopCount(address _owner) public view returns (uint256) {
+        return ownedShops[_owner].length;
     }
 }
