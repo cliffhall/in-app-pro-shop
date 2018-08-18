@@ -53,6 +53,11 @@ contract ProShopBase is ERC721Token {
     mapping (uint256 => address) public shopToOwner;
 
     /**
+     * @dev Mapping of Owner Address to list of owned Shops
+     */
+    mapping (address => uint256[]) public ownedShops;
+
+    /**
      * @dev Mapping of Owner Address to Shop Count
      */
     mapping (address => uint256) public ownerShopCount;
@@ -83,19 +88,9 @@ contract ProShopBase is ERC721Token {
     mapping (uint256 => uint256) public shopSKUCount;
 
     /**
-     * @dev Mapping of Item ID to Owner Address
-     */
-    mapping (uint256 => address) public itemToOwner;
-
-    /**
      * @dev Mapping of Item ID to Shop ID
      */
     mapping (uint256 => uint256) public itemToShop;
-
-    /**
-     * @dev Mapping of Owner Address to Item Count
-     */
-    mapping (address => uint256) public ownerItemCount;
 
     /**
      * @notice the attributes of an item
@@ -129,11 +124,8 @@ contract ProShopBase is ERC721Token {
         // Id of SKU Type of this item
         uint256 skuTypeId;
 
-        // Name of the item
-        string name;
-
-        // Description of the item
-        string description;
+        // Id of SKU of this item
+        uint256 skuId;
 
         // Can it be consumed (used up)
         bool consumable;

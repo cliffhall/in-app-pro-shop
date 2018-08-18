@@ -15,28 +15,48 @@ contract ItemFactory is SKUFactory {
      */
     function createItem(
         uint256 _shopId,
-        uint256 _skuTypeId,
-        string _name,
-        string _desc,
+        uint256 _skuId,
         bool _consumable
     )
         public
+        returns (uint256)
     {
-        uint256 itemId = items.length; // TODO: make id unique
+        // Get the item id
+        uint256 itemId = items.length;
+
+        // Get the owner address
         address owner = msg.sender;
-        items.push(Item(owner, _shopId, itemId, _skuTypeId, _name, _desc, _consumable, false));
-        addTokenTo(owner, itemId);
+
+        // Get the SKU Type
+        uint256 skuTypeId = skus[_skuId].skuTypeId;
+
+        // Create and store Item
+        items.push(Item(owner, _shopId, itemId, skuTypeId, _skuId, _consumable, false));
+
+        // Mint the associated token
+        super._mint(owner, itemId);
+
+        // Map the Item ID to the Shop
         itemToShop[itemId] = _shopId;
-        itemToOwner[itemId] = owner;
-        ownerItemCount[owner]++; // TODO: use SafeMath
-        emit NewItem(_shopId, itemId, _name);
+
+        // Emit event with the name of the new Item
+        emit NewItem(_shopId, itemId, getItemName(itemId));
+
+        // Return the new Item ID
+        return itemId;
     }
 
     /**
-     * @notice Get the Item name associated with a given Item id
+     * @notice Get the SKU name associated with a given Item id
      */
     function getItemName(uint256 _itemId) public view returns (string) {
-        return items[_itemId].name;
+        return getSKUName(items[_itemId].skuId);
     }
 
+    /**
+     * @notice Get the SKU type name associated with a given Item id
+     */
+    function getItemType(uint256 _itemId) public view returns (string) {
+        return getSKUTypeName(items[_itemId].skuTypeId);
+    }
 }

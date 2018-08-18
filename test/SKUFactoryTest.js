@@ -2,25 +2,31 @@ const ProShopCore = artifacts.require("./ProShopCore.sol");
 
 contract('SKUFactory', function(accounts) {
 
-    it("should allow a shop owner to create a SKU Type for their Shop", async function() {
+    let inst, shopId, skuTypeId;
+    const shopOwner = accounts[2];
+    const shopName = "Rarely Beagle Pawn";
+    const shopDesc = "Great mutts, cheap!";
+    const skuTypeName = "Weapons";
+    const skuTypeDesc = "Things that make you go ouch!";
 
-        // Get the deployed contract instance
-        const inst = await ProShopCore.deployed();
-        const shopOwner = accounts[2];
-        const shopName = "Rarely Beagle Pawn";
-        const shopDesc = "Great mutts, cheap!";
-        const skuTypeName = "Weapons";
-        const skuTypeDesc = "Things that make you go ouch!";
+    // Set up a shop for this test suite
+    before(async () => {
+        // Get the contract instance for this suite
+        inst = await ProShopCore.deployed();
 
         // Invoke the function with 'call' to get the return value instead of the transaction
         // NOTE: this doesn't actually write the data
-        const shopId = await inst.createShop.call(shopName, shopDesc, {from: shopOwner});
+        shopId = await inst.createShop.call(shopName, shopDesc, {from: shopOwner});
 
         // Now call the function for real and write the data
         await inst.createShop(shopName, shopDesc, {from: shopOwner});
 
+    });
+
+    it("should allow a shop owner to create a SKU Type for their Shop", async function() {
+
         // First, get the skuTypeID with a call so it doesn't return a transaction
-        const skuTypeId = await inst.createSKUType.call(shopId, skuTypeName, skuTypeDesc, {from: shopOwner});
+        skuTypeId = await inst.createSKUType.call(shopId, skuTypeName, skuTypeDesc, {from: shopOwner});
         assert.equal(skuTypeId, 0, "SKUTypeId id wasn't returned");
 
         // Now do it for real
@@ -32,15 +38,8 @@ contract('SKUFactory', function(accounts) {
 
     });
 
-    it("should allow a shop owner to create a SKU for their Shop", async function() {
+    it("should allow a shop owner to create a SKU of an existing SKU Type for their Shop", async function() {
 
-        // Get the deployed contract instance
-        const inst = await ProShopCore.deployed();
-        const shopOwner = accounts[2];
-
-        const shopId = 0;
-        const skuTypeId = 0;
-        const skuTypeName = "Weapons";
         const skuName = "Magic Sword";
         const skuDesc = "Flaming. Kills Orcs.";
         const consumable = false;

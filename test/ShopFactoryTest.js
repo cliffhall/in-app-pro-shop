@@ -2,11 +2,17 @@ const ProShopCore = artifacts.require("./ProShopCore.sol");
 
 contract('ShopFactory', function(accounts) {
 
+    let inst;
+    const shopOwner = accounts[1];
+
+    before(async () => {
+        // Get the contract instance for this suite
+        inst = await ProShopCore.deployed();
+    });
+
     it("should allow anyone to create a shop", async function() {
 
         // Get the deployed contract instance
-        const inst = await ProShopCore.deployed();
-        const shopOwner = accounts[1];
         const shopName = "Barely Legal Pawn";
         const shopDesc = "Great stuff, cheap!";
 
@@ -31,8 +37,6 @@ contract('ShopFactory', function(accounts) {
     it("should allow an existing shop owner to create another shop", async function() {
 
         // Get the deployed contract instance
-        const inst = await ProShopCore.deployed();
-        const shopOwner = accounts[1];
         const shopName = "Fairly Regal Pawn";
         const shopDesc = "Cheap stuff, pricey!";
 
