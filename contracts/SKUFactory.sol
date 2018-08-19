@@ -54,6 +54,7 @@ contract SKUFactory is ShopFactory {
     function createSKU(
         uint256 _shopId,
         uint256 _skuTypeId,
+        uint256 _price,
         string _name,
         string _desc,
         bool _consumable,
@@ -65,10 +66,10 @@ contract SKUFactory is ShopFactory {
         returns(uint256)
     {
         // Get SKU ID
-        uint256 skuId = skus.length; // TODO: make id unique
+        uint256 skuId = skus.length;
 
         // Create and store SKU Type
-        skus.push(SKU(_shopId, skuId, _skuTypeId, _name, _desc, _consumable, _limited, _limit));
+        skus.push(SKU(_shopId, skuId, _skuTypeId, _price, _name, _desc, _consumable, _limited, _limit));
 
         // Map SKU to Shop
         skuToShop[skuId] = _shopId;

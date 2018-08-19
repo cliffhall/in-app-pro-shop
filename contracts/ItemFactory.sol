@@ -18,10 +18,16 @@ contract ItemFactory is SKUFactory {
         uint256 _skuId
     )
         public
+        payable
         returns (uint256)
     {
         // Make sure the item can be minted
         require(canMintItem(_skuId) == true);
+
+        // Make sure enough Ether has been sent
+        require(msg.value == skus[_skuId].price);
+
+        // TODO Split payment between franchise and shop owner
 
         // Get the item id
         uint256 itemId = items.length;
@@ -55,8 +61,7 @@ contract ItemFactory is SKUFactory {
     }
 
     function canMintItem(uint256 _skuId) public view returns (bool) {
-        SKU memory sku = skus[_skuId];
-        return (!sku.limited || (getSKUItemCount(_skuId) < sku.limit));
+        return (!skus[_skuId].limited || (getSKUItemCount(_skuId) < skus[_skuId].limit));
     }
 
     /**

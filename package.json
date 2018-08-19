@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/cliffhall/in-app-pro-shop#readme",
   "dependencies": {
-    "openzeppelin-solidity": "1.11.0"
+    "openzeppelin-solidity": "1.11.0",
+    "web3": "^1.0.0-beta.35"
   }
 }

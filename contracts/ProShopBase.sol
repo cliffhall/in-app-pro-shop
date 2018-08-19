@@ -192,6 +192,9 @@ contract ProShopBase is ERC721Token {
         // Type of the SKU
         uint256 skuTypeId;
 
+        // Price of the SKU
+        uint256 price;
+
         // Name of the item
         string name;
 

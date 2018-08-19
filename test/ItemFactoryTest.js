@@ -14,6 +14,8 @@ contract('ItemFactory', function(accounts) {
     const consumable = false;
     const limited = true;
     const limit = 1;
+    const price = web3.toWei(0.5, "ether");
+
 
     // Set up a shop with a SKU Type and SKU for this test suite
     before(async () => {
@@ -34,21 +36,33 @@ contract('ItemFactory', function(accounts) {
         await inst.createSKUType(shopId, skuTypeName, skuTypeDesc, {from: shopOwner});
 
         // First, get the skuTypeID with a call so it doesn't return a transaction
-        skuId = await inst.createSKU.call(shopId, skuTypeId, skuName, skuDesc, consumable, limited, limit, {from: shopOwner});
+        skuId = await inst.createSKU.call(shopId, skuTypeId, price, skuName, skuDesc, consumable, limited, limit, {from: shopOwner});
 
         // Now do it for real
-        await inst.createSKU(shopId, skuTypeId, skuName, skuDesc, consumable, limited, limit, {from: shopOwner});
+        await inst.createSKU(shopId, skuTypeId, price, skuName, skuDesc, consumable, limited, limit, {from: shopOwner});
+
+    });
+
+    it("should not allow a user to create an Item if the SKU price is not sent", async function() {
+
+        try {
+            // Create the item
+            await inst.createItem(shopId, skuId, {from: itemOwner, value: price/2});
+            throw null;
+        } catch (error) {
+            assert(error, "Expected an error but did not get one");
+        }
 
     });
 
     it("should allow a user to create an Item", async function() {
 
         // Get the item id
-        const itemId = await inst.createItem.call(shopId, skuId, {from: itemOwner});
+        const itemId = await inst.createItem.call(shopId, skuId, {from: itemOwner, value: price});
         assert.equal(itemId, 0, "Item id wasn't returned");
 
         // Create the item
-        await inst.createItem(shopId, skuId, {from: itemOwner});
+        await inst.createItem(shopId, skuId, {from: itemOwner, value: price});
 
         // Check the name matches the SKU name
         const name = await inst.getItemName(itemId);

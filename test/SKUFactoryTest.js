@@ -14,6 +14,7 @@ contract('SKUFactory', function(accounts) {
     const consumable = false;
     const limited = true;
     const limit = 5000;
+    const price = web3.toWei(0.5, "ether");
 
     // Set up a shop for this test suite
     before(async () => {
@@ -63,7 +64,7 @@ contract('SKUFactory', function(accounts) {
     it("should not allow someone other than shop owner to create a SKU for a Shop", async function() {
 
         try {
-            await inst.createSKU(shopId, skuTypeId, skuName, skuDesc, consumable, limited, limit, {from: notShopOwner});
+            await inst.createSKU(shopId, skuTypeId, price, skuName, skuDesc, consumable, limited, limit, {from: notShopOwner});
             throw null;
         } catch (error) {
             assert(error, "Expected an error but did not get one");
@@ -78,11 +79,11 @@ contract('SKUFactory', function(accounts) {
         assert.equal(typeName, skuTypeName, "SKU Type name wasn't returned");
 
         // First, get the skuTypeID with a call so it doesn't return a transaction
-        const skuId = await inst.createSKU.call(shopId, skuTypeId, skuName, skuDesc, consumable, limited, limit, {from: shopOwner});
+        const skuId = await inst.createSKU.call(shopId, skuTypeId, price, skuName, skuDesc, consumable, limited, limit, {from: shopOwner});
         assert.equal(skuTypeId, 0, "SKUTypeId id wasn't returned");
 
         // Now do it for real
-        await inst.createSKU(shopId, skuTypeId, skuName, skuDesc, consumable, limited, limit, {from: shopOwner});
+        await inst.createSKU(shopId, skuTypeId, price, skuName, skuDesc, consumable, limited, limit, {from: shopOwner});
 
         // Get the name of the SKU
         const name = await inst.getSKUName(skuId);
