@@ -1,4 +1,4 @@
-const ProShopCore = artifacts.require("./ProShopCore.sol");
+const ProShop = artifacts.require("./ProShop.sol");
 const catchRevert = require ('../util/exceptions').catchRevert;
 
 contract('ItemFactory', function(accounts) {
@@ -21,7 +21,7 @@ contract('ItemFactory', function(accounts) {
     // Set up a shop with a SKU Type and SKU for this test suite
     before(async () => {
         // Get the contract instance for this suite
-        inst = await ProShopCore.deployed();
+        inst = await ProShop.deployed();
 
         // Invoke the function with 'call' to get the return value instead of the transaction
         // NOTE: this doesn't actually write the data
