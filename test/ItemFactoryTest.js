@@ -1,4 +1,5 @@
 const ProShopCore = artifacts.require("./ProShopCore.sol");
+const catchRevert = require ('../util/exceptions').catchRevert;
 
 contract('ItemFactory', function(accounts) {
 
@@ -45,13 +46,7 @@ contract('ItemFactory', function(accounts) {
 
     it("should not allow a user to create an Item if the SKU price is not sent", async function() {
 
-        try {
-            // Create the item
-            await inst.createItem(shopId, skuId, {from: itemOwner, value: price/2});
-            throw null;
-        } catch (error) {
-            assert(error, "Expected an error but did not get one");
-        }
+        await catchRevert(inst.createItem(shopId, skuId, {from: itemOwner, value: price/2}));
 
     });
 
@@ -93,13 +88,7 @@ contract('ItemFactory', function(accounts) {
         assert.equal(canMintAnother, false, "Can Mint wasn't correct");
 
         // Make sure the createItem function doesn't allow minting another Item of this SKU
-        let itemId;
-        try {
-            await inst.createItem(shopId, skuId, {from: itemOwner});
-            throw null;
-        } catch (error) {
-            assert(error, "Expected an error but did not get one");
-        }
+        await catchRevert(inst.createItem(shopId, skuId, {from: itemOwner}));
 
     });
 });

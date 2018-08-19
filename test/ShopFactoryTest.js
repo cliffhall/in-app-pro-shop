@@ -16,19 +16,18 @@ contract('ShopFactory', function(accounts) {
         const shopName = "Barely Legal Pawn";
         const shopDesc = "Great stuff, cheap!";
 
-        // Invoke the function with 'call' to get the return value instead of the transaction
-        // NOTE: this doesn't actually write the data
+        // Get the Shop ID (using call, to avoid receiving a transaction)
         const shopId = await inst.createShop.call(shopName, shopDesc, {from: shopOwner});
         assert.equal(shopId, 0, "Shop id wasn't returned");
 
         // Now call the function for real and write the data
         await inst.createShop(shopName, shopDesc, {from: shopOwner});
 
-        // This is a view function, so it doesn't create a transaction, returns expected value
+        // Make sure the stored shop name matches
         const name = await inst.getShopName(shopId);
         assert.equal(name, shopName, "Shop name wasn't returned");
 
-        // This is a view function, so it doesn't create a transaction, returns expected value
+        // Make sure the shop count for this owner is correct
         const count = await inst.getShopCount(shopOwner);
         assert.equal(count.toNumber(), 1, "Shop count wasn't correct");
 
@@ -40,19 +39,18 @@ contract('ShopFactory', function(accounts) {
         const shopName = "Fairly Regal Pawn";
         const shopDesc = "Cheap stuff, pricey!";
 
-        // Invoke the function with 'call' to get the return value instead of the transaction
-        // NOTE: this doesn't actually write the data
+        // Get the Shop ID (using call, to avoid receiving a transaction)
         const shopId = await inst.createShop.call(shopName, shopDesc, {from: shopOwner});
         assert.equal(shopId, 1, "Shop id wasn't returned");
 
         // Now call the function for real and write the data
         await inst.createShop(shopName, shopDesc, {from: shopOwner});
 
-        // This is a view function, so it doesn't create a transaction, returns expected value
+        // Make sure the Shop name matches
         const name = await inst.getShopName(shopId);
         assert.equal(name, shopName, "Shop name wasn't returned");
 
-        // This is a view function, so it doesn't create a transaction, returns expected value
+        // Make sure the owner's Shop count is correct
         const count = await inst.getShopCount(shopOwner);
         assert.equal(count.toNumber(), 2, "Shop count wasn't correct");
 

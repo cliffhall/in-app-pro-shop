@@ -1,4 +1,5 @@
 const ProShopCore = artifacts.require("./ProShopCore.sol");
+const catchRevert = require ('../util/exceptions').catchRevert;
 
 contract('SKUFactory', function(accounts) {
 
@@ -21,8 +22,7 @@ contract('SKUFactory', function(accounts) {
         // Get the contract instance for this suite
         inst = await ProShopCore.deployed();
 
-        // Invoke the function with 'call' to get the return value instead of the transaction
-        // NOTE: this doesn't actually write the data
+        // Get the Shop ID (using call, to avoid receiving a transaction)
         shopId = await inst.createShop.call(shopName, shopDesc, {from: shopOwner});
 
         // Now call the function for real and write the data
@@ -32,13 +32,7 @@ contract('SKUFactory', function(accounts) {
 
     it("should not allow someone other than shop owner to create a SKU Type for a Shop", async function() {
 
-        try {
-            await inst.createSKUType(shopId, skuTypeName, skuTypeDesc, {from: notShopOwner});
-            throw null;
-        } catch (error) {
-            assert(error, "Expected an error but did not get one");
-        }
-
+        await catchRevert(inst.createSKUType(shopId, skuTypeName, skuTypeDesc, {from: notShopOwner}));
 
     });
 
@@ -63,12 +57,7 @@ contract('SKUFactory', function(accounts) {
 
     it("should not allow someone other than shop owner to create a SKU for a Shop", async function() {
 
-        try {
-            await inst.createSKU(shopId, skuTypeId, price, skuName, skuDesc, consumable, limited, limit, {from: notShopOwner});
-            throw null;
-        } catch (error) {
-            assert(error, "Expected an error but did not get one");
-        }
+        await catchRevert(inst.createSKU(shopId, skuTypeId, price, skuName, skuDesc, consumable, limited, limit, {from: notShopOwner}));
 
     });
 
