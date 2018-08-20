@@ -3,6 +3,10 @@ pragma solidity ^0.4.24;
 import "./ShopFactory.sol";
 
 
+/**
+ * @title SKUFactory
+ * @notice Defines functions and events related to management of SKUs and SKU Types
+ */
 contract SKUFactory is ShopFactory {
 
     /**
@@ -65,6 +69,9 @@ contract SKUFactory is ShopFactory {
         onlyShopOwner(_shopId)
         returns(uint256)
     {
+        // SKUs must have a non-zero price
+        require(_price > 0);
+
         // Get SKU ID
         uint256 skuId = skus.length;
 

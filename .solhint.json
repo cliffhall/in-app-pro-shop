@@ -3,6 +3,7 @@
   "rules": {
     "indent": false,
     "no-mix-tabs-and-spaces": false,
-    "compiler-fixed": false
+    "compiler-fixed": false,
+    "max-states-count": 32
   }
 }

@@ -3,12 +3,16 @@ pragma solidity ^0.4.24;
 import "./SKUFactory.sol";
 
 
+/**
+ * @title ItemFactory
+ * @notice Defines functions and events related to management of Items
+ */
 contract ItemFactory is SKUFactory {
 
     /**
      * @notice emitted upon the creation of an Item
      */
-    event NewItem(uint256 shopId, uint256 itemId, string name);
+    event NewItem(uint256 shopId, uint256 itemId, string name, uint256 price, uint256 fee, uint256 net);
 
     /**
      * @notice Create an Item
@@ -27,7 +31,13 @@ contract ItemFactory is SKUFactory {
         // Make sure enough Ether has been sent
         require(msg.value == skus[_skuId].price);
 
-        // TODO Split payment between franchise and shop owner
+        // Calculate and store the franchise fee
+        uint256 franchiseFee = msg.value.div(franchiseFeePercent);
+        franchiseBalance = franchiseBalance.add(franchiseFee);
+
+        // Calculate and store the Shop's net sale amount
+        uint256 shopNetSale = msg.value.sub(franchiseFee);
+        shopBalances[_shopId] = shopBalances[_shopId].add(shopNetSale);
 
         // Get the item id
         uint256 itemId = items.length;
@@ -54,7 +64,7 @@ contract ItemFactory is SKUFactory {
         super._mint(owner, itemId);
 
         // Emit event with the name of the new Item
-        emit NewItem(_shopId, itemId, getItemName(itemId));
+        emit NewItem(_shopId, itemId, getItemName(itemId), skus[_skuId].price, franchiseFee, shopNetSale);
 
         // Return the new Item ID
         return itemId;

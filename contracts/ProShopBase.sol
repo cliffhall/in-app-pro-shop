@@ -2,7 +2,6 @@ pragma solidity ^0.4.24;
 
 import "openzeppelin-solidity/contracts/token/ERC721/ERC721Token.sol";
 import "openzeppelin-solidity/contracts/math/SafeMath.sol";
-
 import "./AccessControl.sol";
 
 
@@ -14,8 +13,7 @@ contract ProShopBase is ERC721Token {
 
     using SafeMath for uint256;
 
-    constructor() public ERC721Token(TOKEN_NAME, TOKEN_SYMBOL) {
-    }
+    constructor() public ERC721Token(TOKEN_NAME, TOKEN_SYMBOL) {}
 
     /**
      * @notice Name of the non fungible token
@@ -46,6 +44,17 @@ contract ProShopBase is ERC721Token {
      * @notice All of the Items
      */
     Item[] public items;
+
+    /**
+     * @notice The franchise owner's available balance
+     */
+    uint256 public franchiseBalance;
+
+    /**
+     * @notice The percentage of each transaction taken by the franchise
+     * Must be between 0 and 100
+     */
+    uint256 public franchiseFeePercent;
 
     /**
      * @dev Mapping of Shop ID to Owner Address
@@ -98,6 +107,11 @@ contract ProShopBase is ERC721Token {
     mapping (uint256 => uint256[]) public shopItems;
 
     /**
+     * @dev Mapping of Shop ID to its available Ether balance
+     */
+    mapping (uint256 => uint256) public shopBalances;
+
+    /**
      * @notice the attributes of an item
      */
     struct Attribute {
@@ -134,10 +148,6 @@ contract ProShopBase is ERC721Token {
 
         // Has the item been consumed?
         bool consumed;
-
-        // The attributes of the item
-        // TODO: Why can't this be an array
-        // mapping(uint256 => Attribute) attributes;
     }
 
     /**
@@ -156,7 +166,6 @@ contract ProShopBase is ERC721Token {
 
         // Description of the shop
         string description;
-
     }
 
     /**
@@ -175,7 +184,6 @@ contract ProShopBase is ERC721Token {
 
         // Description of the SKU Type (optional)
         string description;
-
     }
 
     /**

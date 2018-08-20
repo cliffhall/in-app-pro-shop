@@ -16,6 +16,7 @@ contract AccessControl is RBAC, ProShopBase {
     constructor() public {
         paused = true; // Start paused. un-paused after full migration
         addRole(msg.sender, ROLE_SYS_ADMIN);
+        addRole(msg.sender, ROLE_FRANCHISE_OWNER);
     }
 
     /**
@@ -54,6 +55,11 @@ contract AccessControl is RBAC, ProShopBase {
     string public constant ROLE_SHOP_OWNER = "role/shop-owner";
 
     /**
+     * Role name for franchise owner.
+     */
+    string public constant ROLE_FRANCHISE_OWNER = "role/franchise-owner";
+
+    /**
      * @dev modifier to scope access to system administrator
      */
     modifier onlySysAdmin() {
@@ -62,10 +68,17 @@ contract AccessControl is RBAC, ProShopBase {
     }
 
     /**
+     * @dev modifier to scope access to franchise owner
+     */
+    modifier onlyFranchiseOwner() {
+        checkRole(msg.sender, ROLE_FRANCHISE_OWNER);
+        _;
+    }
+
+    /**
      * @dev modifier to scope access to owner of given shop
      */
     modifier onlyShopOwner(uint256 _shopId) {
-        checkRole(msg.sender, ROLE_SHOP_OWNER);
         address owner = shopToOwner[_shopId];
         require(msg.sender == owner);
         _;

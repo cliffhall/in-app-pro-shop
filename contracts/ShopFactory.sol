@@ -4,7 +4,8 @@ import "./AccessControl.sol";
 
 
 /**
- * Functionality related to maintaining shops
+ * @title ShopFactory
+ * @notice Defines functions and events related to management of Shops
  */
 contract ShopFactory is AccessControl {
 
