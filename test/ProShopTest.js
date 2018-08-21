@@ -1,7 +1,6 @@
 const ProShop = artifacts.require("./ProShop.sol");
-const catchRevert = require ('../util/exceptions').catchRevert;
-const calcNet = require('../util/accounting').calcNet;
-const calcFee = require('../util/accounting').calcFee;
+const exceptions = require ('../util/exceptions');
+const accounting = require('../util/accounting');
 
 contract('ProShop', function(accounts) {
 
@@ -57,28 +56,38 @@ contract('ProShop', function(accounts) {
 
         // Get franchise balance
         const balance = (await inst.checkFranchiseBalance({from: franchiseOwner})).toNumber();
-        assert.equal(balance, calcFee(price * 2, franchiseFeePercent), "Balance wasn't correct");
+        assert.equal(balance, accounting.calcFee(price * 2, franchiseFeePercent), "Balance wasn't correct");
 
     });
 
     it("should not allow anyone else to check the franchise balance", async function() {
 
         // Try to let shop owner check franchise balance
-        await catchRevert(inst.checkFranchiseBalance({from: shopOwner}));
+        await exceptions.catchRevert(inst.checkFranchiseBalance({from: shopOwner}));
 
     });
 
     it("should allow the franchise owner to withdraw their balance", async function() {
 
-        // TODO: Why is this failing??
-        // Get franchise balance
-        const initialBalance = web3.eth.getBalance(franchiseOwner).toNumber();
-        const withdrawalAmount = calcFee(price * 2, franchiseFeePercent);
-        const expectedResult = initialBalance + withdrawalAmount;
-        await inst.withdrawFranchiseBalance({from: franchiseOwner});
-        const result = web3.eth.getBalance(franchiseOwner).toNumber();
-        assert.equal(result, expectedResult, "Balance wasn't correct");
+        // Get amount to withdraw from the contract
+        const withrawal = accounting.calcFee(web3.fromWei(price * 2), franchiseFeePercent);
 
+        // Get the franchise owner's balance before the withdrawal
+        const initial = web3.fromWei(await web3.eth.getBalance(franchiseOwner)).toNumber();
+
+        // Withdraw and get receipt
+        const receipt = await inst.withdrawFranchiseBalance({from: franchiseOwner});
+
+        // Calculate the cost of the transaction
+        const gasUsed = receipt.receipt.gasUsed;
+        const tx = await web3.eth.getTransaction(receipt.tx);
+        const txCost = tx.gasPrice * web3.fromWei(gasUsed);
+
+        // Get the franchise owner's balance after the withdrawal
+        const final = web3.fromWei(await web3.eth.getBalance(franchiseOwner)).toNumber();
+
+        // Franchise owner's balance should be increased by the amount withdrawn less the transaction cost
+        assert.equal(accounting.calcBalance(initial, withrawal, txCost), final, "Amount incorrect");
     });
 
 
@@ -86,14 +95,39 @@ contract('ProShop', function(accounts) {
 
         // Get the shop balance
         const balance = (await inst.checkShopBalance(shopId, {from: shopOwner})).toNumber();
-        assert.equal(balance, calcNet(price * 2, franchiseFeePercent), "Balance wasn't correct");
+        assert.equal(balance, accounting.calcNet(price * 2, franchiseFeePercent), "Balance wasn't correct");
 
     });
+
+    it("should allow the shop owner to withdraw their balance", async function() {
+
+        // Get amount to withdraw from the contract
+        const withrawal = accounting.calcNet(web3.fromWei(price * 2), franchiseFeePercent);
+
+        // Get the shop owner's balance before the withdrawal
+        const initial = web3.fromWei(await web3.eth.getBalance(shopOwner)).toNumber();
+
+        // Withdraw and get receipt
+        const receipt = await inst.withdrawShopBalance(shopId, {from: shopOwner});
+
+        // Calculate the cost of the transaction
+        const gasUsed = receipt.receipt.gasUsed;
+        const tx = await web3.eth.getTransaction(receipt.tx);
+        const txCost = tx.gasPrice * web3.fromWei(gasUsed);
+
+        // Get the shop owner's balance after the withdrawal
+        const final = web3.fromWei(await web3.eth.getBalance(shopOwner)).toNumber();
+
+        // Shop owner's balance should be increased by the amount withdrawn less the transaction cost
+        assert.equal(accounting.calcBalance(initial, withrawal, txCost), final, "Amount incorrect");
+    });
+
+
 
     it("should not allow anyone else to check the shop balance", async function() {
 
         // Try to let customer check shop balance
-        await catchRevert(inst.checkShopBalance(shopId, {from: customer}));
+        await exceptions.catchRevert(inst.checkShopBalance(shopId, {from: customer}));
 
     });
 });

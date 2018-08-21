@@ -1,5 +1,5 @@
 const ProShop = artifacts.require("./ProShop.sol");
-const catchRevert = require ('../util/exceptions').catchRevert;
+const exceptions = require ('../util/exceptions');
 
 contract('ItemFactory', function(accounts) {
 
@@ -46,7 +46,7 @@ contract('ItemFactory', function(accounts) {
 
     it("should not allow a user to create an Item if the SKU price is not sent", async function() {
 
-        await catchRevert(inst.createItem(shopId, skuId, {from: itemOwner, value: price/2}));
+        await exceptions.catchRevert(inst.createItem(shopId, skuId, {from: itemOwner, value: price/2}));
 
     });
 
@@ -88,7 +88,7 @@ contract('ItemFactory', function(accounts) {
         assert.equal(canMintAnother, false, "Can Mint wasn't correct");
 
         // Make sure the createItem function doesn't allow minting another Item of this SKU
-        await catchRevert(inst.createItem(shopId, skuId, {from: itemOwner}));
+        await exceptions.catchRevert(inst.createItem(shopId, skuId, {from: itemOwner}));
 
     });
 });

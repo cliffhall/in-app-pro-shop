@@ -1,5 +1,5 @@
 const ProShop = artifacts.require("./ProShop.sol");
-const catchRevert = require ('../util/exceptions').catchRevert;
+const exceptions = require ('../util/exceptions');
 
 contract('SKUFactory', function(accounts) {
 
@@ -32,7 +32,7 @@ contract('SKUFactory', function(accounts) {
 
     it("should not allow someone other than shop owner to create a SKU Type for a Shop", async function() {
 
-        await catchRevert(inst.createSKUType(shopId, skuTypeName, skuTypeDesc, {from: notShopOwner}));
+        await exceptions.catchRevert(inst.createSKUType(shopId, skuTypeName, skuTypeDesc, {from: notShopOwner}));
 
     });
 
@@ -57,7 +57,7 @@ contract('SKUFactory', function(accounts) {
 
     it("should not allow someone other than shop owner to create a SKU for a Shop", async function() {
 
-        await catchRevert(inst.createSKU(shopId, skuTypeId, price, skuName, skuDesc, consumable, limited, limit, {from: notShopOwner}));
+        await exceptions.catchRevert(inst.createSKU(shopId, skuTypeId, price, skuName, skuDesc, consumable, limited, limit, {from: notShopOwner}));
 
     });
 

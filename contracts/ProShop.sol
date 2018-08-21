@@ -9,6 +9,16 @@ import "./ItemFactory.sol";
  */
 contract ProShop is ItemFactory {
 
+    /**
+     * @notice emitted upon the withdrawal of a Shop's balance
+     */
+    event ShopBalanceWithdrawn(uint256 shopId, uint256 amount);
+
+    /**
+     * @notice emitted upon the withdrawal of the franchise's balance
+     */
+    event FranchiseBalanceWithdrawn(uint256 amount);
+
     constructor() public {
         // Percentage of each sale going to the franchise owner
         franchiseFeePercent = 10;
@@ -25,10 +35,11 @@ contract ProShop is ItemFactory {
      * @notice Allow a shop owner to withdraw the accumulated balance of their shop, if any
      */
     function withdrawShopBalance(uint256 _shopId) public onlyShopOwner(_shopId) {
-        uint256 shopBalance = shopBalances[_shopId];
-        require(address(this).balance >= shopBalance);
+        uint256 amount = shopBalances[_shopId];
+        require(address(this).balance >= amount);
         shopBalances[_shopId] = 0;
-        msg.sender.transfer(shopBalance);
+        msg.sender.transfer(amount);
+        emit ShopBalanceWithdrawn(_shopId, amount);
     }
 
     /**
@@ -43,9 +54,9 @@ contract ProShop is ItemFactory {
      */
     function withdrawFranchiseBalance() public onlyFranchiseOwner() {
         require(address(this).balance >= franchiseBalance);
+        uint256 amount = franchiseBalance;
         franchiseBalance = 0;
-        msg.sender.transfer(franchiseBalance);
+        msg.sender.transfer(amount);
+        emit FranchiseBalanceWithdrawn(amount);
     }
-
-
 }
