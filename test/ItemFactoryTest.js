@@ -1,5 +1,6 @@
 const ProShop = artifacts.require("./ProShop.sol");
-const exceptions = require ('../util/exceptions');
+const exceptions = require('../util/exceptions');
+const accounting = require('../util/accounting');
 
 contract('ItemFactory', function(accounts) {
 
@@ -16,7 +17,7 @@ contract('ItemFactory', function(accounts) {
     const limited = true;
     const limit = 1;
     const price = web3.toWei(0.5, "ether");
-
+    const franchiseFeePercent = .10;
 
     // Set up a shop with a SKU Type and SKU for this test suite
     before(async () => {
@@ -52,9 +53,26 @@ contract('ItemFactory', function(accounts) {
 
     it("should allow a user to create an Item", async function() {
 
+        // Calculate fee
+        const fee = accounting.calcFee(price, franchiseFeePercent);
+
+        // Calc net for shop owner
+        const net = accounting.calcNet(price, franchiseFeePercent)
+
         // Get the item id
         const itemId = await contract.createItem.call(shopId, skuId, {from: itemOwner, value: price});
         assert.equal(itemId, 0, "Item id wasn't returned");
+
+        // Listen for ShopBalanceWithdrawn event
+        let event = contract.NewItem();
+        event.watch((err,response) => {
+            assert.equal(response.args.shopId.toNumber(), shopId);
+            assert.equal(response.args.itemId.toNumber(), itemId);
+            assert.equal(response.args.price.toNumber(), price);
+            assert.equal(response.args.fee.toNumber(), fee);
+            assert.equal(response.args.net.toNumber(), net);
+            event.stopWatching();
+        });
 
         // Create the item
         await contract.createItem(shopId, skuId, {from: itemOwner, value: price});
