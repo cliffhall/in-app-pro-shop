@@ -43,10 +43,12 @@ contract('SKUFactory', function(accounts) {
         assert.equal(skuTypeId, 0, "SKUTypeId id wasn't returned");
 
         // Listen for NewSKUType event
-        contract.NewSKUType().watch((err,response) => {
+        let event = contract.NewSKUType();
+        event.watch((err,response) => {
             assert.equal(response.args.shopId.toNumber(), shopId);
             assert.equal(response.args.skuTypeId.toNumber(), skuTypeId);
             assert.equal(response.args.name, skuTypeName);
+            event.stopWatching();
         });
 
         // Now do it for real
@@ -79,10 +81,12 @@ contract('SKUFactory', function(accounts) {
         assert.equal(skuTypeId, 0, "SKUTypeId id wasn't returned");
 
         // Listen for NewSKU event
+        let event = contract.NewSKU();
         contract.NewSKU().watch((err,response) => {
             assert.equal(response.args.shopId.toNumber(), shopId);
             assert.equal(response.args.skuId.toNumber(), skuId);
             assert.equal(response.args.name, skuName);
+            event.stopWatching();
         });
 
         // Now do it for real
