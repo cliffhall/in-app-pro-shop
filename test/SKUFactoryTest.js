@@ -42,6 +42,13 @@ contract('SKUFactory', function(accounts) {
         skuTypeId = await contract.createSKUType.call(shopId, skuTypeName, skuTypeDesc, {from: shopOwner});
         assert.equal(skuTypeId, 0, "SKUTypeId id wasn't returned");
 
+        // Listen for NewSKUType event
+        contract.NewSKUType().watch((err,response) => {
+            assert.equal(response.args.shopId.toNumber(), shopId);
+            assert.equal(response.args.skuTypeId.toNumber(), skuTypeId);
+            assert.equal(response.args.name, skuTypeName);
+        });
+
         // Now do it for real
         await contract.createSKUType(shopId, skuTypeName, skuTypeDesc, {from: shopOwner});
 
@@ -70,6 +77,13 @@ contract('SKUFactory', function(accounts) {
         // First, get the skuTypeID with a call so it doesn't return a transaction
         const skuId = await contract.createSKU.call(shopId, skuTypeId, price, skuName, skuDesc, consumable, limited, limit, {from: shopOwner});
         assert.equal(skuTypeId, 0, "SKUTypeId id wasn't returned");
+
+        // Listen for NewSKU event
+        contract.NewSKU().watch((err,response) => {
+            assert.equal(response.args.shopId.toNumber(), shopId);
+            assert.equal(response.args.skuId.toNumber(), skuId);
+            assert.equal(response.args.name, skuName);
+        });
 
         // Now do it for real
         await contract.createSKU(shopId, skuTypeId, price, skuName, skuDesc, consumable, limited, limit, {from: shopOwner});
