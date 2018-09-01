@@ -20,6 +20,14 @@ contract('ShopFactory', function(accounts) {
         const shopId = await contract .createShop.call(shopName, shopDesc, {from: shopOwner});
         assert.equal(shopId, 0, "Shop id wasn't returned");
 
+        // Listen for NewShop event
+        let event = contract.NewShop();
+        event.watch((err,response) => {
+            assert.equal(response.args.shopId.toNumber(), shopId.toNumber());
+            assert.equal(response.args.name, shopName);
+            event.stopWatching();
+        });
+
         // Now call the function for real and write the data
         await contract .createShop(shopName, shopDesc, {from: shopOwner});
 
@@ -42,6 +50,14 @@ contract('ShopFactory', function(accounts) {
         // Get the Shop ID (using call, to avoid receiving a transaction)
         const shopId = await contract .createShop.call(shopName, shopDesc, {from: shopOwner});
         assert.equal(shopId, 1, "Shop id wasn't returned");
+
+        // Listen for NewShop event
+        let event = contract.NewShop();
+        event.watch((err,response) => {
+            assert.equal(response.args.shopId.toNumber(), shopId.toNumber());
+            assert.equal(response.args.name, shopName);
+            event.stopWatching();
+        });
 
         // Now call the function for real and write the data
         await contract .createShop(shopName, shopDesc, {from: shopOwner});
