@@ -2,12 +2,12 @@ const ProShop = artifacts.require("./ProShop.sol");
 
 contract('ShopFactory', function(accounts) {
 
-    let inst;
+    let contract ;
     const shopOwner = accounts[1];
 
     before(async () => {
         // Get the contract instance for this suite
-        inst = await ProShop.deployed();
+        contract  = await ProShop.deployed();
     });
 
     it("should allow anyone to create a shop", async function() {
@@ -17,18 +17,18 @@ contract('ShopFactory', function(accounts) {
         const shopDesc = "Great stuff, cheap!";
 
         // Get the Shop ID (using call, to avoid receiving a transaction)
-        const shopId = await inst.createShop.call(shopName, shopDesc, {from: shopOwner});
+        const shopId = await contract .createShop.call(shopName, shopDesc, {from: shopOwner});
         assert.equal(shopId, 0, "Shop id wasn't returned");
 
         // Now call the function for real and write the data
-        await inst.createShop(shopName, shopDesc, {from: shopOwner});
+        await contract .createShop(shopName, shopDesc, {from: shopOwner});
 
         // Make sure the stored shop name matches
-        const name = await inst.getShopName(shopId);
+        const name = await contract .getShopName(shopId);
         assert.equal(name, shopName, "Shop name wasn't returned");
 
         // Make sure the shop count for this owner is correct
-        const count = await inst.getShopCount(shopOwner);
+        const count = await contract .getShopCount(shopOwner);
         assert.equal(count.toNumber(), 1, "Shop count wasn't correct");
 
     });
@@ -40,18 +40,18 @@ contract('ShopFactory', function(accounts) {
         const shopDesc = "Cheap stuff, pricey!";
 
         // Get the Shop ID (using call, to avoid receiving a transaction)
-        const shopId = await inst.createShop.call(shopName, shopDesc, {from: shopOwner});
+        const shopId = await contract .createShop.call(shopName, shopDesc, {from: shopOwner});
         assert.equal(shopId, 1, "Shop id wasn't returned");
 
         // Now call the function for real and write the data
-        await inst.createShop(shopName, shopDesc, {from: shopOwner});
+        await contract .createShop(shopName, shopDesc, {from: shopOwner});
 
         // Make sure the Shop name matches
-        const name = await inst.getShopName(shopId);
+        const name = await contract .getShopName(shopId);
         assert.equal(name, shopName, "Shop name wasn't returned");
 
         // Make sure the owner's Shop count is correct
-        const count = await inst.getShopCount(shopOwner);
+        const count = await contract .getShopCount(shopOwner);
         assert.equal(count.toNumber(), 2, "Shop count wasn't correct");
 
     });
