@@ -55,11 +55,11 @@ contract('ProShop', function(accounts) {
     it("should allow the franchise owner to check their balance", async function() {
 
         // Calculate expected balance
-        const expected = accounting.calcFee(web3.fromWei(price * 2), franchiseFeePercent);
+        const expected = web3.toBigNumber(accounting.calcFee(price * 2, franchiseFeePercent));
 
         // Get franchise balance
-        const balance = (await contract.checkFranchiseBalance({from: franchiseOwner})).toNumber();
-        assert.equal(web3.fromWei(balance), expected, "Balance wasn't correct");
+        const balance = await contract.checkFranchiseBalance({from: franchiseOwner});
+        assert.equal(balance.toNumber(), expected.toNumber(), "Balance wasn't correct");
 
     });
 
@@ -73,15 +73,15 @@ contract('ProShop', function(accounts) {
     it("should allow the franchise owner to withdraw their balance", async function() {
 
         // Get amount to withdraw from the contract
-        const withdrawal = accounting.calcFee(web3.fromWei(price * 2), franchiseFeePercent);
+        const withdrawal = web3.toBigNumber(accounting.calcFee(price * 2, franchiseFeePercent));
 
         // Listen for FranchiseBalanceWithdrawn event
         contract.FranchiseBalanceWithdrawn().watch((err,response) => {
-            assert.equal(web3.fromWei(response.args.amount), withdrawal);
+            assert.equal(response.args.amount.toNumber(), withdrawal.toNumber());
         });
 
         // Get the franchise owner's balance before the withdrawal
-        const initial = web3.fromWei(await web3.eth.getBalance(franchiseOwner)).toNumber();
+        const initial = await web3.eth.getBalance(franchiseOwner);
 
         // Withdraw and get receipt
         const receipt = await contract.withdrawFranchiseBalance({from: franchiseOwner});
@@ -89,40 +89,40 @@ contract('ProShop', function(accounts) {
         // Calculate the cost of the transaction
         const gasUsed = receipt.receipt.gasUsed;
         const tx = await web3.eth.getTransaction(receipt.tx);
-        const txCost = tx.gasPrice * web3.fromWei(gasUsed);
+        const txCost = web3.toBigNumber(tx.gasPrice * gasUsed);
 
         // Get the franchise owner's balance after the withdrawal
-        const final = web3.fromWei(await web3.eth.getBalance(franchiseOwner)).toNumber();
+        const final = await web3.eth.getBalance(franchiseOwner);
 
         // Franchise owner's balance should be increased by the amount withdrawn less the transaction cost
-        assert.equal(accounting.calcBalance(initial, withdrawal, txCost), final, "Amount incorrect");
+        assert.equal(initial.plus(withdrawal).minus(txCost).toNumber(), final.toNumber(), "Amount incorrect");
     });
 
 
     it("should allow the shop owner to check their balance", async function() {
 
         // Calc expected balance
-        const expected = accounting.calcNet(web3.fromWei(price * 2), franchiseFeePercent);
+        const expected = web3.toBigNumber(accounting.calcNet(price * 2, franchiseFeePercent));
 
         // Get the shop balance
-        const balance = (await contract.checkShopBalance(shopId, {from: shopOwner})).toNumber();
-        assert.equal(web3.fromWei(balance), expected, "Balance wasn't correct");
+        const balance = await contract.checkShopBalance(shopId, {from: shopOwner});
+        assert.equal(balance.toNumber(), expected.toNumber(), "Balance wasn't correct");
 
     });
 
     it("should allow the shop owner to withdraw their balance", async function() {
 
         // Get amount to withdraw from the contract
-        const withdrawal = accounting.calcNet(web3.fromWei(price * 2), franchiseFeePercent);
+        const withdrawal = web3.toBigNumber(accounting.calcNet(price * 2, franchiseFeePercent));
 
         // Listen for ShopBalanceWithdrawn event
         contract.ShopBalanceWithdrawn().watch((err,response) => {
             assert.equal(response.args.shopId.toNumber(), shopId);
-            assert.equal(web3.fromWei(response.args.amount), withdrawal);
+            assert.equal(response.args.amount.toNumber(), withdrawal.toNumber());
         });
 
         // Get the shop owner's balance before the withdrawal
-        const initial = web3.fromWei(await web3.eth.getBalance(shopOwner)).toNumber();
+        const initial = await web3.eth.getBalance(shopOwner);
 
         // Withdraw and get receipt
         const receipt = await contract.withdrawShopBalance(shopId, {from: shopOwner});
@@ -130,13 +130,13 @@ contract('ProShop', function(accounts) {
         // Calculate the cost of the transaction
         const gasUsed = receipt.receipt.gasUsed;
         const tx = await web3.eth.getTransaction(receipt.tx);
-        const txCost = tx.gasPrice * web3.fromWei(gasUsed);
+        const txCost = web3.toBigNumber(tx.gasPrice * gasUsed);
 
         // Get the shop owner's balance after the withdrawal
-        const final = web3.fromWei(await web3.eth.getBalance(shopOwner)).toNumber();
+        const final = await web3.eth.getBalance(shopOwner);
 
         // Shop owner's balance should be increased by the amount withdrawn less the transaction cost
-        assert.equal(accounting.calcBalance(initial, withdrawal, txCost), final, "Amount incorrect");
+        assert.equal(initial.plus(withdrawal).minus(txCost).toNumber(), final.toNumber(), "Amount incorrect");
     });
 
     it("should not allow anyone else to check the shop balance", async function() {
