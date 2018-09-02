@@ -42,8 +42,8 @@ contract('SKUFactory', function(accounts) {
         skuTypeId = await contract.createSKUType.call(shopId, skuTypeName, skuTypeDesc, {from: shopOwner});
         assert.equal(skuTypeId, 0, "SKUTypeId id wasn't returned");
 
-        // Listen for NewSKUType event
-        let event = contract.NewSKUType();
+        // Listen for NewSKUType event (filter events by shopId)
+        let event = contract.NewSKUType({shopId: shopId});
         event.watch((err,response) => {
             assert.equal(response.args.shopId.toNumber(), shopId);
             assert.equal(response.args.skuTypeId.toNumber(), skuTypeId);
@@ -80,8 +80,8 @@ contract('SKUFactory', function(accounts) {
         const skuId = await contract.createSKU.call(shopId, skuTypeId, price, skuName, skuDesc, consumable, limited, limit, {from: shopOwner});
         assert.equal(skuTypeId, 0, "SKUTypeId id wasn't returned");
 
-        // Listen for NewSKU event
-        let event = contract.NewSKU();
+        // Listen for NewSKU event (filter events by shopId)
+        let event = contract.NewSKU({shopId: shopId});
         contract.NewSKU().watch((err,response) => {
             assert.equal(response.args.shopId.toNumber(), shopId);
             assert.equal(response.args.skuId.toNumber(), skuId);

@@ -12,12 +12,12 @@ contract SKUFactory is ShopFactory {
     /**
      * @notice emitted upon the creation of a SKU
      */
-    event NewSKU(uint256 shopId, uint256 skuId, string name);
+    event NewSKU(uint256 indexed shopId, uint256 skuId, string name);
 
     /**
      * @notice emitted upon the creation of a SKU Type
      */
-    event NewSKUType(uint256 shopId, uint256 skuTypeId, string name);
+    event NewSKUType(uint256 indexed shopId, uint256 skuTypeId, string name);
 
     /**
      * @notice Create an SKU (Shopkeeping Unit) Type for a Shop
