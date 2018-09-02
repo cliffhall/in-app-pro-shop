@@ -13,7 +13,7 @@ contract ShopFactory is AccessControl {
      * @dev emitted upon creation of a shop
      * @return uint256 shopId
      */
-    event NewShop(uint256 shopId, string name);
+    event NewShop(uint256 indexed shopId, string name);
 
     /**
      * @notice Create a Shop
