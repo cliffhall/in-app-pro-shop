@@ -64,9 +64,11 @@ contract('ItemFactory', function(accounts) {
         assert.equal(itemId, 0, "Item id wasn't returned");
 
         // Listen for ShopBalanceWithdrawn event
-        let event = contract.NewItem();
+        let event = contract.NewItem({shopId: shopId, skuTypeId: skuTypeId, skuId: skuId});
         event.watch((err,response) => {
             assert.equal(response.args.shopId.toNumber(), shopId);
+            assert.equal(response.args.skuTypeId.toNumber(), skuTypeId);
+            assert.equal(response.args.skuId.toNumber(), skuId);
             assert.equal(response.args.itemId.toNumber(), itemId);
             assert.equal(response.args.price.toNumber(), price);
             assert.equal(response.args.fee.toNumber(), fee);

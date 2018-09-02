@@ -12,7 +12,16 @@ contract ItemFactory is SKUFactory {
     /**
      * @notice emitted upon the creation of an Item
      */
-    event NewItem(uint256 shopId, uint256 itemId, string name, uint256 price, uint256 fee, uint256 net);
+    event NewItem(
+        uint256 indexed shopId,
+        uint256 indexed skuId,
+        uint256 indexed skuTypeId,
+        uint256 itemId,
+        string name,
+        uint256 price,
+        uint256 fee,
+        uint256 net
+    );
 
     /**
      * @notice Create an Item
@@ -64,7 +73,7 @@ contract ItemFactory is SKUFactory {
         super._mint(owner, itemId);
 
         // Emit event with the name of the new Item
-        emit NewItem(_shopId, itemId, getItemName(itemId), skus[_skuId].price, franchiseFee, shopNetSale);
+        emit NewItem(_shopId, _skuId, skuTypeId, itemId, getItemName(itemId), skus[_skuId].price, franchiseFee, shopNetSale);
 
         // Return the new Item ID
         return itemId;

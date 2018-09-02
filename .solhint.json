@@ -4,6 +4,7 @@
     "indent": false,
     "no-mix-tabs-and-spaces": false,
     "compiler-fixed": false,
-    "max-states-count": 32
+    "max-states-count": 32,
+    "max-line-length": 150
   }
 }
