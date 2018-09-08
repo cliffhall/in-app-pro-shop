@@ -45,3 +45,7 @@ Thumbs.db
 #########
 build
 build/*
+
+# Node #
+########
+node_modules
