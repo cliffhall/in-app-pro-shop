@@ -28,7 +28,7 @@ them to support assets from other apps if they so choose.
 
 # DEVELOPER SETUP
 ### Build / Run / Deploy Prerequisites
- * [Node](https://nodejs.org/en/download/) 7.7 or above (also installs npm)
+ * [Node](https://nodejs.org/en/download/) 8.11 or above (also installs npm)
 
 ### Install Node modules
 * ```cd path/to/in-app-pro-shop``` (instructions in this document will assume you are at this path)
@@ -56,4 +56,5 @@ Communicates with the Ethereum client, allows compiling, migrating, debugging, e
 #### Migrate contracts, replacing previous deployments
 *truffle(development)>* ```migrate --reset```
 
-
+#### Run tests
+*truffle(development)>* ```test```
