@@ -12,12 +12,12 @@ contract('ShopFactory', function(accounts) {
 
     it("should allow anyone to create a shop", async function() {
 
-        // Get the deployed contract instance
+        // The name and description of the new shop
         const shopName = "Barely Legal Pawn";
         const shopDesc = "Great stuff, cheap!";
 
         // Get the Shop ID (using call, to avoid receiving a transaction)
-        const shopId = await contract .createShop.call(shopName, shopDesc, {from: shopOwner});
+        const shopId = await contract.createShop.call(shopName, shopDesc, {from: shopOwner});
         assert.equal(shopId, 0, "Shop id wasn't returned");
 
         // Listen for NewShop event (shopId is indexed)
@@ -29,26 +29,26 @@ contract('ShopFactory', function(accounts) {
         });
 
         // Now call the function for real and write the data
-        await contract .createShop(shopName, shopDesc, {from: shopOwner});
+        await contract.createShop(shopName, shopDesc, {from: shopOwner});
 
         // Make sure the stored shop name matches
-        const name = await contract .getShopName(shopId);
+        const name = await contract.getShopName(shopId);
         assert.equal(name, shopName, "Shop name wasn't returned");
 
         // Make sure the shop count for this owner is correct
-        const count = await contract .getShopCount(shopOwner);
+        const count = await contract.getShopCount(shopOwner);
         assert.equal(count.toNumber(), 1, "Shop count wasn't correct");
 
     });
 
     it("should allow an existing shop owner to create another shop", async function() {
 
-        // Get the deployed contract instance
+        // The name and description of the new shop
         const shopName = "Fairly Regal Pawn";
         const shopDesc = "Cheap stuff, pricey!";
 
         // Get the Shop ID (using call, to avoid receiving a transaction)
-        const shopId = await contract .createShop.call(shopName, shopDesc, {from: shopOwner});
+        const shopId = await contract.createShop.call(shopName, shopDesc, {from: shopOwner});
         assert.equal(shopId, 1, "Shop id wasn't returned");
 
         // Listen for NewShop event (shopId is indexed)
@@ -60,16 +60,45 @@ contract('ShopFactory', function(accounts) {
         });
 
         // Now call the function for real and write the data
-        await contract .createShop(shopName, shopDesc, {from: shopOwner});
+        await contract.createShop(shopName, shopDesc, {from: shopOwner});
 
         // Make sure the Shop name matches
-        const name = await contract .getShopName(shopId);
+        const name = await contract.getShopName(shopId);
         assert.equal(name, shopName, "Shop name wasn't returned");
 
         // Make sure the owner's Shop count is correct
-        const count = await contract .getShopCount(shopOwner);
+        const count = await contract.getShopCount(shopOwner);
         assert.equal(count.toNumber(), 2, "Shop count wasn't correct");
 
     });
+
+    it("should allow shop owner retrieve a list of their shops", async function() {
+
+        // Make sure the owner's Shop count is correct
+        const count = await contract.getShopCount(shopOwner);
+
+        // Get the list of ShopIDs for the owner
+        const shopIds = await contract.getShopIds(shopOwner);
+        assert.equal(shopIds.length, count, "Shop list length was wrong");
+
+    });
+
+    it("should allow shop owner retrieve a shop by id", async function() {
+
+        // The name and description of the new shop
+        const shopName = "Barely Legal Pawn";
+        const shopDesc = "Great stuff, cheap!";
+        const shopId = 0;
+
+        // Make sure the owner's Shop count is correct
+        const shop = await contract.getShop(shopId);
+
+        assert.equal(shop[0], shopOwner, "Shop owner address was wrong");
+        assert.equal(shop[1], shopId,    "Shop ID was wrong");
+        assert.equal(shop[2], shopName,  "Shop name was wrong");
+        assert.equal(shop[3], shopDesc,  "Shop description was wrong");
+
+    });
+
 
 });

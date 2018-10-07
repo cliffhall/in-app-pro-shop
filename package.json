@@ -2,12 +2,16 @@
   "name": "in-app-pro-shop",
   "version": "1.0.0",
   "description": "An Ethereum blockchain-based system for in-app purchases",
+  "private": true,
   "main": "truffle.js",
   "directories": {
-    "test": "test"
+    "test": "src/test"
   },
   "scripts": {
-    "ganache:start": "ganache-cli -p 7545 -d -m 'cabbage inflict doctor valve address roast bring club fiber celery lab render'"
+    "ganache:start": "ganache-cli -p 7545 -d -m 'cabbage inflict doctor valve address roast bring club fiber celery lab render'",
+    "app:start": "react-app-rewired start",
+    "app:build": "react-app-rewired build",
+    "app:test": "react-app-rewired test --env=jsdom"
   },
   "repository": {
     "type": "git",
@@ -15,14 +19,39 @@
   },
   "keywords": [],
   "author": "",
-  "license": "None",
+  "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/cliffhall/in-app-pro-shop/issues"
   },
   "homepage": "https://github.com/cliffhall/in-app-pro-shop#readme",
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "openzeppelin-solidity": "1.11.0",
+    "react": "^16.4.0",
+    "react-bootstrap": "^0.32.4",
+    "react-dom": "^16.4.0",
+    "react-redux": "^5.0.7",
+    "react-scripts": "2.0.3",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.2.0",
+    "styled-components": "^3.4.6",
     "web3": "^1.0.0-beta.35"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "babel-core": "7.0.0-bridge.0",
+    "react-app-rewire-styled-components": "^3.0.2",
+    "react-app-rewired": "^1.6.2",
+    "redux-mock-store": "^1.5.3",
+    "regenerator-runtime": "^0.12.1",
+    "truffle-contract": "^3.0.6"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/**/index.js",
+      "!src/**/*.test.js",
+      "!src/index.js"
+    ]
+  }
 }
