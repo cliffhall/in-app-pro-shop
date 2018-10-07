@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
-import { Button, Panel } from "react-bootstrap";
+import { Panel } from "react-bootstrap";
 import { connect } from 'react-redux';
 
+import Navigation from '../Navigation'
+import { Shop } from '../../domain';
 
 const Wrapper = styled.section`
   padding: 4em;
@@ -13,10 +15,17 @@ class App extends Component {
 
     // Render the component
     render() {
+        const OWNER = '0x52908400098527886E0F7030069857D2E4169EE7';
+        const ID = 52;
+        const NAME = 'Barely Legal Pawn';
+        const DESC = 'Great stuff, cheap!';
+
+        let shop = new Shop(OWNER, ID, NAME, DESC);
         return <Wrapper>
+            <Navigation/>
             <h1>Welcome to the In-App Pro Shop</h1>
             <Panel>
-                <Panel.Heading>Test</Panel.Heading>
+                <Panel.Heading>{shop.name}</Panel.Heading>
                 <Panel.Body>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas blandit massa a sapien faucibus pellentesque. Fusce laoreet massa in ultricies luctus. Integer quis vulputate est. Quisque luctus eros id neque accumsan ullamcorper. Suspendisse sit amet elit enim. Nam mi nibh, faucibus non dapibus non, tincidunt sit amet lacus. Fusce convallis, nisl eget porttitor dapibus, diam magna finibus est, ut lobortis turpis risus a ipsum.
 
@@ -30,7 +39,6 @@ class App extends Component {
 }
 
 // Map required state into props
-            /*
 const mapStateToProps = (state) => ({
     //user: state.messageState.user
 });
@@ -39,7 +47,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     //dispatch: dispatch
 });
-*/
+
 
 // Export props-mapped HOC
-export default App; //connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
