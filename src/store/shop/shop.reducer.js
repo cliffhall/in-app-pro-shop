@@ -3,7 +3,7 @@ import {
     CREATING_SHOP,
 //    IDS_REQUESTED,
 //    SHOP_REQUESTED
-} from '../actions';
+} from './shop.actions';
 
 // Initial state
 const INITIAL_STATE = {

@@ -111,11 +111,13 @@ Runs all tests found in the /src tree
 |   |
 |   +-+ components (React app UI components)
 |   |
+|   +-+ constants (Roues and other constants)
+|   |
 |   +-+ domain (JS domain model entities and tests)
 |   |
 |   +-+ store (Redux store, actions, reducers, and tests)
 |   |
-|   +-+ web3 (Blockchain-related utility code)
+|   +-+ utils (Blockchain and other utility code)
 |   |
 |   +-+ index.js (React app bootstrap)
 |
