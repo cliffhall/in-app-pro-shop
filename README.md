@@ -5,6 +5,23 @@ An Ethereum blockchain-based system for in-app purchases implemented as ERC-721 
 Work in progress.
 
 ## PREMISE
+The goal of In-App Pro Shop is to allow Ethereum developers to add in-app
+purchases quickly with an existing system, and also to make it easy for
+them to support assets from other apps if they so choose.
+
+Using smart contracts that live on the blockchain, and a web-based maintenance
+application, it implements a franchise system, whereby anyone can create a Shop,
+define and categorize the [SKU](https://en.wikipedia.org/wiki/Stock_keeping_unit)s
+that identify the products they will sell, and integrate that Shop into their application.
+
+Their applications can then interact with the In-App Pro Shop smart contracts
+to allow users to purchase items, which are minted as [ERC-721 non-fungible tokens](http://erc721.org/).
+
+A small percentage of each sale goes to the franchise owner [Futurescale, Inc.](http://futurescale.com),
+and the rest is immediately available for withdrawal by the Shop Owner.
+
+
+## BACKGROUND
 An interesting potential for apps built on Ethereum is that they can
 incorporate existing smart contracts that already live on the blockchain.
 For instance, Loom network's [CryptoZombies](https://cryptozombies.io/) feed on [CryptoKitties](https://www.cryptokitties.co/)
@@ -26,9 +43,6 @@ used in their own, simply by choosing to support those NFTs, the way
 CryptoKities can be used in various games in the
 ['Kittyverse'](https://medium.com/cryptokitties/welcome-to-the-kittyverse-kittybattles-and-kittyhats-9e83bb1ded88)
 
-The goal of In-App Pro Shop is to allow  developers to add in-app
-purchases quickly with an existing system, and also to make it easy for
-them to support assets from other apps if they so choose.
 
 # DEVELOPER SETUP
 ### Build / Run / Deploy Prerequisites
