@@ -1,4 +1,4 @@
-import {Shop} from './entity/Shop';
+import Shop from './entity/Shop';
 
 export {
     Shop

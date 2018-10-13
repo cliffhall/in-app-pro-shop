@@ -139,6 +139,4 @@ class Shop {
     };
 }
 
-module.exports = {
-    Shop
-};
+export default Shop;
