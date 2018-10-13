@@ -4,12 +4,12 @@ An Ethereum blockchain-based system for in-app purchases implemented as ERC-721 
 ## STATUS
 Work in progress.
 
-## PREMISE
+## PREMISE;
 The goal of In-App Pro Shop is to allow Ethereum developers to add in-app
 purchases quickly with an existing system, and also to make it easy for
 them to support assets from other apps if they so choose.
 
-Using smart contracts that live on the blockchain, and a web-based maintenance
+Using smart contracts that live on the blockchain and a web-based maintenance
 application, it implements a franchise system, whereby anyone can create a Shop,
 define and categorize the [SKU](https://en.wikipedia.org/wiki/Stock_keeping_unit)s
 that identify the products they will sell, and integrate that Shop into their application.
