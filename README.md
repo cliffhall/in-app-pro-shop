@@ -26,7 +26,7 @@ used in their own, simply by choosing to support those NFTs, the way
 CryptoKities can be used in various games in the
 ['Kittyverse'](https://medium.com/cryptokitties/welcome-to-the-kittyverse-kittybattles-and-kittyhats-9e83bb1ded88)
 
-The goal of In-app Pro Shop is to allow  developers to add in-app
+The goal of In-App Pro Shop is to allow  developers to add in-app
 purchases quickly with an existing system, and also to make it easy for
 them to support assets from other apps if they so choose.
 
