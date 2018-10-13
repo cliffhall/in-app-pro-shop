@@ -18,9 +18,14 @@ from it's inception.
 Games like Fortnite are 'walled gardens'; all the assets that gamers purchase
 live on servers of the company who wrote the game. With Ethereum, those
 assets could live on the public blockchain, and be sold and traded like
-CryptoKitties or any other NFT. And even better, game developers could
-choose to allow assets from other games to be used in their own, simply
-by choosing to support those NFTs.
+CryptoKitties or any other NFT. When you get tired of playing a game after
+a year or two, you could sell all your assets to other players to recoup
+your investment.
+
+Game developers could even choose to allow assets from other games to be
+used in their own, simply by choosing to support those NFTs, the way
+CryptoKities can be used in various games in the
+['Kittyverse'](https://medium.com/cryptokitties/welcome-to-the-kittyverse-kittybattles-and-kittyhats-9e83bb1ded88)
 
 The goal of In-app Pro Shop is to allow  developers to add in-app
 purchases quickly with an existing system, and also to make it easy for
