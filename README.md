@@ -1,4 +1,4 @@
-# in-app-pro-shop
+# In-App Pro Shop
 An Ethereum blockchain-based system for in-app purchases
 
 ## STATUS
@@ -50,10 +50,12 @@ them to support assets from other apps if they so choose.
 ## Blockchain
 ### Start Ganache CLI
 An Ethereum client, will start up a local blockchain for testing.
+
 ```npm run ganache:start```
 
 ### Start Truffle console
 Communicates with the Ethereum client, allows compiling, migrating, debugging, etc.
+
 ```truffle console```
 
 #### Compile contracts
@@ -68,13 +70,17 @@ Communicates with the Ethereum client, allows compiling, migrating, debugging, e
 ## React App
 ### Launch application
 Compiles, serves, and launches app. Watches files for changes and reloads app in browser automatically.
+
 ```npm run app:start```
 
 ### Build application
 Creates a production build of the application for deployment
+
 ```npm run app:build```
 
 ### Run unit tests
+Runs all tests found in the /src tree
+
 ```npm run app:test```
 
 
