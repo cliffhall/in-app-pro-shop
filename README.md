@@ -6,8 +6,7 @@ Work in progress.
 
 ## PREMISE
 An interesting potential for apps built on Ethereum is that they can
-incorporate existing smart contracts that live on the blockchain.
-
+incorporate existing smart contracts that already live on the blockchain.
 For instance, Loom network's [CryptoZombies](https://cryptozombies.io/) feed on [CryptoKitties](https://www.cryptokitties.co/)
 which are [non-fungible tokens](https://en.wikipedia.org/wiki/Non-fungible_token) created by another app entirely.
 
