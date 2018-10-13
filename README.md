@@ -46,7 +46,8 @@ them to support assets from other apps if they so choose.
 ### Install Truffle
 * ```npm install -g truffle```
 
-## DEVELOPMENT TASKS
+# DEVELOPMENT TASKS
+## Blockchain
 ### Start Ganache CLI
 An Ethereum client, will start up a local blockchain for testing.
 ```npm run ganache:start```
@@ -61,5 +62,43 @@ Communicates with the Ethereum client, allows compiling, migrating, debugging, e
 #### Migrate contracts, replacing previous deployments
 *truffle(development)>* ```migrate --reset```
 
-#### Run tests
+#### Run contract tests
 *truffle(development)>* ```test```
+
+## React App
+### Launch application
+Compiles, serves, and launches app. Watches files for changes and reloads app in browser automatically.
+```npm run app:start```
+
+### Build application
+Creates a production build of the application for deployment
+```npm run app:build```
+
+### Run unit tests
+```npm run app:test```
+
+
+# PROJECT STRUCTURE
+```
++ in-app-pro-shop
+|
++---+ contracts (Solidity smart contracts)
+|
++---+ migrations (Solidity contract migration scripts)
+|
++---+ public (React app HTML template and assets)
+|
++---+ src (React store maintenance app)
+|   |
+|   +-+ components (React app UI components)
+|   |
+|   +-+ domain (JS domain model entities and tests)
+|   |
+|   +-+ store (Redux store, actions, reducers, and tests)
+|   |
+|   +-+ web3 (Blockchain-related utility code)
+|   |
+|   +-+ index.js (React app bootstrap)
+|
++---+ test (Solidity contract tests)
+```

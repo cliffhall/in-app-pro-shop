@@ -31,7 +31,7 @@
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.4.0",
     "react-redux": "^5.0.7",
-    "react-scripts": "2.0.3",
+    "react-scripts": "^2.0.4",
     "redux": "^4.0.0",
     "redux-thunk": "^2.2.0",
     "styled-components": "^3.4.6",
@@ -53,5 +53,11 @@
       "!src/**/*.test.js",
       "!src/index.js"
     ]
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
