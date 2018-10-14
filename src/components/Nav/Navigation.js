@@ -6,7 +6,6 @@ import { initWeb3, selectAccount } from '../../store/web3/web3.actions'
 
 class Navigation extends Component {
 
-    // Render the component
     render() {
         const {
             initialized,
@@ -15,10 +14,38 @@ class Navigation extends Component {
             selectedAccount
         } = this.props;
 
+        // Open the selected account on etherscan.io
         const viewAccountOnEtherscan = () => {
           window.open(`https://etherscan.io/address/${selectedAccount}`);
         };
 
+        // Render the connect button
+        const renderConnectButton = () => {
+            return <Nav pullRight>
+                <NavItem disabled={initializing}
+                         onClick={() => this.props.initWeb3()}>{initializing?'Connecting...':'Connect'}</NavItem>
+            </Nav>
+        };
+
+        // Render the accounts menu
+        const renderAccountsMenu = () => {
+            return accounts
+                ? <NavDropdown title='Accounts' id='account-dropdown'>
+                        {accounts.map(
+                            account => <MenuItem
+                                key={account}
+                                eventKey={account}
+                                active={account === selectedAccount}
+                                onSelect={() => this.props.selectAccount(account)}
+                            >{account}</MenuItem>)}
+                        <MenuItem divider/>
+                        <MenuItem disabled={!selectedAccount}
+                                  onClick={viewAccountOnEtherscan}>View Selected Account on Etherscan</MenuItem>
+                    </NavDropdown>
+                : null;
+        };
+
+        // Render the Navbar
         return <Navbar collapseOnSelect>
             <Navbar.Header>
                 <Navbar.Brand>In-App Pro Shop</Navbar.Brand>
@@ -27,29 +54,9 @@ class Navigation extends Component {
             <Navbar.Collapse>
             {initialized
                 ? <Nav pullRight>
-                    {accounts
-                        ?
-                        <NavDropdown title="Accounts" id="wallet-dropdown">
-                            {accounts.map(
-                                account => <MenuItem
-                                    key={account}
-                                    eventKey={account}
-                                    active={account === selectedAccount}
-                                    onSelect={() => this.props.selectAccount(account)}
-                                >{account}</MenuItem>)}
-                            <MenuItem divider/>
-                            <MenuItem disabled={!selectedAccount}
-                                      onClick={viewAccountOnEtherscan}>View Selected Account on Etherscan</MenuItem>
-                        </NavDropdown>
-                        :
-                        null
-                    }
-                </Nav>
-                : <Nav pullRight>
-
-                    <NavItem disabled={initializing}
-                             onClick={() => this.props.initWeb3()}>{initializing?'Connecting...':'Connect'}</NavItem>
-                </Nav>
+                    {renderAccountsMenu()}
+                  </Nav>
+                : renderConnectButton()
             }
             </Navbar.Collapse>
         </Navbar>;
