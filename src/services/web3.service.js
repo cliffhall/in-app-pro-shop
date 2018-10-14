@@ -38,6 +38,6 @@ export const getWeb3Instance = () => {
     })
 };
 
-export const getWeb3Accounts = web3Instance => {
+export const fetchAccounts = web3Instance => {
     return web3Instance.eth.getAccounts();
 };

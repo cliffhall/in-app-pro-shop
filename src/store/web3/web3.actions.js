@@ -1,4 +1,5 @@
-import { getWeb3Instance, getWeb3Accounts } from '../../utils/web3.utils'
+// Service functions
+import { getWeb3Instance, fetchAccounts } from '../../services/web3.service'
 
 // Web3 related actions
 export const INIT_REQUESTED   = 'web3/initialize/requested';
@@ -32,7 +33,7 @@ export const initWeb3 = () => {
             });
 
             // Get the accounts controlled by this client
-            dispatch(fetchAccounts(web3Instance));
+            dispatch(getAccounts(web3Instance));
 
         } else {
             dispatch({
@@ -45,7 +46,7 @@ export const initWeb3 = () => {
 };
 
 // Get Ethereum accounts controlled by client
-export const fetchAccounts = web3Instance => {
+export const getAccounts = web3Instance => {
 
     return async function(dispatch) {
 
@@ -56,7 +57,7 @@ export const fetchAccounts = web3Instance => {
         });
 
         // Get the accounts
-        const accounts = await getWeb3Accounts(web3Instance);
+        const accounts = await fetchAccounts(web3Instance);
 
         if (accounts) {
             dispatch({
