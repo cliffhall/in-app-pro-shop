@@ -2,7 +2,19 @@ import Web3 from 'web3';
 
 const LOCALHOST = 'http://127.0.0.1:7545';
 
-export const getWeb3Instance = () => {
+export const getWeb3Instance = async () => {
+
+    if (window.ethereum) {
+        window.web3 = new Web3(window.ethereum);
+        try {
+            // Request account access if needed
+            await window.ethereum.enable();
+            console.log('Access to accounts approved by Metamask');
+        } catch (error) {
+            console.log('Metamask refused access to accounts');
+            window.web3 = null;
+        }
+    }
 
     return new Promise(function (resolve, reject) {
 

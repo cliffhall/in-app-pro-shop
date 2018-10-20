@@ -26,6 +26,8 @@
   "homepage": "https://github.com/cliffhall/in-app-pro-shop#readme",
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "drizzle": "^1.2.3",
+    "drizzle-react": "^1.2.0",
     "openzeppelin-solidity": "1.11.0",
     "react": "^16.4.0",
     "react-bootstrap": "^0.32.4",
