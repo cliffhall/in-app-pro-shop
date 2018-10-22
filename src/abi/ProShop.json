@@ -5572,8 +5572,276 @@
       "links": {},
       "address": "0x41c2ee14b9b46e9dbe0a5ce18c4d8d5080b168ba",
       "transactionHash": "0xd968a74b2d6ee74d4cf7e24557ca9e0de4e96cda75660c7b0b0d8e623704e6fc"
+    },
+    "1540236019309": {
+      "events": {
+        "0x592c5dcdfb4d2a25a617213d5be7a565bbe25e31a758a8ba959f62215e4ffec1": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "shopId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "ShopBalanceWithdrawn",
+          "type": "event"
+        },
+        "0x6a1a85b0a91cce0ab00cf08540a801804bd573bbcfa5bbd3a081522e38440ca6": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "FranchiseBalanceWithdrawn",
+          "type": "event"
+        },
+        "0x190b041ba13701ff8a2faee41240d2826cdeb02bce58a59e4eb6d0b18d9aa908": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "shopId",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "name": "skuId",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "name": "skuTypeId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "itemId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "name": "price",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "fee",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "net",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewItem",
+          "type": "event"
+        },
+        "0xd69554e5413a4863105d3af271dbb7053ecbdb96c22b4ed508331bbb4a993a63": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "shopId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "skuId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "name": "NewSKU",
+          "type": "event"
+        },
+        "0x984e9c57bf3c704c112a30dea33416efd7969f90a14a69b9cb3842db1fdb5c7a": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "shopId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "skuTypeId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "name": "NewSKUType",
+          "type": "event"
+        },
+        "0x48a97f219cc030f581c3d5440f34a51531af5bda2c5fbe345ac9c4a7d4a28bdb": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "shopId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "name": "NewShop",
+          "type": "event"
+        },
+        "0x450db8da6efbe9c22f2347f7c2021231df1fc58d3ae9a2fa75d39fa446199305": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "newContract",
+              "type": "address"
+            }
+          ],
+          "name": "ContractUpgrade",
+          "type": "event"
+        },
+        "0xab35696f06e428ebc5ceba8cd17f8fed287baf43440206d1943af1ee53e6d267": {
+          "anonymous": false,
+          "inputs": [],
+          "name": "ContractPaused",
+          "type": "event"
+        },
+        "0x0e5e3b3fb504c22cf5c42fa07d521225937514c654007e1f12646f89768d6f94": {
+          "anonymous": false,
+          "inputs": [],
+          "name": "ContractUnpaused",
+          "type": "event"
+        },
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_from",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_to",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_tokenId",
+              "type": "uint256"
+            }
+          ],
+          "name": "Transfer",
+          "type": "event"
+        },
+        "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_owner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_approved",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_tokenId",
+              "type": "uint256"
+            }
+          ],
+          "name": "Approval",
+          "type": "event"
+        },
+        "0x17307eab39ab6107e8899845ad3d59bd9653f200f220920489ca2b5937696c31": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_owner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_operator",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_approved",
+              "type": "bool"
+            }
+          ],
+          "name": "ApprovalForAll",
+          "type": "event"
+        },
+        "0xbfec83d64eaa953f2708271a023ab9ee82057f8f3578d548c1a4ba0b5b700489": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "operator",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "role",
+              "type": "string"
+            }
+          ],
+          "name": "RoleAdded",
+          "type": "event"
+        },
+        "0xd211483f91fc6eff862467f8de606587a30c8fc9981056f051b897a418df803a": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "operator",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "role",
+              "type": "string"
+            }
+          ],
+          "name": "RoleRemoved",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x41c2ee14b9b46e9dbe0a5ce18c4d8d5080b168ba",
+      "transactionHash": "0xd968a74b2d6ee74d4cf7e24557ca9e0de4e96cda75660c7b0b0d8e623704e6fc"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-10-20T20:47:47.053Z"
+  "updatedAt": "2018-10-22T19:23:34.432Z"
 }
