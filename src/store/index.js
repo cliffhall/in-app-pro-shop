@@ -6,9 +6,7 @@ import thunkMiddleware from 'redux-thunk';
 // Reducers
 import shopReducer from './shop/shop.reducer';
 //import skuReducer from './sku/reducer';
-//import userReducer from './user/reducer';
-//import walletReducer from './wallet/reducer';
-import web3Reducer from './web3/web3.reducer';
+import accountReducer from './account/account.reducer';
 
 const loggerMiddleware = createLogger();
 
@@ -16,9 +14,7 @@ const loggerMiddleware = createLogger();
 const rootReducer = combineReducers({
     shopState: shopReducer,
     //skuState: skuReducer,
-    //userState: userReducer,
-    //walletState: walletReducer,
-    web3State: web3Reducer
+    accountState: accountReducer
 });
 
 

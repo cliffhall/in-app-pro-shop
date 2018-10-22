@@ -20,7 +20,6 @@ to allow users to purchase items, which are minted as [ERC-721 non-fungible toke
 A small percentage of each sale goes to the franchise owner [Futurescale, Inc.](http://futurescale.com),
 and the rest is immediately available for withdrawal by the Shop Owner.
 
-
 ## BACKGROUND
 An interesting potential for apps built on Ethereum is that they can
 incorporate existing smart contracts that already live on the blockchain.
@@ -43,7 +42,6 @@ used in their own, simply by choosing to support those NFTs, the way
 CryptoKities can be used in various games in the
 ['Kittyverse'](https://medium.com/cryptokitties/welcome-to-the-kittyverse-kittybattles-and-kittyhats-9e83bb1ded88)
 
-
 # DEVELOPER SETUP
 ### Build / Run / Deploy Prerequisites
  * [Node](https://nodejs.org/en/download/) 8.11 or above (also installs npm)
@@ -62,7 +60,7 @@ CryptoKities can be used in various games in the
 # DEVELOPMENT TASKS
 ## Blockchain
 ### Start Ganache CLI
-An Ethereum client, will start up a local blockchain for testing.
+An Ethereum client on 127.0.0.1:7545, will start up a local blockchain for testing.
 
 ```npm run ganache:start```
 
@@ -82,7 +80,7 @@ Communicates with the Ethereum client, allows compiling, migrating, debugging, e
 
 ## React App
 ### Launch application
-Compiles, serves, and launches app. Watches files for changes and reloads app in browser automatically.
+Compiles, serves, and launches app on http://localhost:3000/. Watches files for changes and reloads app in browser automatically.
 
 ```npm run app:start```
 
@@ -108,6 +106,8 @@ Runs all tests found in the /src tree
 +---+ public (React app HTML template and assets)
 |
 +---+ src (React store maintenance app)
+|   |
+|   +-+ abi (compiled Solidity contracts)
 |   |
 |   +-+ components (React app UI components)
 |   |

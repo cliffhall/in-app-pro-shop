@@ -1,17 +1,37 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem} from "react-bootstrap";
+import { Navbar, Nav,NavItem, NavDropdown, MenuItem} from "react-bootstrap";
 import { connect } from 'react-redux';
-
-import { initWeb3, selectAccount } from '../../store/web3/web3.actions'
+import { accountsFetched, selectAccount } from '../../store/account/account.actions'
 
 class Navigation extends Component {
 
+    componentDidUpdate(prevProps) {
+        const {
+            accountsFetched,
+            selectAccount,
+            drizzleState,
+            initialized,
+            accounts
+        } = this.props;
+
+        // Store the accounts when drizzle initializes
+        if (initialized && !prevProps.initialized) {
+            if (Object.keys(drizzleState.accounts).length) {
+                accountsFetched(Object.values(drizzleState.accounts));
+            }
+        }
+
+        // Select the first account when the accounts are fetched
+        if (accounts && accounts.length && !prevProps.accounts) {
+            selectAccount(accounts[0]);
+        }
+    }
+
     render() {
         const {
-            initialized,
-            initializing,
-            accounts,
-            selectedAccount
+            selectedAccount,
+            drizzleState,
+            initialized
         } = this.props;
 
         // Open the selected account on etherscan.io
@@ -19,16 +39,9 @@ class Navigation extends Component {
           window.open(`https://etherscan.io/address/${selectedAccount}`);
         };
 
-        // Render the connect button
-        const renderConnectButton = () => {
-            return <Nav pullRight>
-                <NavItem disabled={initializing}
-                         onClick={() => this.props.initWeb3()}>{initializing?'Connecting...':'Connect'}</NavItem>
-            </Nav>
-        };
-
         // Render the accounts menu
         const renderAccountsMenu = () => {
+            const {accounts, selectAccount} = this.props;
             return accounts
                 ? <NavDropdown title='Accounts' id='account-dropdown'>
                         {accounts.map(
@@ -36,13 +49,15 @@ class Navigation extends Component {
                                 key={account}
                                 eventKey={account}
                                 active={account === selectedAccount}
-                                onSelect={() => this.props.selectAccount(account)}
+                                onSelect={() => selectAccount(account)}
                             >{account}</MenuItem>)}
                         <MenuItem divider/>
                         <MenuItem disabled={!selectedAccount}
                                   onClick={viewAccountOnEtherscan}>View Selected Account on Etherscan</MenuItem>
                     </NavDropdown>
-                : null;
+                : <NavDropdown title='Accounts' id='account-dropdown'>
+                    <MenuItem disabled={true}>No accounts</MenuItem>
+                </NavDropdown>;
         };
 
         // Render the Navbar
@@ -52,12 +67,12 @@ class Navigation extends Component {
                 <Navbar.Toggle/>
             </Navbar.Header>
             <Navbar.Collapse>
-            {initialized
-                ? <Nav pullRight>
-                    {renderAccountsMenu()}
-                  </Nav>
-                : renderConnectButton()
-            }
+                <Nav pullRight>
+                {initialized
+                    ? renderAccountsMenu(drizzleState.accounts)
+                    : <NavItem>Connecting...</NavItem>
+                }
+                </Nav>
             </Navbar.Collapse>
         </Navbar>;
     }
@@ -65,15 +80,13 @@ class Navigation extends Component {
 
 // Map required state into props
 const mapStateToProps = (state) => ({
-    initialized: state.web3State.initialized,
-    initializing: state.web3State.initializing,
-    accounts: state.web3State.accounts,
-    selectedAccount: state.web3State.selectedAccount
+    accounts: state.accountState.accounts,
+    selectedAccount: state.accountState.selectedAccount
 });
 
 // Map dispatch function into props
 const mapDispatchToProps = (dispatch) => ({
-    initWeb3: () => dispatch(initWeb3()),
+    accountsFetched: accounts => dispatch(accountsFetched(accounts)),
     selectAccount: account => dispatch(selectAccount(account))
 });
 
