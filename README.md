@@ -48,16 +48,16 @@ The _In App Pro Shop_ project is composed of:
 ### Blockchain
 * A stratified set of Solidity contracts, one inheriting from another, ending with ProShop.sol, which is deployed.
 * [Openzepplin-Soolidity](https://github.com/OpenZeppelin/openzeppelin-solidity) base contracts for ERC721 tokens, role-based access control, safe math, and more.
-* [Ganache-CLI](https://github.com/trufflesuite/ganache-cli) for local blockchain and contract testing.
+* [Ganache-CLI](https://github.com/trufflesuite/ganache-cli) for local blockchain.
 * [Truffle](https://github.com/trufflesuite/truffle) for compiling and migrating contracts to the blockchain.
-
+* [Truffle-contract](
 ### Web
 * A React/Redux application for maintaining Shops and checking/withdrawing Shop owner and Franchise Owner balances.
 * [React-scripts](https://www.npmjs.com/package/react-scripts) for managing webpack configuration, compilation, code watching, local server, etc.
 * [Babel-core](https://babeljs.io/docs/en/next/babel-core.html) for ES6/7 support.
-* [React-app-rewired](https://github.com/timarney/react-app-rewired) for webpack config overrides to support Styled Components.
 * [Redux-thunk](https://github.com/reduxjs/redux-thunk) middleware for asynchronous action creators.
 * [React-bootstrap](https://react-bootstrap.github.io) for UI components.
+* [React-app-rewired](https://github.com/timarney/react-app-rewired) for webpack config overrides to support Styled Components.
 * [Styled-components](https://github.com/styled-components/styled-components) for easy application of CSS in JS.
 * [Drizzle](https://github.com/trufflesuite/drizzle) and [Drizzle-react](https://github.com/trufflesuite/drizzle-react) for interacting with the blockchain and keeping data fresh.
 
