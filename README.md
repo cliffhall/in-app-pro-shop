@@ -46,13 +46,13 @@ CryptoKities can be used in various games in the
 The _In App Pro Shop_ project is composed of:
 
 ### Blockchain
-* A stratified set of Solidity contracts, one inheriting from another, ending with ProShop.sol, which is deployed.
+A stratified set of Solidity contracts, one inheriting from another, ending with ProShop.sol, which is deployed.
 * [Openzepplin-Solidity](https://github.com/OpenZeppelin/openzeppelin-solidity) base contracts for ERC721 tokens, role-based access control, safe math, and more.
 * [Ganache-CLI](https://github.com/trufflesuite/ganache-cli) for local blockchain.
 * [Truffle](https://github.com/trufflesuite/truffle) for compiling and migrating contracts to the blockchain.
 
 ### Web
-* A React/Redux application for maintaining Shops and checking/withdrawing Shop owner and Franchise Owner balances.
+A React/Redux application for maintaining Shops and checking/withdrawing Shop owner and Franchise Owner balances.
 * [React-scripts](https://www.npmjs.com/package/react-scripts) for managing webpack configuration, compilation, code watching, local server, etc.
 * [Babel-core](https://babeljs.io/docs/en/next/babel-core.html) for ES6/7 support.
 * [Redux-thunk](https://github.com/reduxjs/redux-thunk) middleware for asynchronous action creators.
