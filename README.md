@@ -64,19 +64,19 @@ The [Truffle Suite](https://github.com/trufflesuite) is used:
 |
 +---+ src (React store maintenance app)
 |   |
-|   +-+ abi (compiled Solidity contracts)
+|   +---+ abi (compiled Solidity contracts)
 |   |
-|   +-+ components (React app UI components)
+|   +---+ components (React app UI components)
 |   |
-|   +-+ constants (Routes and other constants)
+|   +---+ constants (Routes and other constants)
 |   |
-|   +-+ domain (JS domain model entities and tests)
+|   +---+ domain (JS domain model entities and tests)
 |   |
-|   +-+ services (JS code for persistence and retrieval)
+|   +---+ services (JS code for persistence and retrieval)
 |   |
-|   +-+ store (Redux store, actions, reducers, and tests)
+|   +---+ store (Redux store, actions, reducers, and tests)
 |   |
-|   +-+ index.js (React app bootstrap)
+|   +---+ index.js (React app bootstrap)
 |
 +---+ test (Solidity contract tests)
 ```
