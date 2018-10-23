@@ -50,7 +50,7 @@ The _In App Pro Shop_ project is composed of:
 * [Openzepplin-Solidity](https://github.com/OpenZeppelin/openzeppelin-solidity) base contracts for ERC721 tokens, role-based access control, safe math, and more.
 * [Ganache-CLI](https://github.com/trufflesuite/ganache-cli) for local blockchain.
 * [Truffle](https://github.com/trufflesuite/truffle) for compiling and migrating contracts to the blockchain.
-* [Truffle-contract](
+
 ### Web
 * A React/Redux application for maintaining Shops and checking/withdrawing Shop owner and Franchise Owner balances.
 * [React-scripts](https://www.npmjs.com/package/react-scripts) for managing webpack configuration, compilation, code watching, local server, etc.
