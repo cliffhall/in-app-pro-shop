@@ -43,13 +43,18 @@ CryptoKities can be used in various games in the
 ['Kittyverse'](https://medium.com/cryptokitties/welcome-to-the-kittyverse-kittybattles-and-kittyhats-9e83bb1ded88)
 
 ## Architecture / Stack
-In App Pro Shop is composed of:
-* A stratified set of Solidity contracts, one inheriting from another, ending with ProShop.sol, which is deployed.
-* A React/Redux web app for maintaining Shops and checking/withdrawing Shop owner and Franchise Owner balances.
+The _In App Pro Shop_ project is composed of:
 
-The [Truffle Suite](https://github.com/trufflesuite) is used:
+### Blockchain
+* A stratified set of Solidity contracts, one inheriting from another, ending with ProShop.sol, which is deployed.
+* [OpenZepplin-Solidity](https://github.com/OpenZeppelin/openzeppelin-solidity) base contracts for ERC721 tokens, role-based access control, safe math, and more.
 * [Ganache-CLI](https://github.com/trufflesuite/ganache-cli) for local blockchain and contract testing.
 * [Truffle](https://github.com/trufflesuite/truffle) for compiling and migrating contracts to the blockchain.
+
+### Web
+* A React/Redux application for maintaining Shops and checking/withdrawing Shop owner and Franchise Owner balances.
+* [Redux-thunk](https://github.com/reduxjs/redux-thunk) middleware is used for asynchronous action creators.
+* [React-bootstrap](https://react-bootstrap.github.io) is used for UI components
 * [Drizzle](https://github.com/trufflesuite/drizzle) and [Drizzle-react](https://github.com/trufflesuite/drizzle-react) for interacting with the blockchain and keeping data fresh.
 
 ## Project Structure
