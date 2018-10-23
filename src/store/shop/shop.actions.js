@@ -37,7 +37,11 @@ export const getShopIds = owner => {
 };
 
 export const getShops = ids => {
+    return async function(dispatch) {
 
+
+
+    }
 };
 
 
