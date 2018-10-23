@@ -53,7 +53,7 @@ A stratified set of Solidity contracts, one inheriting from another, ending with
 
 ### Web
 A React/Redux application for maintaining Shops and checking/withdrawing Shop owner and Franchise Owner balances.
-* [React-scripts](https://www.npmjs.com/package/react-scripts) for managing webpack configuration, compilation, code watching, local server, etc.
+* [React-scripts](https://www.npmjs.com/package/react-scripts) for managing webpack configuration, compilation, testing, code watching, local server, etc.
 * [Babel-core](https://babeljs.io/docs/en/next/babel-core.html) for ES6/7 support.
 * [Redux-thunk](https://github.com/reduxjs/redux-thunk) middleware for asynchronous action creators.
 * [React-bootstrap](https://react-bootstrap.github.io) for UI components.
