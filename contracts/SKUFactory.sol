@@ -33,7 +33,7 @@ contract SKUFactory is ShopFactory {
         returns(uint256)
     {
         // Get SKU Type ID
-        uint256 skuTypeId = skuTypes.length; // TODO: make id unique
+        uint256 skuTypeId = skuTypes.length;
 
         // Create and store SKU Type
         skuTypes.push(SKUType(_shopId, skuTypeId, _name, _desc));

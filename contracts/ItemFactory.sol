@@ -63,6 +63,12 @@ contract ItemFactory is SKUFactory {
         // Map the Item ID to the Shop
         itemToShop[itemId] = _shopId;
 
+        // Map the Item ID to the Owner
+        itemToOwner[itemId] = owner;
+
+        // Add Item ID to Owner's Items list
+        ownedItems[owner].push(itemId);
+
         // Add the item to the Shop's list of Items minted
         shopItems[_shopId].push(itemId);
 
@@ -110,4 +116,18 @@ contract ItemFactory is SKUFactory {
     function getSKUItemCount(uint256 _skuId) public view returns (uint256) {
         return skuItems[_skuId].length;
     }
+
+    /**
+     * @notice Get the count of Items associated with a given Owner
+     */
+    function getItemCount(address _owner) public view returns (uint256) {
+        return ownedItems[_owner].length;
+    }
+
+
+    // @notice Get the list of Item Ids associated with a given Owner
+    function getItemIds(address _owner) public view returns (uint[] memory) {
+        return ownedItems[_owner];
+    }
+
 }
