@@ -1,10 +1,10 @@
 # In-App Pro Shop
 An Ethereum blockchain-based system for in-app purchases implemented as ERC-721 non-fungible tokens.
 
-## STATUS
+## Status
 Work in progress.
 
-## GOAL
+## Goal
 The goal of In-App Pro Shop is to allow Ethereum developers to add in-app
 purchases quickly with an existing system, and also to make it easy for
 them to support assets from other apps if they so choose.
@@ -20,7 +20,7 @@ to allow users to purchase items, which are minted as [ERC-721 non-fungible toke
 A small percentage of each sale goes to the franchise owner [Futurescale, Inc.](http://futurescale.com),
 and the rest is immediately available for withdrawal by the Shop Owner.
 
-## BACKGROUND
+## Background
 An interesting potential for apps built on Ethereum is that they can
 incorporate existing smart contracts that already live on the blockchain.
 For instance, Loom network's [CryptoZombies](https://cryptozombies.io/) feed on [CryptoKitties](https://www.cryptokitties.co/)
@@ -42,7 +42,46 @@ used in their own, simply by choosing to support those NFTs, the way
 CryptoKities can be used in various games in the
 ['Kittyverse'](https://medium.com/cryptokitties/welcome-to-the-kittyverse-kittybattles-and-kittyhats-9e83bb1ded88)
 
-# DEVELOPER SETUP
+## Architecture / Stack
+In App Pro Shop is composed of:
+* A stratified set of Solidity contracts, one inheriting from another, ending with ProShop.sol, which is deployed.
+* A React/Redux web app for maintaining Shops and checking/withdrawing Shop owner and Franchise Owner balances.
+
+The [Truffle Suite](https://github.com/trufflesuite) is used:
+* [Ganache-CLI](https://github.com/trufflesuite/ganache-cli) for local blockchain and contract testing.
+* [Truffle](https://github.com/trufflesuite/truffle) for compiling and migrating contracts to the blockchain.
+* [Drizzle](https://github.com/trufflesuite/drizzle) and [Drizzle-react](https://github.com/trufflesuite/drizzle-react) for interacting with the blockchain and keeping data fresh.
+
+## Project Structure
+```
++ in-app-pro-shop
+|
++---+ contracts (Solidity smart contracts)
+|
++---+ migrations (Solidity contract migration scripts)
+|
++---+ public (React app HTML template and assets)
+|
++---+ src (React store maintenance app)
+|   |
+|   +-+ abi (compiled Solidity contracts)
+|   |
+|   +-+ components (React app UI components)
+|   |
+|   +-+ constants (Routes and other constants)
+|   |
+|   +-+ domain (JS domain model entities and tests)
+|   |
+|   +-+ services (JS code for persistence and retrieval)
+|   |
+|   +-+ store (Redux store, actions, reducers, and tests)
+|   |
+|   +-+ index.js (React app bootstrap)
+|
++---+ test (Solidity contract tests)
+```
+
+#  Developer Setup
 ### Build / Run / Deploy Prerequisites
  * [Node](https://nodejs.org/en/download/) 8.11 or above (also installs npm)
 
@@ -57,7 +96,7 @@ CryptoKities can be used in various games in the
 ### Install Truffle
 * ```npm install -g truffle```
 
-# DEVELOPMENT TASKS
+# Development Tasks
 ## Blockchain
 ### Start Ganache CLI
 An Ethereum client on 127.0.0.1:7545, will start up a local blockchain for testing.
@@ -93,33 +132,3 @@ Creates a production build of the application for deployment
 Runs all tests found in the /src tree
 
 ```npm run app:test```
-
-
-# PROJECT STRUCTURE
-```
-+ in-app-pro-shop
-|
-+---+ contracts (Solidity smart contracts)
-|
-+---+ migrations (Solidity contract migration scripts)
-|
-+---+ public (React app HTML template and assets)
-|
-+---+ src (React store maintenance app)
-|   |
-|   +-+ abi (compiled Solidity contracts)
-|   |
-|   +-+ components (React app UI components)
-|   |
-|   +-+ constants (Routes and other constants)
-|   |
-|   +-+ domain (JS domain model entities and tests)
-|   |
-|   +-+ services (JS code for persistence and retrieval)
-|   |
-|   +-+ store (Redux store, actions, reducers, and tests)
-|   |
-|   +-+ index.js (React app bootstrap)
-|
-+---+ test (Solidity contract tests)
-```

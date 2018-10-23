@@ -1,5 +1,5 @@
 module.exports = {
-    contracts_build_directory: "./src/abi",
+    contracts_build_directory: "src/abi",
     networks: {
         development: {
             host: "127.0.0.1",
