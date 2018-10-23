@@ -111,4 +111,26 @@ contract('ItemFactory', function(accounts) {
         await exceptions.catchRevert(contract.createItem(shopId, skuId, {from: itemOwner}));
 
     });
+
+    it("should allow a user to retrieve a count of their items", async function() {
+
+        // Make sure the owner's Shop count is correct
+        const count = await contract.getItemCount(itemOwner);
+
+        assert.equal(count, 1, "Item count was wrong");
+
+    });
+
+    it("should allow a user to retrieve a list of their items", async function() {
+
+        // Make sure the owner's Shop count is correct
+        const count = await contract.getItemCount(itemOwner);
+
+        // Get the list of ItemIDs for the owner
+        const itemIds = await contract.getItemIds(itemOwner);
+        assert.equal(itemIds.length, count, "Item list length was wrong");
+
+    });
+
+
 });

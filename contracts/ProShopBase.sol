@@ -102,6 +102,16 @@ contract ProShopBase is ERC721Token {
     mapping (uint256 => uint256) public itemToShop;
 
     /**
+     * @dev Mapping of Owner Address to list of owned Items
+     */
+    mapping (address => uint256[]) public ownedItems;
+
+    /**
+     * @dev Mapping of Item ID to Owner Address
+     */
+    mapping (uint256 => address) public itemToOwner;
+
+    /**
      * @dev Mapping of Shop ID to SKU list
      */
     mapping (uint256 => uint256[]) public shopItems;
