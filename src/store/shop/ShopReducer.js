@@ -6,11 +6,11 @@ import {
     SHOPS_FETCHED,
     CREATING_SHOP,
 //    SHOP_REQUESTED
-} from './shop.actions';
+} from './ShopActions';
 
 import {
     ACCOUNT_SELECTED
-} from "../account/account.actions";
+} from "../account/AccountActions";
 
 // Initial state
 const INITIAL_STATE = {

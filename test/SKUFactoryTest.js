@@ -1,5 +1,5 @@
 const ProShop = artifacts.require("./ProShop.sol");
-const exceptions = require ('./util/exceptions');
+const exceptions = require ('./util/Exceptions');
 
 contract('SKUFactory', function(accounts) {
 

@@ -1,5 +1,5 @@
 // Service functions
-import { fetchSKUIds, fetchSKU } from '../../services/sku.service';
+import { fetchSKUIds, fetchSKU } from '../../services/SKUService';
 
 // Shop related actions
 export const IDS_REQUESTED  = 'sku/ids-requested';
