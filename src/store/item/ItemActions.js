@@ -1,7 +1,5 @@
-// Service functions
 import { fetchSKUIds, fetchSKU } from '../../services/SKUService';
 
-// Shop related actions
 export const IDS_REQUESTED  = 'sku/ids-requested';
 export const IDS_FETCHED    = 'sku/ids-fetched';
 export const SKU_REQUESTED  = 'sku/sku-requested';
@@ -9,7 +7,6 @@ export const SKU_FETCHED    = 'sku/sku-fetched';
 export const CREATING_SKU   = 'sku/creating';
 export const SKU_CREATED    = 'sku/created';
 
-// Get SKUs
 export const getSKUIds = shopId => {
 
     return async function(dispatch) {

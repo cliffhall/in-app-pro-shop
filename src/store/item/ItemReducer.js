@@ -1,4 +1,3 @@
-// Action type constants
 import {
     CREATING_SKU,
 //    IDS_REQUESTED,
@@ -9,7 +8,6 @@ import {
     ACCOUNT_SELECTED
 } from "../account/AccountActions";
 
-// Initial state
 const INITIAL_STATE = {
     newSKU: {
         skuId: null,
@@ -19,7 +17,6 @@ const INITIAL_STATE = {
     skuIds:[]
 };
 
-// Shop reducer
 function itemReducer(state=INITIAL_STATE, action) {
     let reduced;
     switch (action.type)

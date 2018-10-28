@@ -1,18 +1,16 @@
-// Action type constants
 import {
     IDS_REQUESTED,
     IDS_FETCHED,
     SHOPS_REQUESTED,
     SHOPS_FETCHED,
-    CREATING_SHOP,
-//    SHOP_REQUESTED
+    SHOP_SELECTED,
+    CREATING_SHOP
 } from './ShopActions';
 
 import {
     ACCOUNT_SELECTED
 } from "../account/AccountActions";
 
-// Initial state
 const INITIAL_STATE = {
     newShop: {
         shopId: null,
@@ -26,10 +24,11 @@ const INITIAL_STATE = {
 
     fetchingShops: false,
     shopsFetched: false,
-    shops:[]
+    shops:[],
+
+    selectedShopId: null
 };
 
-// Shop reducer
 function shopReducer(state=INITIAL_STATE, action) {
     let reduced;
     switch (action.type)
@@ -51,7 +50,7 @@ function shopReducer(state=INITIAL_STATE, action) {
                 ...state,
                 fetchingIds: action.fetchingIds,
                 idsFetched: action.idsFetched,
-                shopIds: action.ids
+                ids: action.ids
             };
             break;
 
@@ -72,7 +71,12 @@ function shopReducer(state=INITIAL_STATE, action) {
             };
             break;
 
-
+        case SHOP_SELECTED:
+            reduced = {
+                ...state,
+                selectedShopId: action.selectedShopId
+            };
+            break;
 
         case CREATING_SHOP:
             reduced = {

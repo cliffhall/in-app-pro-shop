@@ -1,16 +1,13 @@
-// Action type constants
 import {
     ACCOUNTS_FETCHED,
     ACCOUNT_SELECTED
 } from './AccountActions';
 
-// Initial state
 const INITIAL_STATE = {
     accounts: null,
     selectedAccount: null
 };
 
-// Shop reducer
 function accountReducer(state=INITIAL_STATE, action) {
     let reduced;
     switch (action.type)
