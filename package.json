@@ -58,7 +58,7 @@
       "!src/index.js"
     ],
     "testMatch": [
-      "<rootDir>/src/**/test/*Test.js"
+      "<rootDir>/src/**/*Test.js"
     ]
   },
   "browserslist": [
