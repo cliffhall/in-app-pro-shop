@@ -69,6 +69,8 @@ A React/Redux application for maintaining Shops and checking/withdrawing Shop ow
 |
 +---+ migrations (Solidity contract migration scripts)
 |
++---+ mock (JS scripts for creating mock contract data)
+|
 +---+ public (React app HTML template and assets)
 |
 +---+ src (React store maintenance app)
@@ -125,6 +127,9 @@ Communicates with the Ethereum client, allows compiling, migrating, debugging, e
 
 #### Run contract tests
 *truffle(development)>* ```test```
+
+#### Execute mock data scripts
+*truffle(development)>* ```exec mock/<script-name>.js```
 
 ## React App
 ### Launch application
