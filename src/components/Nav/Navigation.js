@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Navbar, Nav,NavItem, NavDropdown, MenuItem} from "react-bootstrap";
+import { Navbar, Nav,NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { accountsFetched, selectAccount } from '../../store/account/account.actions'
+import { accountsFetched, selectAccount } from '../../store/account/account.actions';
+import { getShopIds } from '../../store/shop/shop.actions';
+import { PRO_SHOP } from "../../constants/contracts";
 
 class Navigation extends Component {
 
@@ -9,7 +11,10 @@ class Navigation extends Component {
         const {
             accountsFetched,
             selectAccount,
+            getShopIds,
+            selectedAccount,
             drizzleState,
+            drizzle,
             initialized,
             accounts
         } = this.props;
@@ -24,6 +29,11 @@ class Navigation extends Component {
         // Select the first account when the accounts are fetched
         if (accounts && accounts.length && !prevProps.accounts) {
             selectAccount(accounts[0]);
+        }
+
+        // Get shopIds when account is selected
+        if (selectedAccount && selectedAccount !== prevProps.selectedAccount) {
+            getShopIds(drizzle.contracts[PRO_SHOP], selectedAccount);
         }
     }
 
@@ -87,7 +97,8 @@ const mapStateToProps = (state) => ({
 // Map dispatch function into props
 const mapDispatchToProps = (dispatch) => ({
     accountsFetched: accounts => dispatch(accountsFetched(accounts)),
-    selectAccount: account => dispatch(selectAccount(account))
+    selectAccount: account => dispatch(selectAccount(account)),
+    getShopIds: (contract, account) => dispatch(getShopIds(contract, account))
 });
 
 // Export props-mapped HOC

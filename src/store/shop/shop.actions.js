@@ -1,15 +1,17 @@
 // Service functions
-import { fetchShopIds } from '../../services/shop.service';
+import { fetchShopIds, fetchShops } from '../../services/shop.service';
 
 // Shop related actions
-export const IDS_REQUESTED  = 'shop/ids-requested';
-export const IDS_FETCHED    = 'shop/ids-fetched';
-export const SHOP_REQUESTED = 'shop/shop-requested';
-export const SHOP_FETCHED   = 'shop/shop-fetched';
-export const CREATING_SHOP  = 'shop/creating';
+export const IDS_REQUESTED    = 'shop/ids-requested';
+export const IDS_FETCHED      = 'shop/ids-fetched';
+
+export const SHOPS_REQUESTED  = 'shop/shops-requested';
+export const SHOPS_FETCHED    = 'shop/shops-fetched';
+
+export const CREATING_SHOP    = 'shop/creating';
 
 // Get Ethereum accounts controlled by client
-export const getShopIds = owner => {
+export const getShopIds = (contract, owner) => {
 
     return async function(dispatch) {
 
@@ -20,7 +22,7 @@ export const getShopIds = owner => {
         });
 
         // Get the shop ids
-        const ids = await fetchShopIds(owner);
+        const ids = await fetchShopIds(contract, owner);
 
         dispatch({
             type: IDS_FETCHED,
@@ -31,15 +33,29 @@ export const getShopIds = owner => {
 
         // Fetch the shops
         if(ids && ids.length) {
-            dispatch(getShops(ids))
+            dispatch(getShops(contract, ids))
         }
     }
 };
 
-export const getShops = ids => {
+export const getShops = (contract, ids) => {
     return async function(dispatch) {
 
+        dispatch({
+            type: SHOPS_REQUESTED,
+            fetchingShops: true,
+            shopsFetched: false
+        });
 
+        // Get the shop ids
+        const shops = await fetchShops(contract, ids);
+
+        dispatch({
+            type: SHOPS_FETCHED,
+            fetchingShops: false,
+            shopsFetched: true,
+            shops
+        });
 
     }
 };
