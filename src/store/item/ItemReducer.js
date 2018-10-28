@@ -3,11 +3,11 @@ import {
     CREATING_SKU,
 //    IDS_REQUESTED,
 //    SKU_REQUESTED
-} from './item.actions';
+} from './ItemActions';
 
 import {
     ACCOUNT_SELECTED
-} from "../account/account.actions";
+} from "../account/AccountActions";
 
 // Initial state
 const INITIAL_STATE = {

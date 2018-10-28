@@ -2,7 +2,7 @@
 import {
     ACCOUNTS_FETCHED,
     ACCOUNT_SELECTED
-} from './account.actions';
+} from './AccountActions';
 
 // Initial state
 const INITIAL_STATE = {

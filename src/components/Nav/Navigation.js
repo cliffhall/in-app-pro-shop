@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Navbar, Nav,NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { accountsFetched, selectAccount } from '../../store/account/account.actions';
-import { getShopIds } from '../../store/shop/shop.actions';
-import { PRO_SHOP } from "../../constants/contracts";
+import { accountsFetched, selectAccount } from '../../store/account/AccountActions';
+import { getShopIds } from '../../store/shop/ShopActions';
+import { PRO_SHOP } from "../../constants/Contracts";
 
 class Navigation extends Component {
 

@@ -1,5 +1,5 @@
 // Service functions
-import { fetchShopIds, fetchShops } from '../../services/shop.service';
+import { fetchShopIds, fetchShops } from '../../services/ShopService';
 
 // Shop related actions
 export const IDS_REQUESTED    = 'shop/ids-requested';
