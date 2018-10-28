@@ -9,7 +9,7 @@ import Navigation from '../Nav/Navigation'
 import { Shop } from '../../domain';
 
 const Wrapper = styled.section`
-  padding: 4em;
+  padding: 5em;
 `;
 
 class App extends Component {
