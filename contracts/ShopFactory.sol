@@ -48,19 +48,6 @@ contract ShopFactory is AccessControl {
         return shopId;
     }
 
-    /**
-     * @notice Get the Shop name associated with a given Shop id
-     */
-    function getShopName(uint256 _shopId) public view returns (string) {
-        return shops[_shopId].name;
-    }
-
-    /**
-     * @notice Get the count of Shops associated with a given Owner
-     */
-    function getShopCount(address _owner) public view returns (uint256) {
-        return ownedShops[_owner].length;
-    }
 
     // @notice Get the list of Shop Ids associated with a given Owner
     function getShopIds(address _owner) public view returns (uint[] memory) {

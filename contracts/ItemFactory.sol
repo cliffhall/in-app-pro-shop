@@ -17,7 +17,6 @@ contract ItemFactory is SKUFactory {
         uint256 indexed skuId,
         uint256 indexed skuTypeId,
         uint256 itemId,
-        string name,
         uint256 price,
         uint256 fee,
         uint256 net
@@ -79,7 +78,7 @@ contract ItemFactory is SKUFactory {
         super._mint(owner, itemId);
 
         // Emit event with the name of the new Item
-        emit NewItem(_shopId, _skuId, skuTypeId, itemId, getItemName(itemId), skus[_skuId].price, franchiseFee, shopNetSale);
+        emit NewItem(_shopId, _skuId, skuTypeId, itemId, skus[_skuId].price, franchiseFee, shopNetSale);
 
         // Return the new Item ID
         return itemId;
@@ -87,20 +86,6 @@ contract ItemFactory is SKUFactory {
 
     function canMintItem(uint256 _skuId) public view returns (bool) {
         return (!skus[_skuId].limited || (getSKUItemCount(_skuId) < skus[_skuId].limit));
-    }
-
-    /**
-     * @notice Get the SKU name associated with a given Item id
-     */
-    function getItemName(uint256 _itemId) public view returns (string) {
-        return getSKUName(items[_itemId].skuId);
-    }
-
-    /**
-     * @notice Get the SKU type name associated with a given Item id
-     */
-    function getItemType(uint256 _itemId) public view returns (string) {
-        return getSKUTypeName(items[_itemId].skuTypeId);
     }
 
     /**
@@ -123,7 +108,6 @@ contract ItemFactory is SKUFactory {
     function getItemCount(address _owner) public view returns (uint256) {
         return ownedItems[_owner].length;
     }
-
 
     // @notice Get the list of Item Ids associated with a given Owner
     function getItemIds(address _owner) public view returns (uint[] memory) {

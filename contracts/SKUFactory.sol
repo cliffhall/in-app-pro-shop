@@ -1,55 +1,18 @@
 pragma solidity ^0.4.24;
 
-import "./ShopFactory.sol";
+import "./SKUTypeFactory.sol";
 
 
 /**
  * @title SKUFactory
- * @notice Defines functions and events related to management of SKUs and SKU Types
+ * @notice Defines functions and events related to management of SKUs
  */
-contract SKUFactory is ShopFactory {
+contract SKUFactory is SKUTypeFactory {
 
     /**
      * @notice emitted upon the creation of a SKU
      */
     event NewSKU(uint256 indexed shopId, uint256 skuId, string name);
-
-    /**
-     * @notice emitted upon the creation of a SKU Type
-     */
-    event NewSKUType(uint256 indexed shopId, uint256 skuTypeId, string name);
-
-    /**
-     * @notice Create an SKU (Shopkeeping Unit) Type for a Shop
-     * @dev Can only be run by the shop owner
-     */
-    function createSKUType(
-        uint256 _shopId,
-        string _name,
-        string _desc
-    )
-        public
-        onlyShopOwner(_shopId)
-        returns(uint256)
-    {
-        // Get SKU Type ID
-        uint256 skuTypeId = skuTypes.length;
-
-        // Create and store SKU Type
-        skuTypes.push(SKUType(_shopId, skuTypeId, _name, _desc));
-
-        // Map SKU Type to Shop ID
-        skuTypeToShop[skuTypeId] = _shopId;
-
-        // Add SKU Type to Shop's SKU Type list
-        shopSKUTypes[_shopId].push(skuTypeId);
-
-        // Emit Event with name of the new SKU Type
-        emit NewSKUType(_shopId, skuTypeId, _name);
-
-        // Return the new SKU Type ID
-        return skuTypeId;
-    }
 
     /**
      * @notice Create an SKU (Shopkeeping Unit) for a Shop
@@ -94,39 +57,26 @@ contract SKUFactory is ShopFactory {
         return skuId;
     }
 
-    /**
-     * @notice Get the SKU Type name associated with a given SKU Type ID
-     */
-    function getSKUTypeName(uint256 _skuTypeId) public view returns (string) {
-        return skuTypes[_skuTypeId].name;
+    // @notice Get the list of SKU Ids associated with a given Shop
+    function getSKUIds(uint256 _shopId) public view returns (uint[] memory) {
+        return shopSKUs[_shopId];
     }
 
-    /**
-     * @notice Get the SKU name associated with a given SKU ID
-     */
-    function getSKUName(uint256 _skuId) public view returns (string) {
-        return skus[_skuId].name;
+    // @notice Get a Shop's properties by ID
+    function getSKU(uint256 _skuId) public view returns (
+        uint256, uint256, uint256, string, string, bool, bool, uint256)
+    {
+        require(_skuId <= skus.length);
+        SKU memory sku = skus[_skuId];
+        return (
+            sku.shopId,
+            sku.skuTypeId,
+            sku.price,
+            sku.name,
+            sku.description,
+            sku.consumable,
+            sku.limited,
+            sku.limit
+        );
     }
-
-    /**
-     * @notice Get the count of SKU Types associated with a given Shop
-     */
-    function getShopSKUTypeCount(uint256 _shopId) public view returns (uint256) {
-        return shopSKUTypes[_shopId].length;
-    }
-
-    /**
-     * @notice Get the count of SKUs associated with a given Shop
-     */
-    function getShopSKUCount(uint256 _shopId) public view returns (uint256) {
-        return shopSKUs[_shopId].length;
-    }
-
-    /**
-     * @notice Get the count of SKUs associated with a given SKU Type
-     */
-    function getSKUTypeSKUCount(uint256 _skuTypeId) public view returns (uint256) {
-        return skuTypeSKUs[_skuTypeId].length;
-    }
-
 }

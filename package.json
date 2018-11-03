@@ -8,7 +8,7 @@
     "test": "src/test"
   },
   "scripts": {
-    "ganache:start": "ganache-cli -p 7545 -d -m 'cabbage inflict doctor valve address roast bring club fiber celery lab render' -l 7000000",
+    "ganache:start": "ganache-cli -p 7545 -d -m 'cabbage inflict doctor valve address roast bring club fiber celery lab render' -l 8000000",
     "app:start": "react-app-rewired start",
     "app:build": "react-app-rewired build",
     "app:test": "react-app-rewired test --env=jsdom"

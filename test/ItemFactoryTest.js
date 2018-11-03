@@ -79,14 +79,6 @@ contract('ItemFactory', function(accounts) {
         // Create the item
         await contract.createItem(shopId, skuId, {from: itemOwner, value: price});
 
-        // Check the name matches the SKU name
-        const name = await contract.getItemName(itemId);
-        assert.equal(name, skuName, "Item name wasn't returned");
-
-        // Check the type matches the SKU Type name
-        const type = await contract.getItemType(itemId);
-        assert.equal(type, skuTypeName, "Item type wasn't returned");
-
         // Get the total supply of tokens
         const supply = await contract.totalSupply();
         assert.equal(supply, 1, "Total supply not incremented");
