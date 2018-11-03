@@ -31,13 +31,9 @@ contract('ShopFactory', function(accounts) {
         // Now call the function for real and write the data
         await contract.createShop(shopName, shopDesc, {from: shopOwner});
 
-        // Make sure the stored shop name matches
-        const name = await contract.getShopName(shopId);
-        assert.equal(name, shopName, "Shop name wasn't returned");
-
         // Make sure the shop count for this owner is correct
-        const count = await contract.getShopCount(shopOwner);
-        assert.equal(count.toNumber(), 1, "Shop count wasn't correct");
+        const shopIds = await contract.getShopIds(shopOwner);
+        assert.equal(shopIds.length, 1, "Shop count wasn't correct");
 
     });
 
@@ -62,24 +58,17 @@ contract('ShopFactory', function(accounts) {
         // Now call the function for real and write the data
         await contract.createShop(shopName, shopDesc, {from: shopOwner});
 
-        // Make sure the Shop name matches
-        const name = await contract.getShopName(shopId);
-        assert.equal(name, shopName, "Shop name wasn't returned");
-
         // Make sure the owner's Shop count is correct
-        const count = await contract.getShopCount(shopOwner);
-        assert.equal(count.toNumber(), 2, "Shop count wasn't correct");
+        const shopIds = await contract.getShopIds(shopOwner);
+        assert.equal(shopIds.length, 2, "Shop count wasn't correct");
 
     });
 
     it("should allow shop owner retrieve a list of their shops", async function() {
 
-        // Make sure the owner's Shop count is correct
-        const count = await contract.getShopCount(shopOwner);
-
         // Get the list of ShopIDs for the owner
         const shopIds = await contract.getShopIds(shopOwner);
-        assert.equal(shopIds.length, count, "Shop list length was wrong");
+        assert.equal(shopIds.length, 2, "Shop list length was wrong");
 
     });
 

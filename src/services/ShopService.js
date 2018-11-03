@@ -3,12 +3,7 @@ export const fetchShopIds = async (contract, owner) => {
 
     let ids = [];
 
-    // get the count of shops first
-    const count = await contract.methods.getShopCount(owner).call();
-
-    if (count > 0) {
-        ids = await contract.methods.getShopIds(owner).call();
-    }
+    ids = await contract.methods.getShopIds(owner).call();
 
     return ids;
 };
