@@ -1,46 +1,45 @@
 /**
- * Schema Entity: Shop
+ * Schema Entity: SKUType
  *
  * @author Cliff Hall <cliff@futurescale.com>
  */
-class Shop {
+class SKUType {
 
     /**
      * Constructor
-     * @param owner
      * @param shopId
      * @param name
      * @param description
      * @constructor
      */
 
-    constructor (owner, shopId, name, description) {
-        this.owner = owner;
+    constructor (shopId, skuTypeId, name, description) {
+        this.skuTypeId = skuTypeId;
         this.shopId = shopId;
         this.name = name;
         this.description = description;
     }
 
     /**
-     * Get a new Shop instance from an array returned from ShopFactory.getShop()
+     * Get a new SKUType instance from an array returned from SKUTypeFactory.getSKUType()
      * @param a
-     * @returns {Shop}
+     * @returns {SKUType}
      */
     static fromArray(a) {
-        return new Shop(a[0], a[1], a[2], a[3]);
+        return new SKUType(a[0], a[1], a[2], a[3]);
     }
 
     /**
-     * Get a new Shop instance from a database representation
+     * Get a new SKUType instance from a database representation
      * @param o
-     * @returns {Shop}
+     * @returns {SKUType}
      */
     static fromObject(o) {
-        return new Shop(o.owner, o.shopId, o.name, o.description);
+        return new SKUType(o.shopId, o.skuTypeId, o.name, o.description);
     }
 
     /**
-     * Get a database representation of this Shop instance
+     * Get a database representation of this SKUType instance
      * @returns {object}
      */
     toObject() {
@@ -48,37 +47,20 @@ class Shop {
     }
 
     /**
-     * Get a string representation of this Shop instance
+     * Get a string representation of this SKUType instance
      * @returns {boolean}
      */
     toString() {
         return [
-            this.owner,
             this.shopId,
+            this.skuTypeId,
             this.name,
             this.description
         ].join(', ');
     }
 
     /**
-     * Is this Shop instance's owner field valid?
-     * @returns {boolean}
-     */
-    ownerIsValid() {
-        let valid = false;
-        let regex = RegExp(/^0x[a-fA-F0-9]{40}$/);
-        try {
-            valid = (
-                typeof this.owner === 'string' &&
-                regex.test(this.owner)
-            );
-        } catch (e) {
-        }
-        return valid;
-    };
-
-    /**
-     * Is this Shop instance's shopId field valid?
+     * Is this SKUType instance's shopId field valid?
      * @returns {boolean}
      */
     shopIdIsValid() {
@@ -94,7 +76,23 @@ class Shop {
     }
 
     /**
-     * Is this Shop instance's name field valid?
+     * Is this SKUType instance's skuTypeId field valid?
+     * @returns {boolean}
+     */
+    skuTypeIdIsValid() {
+        let valid = false;
+        try {
+            valid = (
+                typeof this.skuTypeId === 'number' &&
+                this.skuTypeId >= 0
+            );
+        } catch (e) {
+        }
+        return valid;
+    }
+
+    /**
+     * Is this SKUType instance's name field valid?
      * @returns {boolean}
      */
     nameIsValid() {
@@ -110,15 +108,14 @@ class Shop {
     };
 
     /**
-     * Is this Shop instance's description field valid?
+     * Is this SKUType instance's description field valid?
      * @returns {boolean}
      */
     descriptionIsValid() {
         let valid = false;
         try {
             valid = (
-                typeof this.description === 'string' &&
-                this.description.length > 0
+                typeof this.description === 'string'
             );
         } catch (e) {
         }
@@ -126,17 +123,17 @@ class Shop {
     };
 
     /**
-     * Is this Shop instance valid?
+     * Is this SKUType instance valid?
      * @returns {boolean}
      */
     isValid() {
         return (
-            this.ownerIsValid() &&
             this.shopIdIsValid() &&
+            this.skuTypeIdIsValid &&
             this.nameIsValid() &&
             this.descriptionIsValid()
         );
     };
 }
 
-export default Shop;
+export default SKUType;
