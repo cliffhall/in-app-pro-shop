@@ -3,6 +3,7 @@ import { Navbar, Nav,NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { accountsFetched, selectAccount } from '../../store/account/AccountActions';
 import { getShops, selectShop } from '../../store/shop/ShopActions';
+import { getSKUTypes } from '../../store/sku_type/SKUTypeActions';
 import { PRO_SHOP } from "../../constants/Contracts";
 
 class Navigation extends Component {
@@ -13,6 +14,8 @@ class Navigation extends Component {
             selectAccount,
             getShops,
             selectedAccount,
+            selectedShopId,
+            getSKUTypes,
             drizzleState,
             drizzle,
             initialized,
@@ -31,9 +34,14 @@ class Navigation extends Component {
             selectAccount(accounts[0]);
         }
 
-        // Get shopIds when account is selected
+        // Get Shops when account is selected
         if (selectedAccount && selectedAccount !== prevProps.selectedAccount) {
             getShops(drizzle.contracts[PRO_SHOP], selectedAccount);
+        }
+
+        // Get SKUTypes when Shop is selected
+        if (selectedShopId && selectedShopId !== prevProps.selectedShopId) {
+            getSKUTypes(drizzle.contracts[PRO_SHOP], selectedShopId);
         }
 
     }
@@ -118,7 +126,9 @@ const mapStateToProps = (state) => ({
     selectedAccount: state.accountState.selectedAccount,
     shops: state.shopState.shops,
     selectedShopId: state.shopState.selectedShopId,
-    shopsFetched: state.shopState.shopsFetched
+    shopsFetched: state.shopState.shopsFetched,
+    selectedSKUTypeId: state.skuTypeState.selectedSKUTypeId,
+    skuTypesFetched: state.skuTypeState.skuTypesFetched
 });
 
 // Map dispatch function into props
@@ -126,7 +136,8 @@ const mapDispatchToProps = (dispatch) => ({
     accountsFetched: accounts => dispatch(accountsFetched(accounts)),
     selectAccount: account => dispatch(selectAccount(account)),
     getShops: (contract, account) => dispatch(getShops(contract, account)),
-    selectShop: shopId => dispatch(selectShop(shopId))
+    selectShop: shopId => dispatch(selectShop(shopId)),
+    getSKUTypes: (contract, shopId) => dispatch(getSKUTypes(contract, shopId))
 });
 
 // Export props-mapped HOC

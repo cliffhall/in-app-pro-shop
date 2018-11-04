@@ -17,8 +17,8 @@ module.exports = async function(done){
     let contract = await ProShop.deployed();
     let promises = [];
     shopIds.forEach( (shopId, x) => {
-        names[x].forEach( (name, y) => {
-                promises.push(contract.createSKUType(shopIds[x], name[y], descs[x][y], {from: shopOwner}));
+        names[x].forEach( (nameSet, y) => {
+                promises.push(contract.createSKUType(shopIds[x], names[x][y], descs[x][y], {from: shopOwner}));
             }
         )
     } );

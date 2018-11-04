@@ -52,6 +52,14 @@ contract('SKUTypeFactory', function(accounts) {
         const skuTypeIds = await contract.getSKUTypeIds(shopId);
         assert.equal(skuTypeIds.length, 1, "Shop SKU Type count wasn't correct");
 
+        // verify contents of SKUType
+        const item = await contract.getSKUType(skuTypeId);
+        assert.equal(item.length, 4, "SKU Type field count wasn't correct");
+        assert.equal(item[0].toNumber(), shopId, "Shop ID field wasn't correct");
+        assert.equal(item[1].toNumber(), skuTypeId, "SKU Type id field wasn't correct");
+        assert.equal(item[2], skuTypeName, "SKU Type name field wasn't correct");
+        assert.equal(item[3], skuTypeDesc, "SKU Type description field wasn't correct");
+
     });
 
 });

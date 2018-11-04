@@ -83,7 +83,7 @@ contract('ShopFactory', function(accounts) {
         const shop = await contract.getShop(shopId);
 
         assert.equal(shop[0], shopOwner, "Shop owner address was wrong");
-        assert.equal(shop[1], shopId,    "Shop ID was wrong");
+        assert.equal(shop[1].toNumber(), shopId,    "Shop ID was wrong");
         assert.equal(shop[2], shopName,  "Shop name was wrong");
         assert.equal(shop[3], shopDesc,  "Shop description was wrong");
 

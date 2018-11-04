@@ -5,7 +5,7 @@ import thunkMiddleware from 'redux-thunk';
 
 // Reducers
 import shopReducer from './shop/ShopReducer';
-//import skuReducer from './sku/reducer';
+import skuTypeReducer from './sku_type/SKUTypeReducer';
 import accountReducer from './account/AccountReducer';
 
 const loggerMiddleware = createLogger();
@@ -13,7 +13,7 @@ const loggerMiddleware = createLogger();
 // Root reducer
 const rootReducer = combineReducers({
     shopState: shopReducer,
-    //skuState: skuReducer,
+    skuTypeState: skuTypeReducer,
     accountState: accountReducer
 });
 

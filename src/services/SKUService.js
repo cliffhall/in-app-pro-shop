@@ -1,7 +1,9 @@
 
-export const fetchSKUIds = owner => {
+export const fetchSKUIds = async (contract, shopId) => {
 
-    return [];
+    const ids = await contract.methods.getSKUIds(shopId).call();
+
+    return ids;
 };
 
 export const fetchSKU = id => {
