@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, Nav,NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { accountsFetched, selectAccount } from '../../store/account/AccountActions';
 import { getShops, selectShop } from '../../store/shop/ShopActions';
 import { getSKUTypes } from '../../store/sku_type/SKUTypeActions';
@@ -82,20 +83,22 @@ class Navigation extends Component {
 
         // Render the shops menu
         const renderShopsMenu = () => {
-            const {shops, selectShop} = this.props;
-            return <NavDropdown title='Shops' id='shop-dropdown'>
-                {shops.length
-                    ? shops.map(
-                        shop => <MenuItem
-                            key={shop.shopId}
-                            eventKey={shop.shopId}
-                            active={shop.shopId === selectedShopId}
-                            onSelect={() => selectShop(shop.shopId)}
-                        >{shop.name}</MenuItem>)
-                : <MenuItem disabled={true}>No Shops</MenuItem>}
-                <MenuItem divider/>
-                <MenuItem>Create Shop</MenuItem>
-            </NavDropdown>;
+            const {shops, selectShop, accounts} = this.props;
+            return accounts
+                ? <NavDropdown title='Shops' id='shop-dropdown'>
+                    {shops.length
+                        ? shops.map(
+                            shop => <MenuItem
+                                key={shop.shopId}
+                                eventKey={shop.shopId}
+                                active={shop.shopId === selectedShopId}
+                                onSelect={() => selectShop(shop.shopId)}
+                            >{shop.name}</MenuItem>)
+                    : <MenuItem disabled={true}>No Shops</MenuItem>}
+                    <MenuItem divider/>
+                    <MenuItem>Create Shop</MenuItem>
+                  </NavDropdown>
+                : null;
         };
 
         // Render the Navbar
@@ -141,4 +144,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 // Export props-mapped HOC
-export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Navigation));
