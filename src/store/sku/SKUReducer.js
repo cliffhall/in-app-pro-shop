@@ -14,6 +14,8 @@ const INITIAL_STATE = {
         skuName: null,
         creatingSKU: false
     },
+    fetchingIds: false,
+    idsFetched: false,
     skuIds:[]
 };
 
