@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 
 import ProShop from './abi/ProShop.json';
-import App from './components/App/App'
+import App from './components/App'
 import store from './store';
 
 const drizzleOptions = {
