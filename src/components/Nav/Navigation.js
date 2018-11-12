@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Navbar, Nav,NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { accountsFetched, selectAccount } from '../../store/account/AccountActions';
 import { getShops, selectShop } from '../../store/shop/ShopActions';
 import { getSKUTypes } from '../../store/sku_type/SKUTypeActions';
@@ -144,4 +143,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 // Export props-mapped HOC
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Navigation));
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
