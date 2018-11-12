@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Navbar, Nav,NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { accountsFetched, selectAccount } from '../../store/account/AccountActions';
-import { getShops, selectShop } from '../../store/shop/ShopActions';
-import { getSKUTypes } from '../../store/sku_type/SKUTypeActions';
-import { PRO_SHOP } from "../../constants/Contracts";
+import { accountsFetched, selectAccount } from '../store/account/AccountActions';
+import { getShops, selectShop } from '../store/shop/ShopActions';
+import { getSKUTypes } from '../store/sku_type/SKUTypeActions';
+import { PRO_SHOP } from "../constants/Contracts";
 
-class Navigation extends Component {
+class NavigationBar extends Component {
 
     componentDidUpdate(prevProps) {
         const {
@@ -50,7 +50,6 @@ class Navigation extends Component {
         const {
             selectedAccount,
             selectedShopId,
-            shopsFetched,
             initialized
         } = this.props;
 
@@ -108,10 +107,7 @@ class Navigation extends Component {
             </Navbar.Header>
             <Navbar.Collapse>
                 <Nav pullRight>
-                {shopsFetched
-                    ? renderShopsMenu()
-                    : <NavItem>Loading Shops...</NavItem>
-                }
+                {renderShopsMenu()}
                 {initialized
                     ? renderAccountsMenu()
                     : <NavItem>Connecting...</NavItem>
@@ -143,4 +139,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 // Export props-mapped HOC
-export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
+export default connect(mapStateToProps, mapDispatchToProps)(NavigationBar);
