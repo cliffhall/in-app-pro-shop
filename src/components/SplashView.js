@@ -138,7 +138,7 @@ class SplashView extends Component {
                 : <Button
                     bsSize='large'
                     disabled={isSubmitDisabled()}
-                    onClick={handleSubmit}>Submit</Button>}
+                    onClick={handleSubmit}>Create</Button>}
 
         </Form></Well></FlexChild>;
     };
