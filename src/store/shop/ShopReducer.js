@@ -4,6 +4,8 @@ import {
     SHOPS_REQUESTED,
     SHOPS_FETCHED,
     SHOP_SELECTED,
+    NAME_CHANGED,
+    DESC_CHANGED,
     CREATING_SHOP
 } from './ShopActions';
 
@@ -13,10 +15,11 @@ import {
 
 const INITIAL_STATE = {
     newShop: {
-        shopId: null,
-        shopName: null,
-        creatingShop: false
+        owner: null,
+        name: "",
+        description: "",
     },
+    creatingShop: false,
 
     fetchingIds: false,
     idsFetched: false,
@@ -78,12 +81,34 @@ function shopReducer(state=INITIAL_STATE, action) {
             };
             break;
 
-        case CREATING_SHOP:
+        case NAME_CHANGED:
             reduced = {
                 ...state,
                 newShop: {
-                    creatingShop: action.creatingShop,
-                    shopName: action.shopName
+                    ...state.newShop,
+                    name: action.name,
+                }
+            };
+            break;
+
+        case DESC_CHANGED:
+            reduced = {
+                ...state,
+                newShop: {
+                    ...state.newShop,
+                    description: action.description,
+                }
+            };
+            break;
+
+        case CREATING_SHOP:
+            reduced = {
+                ...state,
+                creatingShop: action.creatingShop,
+                newShop: {
+                    owner: action.owner,
+                    name: action.name,
+                    description: action.description
                 }
             };
             break;

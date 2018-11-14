@@ -7,6 +7,9 @@ export const IDS_FETCHED      = 'shop/ids-fetched';
 export const SHOPS_REQUESTED  = 'shop/items-requested';
 export const SHOPS_FETCHED    = 'shop/items-fetched';
 export const SHOP_SELECTED    = 'shop/selected';
+export const NAME_CHANGED     = 'shop/name-changed';
+export const DESC_CHANGED     = 'shop/description-changed';
+
 export const CREATING_SHOP    = 'shop/creating';
 
 export const getShops = (contract, owner) => {
@@ -61,12 +64,30 @@ export const selectShop = shopId => {
 
 };
 
-export const createShop = (owner, name, desc) => {
+export const createShop = (owner, name, description) => {
     return {
         type: CREATING_SHOP,
         creatingShop: true,
         owner,
         name,
-        desc
+        description
     };
+};
+
+export const nameChanged = name => {
+
+    return {
+        type: NAME_CHANGED,
+        name
+    };
+
+};
+
+export const descChanged = description => {
+
+    return {
+        type: DESC_CHANGED,
+        description
+    };
+
 };
