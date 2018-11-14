@@ -106,6 +106,7 @@ class SplashView extends Component {
                 controlId='nameField'
                 validationState={getNameValidationState()}>
                 <FormControl
+                    disabled={creatingShop}
                     type="text"
                     bsSize='large'
                     placeholder="Shop Name"
@@ -117,6 +118,7 @@ class SplashView extends Component {
                 controlId='descField'
                 validationState={getDescValidationState()}>
                 <FormControl
+                    disabled={creatingShop}
                     componentClass="textarea"
                     bsSize='large'
                     placeholder="Description"

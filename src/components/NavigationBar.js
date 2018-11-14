@@ -60,9 +60,12 @@ class NavigationBar extends Component {
 
         // Render the accounts menu
         const renderAccountsMenu = () => {
-            const {accounts, selectAccount} = this.props;
+            const {accounts, selectAccount, creatingShop} = this.props;
             return accounts
-                ? <NavDropdown title={`Accounts (${accounts.length})`} id='account-dropdown'>
+                ? <NavDropdown
+                    disabled={creatingShop}
+                    title={`Accounts (${accounts.length})`}
+                    id='account-dropdown'>
                         {accounts.map(
                             account => <MenuItem
                                 key={account}
@@ -81,9 +84,12 @@ class NavigationBar extends Component {
 
         // Render the shops menu
         const renderShopsMenu = () => {
-            const {shops, selectShop, accounts} = this.props;
+            const {shops, selectShop, accounts, creatingShop} = this.props;
             return accounts
-                ? <NavDropdown title={`Shops (${shops.length})`} id='shop-dropdown'>
+                ? <NavDropdown
+                    disabled={creatingShop}
+                    title={`Shops (${shops.length})`}
+                    id='shop-dropdown'>
                     {shops.length
                         ? shops.map(
                             shop => <MenuItem
@@ -124,7 +130,8 @@ const mapStateToProps = (state) => ({
     selectedShopId: state.shopState.selectedShopId,
     shopsFetched: state.shopState.shopsFetched,
     selectedSKUTypeId: state.skuTypeState.selectedSKUTypeId,
-    skuTypesFetched: state.skuTypeState.skuTypesFetched
+    skuTypesFetched: state.skuTypeState.skuTypesFetched,
+    creatingShop: state.shopState.creatingShop
 });
 
 // Map dispatch function into props
