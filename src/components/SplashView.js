@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from "styled-components";
-import {Well, Form, FormGroup, FormControl, Button} from 'react-bootstrap';
+import {Well, Form, FormGroup, FormControl, HelpBlock, Button} from 'react-bootstrap';
 import { HollowDotsSpinner } from 'react-epic-spinners'
 
 import {
@@ -82,7 +82,7 @@ class SplashView extends Component {
         };
 
         const getDescValidationState = () => {
-            return (description.length === 0) ? null : (description.length > 5) ? SUCCESS : ERROR;
+            return (description.length === 0) ? null : (description.length > 10) ? SUCCESS : ERROR;
         };
 
         const isSubmitDisabled = () => {
@@ -113,6 +113,9 @@ class SplashView extends Component {
                     onChange={handleNameChange}
                 />
                 <FormControl.Feedback />
+                {(getNameValidationState() === ERROR)
+                    ? <HelpBlock>Enter at least 5 characters</HelpBlock>
+                    : null}
             </FormGroup>
             <FormGroup
                 controlId='descField'
@@ -125,6 +128,9 @@ class SplashView extends Component {
                     onChange={handleDescChange}
                 />
                 <FormControl.Feedback />
+                {(getDescValidationState() === ERROR)
+                    ? <HelpBlock>Enter at least 10 characters</HelpBlock>
+                    : null}
             </FormGroup>
 
             {creatingShop
