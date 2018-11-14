@@ -13,17 +13,24 @@ const Wrapper = styled.section`
 
 class App extends Component {
 
-    // Render the component
+    renderNavigation = drizzleContext => {
+        const {drizzle, drizzleState, initialized} = drizzleContext;
+        return <NavigationBar drizzle={drizzle} drizzleState={drizzleState} initialized={initialized}/>;
+    };
+
+    renderAppContent = () => {
+        return this.props.selectedShopId
+            ? <ShopView/>
+            : <SplashView/>;
+    };
+
     render() {
 
         return <DrizzleContext.Consumer>
             {drizzleContext => {
-                const {drizzle, drizzleState, initialized} = drizzleContext;
                 return <Wrapper>
-                        <NavigationBar drizzle={drizzle} drizzleState={drizzleState} initialized={initialized}/>
-                        {this.props.selectedShopId
-                            ? <ShopView/>
-                            : <SplashView/>}
+                        {this.renderNavigation(drizzleContext)}
+                        {this.renderAppContent()}
                     </Wrapper>;
             }}
         </DrizzleContext.Consumer>;
@@ -35,10 +42,5 @@ const mapStateToProps = (state) => ({
     selectedShopId: state.shopState.selectedShopId,
 });
 
-// Map dispatch function into props
-const mapDispatchToProps = (dispatch) => ({
-    //dispatch: dispatch
-});
-
 // Export props-mapped HOC
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);

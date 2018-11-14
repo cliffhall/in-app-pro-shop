@@ -62,7 +62,7 @@ class NavigationBar extends Component {
         const renderAccountsMenu = () => {
             const {accounts, selectAccount} = this.props;
             return accounts
-                ? <NavDropdown title='Accounts' id='account-dropdown'>
+                ? <NavDropdown title={`Accounts (${accounts.length})`} id='account-dropdown'>
                         {accounts.map(
                             account => <MenuItem
                                 key={account}
@@ -83,7 +83,7 @@ class NavigationBar extends Component {
         const renderShopsMenu = () => {
             const {shops, selectShop, accounts} = this.props;
             return accounts
-                ? <NavDropdown title='Shops' id='shop-dropdown'>
+                ? <NavDropdown title={`Shops (${shops.length})`} id='shop-dropdown'>
                     {shops.length
                         ? shops.map(
                             shop => <MenuItem
@@ -93,8 +93,6 @@ class NavigationBar extends Component {
                                 onSelect={() => selectShop(shop.shopId)}
                             >{shop.name}</MenuItem>)
                     : <MenuItem disabled={true}>No Shops</MenuItem>}
-                    <MenuItem divider/>
-                    <MenuItem>Create Shop</MenuItem>
                   </NavDropdown>
                 : null;
         };
