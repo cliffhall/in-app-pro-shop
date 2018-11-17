@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, Nav,NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
+import { Navbar, Nav,NavItem, NavDropdown, MenuItem, Glyphicon} from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { accountsFetched, selectAccount } from '../store/account/AccountActions';
 import { getShops, selectShop } from '../store/shop/ShopActions';
@@ -99,6 +99,10 @@ class NavigationBar extends Component {
                                 onSelect={() => selectShop(shop.shopId)}
                             >{shop.name}</MenuItem>)
                     : <MenuItem disabled={true}>No Shops</MenuItem>}
+                    <MenuItem divider/>
+                    {selectedShopId
+                        ? <MenuItem onClick={() => selectShop(null)}>Create Shop</MenuItem>
+                        : <MenuItem disabled>Create Shop</MenuItem>}
                   </NavDropdown>
                 : null;
         };
@@ -106,7 +110,11 @@ class NavigationBar extends Component {
         // Render the Navbar
         return <Navbar fixedTop={true} collapseOnSelect>
             <Navbar.Header>
-                <Navbar.Brand>In-App Pro Shop</Navbar.Brand>
+                <Navbar.Brand>
+                    <Glyphicon glyph="tower"/>
+                    &nbsp;
+                    In-App Pro Shop
+                </Navbar.Brand>
                 <Navbar.Toggle/>
             </Navbar.Header>
             <Navbar.Collapse>
