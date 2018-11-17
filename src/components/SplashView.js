@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from "styled-components";
 import {Well, Form, FormGroup, FormControl, HelpBlock, Button} from 'react-bootstrap';
-import { HollowDotsSpinner } from 'react-epic-spinners'
+import { HollowDotsSpinner, AtomSpinner } from 'react-epic-spinners'
 
 import {
     createNewShop,
@@ -52,11 +52,20 @@ class SplashView extends Component {
     };
 
     renderNoAccountContent = () => {
-        return <FlexChild><Well>
-            <h2>Connect an Ethereum Account</h2>
-            <p>In order to use this Dapp, you must use a browser plugin (e.g., Metamask) or an Ethereum-aware browser (e.g., Trust)</p>
-            <p>You'll need to configure your plugin or browser with one or more accounts that you'll use to maintain Shops, withdraw balances, and make test purchases.</p>
-        </Well></FlexChild>;
+        const {initialized} = this.props;
+        return <FlexChild>
+            {initialized
+                ? <Well>
+                    <h2>Connect an Ethereum Account</h2>
+                    <p>In order to use this Dapp, you must use a browser plugin (e.g., Metamask) or an Ethereum-aware browser (e.g., Trust)</p>
+                    <p>You'll need to configure your plugin or browser with one or more accounts that you'll use to maintain Shops, withdraw balances, and make test purchases.</p>
+                    </Well>
+                : <Well>
+                    <h2>Connecting&nbsp;Ethereum</h2>
+                    <AtomSpinner color='red'/>
+                  </Well>
+            }
+        </FlexChild>;
     };
 
     renderNewShopForm = () => {
