@@ -18,10 +18,11 @@ class App extends Component {
         return <NavigationBar drizzle={drizzle} drizzleState={drizzleState} initialized={initialized}/>;
     };
 
-    renderAppContent = () => {
+    renderAppContent = drizzleContext => {
+        const {drizzle, drizzleState, initialized} = drizzleContext;
         return this.props.selectedShopId
-            ? <ShopView/>
-            : <SplashView/>;
+            ? <ShopView drizzle={drizzle} drizzleState={drizzleState} initialized={initialized}/>
+            : <SplashView drizzle={drizzle} drizzleState={drizzleState} initialized={initialized}/>;
     };
 
     render() {
@@ -30,7 +31,7 @@ class App extends Component {
             {drizzleContext => {
                 return <Wrapper>
                         {this.renderNavigation(drizzleContext)}
-                        {this.renderAppContent()}
+                        {this.renderAppContent(drizzleContext)}
                     </Wrapper>;
             }}
         </DrizzleContext.Consumer>;

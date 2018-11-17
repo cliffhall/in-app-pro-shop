@@ -1,5 +1,5 @@
 // Service functions
-import { fetchShopIds, fetchShops } from '../../services/ShopService';
+import { fetchShopIds, fetchShops, createShop } from '../../services/ShopService';
 
 // Shop related actions
 export const IDS_REQUESTED    = 'shop/ids-requested';
@@ -9,8 +9,8 @@ export const SHOPS_FETCHED    = 'shop/items-fetched';
 export const SHOP_SELECTED    = 'shop/selected';
 export const NAME_CHANGED     = 'shop/name-changed';
 export const DESC_CHANGED     = 'shop/description-changed';
-
 export const CREATING_SHOP    = 'shop/creating';
+export const SHOP_CREATED     = 'shop/created';
 
 export const getShops = (contract, owner) => {
 
@@ -64,14 +64,29 @@ export const selectShop = shopId => {
 
 };
 
-export const createShop = (owner, name, description) => {
-    return {
-        type: CREATING_SHOP,
-        creatingShop: true,
-        owner,
-        name,
-        description
+export const createNewShop = (contract, owner, name, description) => {
+
+    return async function(dispatch) {
+
+        dispatch({
+            type: CREATING_SHOP,
+            creatingShop: true,
+            owner,
+            name,
+            description
+        });
+
+        const shop = await createShop(contract, owner, name, description);
+
+        dispatch({
+            type: SHOP_CREATED,
+            shop,
+            creatingShop: false
+        });
+
+        dispatch(selectShop(shop.shopId));
     };
+
 };
 
 export const nameChanged = name => {

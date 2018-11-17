@@ -6,7 +6,7 @@ import {
     SHOP_SELECTED,
     NAME_CHANGED,
     DESC_CHANGED,
-    CREATING_SHOP
+    CREATING_SHOP, SHOP_CREATED
 } from './ShopActions';
 
 import {
@@ -110,6 +110,16 @@ function shopReducer(state=INITIAL_STATE, action) {
                     name: action.name,
                     description: action.description
                 }
+            };
+            break;
+
+        case SHOP_CREATED:
+            reduced = {
+                ...state,
+                ids: state.ids.concat([action.shop.shopId]),
+                shops: state.shops.concat([action.shop]),
+                creatingShop: action.creatingShop,
+                newShop: INITIAL_STATE.newShop
             };
             break;
 
