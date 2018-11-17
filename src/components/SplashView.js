@@ -5,10 +5,11 @@ import {Well, Form, FormGroup, FormControl, HelpBlock, Button} from 'react-boots
 import { HollowDotsSpinner } from 'react-epic-spinners'
 
 import {
-    createShop,
+    createNewShop,
     nameChanged,
     descChanged
 } from "../store/shop/ShopActions";
+import {PRO_SHOP} from "../constants/Contracts";
 
 const FlexRow = styled.section`
   display: flex;
@@ -61,10 +62,11 @@ class SplashView extends Component {
     renderNewShopForm = () => {
 
         const {
+            drizzle,
             selectedAccount,
             name,
             description,
-            createShop,
+            createNewShop,
             nameChanged,
             descChanged,
             creatingShop
@@ -74,7 +76,7 @@ class SplashView extends Component {
         const ERROR = 'error';
 
         const handleSubmit = () => {
-            createShop(selectedAccount, name, description);
+            createNewShop(drizzle.contracts[PRO_SHOP], selectedAccount, name, description);
         };
 
         const getNameValidationState = () => {
@@ -168,7 +170,7 @@ const mapStateToProps = (state) => ({
 
 // Map dispatch function into props
 const mapDispatchToProps = (dispatch) => ({
-    createShop: (owner, name, description) => dispatch(createShop(owner, name, description)),
+    createNewShop: (contract, owner, name, description) => dispatch(createNewShop(contract, owner, name, description)),
     nameChanged: name => {dispatch(nameChanged(name))},
     descChanged: description => {dispatch(descChanged(description))},
 });

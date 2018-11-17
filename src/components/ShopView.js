@@ -11,7 +11,10 @@ class ShopView extends Component {
         const {shop} = this.props;
 
         return  <Panel>
-                    <Panel.Heading>{shop.name}</Panel.Heading>
+                    <Panel.Heading>
+                        <Panel.Title>{shop.name}</Panel.Title>
+                        {shop.description}
+                    </Panel.Heading>
                     <Panel.Body>
 
                     </Panel.Body>
