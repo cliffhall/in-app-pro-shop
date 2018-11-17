@@ -70,7 +70,7 @@ class NavigationBar extends Component {
                             account => <MenuItem
                                 key={account}
                                 eventKey={account}
-                                active={account === selectedAccount}
+                                disabled={account === selectedAccount}
                                 onSelect={() => selectAccount(account)}
                             >{account}</MenuItem>)}
                         <MenuItem divider/>
