@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
-import { Panel } from "react-bootstrap";
+import {Panel, PanelGroup, Well} from "react-bootstrap";
 import { connect } from 'react-redux';
-
+import SKUTypeView from './SKUTypeView';
+import {AtomSpinner} from "react-epic-spinners";
 
 class ShopView extends Component {
 
-    // Render the component
+    renderSKUTypes = () => {
+        const {skuTypesFetched, skuTypes} = this.props;
+
+        return skuTypesFetched
+            ? skuTypes.map( skuType => <SKUTypeView skuType={skuType}/> )
+            : <Well>
+                <h2>Fetching SKU Types</h2>
+                <AtomSpinner color='red'/>
+            </Well>;
+    };
+
     render() {
 
         const {shop} = this.props;
@@ -16,7 +27,11 @@ class ShopView extends Component {
                         {shop.description}
                     </Panel.Heading>
                     <Panel.Body>
-
+                        <PanelGroup accordion id="skuTypes">
+                            {
+                                this.renderSKUTypes()
+                            }
+                        </PanelGroup>
                     </Panel.Body>
                 </Panel>;
     }
@@ -24,14 +39,14 @@ class ShopView extends Component {
 
 // Map required state into props
 const mapStateToProps = (state) => ({
-    accounts: state.accountState.accounts,
     selectedAccount: state.accountState.selectedAccount,
     shops: state.shopState.shops,
     shop: state.shopState.shops.find(shop => shop.shopId === state.shopState.selectedShopId),
     selectedShopId: state.shopState.selectedShopId,
     shopsFetched: state.shopState.shopsFetched,
     selectedSKUTypeId: state.skuTypeState.selectedSKUTypeId,
-    skuTypesFetched: state.skuTypeState.skuTypesFetched
+    skuTypesFetched: state.skuTypeState.skuTypesFetched,
+    skuTypes: state.skuTypeState.skuTypes
 });
 
 // Map dispatch function into props

@@ -38,10 +38,8 @@ class App extends Component {
     }
 }
 
-// Map required state into props
 const mapStateToProps = (state) => ({
     selectedShopId: state.shopState.selectedShopId,
 });
 
-// Export props-mapped HOC
 export default connect(mapStateToProps)(App);
