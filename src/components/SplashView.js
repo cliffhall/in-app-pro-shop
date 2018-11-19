@@ -168,7 +168,6 @@ class SplashView extends Component {
     }
 }
 
-// Map required state into props
 const mapStateToProps = (state) => ({
     accounts: state.accountState.accounts,
     selectedAccount: state.accountState.selectedAccount,
@@ -177,12 +176,10 @@ const mapStateToProps = (state) => ({
     creatingShop: state.shopState.creatingShop
 });
 
-// Map dispatch function into props
 const mapDispatchToProps = (dispatch) => ({
     createNewShop: (contract, owner, name, description) => dispatch(createNewShop(contract, owner, name, description)),
     nameChanged: name => {dispatch(nameChanged(name))},
     descChanged: description => {dispatch(descChanged(description))},
 });
 
-// Export props-mapped HOC
 export default connect(mapStateToProps, mapDispatchToProps)(SplashView);

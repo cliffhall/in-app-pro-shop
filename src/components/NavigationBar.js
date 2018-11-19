@@ -130,7 +130,6 @@ class NavigationBar extends Component {
     }
 }
 
-// Map required state into props
 const mapStateToProps = (state) => ({
     accounts: state.accountState.accounts,
     selectedAccount: state.accountState.selectedAccount,
@@ -142,7 +141,6 @@ const mapStateToProps = (state) => ({
     creatingShop: state.shopState.creatingShop
 });
 
-// Map dispatch function into props
 const mapDispatchToProps = (dispatch) => ({
     accountsFetched: accounts => dispatch(accountsFetched(accounts)),
     selectAccount: account => dispatch(selectAccount(account)),
@@ -151,5 +149,4 @@ const mapDispatchToProps = (dispatch) => ({
     getSKUTypes: (contract, shopId) => dispatch(getSKUTypes(contract, shopId))
 });
 
-// Export props-mapped HOC
 export default connect(mapStateToProps, mapDispatchToProps)(NavigationBar);
