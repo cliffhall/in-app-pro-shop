@@ -18,3 +18,13 @@ export const fetchSKUTypes = async (contract, ids) => {
     return skuTypes;
 
 };
+
+export const createSKUType = async (contract, owner, shopId, name, description) => {
+
+    const skuTypeId = await contract.methods.createSKUType(shopId, name, description).send({from: owner});
+
+    let skuType = new SKUType(shopId, skuTypeId, name, description);
+
+    return skuType;
+
+};
