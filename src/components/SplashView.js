@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import styled from "styled-components";
 import {Well, Form, FormGroup, FormControl, HelpBlock, Button} from 'react-bootstrap';
 import { HollowDotsSpinner, AtomSpinner } from 'react-epic-spinners'
 
@@ -10,17 +9,7 @@ import {
     descChanged
 } from "../store/shop/ShopActions";
 import {PRO_SHOP} from "../constants/Contracts";
-
-const FlexRow = styled.section`
-  display: flex;
-   @media (max-width: 1023px) {
-    flex-wrap: wrap;
-  }
-`;
-
-const FlexChild = styled.div`
-  margin: 25px;
-`;
+import {FlexChild, FlexRow} from "../styles";
 
 class SplashView extends Component {
 

@@ -1,10 +1,13 @@
-import { fetchSKUTypeIds, fetchSKUTypes } from '../../services/SKUTypeService';
+import { fetchSKUTypeIds, fetchSKUTypes, createSKUType } from '../../services/SKUTypeService';
 
 export const IDS_REQUESTED        = 'sku-type/ids-requested';
 export const IDS_FETCHED          = 'sku-type/ids-fetched';
 export const SKU_TYPES_REQUESTED  = 'sku-type/items-requested';
 export const SKU_TYPES_FETCHED    = 'sku-type/items-fetched';
 export const SKU_TYPE_SELECTED    = 'sku-type/selected';
+export const TOGGLE_TYPE_FORM     = 'sku-type/toggle-form';
+export const NAME_CHANGED         = 'sku-type/name-changed';
+export const DESC_CHANGED         = 'sku-type/description-changed';
 export const CREATING_SKU_TYPE    = 'sku-type/creating';
 export const SKU_TYPE_CREATED     = 'sku-type/created';
 
@@ -56,7 +59,58 @@ export const selectSKUType = skuTypeId => {
 
     return {
         type: SKU_TYPE_SELECTED,
+        showForm: !!skuTypeId,
         selectedSKUTypeId: skuTypeId
+    };
+
+};
+
+export const toggleTypeForm = () => {
+
+    return {
+        type: TOGGLE_TYPE_FORM
+    };
+
+};
+
+export const createNewSKUType = (contract, owner, shopId, name, description) => {
+
+    return async function(dispatch) {
+
+        dispatch({
+            type: CREATING_SKU_TYPE,
+            creatingSKUType: true,
+            shopId,
+            name,
+            description
+        });
+
+        const skuType = await createSKUType(contract, owner, shopId, name, description);
+
+        dispatch({
+            type: SKU_TYPE_CREATED,
+            skuType,
+            creatingSKUType: false,
+            skuTypeFormDisplayed: false
+        });
+    };
+
+};
+
+export const nameChanged = name => {
+
+    return {
+        type: NAME_CHANGED,
+        name
+    };
+
+};
+
+export const descChanged = description => {
+
+    return {
+        type: DESC_CHANGED,
+        description
     };
 
 };

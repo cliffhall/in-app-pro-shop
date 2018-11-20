@@ -4,19 +4,25 @@ import {
     SKU_TYPES_REQUESTED,
     SKU_TYPES_FETCHED,
     SKU_TYPE_SELECTED,
-    //SKU_TYPE_CREATED
+    TOGGLE_TYPE_FORM,
+    NAME_CHANGED,
+    DESC_CHANGED,
+    SKU_TYPE_CREATED
 } from './SKUTypeActions';
 
-import {
-    ACCOUNT_SELECTED
-} from "../account/AccountActions";
+import {ACCOUNT_SELECTED} from "../account/AccountActions";
+import {SHOP_SELECTED} from "../shop/ShopActions";
 
 const INITIAL_STATE = {
-    newSKU: {
-        skuId: null,
-        skuName: null,
-        creatingSKU: false
+    newSKUType: {
+        shopId: null,
+        skuTypeId: null,
+        name: "",
+        description: ""
     },
+    skuTypeFormDisplayed: false,
+    creatingSKUType: false,
+
     fetchingIds: false,
     idsFetched: false,
     ids:[],
@@ -34,6 +40,14 @@ function SKUTypeReducer(state=INITIAL_STATE, action) {
     {
         case ACCOUNT_SELECTED:
             reduced = INITIAL_STATE;
+            break;
+
+        case SHOP_SELECTED:
+            reduced = {
+                ...state,
+                newSKUType: INITIAL_STATE.newSKUType,
+                skuTypeFormDisplayed: false
+            };
             break;
 
         case IDS_REQUESTED:
@@ -76,6 +90,46 @@ function SKUTypeReducer(state=INITIAL_STATE, action) {
                 selectedSKUTypeId: action.selectedSKUTypeId
             };
             break;
+
+        case TOGGLE_TYPE_FORM:
+            reduced = {
+                ...state,
+                skuTypeFormDisplayed: !state.skuTypeFormDisplayed
+            };
+            break;
+
+        case NAME_CHANGED:
+            reduced = {
+                ...state,
+                newSKUType: {
+                    ...state.newSKUType,
+                    name: action.name,
+                }
+            };
+            break;
+
+        case DESC_CHANGED:
+            reduced = {
+                ...state,
+                newSKUType: {
+                    ...state.newSKUType,
+                    description: action.description,
+                }
+            };
+            break;
+
+        case SKU_TYPE_CREATED:
+            reduced = {
+                ...state,
+                ids: state.ids.concat([action.skuType.skuTypeId]),
+                skuTypes: state.skuTypes.concat([action.skuType]),
+                creatingSKUType: action.creatingSKUType,
+                newSKUType: INITIAL_STATE.newSKUType,
+                skuTypeFormDisplayed: action.skuTypeFormDisplayed
+
+            };
+            break;
+
 
         default:
             reduced = state;
