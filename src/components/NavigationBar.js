@@ -1,50 +1,10 @@
 import React, { Component } from 'react';
 import { Navbar, Nav,NavItem, NavDropdown, MenuItem, Glyphicon} from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { accountsFetched, selectAccount } from '../store/account/AccountActions';
-import { getShops, selectShop } from '../store/shop/ShopActions';
-import { getSKUTypes } from '../store/sku_type/SKUTypeActions';
-import { PRO_SHOP } from "../constants/Contracts";
+import { selectAccount } from '../store/account/AccountActions';
+import { selectShop } from '../store/shop/ShopActions';
 
 class NavigationBar extends Component {
-
-    componentDidUpdate(prevProps) {
-        const {
-            accountsFetched,
-            selectAccount,
-            getShops,
-            selectedAccount,
-            selectedShopId,
-            getSKUTypes,
-            drizzleState,
-            drizzle,
-            initialized,
-            accounts
-        } = this.props;
-
-        // Store the accounts when drizzle initializes
-        if (initialized && !prevProps.initialized) {
-            if (Object.keys(drizzleState.accounts).length) {
-                accountsFetched(Object.values(drizzleState.accounts));
-            }
-        }
-
-        // Select the first account when the accounts are fetched
-        if (accounts && accounts.length && !prevProps.accounts) {
-            selectAccount(accounts[0]);
-        }
-
-        // Get Shops when account is selected
-        if (selectedAccount && selectedAccount !== prevProps.selectedAccount) {
-            getShops(drizzle.contracts[PRO_SHOP], selectedAccount);
-        }
-
-        // Get SKUTypes when Shop is selected
-        if (selectedShopId && selectedShopId !== prevProps.selectedShopId) {
-            getSKUTypes(drizzle.contracts[PRO_SHOP], selectedShopId);
-        }
-
-    }
 
     render() {
         const {
@@ -135,18 +95,12 @@ const mapStateToProps = (state) => ({
     selectedAccount: state.accountState.selectedAccount,
     shops: state.shopState.shops,
     selectedShopId: state.shopState.selectedShopId,
-    shopsFetched: state.shopState.shopsFetched,
-    selectedSKUTypeId: state.skuTypeState.selectedSKUTypeId,
-    skuTypesFetched: state.skuTypeState.skuTypesFetched,
     creatingShop: state.shopState.creatingShop
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    accountsFetched: accounts => dispatch(accountsFetched(accounts)),
     selectAccount: account => dispatch(selectAccount(account)),
-    getShops: (contract, account) => dispatch(getShops(contract, account)),
     selectShop: shopId => dispatch(selectShop(shopId)),
-    getSKUTypes: (contract, shopId) => dispatch(getSKUTypes(contract, shopId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavigationBar);
