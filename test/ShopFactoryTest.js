@@ -17,16 +17,19 @@ contract('ShopFactory', function(accounts) {
         const shopDesc = "Great stuff, cheap!";
 
         // Get the Shop ID (using call, to avoid receiving a transaction)
-        const shopId = await contract.createShop.call(shopName, shopDesc, {from: shopOwner});
+        const shopId = (await contract.createShop.call(shopName, shopDesc, {from: shopOwner})).toNumber();
         assert.equal(shopId, 0, "Shop id wasn't returned");
 
-        // Listen for NewShop event (shopId is indexed)
-        let event = contract.NewShop({shopId: shopId});
+        /*
+        // Listen for NewShop event (owner is indexed)
+        let event = contract.NewShop({owner: shopOwner, name: shopName});
         event.watch((err,response) => {
-            assert.equal(response.args.shopId.toNumber(), shopId.toNumber());
-            assert.equal(response.args.name, shopName);
+            assert.equal(response.args.owner, shopOwner, "Shop owner was wrong");
+            assert.equal(response.args.shopId, shopId, "Shop ID was wrong");
+            assert.equal(response.args.name, shopName, "Shop Name was wrong");
             event.stopWatching();
         });
+        */
 
         // Now call the function for real and write the data
         await contract.createShop(shopName, shopDesc, {from: shopOwner});
@@ -44,16 +47,19 @@ contract('ShopFactory', function(accounts) {
         const shopDesc = "Cheap stuff, pricey!";
 
         // Get the Shop ID (using call, to avoid receiving a transaction)
-        const shopId = await contract.createShop.call(shopName, shopDesc, {from: shopOwner});
+        const shopId = (await contract.createShop.call(shopName, shopDesc, {from: shopOwner})).toNumber();
         assert.equal(shopId, 1, "Shop id wasn't returned");
 
-        // Listen for NewShop event (shopId is indexed)
-        let event = contract.NewShop({shopId: shopId});
+        /*
+        // Listen for NewShop event (owner is indexed)
+        let event = contract.NewShop({owner: shopOwner, name: shopName});
         event.watch((err,response) => {
-            assert.equal(response.args.shopId.toNumber(), shopId.toNumber());
-            assert.equal(response.args.name, shopName);
+            assert.equal(response.args.owner, shopOwner, "Shop owner was wrong");
+            assert.equal(response.args.shopId, shopId, "Shop ID was wrong");
+            assert.equal(response.args.name, shopName, "Shop Name was wrong");
             event.stopWatching();
         });
+        */
 
         // Now call the function for real and write the data
         await contract.createShop(shopName, shopDesc, {from: shopOwner});

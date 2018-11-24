@@ -23,13 +23,13 @@ contract('SKUFactory', function(accounts) {
         contract = await ProShop.deployed();
 
         // Get the Shop ID to be created
-        shopId = await contract.createShop.call(shopName, shopDesc, {from: shopOwner});
+        shopId = (await contract.createShop.call(shopName, shopDesc, {from: shopOwner})).toNumber();
 
         // Now call the function for real and write the data
         await contract.createShop(shopName, shopDesc, {from: shopOwner});
 
         // Get the SKUType to be created
-        skuTypeId = await contract.createSKUType.call(shopId, skuTypeName, skuTypeDesc, {from: shopOwner});
+        skuTypeId = (await contract.createSKUType.call(shopId, skuTypeName, skuTypeDesc, {from: shopOwner})).toNumber();
 
         // Create a SKUType
         await contract.createSKUType(shopId, skuTypeName, skuTypeDesc, {from: shopOwner});
@@ -47,24 +47,34 @@ contract('SKUFactory', function(accounts) {
 
         // First, get the skuTypeID with a call so it doesn't return a transaction
         const skuId = await contract.createSKU.call(shopId, skuTypeId, price, skuName, skuDesc, consumable, limited, limit, {from: shopOwner});
-        assert.equal(skuId, 0, "SKU ID id wasn't returned");
 
         // Listen for NewSKU event (filter events by shopId)
-        //let event = contract.NewSKU({shopId: shopId});
-        /*contract.NewSKU().watch((err,response) => {
-            assert.equal(response.args.shopId.toNumber(), shopId);
-            assert.equal(response.args.skuId.toNumber(), skuId);
-            assert.equal(response.args.name, skuName);
+        let event = contract.NewSKU({shopId: shopId});
+        contract.NewSKU().watch((err,response) => {
+            assert.equal(response.args.shopId.toNumber(), shopId, "Shop ID wasn't correct");
+            assert.equal(response.args.skuId.toNumber(), skuId, "SKU ID wasn't correct");
+            assert.equal(response.args.name, skuName, "SKU Name wasn't correct");
             event.stopWatching();
-        });*/
+        });
 
         // Now do it for real
-        //await contract.createSKU(shopId, skuTypeId, price, skuName, skuDesc, consumable, limited, limit, {from: shopOwner});
+        await contract.createSKU(shopId, skuTypeId, price, skuName, skuDesc, consumable, limited, limit, {from: shopOwner});
 
         // Get the count of SKUs for the Shop
-        //const skuIds = await contract.getSKUIds(shopId);
-        //assert.equal(skuIds.count, 1, "Shop SKU count wasn't correct");
+        const skuIds = await contract.getSKUIds(shopId);
+        assert.equal(skuIds.length, 1, "Shop SKU count wasn't correct");
 
+        // verify contents of SKU
+        const item = await contract.getSKU(skuId);
+        assert.equal(item.length, 8, "SKU field count wasn't correct");
+        assert.equal(item[0].toNumber(), shopId, "Shop ID field wasn't correct");
+        assert.equal(item[1].toNumber(), skuTypeId, "SKU Type id field wasn't correct");
+        assert.equal(item[2], price, "price field wasn't correct");
+        assert.equal(item[3], skuName, "SKU name field wasn't correct");
+        assert.equal(item[4], skuDesc, "SKU description field wasn't correct");
+        assert.equal(item[5], consumable, "consumable field wasn't correct");
+        assert.equal(item[6], limited, "limited field wasn't correct");
+        assert.equal(item[7], limit, "limit field wasn't correct");
     });
 
 });
