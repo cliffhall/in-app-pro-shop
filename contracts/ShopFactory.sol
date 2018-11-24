@@ -13,7 +13,7 @@ contract ShopFactory is AccessControl {
      * @dev emitted upon creation of a shop
      * @return uint256 shopId
      */
-    event NewShop(uint256 indexed shopId, string name);
+    event NewShop(address indexed owner, uint256 shopId, string name);
 
     /**
      * @notice Create a Shop
@@ -42,7 +42,7 @@ contract ShopFactory is AccessControl {
         addRole(owner, ROLE_SHOP_OWNER);
 
         // Send an event with the name of the new shop
-        emit NewShop(shopId, _name);
+        emit NewShop(owner, shopId, _name);
 
         // Return the new Shop ID
         return shopId;

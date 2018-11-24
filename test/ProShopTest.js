@@ -27,19 +27,19 @@ contract('ProShop', function(accounts) {
 
         // Invoke the function with 'call' to get the return value contractead of the transaction
         // NOTE: this doesn't actually write the data
-        shopId = await contract.createShop.call(shopName, shopDesc, {from: shopOwner});
+        shopId = (await contract.createShop.call(shopName, shopDesc, {from: shopOwner})).toNumber();
 
         // Now call the function for real and write the data
         await contract.createShop(shopName, shopDesc, {from: shopOwner});
 
         // First, get the skuTypeID with a call so it doesn't return a transaction
-        skuTypeId = await contract.createSKUType.call(shopId, skuTypeName, skuTypeDesc, {from: shopOwner});
+        skuTypeId = (await contract.createSKUType.call(shopId, skuTypeName, skuTypeDesc, {from: shopOwner})).toNumber();
 
         // Now do it for real
         await contract.createSKUType(shopId, skuTypeName, skuTypeDesc, {from: shopOwner});
 
         // First, get the skuTypeID with a call so it doesn't return a transaction
-        skuId = await contract.createSKU.call(shopId, skuTypeId, price, skuName, skuDesc, consumable, limited, limit, {from: shopOwner});
+        skuId = (await contract.createSKU.call(shopId, skuTypeId, price, skuName, skuDesc, consumable, limited, limit, {from: shopOwner})).toNumber();
 
         // Now do it for real
         await contract.createSKU(shopId, skuTypeId, price, skuName, skuDesc, consumable, limited, limit, {from: shopOwner});

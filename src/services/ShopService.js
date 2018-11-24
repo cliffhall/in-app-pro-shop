@@ -41,6 +41,8 @@ export const fetchShops = async (contract, ids) => {
  */
 export const createShop = async (contract, owner, name, description) => {
 
+    //contract.once('NewShop' {shopId}, callback);
+
     const shopId = await contract.methods.createShop(name, description).send({from: owner});
 
     let shop = new Shop(owner, shopId, name, description);

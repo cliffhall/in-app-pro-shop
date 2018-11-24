@@ -17,7 +17,7 @@ contract('SKUTypeFactory', function(accounts) {
         contract = await ProShop.deployed();
 
         // Get the Shop ID (using call, to avoid receiving a transaction)
-        shopId = await contract.createShop.call(shopName, shopDesc, {from: shopOwner});
+        shopId = (await contract.createShop.call(shopName, shopDesc, {from: shopOwner})).toNumber();
 
         // Now call the function for real and write the data
         await contract.createShop(shopName, shopDesc, {from: shopOwner});
@@ -34,21 +34,20 @@ contract('SKUTypeFactory', function(accounts) {
 
         // First, get the skuTypeID with a call so it doesn't return a transaction
         skuTypeId = await contract.createSKUType.call(shopId, skuTypeName, skuTypeDesc, {from: shopOwner});
-        assert.equal(skuTypeId, 0, "SKUTypeId id wasn't returned");
 
         // Listen for NewSKUType event (filter events by shopId)
         let event = contract.NewSKUType({shopId: shopId});
         event.watch((err,response) => {
-            assert.equal(response.args.shopId.toNumber(), shopId);
-            assert.equal(response.args.skuTypeId.toNumber(), skuTypeId);
-            assert.equal(response.args.name, skuTypeName);
+            assert.equal(response.args.shopId.toNumber(), shopId, "Shop ID was wrong");
+            assert.equal(response.args.skuTypeId.toNumber(), skuTypeId, "SKU Type ID was wrong");
+            assert.equal(response.args.name, skuTypeName, "SKU Type Name was wrong");
             event.stopWatching();
         });
 
         // Now do it for real
         await contract.createSKUType(shopId, skuTypeName, skuTypeDesc, {from: shopOwner});
 
-        // This is a view function, so it doesn't create a transaction, returns expected value
+        // Get the count of SKUs for the Shop
         const skuTypeIds = await contract.getSKUTypeIds(shopId);
         assert.equal(skuTypeIds.length, 1, "Shop SKU Type count wasn't correct");
 
