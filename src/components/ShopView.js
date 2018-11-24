@@ -10,6 +10,16 @@ import {toggleTypeForm, createNewSKUType, nameChanged, descChanged} from "../sto
 
 class ShopView extends Component {
 
+    // Render the SKU Type panels in a responsive panel group
+    renderSKUTypeList = () => {
+        return <PanelGroupFlexCol accordion id="skuTypes">
+            {
+                this.renderSKUTypes()
+            }
+        </PanelGroupFlexCol>
+    };
+
+    // Render the SKU Type panels
     renderSKUTypes = () => {
         const {skuTypesFetched, skuTypes} = this.props;
 
@@ -21,15 +31,7 @@ class ShopView extends Component {
             </Well>;
     };
 
-
-    renderSKUTypeList = () => {
-        return <PanelGroupFlexCol accordion id="skuTypes">
-            {
-                this.renderSKUTypes()
-            }
-        </PanelGroupFlexCol>
-    };
-
+    // Render the New SKU Type form
     renderNewSKUTypeForm = () => {
 
         const {
@@ -134,6 +136,7 @@ class ShopView extends Component {
         </FlexChild>;
     };
 
+    // Render the Shop panel
     render() {
 
         const {shop, toggleTypeForm, skuTypeFormDisplayed} = this.props;
