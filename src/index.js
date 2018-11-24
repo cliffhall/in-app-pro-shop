@@ -15,6 +15,15 @@ const drizzleOptions = {
     contracts: [
         ProShop
     ],
+    events: {
+        ProShop: [
+            'NewShop',
+            'NewSKUType',
+            'NewSKU',
+            'ShopBalanceWithdrawn',
+            'FranchiseBalanceWithdrawn'
+        ]
+    },
     web3:{
         fallback: {
             type: 'ws',
@@ -29,10 +38,15 @@ function render() {
     ReactDOM.render(
         <DrizzleContext.Provider drizzle={drizzle}>
             <Provider store={store}>
-                <App/>
+                <DrizzleContext.Consumer>
+                    {drizzleContext => {
+                        return  <App drizzleContext={drizzleContext}/>
+                    }}
+                </DrizzleContext.Consumer>
             </Provider>
         </DrizzleContext.Provider>,
         document.getElementById('app')
     )
 }
+
 render();
