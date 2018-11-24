@@ -6,14 +6,16 @@ class SKUTypeView extends Component {
 
     render() {
 
-        const {skuType} = this.props;
+        const {skuType, skuTypeFormDisplayed} = this.props;
 
         return  <Panel eventKey={skuType.skuTypeId}>
             <Panel.Heading>
                 <Panel.Title>
                     {skuType.name}
                     <div className="pull-right">
-                        <Button>Add SKU</Button>
+                        {skuTypeFormDisplayed
+                            ? null
+                            : <Button>Add SKU</Button>}
                     </div>
                 </Panel.Title>
                 {skuType.description}
@@ -45,14 +47,12 @@ class SKUTypeView extends Component {
     }
 }
 
-// Map required state into props
 const mapStateToProps = (state) => ({
+    skuTypeFormDisplayed: state.skuTypeState.skuTypeFormDisplayed,
 });
 
-// Map dispatch function into props
 const mapDispatchToProps = (dispatch) => ({
     //showSKUTForm: () => dispatch(showSKUForm()),
 });
 
-// Export props-mapped HOC
 export default connect(mapStateToProps, mapDispatchToProps)(SKUTypeView);

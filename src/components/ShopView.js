@@ -161,7 +161,6 @@ class ShopView extends Component {
     }
 }
 
-// Map required state into props
 const mapStateToProps = (state) => ({
     selectedAccount: state.accountState.selectedAccount,
     selectedShopId: state.shopState.selectedShopId,
@@ -178,7 +177,6 @@ const mapStateToProps = (state) => ({
 
 });
 
-// Map dispatch function into props
 const mapDispatchToProps = (dispatch) => ({
     createNewSKUType: (contract, owner, shopId, name, description) => dispatch(createNewSKUType(contract, owner, shopId, name, description)),
     toggleTypeForm: () => dispatch(toggleTypeForm()),
@@ -186,5 +184,4 @@ const mapDispatchToProps = (dispatch) => ({
     descChanged: description => {dispatch(descChanged(description))},
 });
 
-// Export props-mapped HOC
 export default connect(mapStateToProps, mapDispatchToProps)(ShopView);
