@@ -20,7 +20,7 @@ contract('SKUFactory', function(accounts) {
     // Set up a shop for this test suite
     before(async () => {
         // Get the contract instance for this suite
-        contract = await ProShop.deployed();
+        contract = await ProShop.new();
 
         // Get the Shop ID to be created
         shopId = (await contract.createShop.call(shopName, shopDesc, {from: shopOwner})).toNumber();

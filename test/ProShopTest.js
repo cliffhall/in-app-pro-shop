@@ -23,7 +23,7 @@ contract('ProShop', function(accounts) {
     // Set up a shop with a SKU Type and SKU for this test suite
     before(async () => {
         // Get the contract contractance for this suite
-        contract = await ProShop.deployed();
+        contract = await ProShop.new();
 
         // Invoke the function with 'call' to get the return value contractead of the transaction
         // NOTE: this doesn't actually write the data
