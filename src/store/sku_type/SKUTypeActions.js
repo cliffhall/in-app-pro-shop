@@ -1,4 +1,5 @@
 import { fetchSKUTypeIds, fetchSKUTypes, createSKUType } from '../../services/SKUTypeService';
+import { SKUType } from "../../domain";
 
 export const IDS_REQUESTED        = 'sku-type/ids-requested';
 export const IDS_FETCHED          = 'sku-type/ids-fetched';
@@ -85,14 +86,18 @@ export const createNewSKUType = (contract, owner, shopId, name, description) => 
             description
         });
 
-        const skuType = await createSKUType(contract, owner, shopId, name, description);
+        await createSKUType(contract, owner, shopId, name, description, event => {
 
-        dispatch({
-            type: SKU_TYPE_CREATED,
-            skuType,
-            creatingSKUType: false,
-            skuTypeFormDisplayed: false
-        });
+                const skuTypeId = event.returnValues[1];
+                const skuType = new SKUType(shopId, skuTypeId, name, description);
+                dispatch({
+                    type: SKU_TYPE_CREATED,
+                    skuType,
+                    creatingSKUType: false,
+                    skuTypeFormDisplayed: false
+                });
+            }
+        );
     };
 
 };

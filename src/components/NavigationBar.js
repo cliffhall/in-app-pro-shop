@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavDropdown, MenuItem, Glyphicon} from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { selectAccount } from '../store/account/AccountActions';
+import { Navbar, Nav, NavDropdown, MenuItem, Glyphicon} from 'react-bootstrap';
+
 import { selectShop } from '../store/shop/ShopActions';
+import { selectAccount } from '../store/account/AccountActions';
 
 class NavigationBar extends Component {
 

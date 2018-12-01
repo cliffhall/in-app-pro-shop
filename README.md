@@ -79,13 +79,15 @@ A React/Redux application for maintaining Shops and checking/withdrawing Shop ow
 |   |
 |   +---+ components (React app UI components)
 |   |
-|   +---+ constants (Routes and other constants)
+|   +---+ constants (Contracts, Events, and other constants)
 |   |
 |   +---+ domain (JS domain model entities and tests)
 |   |
 |   +---+ services (JS code for persistence and retrieval)
 |   |
 |   +---+ store (Redux store, actions, reducers, and tests)
+|   |
+|   +---+ styles (Styled components)
 |   |
 |   +---+ index.js (React app bootstrap)
 |

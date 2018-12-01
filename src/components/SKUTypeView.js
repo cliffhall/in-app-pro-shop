@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {Button, Panel, Table} from "react-bootstrap";
-import connect from "react-redux/es/connect/connect";
+import { connect } from "react-redux";
+import { Button, Panel, Table } from "react-bootstrap";
 
 class SKUTypeView extends Component {
 

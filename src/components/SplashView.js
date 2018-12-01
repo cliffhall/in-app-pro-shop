@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Well, Form, FormGroup, FormControl, HelpBlock, Button} from 'react-bootstrap';
 import { HollowDotsSpinner, AtomSpinner } from 'react-epic-spinners'
+import { Well, Form, FormGroup, FormControl, HelpBlock, Button } from 'react-bootstrap';
 
-import {
-    createNewShop,
-    nameChanged,
-    descChanged
-} from "../store/shop/ShopActions";
-import {PRO_SHOP} from "../constants/Contracts";
-import {FlexChild, FlexRow} from "../styles";
+import { CONTRACTS } from "../constants";
+import { FlexChild, FlexRow } from "../styles";
+import { createNewShop, nameChanged, descChanged } from "../store/shop/ShopActions";
 
 class SplashView extends Component {
 
@@ -74,7 +70,7 @@ class SplashView extends Component {
         const ERROR = 'error';
 
         const handleSubmit = () => {
-            createNewShop(drizzle.contracts[PRO_SHOP], selectedAccount, name, description);
+            createNewShop(drizzle.contracts[CONTRACTS.PRO_SHOP], selectedAccount, name, description);
         };
 
         const getNameValidationState = () => {

@@ -1,1 +1,5 @@
-export const PRO_SHOP = 'ProShop';
+const CONTRACTS = {
+    PRO_SHOP: 'ProShop'
+};
+
+export default CONTRACTS;

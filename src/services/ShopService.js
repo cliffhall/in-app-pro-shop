@@ -1,4 +1,5 @@
-import {Shop} from '../domain';
+import { Shop } from '../domain';
+import { EVENTS } from '../constants';
 
 /**
  * Fetch the Shop Ids for the given owner account
@@ -8,9 +9,7 @@ import {Shop} from '../domain';
  */
 export const fetchShopIds = async (contract, owner) => {
 
-    let ids = await contract.methods.getShopIds(owner).call();
-
-    return ids;
+    return await contract.methods.getShopIds(owner).call();
 };
 
 /**
@@ -25,9 +24,7 @@ export const fetchShops = async (contract, ids) => {
 
     let shopArrays = await Promise.all(promises);
 
-    let shops = shopArrays.map( shopArray => Shop.fromArray(shopArray) );
-
-    return shops;
+    return shopArrays.map( shopArray => Shop.fromArray(shopArray) );
 
 };
 
@@ -37,16 +34,11 @@ export const fetchShops = async (contract, ids) => {
  * @param name
  * @param description
  * @param owner
- * @returns {Shop}
  */
-export const createShop = async (contract, owner, name, description) => {
+export const createShop = async (contract, owner, name, description, callback) => {
 
-    //contract.once('NewShop' {shopId}, callback);
+    contract.events[EVENTS.NEW_SHOP]({owner: owner}).once('data', callback);
 
-    const shopId = await contract.methods.createShop(name, description).send({from: owner});
-
-    let shop = new Shop(owner, shopId, name, description);
-
-    return shop;
+    contract.methods.createShop(name, description).send({from: owner});
 
 };

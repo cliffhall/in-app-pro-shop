@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import {Panel, Glyphicon, Well, Button, Form, FormGroup, FormControl, HelpBlock} from "react-bootstrap";
 import { connect } from 'react-redux';
-import SKUTypeView from './SKUTypeView';
-import {AtomSpinner, HollowDotsSpinner} from "react-epic-spinners";
+import { AtomSpinner, HollowDotsSpinner } from "react-epic-spinners";
+import { Panel, Glyphicon, Well, Button, Form, FormGroup, FormControl, HelpBlock } from "react-bootstrap";
 
-import {PRO_SHOP} from "../constants/Contracts";
-import {FlexChild, PanelBodyFlexRow, PanelGroupFlexCol} from "../styles";
-import {toggleTypeForm, createNewSKUType, nameChanged, descChanged} from "../store/sku_type/SKUTypeActions";
+import SKUTypeView from './SKUTypeView';
+
+import { CONTRACTS } from "../constants";
+import { FlexChild, PanelBodyFlexRow, PanelGroupFlexCol } from "../styles";
+import { toggleTypeForm, createNewSKUType, nameChanged, descChanged } from "../store/sku_type/SKUTypeActions";
 
 class ShopView extends Component {
 
@@ -51,7 +52,7 @@ class ShopView extends Component {
         const ERROR = 'error';
 
         const handleSubmit = () => {
-            createNewSKUType(drizzle.contracts[PRO_SHOP], selectedAccount, selectedShopId, name, description);
+            createNewSKUType(drizzle.contracts[CONTRACTS.PRO_SHOP], selectedAccount, selectedShopId, name, description);
         };
 
         const getNameValidationState = () => {

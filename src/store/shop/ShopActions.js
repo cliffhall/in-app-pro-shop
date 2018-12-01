@@ -1,5 +1,7 @@
 // Service functions
 import { fetchShopIds, fetchShops, createShop } from '../../services/ShopService';
+import { Shop } from '../../domain';
+
 
 // Shop related actions
 export const IDS_REQUESTED    = 'shop/ids-requested';
@@ -76,18 +78,24 @@ export const createNewShop = (contract, owner, name, description) => {
             description
         });
 
-        const shop = await createShop(contract, owner, name, description);
+        createShop(contract, owner, name, description, event => {
 
-        dispatch({
-            type: SHOP_CREATED,
-            shop,
-            creatingShop: false
-        });
+            const shopId = event.returnValues[1];
+            const shop = new Shop(owner, shopId, name, description);
 
-        dispatch(selectShop(shop.shopId));
+            dispatch({
+                type: SHOP_CREATED,
+                shop,
+                creatingShop: false
+            });
+
+            dispatch(selectShop(shop.shopId));
+        } );
+
     };
 
 };
+
 
 export const nameChanged = name => {
 
