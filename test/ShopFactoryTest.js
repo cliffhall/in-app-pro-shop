@@ -7,7 +7,7 @@ contract('ShopFactory', function(accounts) {
 
     before(async () => {
         // Get the contract instance for this suite
-        contract  = await ProShop.deployed();
+        contract  = await ProShop.new();
     });
 
     it("should allow anyone to create a shop", async function() {
