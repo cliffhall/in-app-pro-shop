@@ -1,10 +1,10 @@
-import SKUType from "../domain/entity/SKUType";
+import { SKUType } from "../domain";
+import { EVENTS } from "../constants";
 
 export const fetchSKUTypeIds = async (contract, shopId) => {
 
-    const ids = await contract.methods.getSKUTypeIds(shopId).call();
+    return await contract.methods.getSKUTypeIds(shopId).call();
 
-    return ids;
 };
 
 export const fetchSKUTypes = async (contract, ids) => {
@@ -13,18 +13,14 @@ export const fetchSKUTypes = async (contract, ids) => {
 
     const skuTypeArrays = await Promise.all(promises);
 
-    const skuTypes = skuTypeArrays.map( skuTypeArray => SKUType.fromArray(skuTypeArray) );
-
-    return skuTypes;
+    return skuTypeArrays.map( skuTypeArray => SKUType.fromArray(skuTypeArray) );
 
 };
 
-export const createSKUType = async (contract, owner, shopId, name, description) => {
+export const createSKUType = async (contract, owner, shopId, name, description, callback) => {
 
-    const skuTypeId = await contract.methods.createSKUType(shopId, name, description).send({from: owner});
+    contract.events[EVENTS.NEW_SKU_TYPE]({shopId: shopId}).once('data', callback);
 
-    let skuType = new SKUType(shopId, skuTypeId, name, description);
-
-    return skuType;
+    contract.methods.createSKUType(shopId, name, description).send({from: owner});
 
 };

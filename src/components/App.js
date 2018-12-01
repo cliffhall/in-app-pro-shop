@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import styled from "styled-components";
 import { connect } from 'react-redux';
+import styled from "styled-components";
 
 import NavigationBar from './NavigationBar';
 import SplashView from './SplashView';
 import ShopView from './ShopView';
-import {PRO_SHOP} from "../constants/Contracts";
-import { accountsFetched, selectAccount } from "../store/account/AccountActions";
+
+import { CONTRACTS } from "../constants";
 import { getShops } from "../store/shop/ShopActions";
 import { getSKUTypes } from "../store/sku_type/SKUTypeActions";
+import { accountsFetched, selectAccount } from "../store/account/AccountActions";
 
 const Wrapper = styled.section`
   padding: 5em;
@@ -43,12 +44,12 @@ class App extends Component {
 
         // Get Shops when account is selected
         if (selectedAccount && selectedAccount !== prevProps.selectedAccount) {
-            getShops(drizzle.contracts[PRO_SHOP], selectedAccount);
+            getShops(drizzle.contracts[CONTRACTS.PRO_SHOP], selectedAccount);
         }
 
         // Get SKUTypes when Shop is selected
         if (selectedShopId && selectedShopId !== prevProps.selectedShopId) {
-            getSKUTypes(drizzle.contracts[PRO_SHOP], selectedShopId);
+            getSKUTypes(drizzle.contracts[CONTRACTS.PRO_SHOP], selectedShopId);
         }
 
     }
