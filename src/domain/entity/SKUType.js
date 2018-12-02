@@ -14,8 +14,8 @@ class SKUType {
      */
 
     constructor (shopId, skuTypeId, name, description) {
-        this.skuTypeId = skuTypeId;
         this.shopId = shopId;
+        this.skuTypeId = skuTypeId;
         this.name = name;
         this.description = description;
     }

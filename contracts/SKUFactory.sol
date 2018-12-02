@@ -62,14 +62,15 @@ contract SKUFactory is SKUTypeFactory {
         return shopSKUs[_shopId];
     }
 
-    // @notice Get a Shop's properties by ID
+    // @notice Get a SKU's properties by ID
     function getSKU(uint256 _skuId) public view returns (
-        uint256, uint256, uint256, string, string, bool, bool, uint256)
+        uint256, uint256, uint256,  uint256, string, string, bool, bool, uint256)
     {
         require(_skuId <= skus.length);
         SKU memory sku = skus[_skuId];
         return (
             sku.shopId,
+            sku.skuId,
             sku.skuTypeId,
             sku.price,
             sku.name,

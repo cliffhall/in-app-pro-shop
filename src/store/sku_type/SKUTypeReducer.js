@@ -3,15 +3,14 @@ import {
     IDS_FETCHED,
     SKU_TYPES_REQUESTED,
     SKU_TYPES_FETCHED,
-    SKU_TYPE_SELECTED,
-    TOGGLE_TYPE_FORM,
+    TOGGLE_FORM,
     NAME_CHANGED,
     DESC_CHANGED,
     SKU_TYPE_CREATED
 } from './SKUTypeActions';
 
-import {ACCOUNT_SELECTED} from "../account/AccountActions";
-import {SHOP_SELECTED} from "../shop/ShopActions";
+import { ACCOUNT_SELECTED } from "../account/AccountActions";
+import { SHOP_SELECTED } from "../shop/ShopActions";
 
 const INITIAL_STATE = {
     newSKUType: {
@@ -84,14 +83,7 @@ function SKUTypeReducer(state=INITIAL_STATE, action) {
             };
             break;
 
-        case SKU_TYPE_SELECTED:
-            reduced = {
-                ...state,
-                selectedSKUTypeId: action.selectedSKUTypeId
-            };
-            break;
-
-        case TOGGLE_TYPE_FORM:
+        case TOGGLE_FORM:
             reduced = {
                 ...state,
                 skuTypeFormDisplayed: !state.skuTypeFormDisplayed
@@ -126,10 +118,8 @@ function SKUTypeReducer(state=INITIAL_STATE, action) {
                 creatingSKUType: action.creatingSKUType,
                 newSKUType: INITIAL_STATE.newSKUType,
                 skuTypeFormDisplayed: action.skuTypeFormDisplayed
-
             };
             break;
-
 
         default:
             reduced = state;

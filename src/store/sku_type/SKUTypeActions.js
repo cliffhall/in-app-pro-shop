@@ -1,12 +1,11 @@
-import { fetchSKUTypeIds, fetchSKUTypes, createSKUType } from '../../services/SKUTypeService';
 import { SKUType } from "../../domain";
+import { fetchSKUTypeIds, fetchSKUTypes, createSKUType } from '../../services/SKUTypeService';
 
 export const IDS_REQUESTED        = 'sku-type/ids-requested';
 export const IDS_FETCHED          = 'sku-type/ids-fetched';
 export const SKU_TYPES_REQUESTED  = 'sku-type/items-requested';
 export const SKU_TYPES_FETCHED    = 'sku-type/items-fetched';
-export const SKU_TYPE_SELECTED    = 'sku-type/selected';
-export const TOGGLE_TYPE_FORM     = 'sku-type/toggle-form';
+export const TOGGLE_FORM          = 'sku-type/toggle-form';
 export const NAME_CHANGED         = 'sku-type/name-changed';
 export const DESC_CHANGED         = 'sku-type/description-changed';
 export const CREATING_SKU_TYPE    = 'sku-type/creating';
@@ -52,24 +51,13 @@ export const getSKUTypes = (contract, shopId) => {
             skuTypes
         });
 
-
     }
-};
-
-export const selectSKUType = skuTypeId => {
-
-    return {
-        type: SKU_TYPE_SELECTED,
-        showForm: !!skuTypeId,
-        selectedSKUTypeId: skuTypeId
-    };
-
 };
 
 export const toggleTypeForm = () => {
 
     return {
-        type: TOGGLE_TYPE_FORM
+        type: TOGGLE_FORM
     };
 
 };

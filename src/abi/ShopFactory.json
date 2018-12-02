@@ -1198,14 +1198,14 @@
     "absolutePath": "/Users/cliff/Documents/in-app-pro-shop/contracts/ShopFactory.sol",
     "exportedSymbols": {
       "ShopFactory": [
-        1096
+        1100
       ]
     },
-    "id": 1097,
+    "id": 1101,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 975,
+        "id": 979,
         "literals": [
           "solidity",
           "^",
@@ -1218,9 +1218,9 @@
       {
         "absolutePath": "/Users/cliff/Documents/in-app-pro-shop/contracts/AccessControl.sol",
         "file": "./AccessControl.sol",
-        "id": 976,
+        "id": 980,
         "nodeType": "ImportDirective",
-        "scope": 1097,
+        "scope": 1101,
         "sourceUnit": 155,
         "src": "26:29:6",
         "symbolAliases": [],
@@ -1232,7 +1232,7 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 977,
+              "id": 981,
               "name": "AccessControl",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 154,
@@ -1242,7 +1242,7 @@
                 "typeString": "contract AccessControl"
               }
             },
-            "id": 978,
+            "id": 982,
             "nodeType": "InheritanceSpecifier",
             "src": "183:13:6"
           }
@@ -1250,33 +1250,33 @@
         "contractDependencies": [
           154,
           684,
-          1125,
-          1176,
-          1377,
-          1474,
-          1494,
-          1501,
-          1611,
-          2195,
-          2601
+          2199,
+          1129,
+          1180,
+          1478,
+          1381,
+          1498,
+          1505,
+          1615,
+          2605
         ],
         "contractKind": "contract",
         "documentation": "@title ShopFactory\n@notice Defines functions and events related to management of Shops",
         "fullyImplemented": true,
-        "id": 1096,
+        "id": 1100,
         "linearizedBaseContracts": [
-          1096,
+          1100,
           154,
           684,
-          2601,
-          1501,
-          1494,
-          1474,
-          2195,
-          1611,
-          1176,
-          1125,
-          1377
+          2605,
+          1505,
+          1498,
+          1478,
+          2199,
+          1615,
+          1180,
+          1129,
+          1381
         ],
         "name": "ShopFactory",
         "nodeType": "ContractDefinition",
@@ -1284,20 +1284,20 @@
           {
             "anonymous": false,
             "documentation": "@dev emitted upon creation of a shop\n@return uint256 shopId",
-            "id": 986,
+            "id": 990,
             "name": "NewShop",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 985,
+              "id": 989,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 980,
+                  "id": 984,
                   "indexed": true,
                   "name": "owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 986,
+                  "scope": 990,
                   "src": "308:21:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1306,7 +1306,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 979,
+                    "id": 983,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "308:7:6",
@@ -1320,11 +1320,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 982,
+                  "id": 986,
                   "indexed": false,
                   "name": "shopId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 986,
+                  "scope": 990,
                   "src": "331:14:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1333,7 +1333,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 981,
+                    "id": 985,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "331:7:6",
@@ -1347,11 +1347,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 984,
+                  "id": 988,
                   "indexed": false,
                   "name": "name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 986,
+                  "scope": 990,
                   "src": "347:11:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1360,7 +1360,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 983,
+                    "id": 987,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "347:6:6",
@@ -1379,21 +1379,21 @@
           },
           {
             "body": {
-              "id": 1042,
+              "id": 1046,
               "nodeType": "Block",
               "src": "526:627:6",
               "statements": [
                 {
                   "assignments": [
-                    996
+                    1000
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 996,
+                      "id": 1000,
                       "name": "shopId",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1043,
+                      "scope": 1047,
                       "src": "577:14:6",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -1402,7 +1402,7 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 995,
+                        "id": 999,
                         "name": "uint256",
                         "nodeType": "ElementaryTypeName",
                         "src": "577:7:6",
@@ -1415,12 +1415,12 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 999,
+                  "id": 1003,
                   "initialValue": {
                     "argumentTypes": null,
                     "expression": {
                       "argumentTypes": null,
-                      "id": 997,
+                      "id": 1001,
                       "name": "shops",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
@@ -1431,7 +1431,7 @@
                         "typeString": "struct ProShopBase.Shop storage ref[] storage ref"
                       }
                     },
-                    "id": 998,
+                    "id": 1002,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
@@ -1450,15 +1450,15 @@
                 },
                 {
                   "assignments": [
-                    1001
+                    1005
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1001,
+                      "id": 1005,
                       "name": "owner",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1043,
+                      "scope": 1047,
                       "src": "616:13:6",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -1467,7 +1467,7 @@
                         "typeString": "address"
                       },
                       "typeName": {
-                        "id": 1000,
+                        "id": 1004,
                         "name": "address",
                         "nodeType": "ElementaryTypeName",
                         "src": "616:7:6",
@@ -1480,23 +1480,23 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1004,
+                  "id": 1008,
                   "initialValue": {
                     "argumentTypes": null,
                     "expression": {
                       "argumentTypes": null,
-                      "id": 1002,
+                      "id": 1006,
                       "name": "msg",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2616,
+                      "referencedDeclaration": 2620,
                       "src": "632:3:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_magic_message",
                         "typeString": "msg"
                       }
                     },
-                    "id": 1003,
+                    "id": 1007,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1522,11 +1522,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 1009,
+                            "id": 1013,
                             "name": "owner",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1001,
+                            "referencedDeclaration": 1005,
                             "src": "702:5:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -1535,11 +1535,11 @@
                           },
                           {
                             "argumentTypes": null,
-                            "id": 1010,
+                            "id": 1014,
                             "name": "shopId",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 996,
+                            "referencedDeclaration": 1000,
                             "src": "709:6:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -1548,11 +1548,11 @@
                           },
                           {
                             "argumentTypes": null,
-                            "id": 1011,
+                            "id": 1015,
                             "name": "_name",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 988,
+                            "referencedDeclaration": 992,
                             "src": "717:5:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
@@ -1561,11 +1561,11 @@
                           },
                           {
                             "argumentTypes": null,
-                            "id": 1012,
+                            "id": 1016,
                             "name": "_desc",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 990,
+                            "referencedDeclaration": 994,
                             "src": "724:5:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
@@ -1592,7 +1592,7 @@
                               "typeString": "string memory"
                             }
                           ],
-                          "id": 1008,
+                          "id": 1012,
                           "name": "Shop",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
@@ -1603,7 +1603,7 @@
                             "typeString": "type(struct ProShopBase.Shop storage pointer)"
                           }
                         },
-                        "id": 1013,
+                        "id": 1017,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1627,7 +1627,7 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1005,
+                        "id": 1009,
                         "name": "shops",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
@@ -1638,7 +1638,7 @@
                           "typeString": "struct ProShopBase.Shop storage ref[] storage ref"
                         }
                       },
-                      "id": 1007,
+                      "id": 1011,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1652,7 +1652,7 @@
                         "typeString": "function (struct ProShopBase.Shop storage ref) returns (uint256)"
                       }
                     },
-                    "id": 1014,
+                    "id": 1018,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1666,14 +1666,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1015,
+                  "id": 1019,
                   "nodeType": "ExpressionStatement",
                   "src": "686:45:6"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1020,
+                    "id": 1024,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1682,7 +1682,7 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 1016,
+                        "id": 1020,
                         "name": "shopToOwner",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
@@ -1693,14 +1693,14 @@
                           "typeString": "mapping(uint256 => address)"
                         }
                       },
-                      "id": 1018,
+                      "id": 1022,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 1017,
+                        "id": 1021,
                         "name": "shopId",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 996,
+                        "referencedDeclaration": 1000,
                         "src": "794:6:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1722,11 +1722,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 1019,
+                      "id": 1023,
                       "name": "owner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1001,
+                      "referencedDeclaration": 1005,
                       "src": "804:5:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -1739,7 +1739,7 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 1021,
+                  "id": 1025,
                   "nodeType": "ExpressionStatement",
                   "src": "782:27:6"
                 },
@@ -1749,11 +1749,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1026,
+                        "id": 1030,
                         "name": "shopId",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 996,
+                        "referencedDeclaration": 1000,
                         "src": "888:6:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1772,7 +1772,7 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 1022,
+                          "id": 1026,
                           "name": "ownedShops",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
@@ -1783,14 +1783,14 @@
                             "typeString": "mapping(address => uint256[] storage ref)"
                           }
                         },
-                        "id": 1024,
+                        "id": 1028,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 1023,
+                          "id": 1027,
                           "name": "owner",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1001,
+                          "referencedDeclaration": 1005,
                           "src": "876:5:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -1808,7 +1808,7 @@
                           "typeString": "uint256[] storage ref"
                         }
                       },
-                      "id": 1025,
+                      "id": 1029,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1822,7 +1822,7 @@
                         "typeString": "function (uint256) returns (uint256)"
                       }
                     },
-                    "id": 1027,
+                    "id": 1031,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1836,7 +1836,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1028,
+                  "id": 1032,
                   "nodeType": "ExpressionStatement",
                   "src": "865:30:6"
                 },
@@ -1846,11 +1846,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1030,
+                        "id": 1034,
                         "name": "owner",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1001,
+                        "referencedDeclaration": 1005,
                         "src": "965:5:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1859,7 +1859,7 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1031,
+                        "id": 1035,
                         "name": "ROLE_SHOP_OWNER",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
@@ -1882,18 +1882,18 @@
                           "typeString": "string memory"
                         }
                       ],
-                      "id": 1029,
+                      "id": 1033,
                       "name": "addRole",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1344,
+                      "referencedDeclaration": 1348,
                       "src": "957:7:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (address,string memory)"
                       }
                     },
-                    "id": 1032,
+                    "id": 1036,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1907,7 +1907,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1033,
+                  "id": 1037,
                   "nodeType": "ExpressionStatement",
                   "src": "957:31:6"
                 },
@@ -1917,11 +1917,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1035,
+                        "id": 1039,
                         "name": "owner",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1001,
+                        "referencedDeclaration": 1005,
                         "src": "1067:5:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1930,11 +1930,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1036,
+                        "id": 1040,
                         "name": "shopId",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 996,
+                        "referencedDeclaration": 1000,
                         "src": "1074:6:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1943,11 +1943,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1037,
+                        "id": 1041,
                         "name": "_name",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 988,
+                        "referencedDeclaration": 992,
                         "src": "1082:5:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -1970,18 +1970,18 @@
                           "typeString": "string memory"
                         }
                       ],
-                      "id": 1034,
+                      "id": 1038,
                       "name": "NewShop",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 986,
+                      "referencedDeclaration": 990,
                       "src": "1059:7:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_uint256_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (address,uint256,string memory)"
                       }
                     },
-                    "id": 1038,
+                    "id": 1042,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1995,33 +1995,33 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1039,
+                  "id": 1043,
                   "nodeType": "EmitStatement",
                   "src": "1054:34:6"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1040,
+                    "id": 1044,
                     "name": "shopId",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 996,
+                    "referencedDeclaration": 1000,
                     "src": "1140:6:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 994,
-                  "id": 1041,
+                  "functionReturnParameters": 998,
+                  "id": 1045,
                   "nodeType": "Return",
                   "src": "1133:13:6"
                 }
               ]
             },
             "documentation": "@notice Create a Shop",
-            "id": 1043,
+            "id": 1047,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -2029,15 +2029,15 @@
             "name": "createShop",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 991,
+              "id": 995,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 988,
+                  "id": 992,
                   "name": "_name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1043,
+                  "scope": 1047,
                   "src": "440:12:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2046,7 +2046,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 987,
+                    "id": 991,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "440:6:6",
@@ -2060,10 +2060,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 990,
+                  "id": 994,
                   "name": "_desc",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1043,
+                  "scope": 1047,
                   "src": "462:12:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2072,7 +2072,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 989,
+                    "id": 993,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "462:6:6",
@@ -2089,15 +2089,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 994,
+              "id": 998,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 993,
+                  "id": 997,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1043,
+                  "scope": 1047,
                   "src": "513:7:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2106,7 +2106,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 992,
+                    "id": 996,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "513:7:6",
@@ -2121,7 +2121,7 @@
               ],
               "src": "512:9:6"
             },
-            "scope": 1096,
+            "scope": 1100,
             "src": "411:742:6",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2129,7 +2129,7 @@
           },
           {
             "body": {
-              "id": 1055,
+              "id": 1059,
               "nodeType": "Block",
               "src": "1302:42:6",
               "statements": [
@@ -2138,7 +2138,7 @@
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 1051,
+                      "id": 1055,
                       "name": "ownedShops",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
@@ -2149,14 +2149,14 @@
                         "typeString": "mapping(address => uint256[] storage ref)"
                       }
                     },
-                    "id": 1053,
+                    "id": 1057,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 1052,
+                      "id": 1056,
                       "name": "_owner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1045,
+                      "referencedDeclaration": 1049,
                       "src": "1330:6:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -2174,15 +2174,15 @@
                       "typeString": "uint256[] storage ref"
                     }
                   },
-                  "functionReturnParameters": 1050,
-                  "id": 1054,
+                  "functionReturnParameters": 1054,
+                  "id": 1058,
                   "nodeType": "Return",
                   "src": "1312:25:6"
                 }
               ]
             },
             "documentation": null,
-            "id": 1056,
+            "id": 1060,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -2190,15 +2190,15 @@
             "name": "getShopIds",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1046,
+              "id": 1050,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1045,
+                  "id": 1049,
                   "name": "_owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1056,
+                  "scope": 1060,
                   "src": "1250:14:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2207,7 +2207,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1044,
+                    "id": 1048,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1250:7:6",
@@ -2224,15 +2224,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 1050,
+              "id": 1054,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1049,
+                  "id": 1053,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1056,
+                  "scope": 1060,
                   "src": "1287:6:6",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -2242,7 +2242,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 1047,
+                      "id": 1051,
                       "name": "uint",
                       "nodeType": "ElementaryTypeName",
                       "src": "1287:4:6",
@@ -2251,7 +2251,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 1048,
+                    "id": 1052,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "1287:6:6",
@@ -2266,7 +2266,7 @@
               ],
               "src": "1286:15:6"
             },
-            "scope": 1096,
+            "scope": 1100,
             "src": "1230:114:6",
             "stateMutability": "view",
             "superFunction": null,
@@ -2274,7 +2274,7 @@
           },
           {
             "body": {
-              "id": 1094,
+              "id": 1098,
               "nodeType": "Block",
               "src": "1484:160:6",
               "statements": [
@@ -2288,18 +2288,18 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 1073,
+                        "id": 1077,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "argumentTypes": null,
-                          "id": 1070,
+                          "id": 1074,
                           "name": "_shopId",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1058,
+                          "referencedDeclaration": 1062,
                           "src": "1502:7:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -2312,7 +2312,7 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 1071,
+                            "id": 1075,
                             "name": "shops",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -2323,7 +2323,7 @@
                               "typeString": "struct ProShopBase.Shop storage ref[] storage ref"
                             }
                           },
-                          "id": 1072,
+                          "id": 1076,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
@@ -2351,21 +2351,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 1069,
+                      "id": 1073,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2619,
-                        2620
+                        2623,
+                        2624
                       ],
-                      "referencedDeclaration": 2619,
+                      "referencedDeclaration": 2623,
                       "src": "1494:7:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 1074,
+                    "id": 1078,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2379,7 +2379,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1075,
+                  "id": 1079,
                   "nodeType": "ExpressionStatement",
                   "src": "1494:32:6"
                 },
@@ -2393,7 +2393,7 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 1076,
+                            "id": 1080,
                             "name": "shops",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -2404,14 +2404,14 @@
                               "typeString": "struct ProShopBase.Shop storage ref[] storage ref"
                             }
                           },
-                          "id": 1078,
+                          "id": 1082,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 1077,
+                            "id": 1081,
                             "name": "_shopId",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1058,
+                            "referencedDeclaration": 1062,
                             "src": "1550:7:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -2429,7 +2429,7 @@
                             "typeString": "struct ProShopBase.Shop storage ref"
                           }
                         },
-                        "id": 1079,
+                        "id": 1083,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -2449,7 +2449,7 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 1080,
+                            "id": 1084,
                             "name": "shops",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -2460,14 +2460,14 @@
                               "typeString": "struct ProShopBase.Shop storage ref[] storage ref"
                             }
                           },
-                          "id": 1082,
+                          "id": 1086,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 1081,
+                            "id": 1085,
                             "name": "_shopId",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1058,
+                            "referencedDeclaration": 1062,
                             "src": "1572:7:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -2485,7 +2485,7 @@
                             "typeString": "struct ProShopBase.Shop storage ref"
                           }
                         },
-                        "id": 1083,
+                        "id": 1087,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -2505,7 +2505,7 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 1084,
+                            "id": 1088,
                             "name": "shops",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -2516,14 +2516,14 @@
                               "typeString": "struct ProShopBase.Shop storage ref[] storage ref"
                             }
                           },
-                          "id": 1086,
+                          "id": 1090,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 1085,
+                            "id": 1089,
                             "name": "_shopId",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1058,
+                            "referencedDeclaration": 1062,
                             "src": "1595:7:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -2541,7 +2541,7 @@
                             "typeString": "struct ProShopBase.Shop storage ref"
                           }
                         },
-                        "id": 1087,
+                        "id": 1091,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -2561,7 +2561,7 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 1088,
+                            "id": 1092,
                             "name": "shops",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -2572,14 +2572,14 @@
                               "typeString": "struct ProShopBase.Shop storage ref[] storage ref"
                             }
                           },
-                          "id": 1090,
+                          "id": 1094,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 1089,
+                            "id": 1093,
                             "name": "_shopId",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1058,
+                            "referencedDeclaration": 1062,
                             "src": "1616:7:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -2597,7 +2597,7 @@
                             "typeString": "struct ProShopBase.Shop storage ref"
                           }
                         },
-                        "id": 1091,
+                        "id": 1095,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -2612,7 +2612,7 @@
                         }
                       }
                     ],
-                    "id": 1092,
+                    "id": 1096,
                     "isConstant": false,
                     "isInlineArray": false,
                     "isLValue": false,
@@ -2625,15 +2625,15 @@
                       "typeString": "tuple(address,uint256,string storage ref,string storage ref)"
                     }
                   },
-                  "functionReturnParameters": 1068,
-                  "id": 1093,
+                  "functionReturnParameters": 1072,
+                  "id": 1097,
                   "nodeType": "Return",
                   "src": "1536:101:6"
                 }
               ]
             },
             "documentation": null,
-            "id": 1095,
+            "id": 1099,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -2641,15 +2641,15 @@
             "name": "getShop",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1059,
+              "id": 1063,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1058,
+                  "id": 1062,
                   "name": "_shopId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1095,
+                  "scope": 1099,
                   "src": "1412:15:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2658,7 +2658,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1057,
+                    "id": 1061,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1412:7:6",
@@ -2675,15 +2675,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 1068,
+              "id": 1072,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1061,
+                  "id": 1065,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1095,
+                  "scope": 1099,
                   "src": "1450:7:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2692,7 +2692,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1060,
+                    "id": 1064,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1450:7:6",
@@ -2706,10 +2706,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1063,
+                  "id": 1067,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1095,
+                  "scope": 1099,
                   "src": "1459:7:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2718,7 +2718,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1062,
+                    "id": 1066,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1459:7:6",
@@ -2732,10 +2732,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1065,
+                  "id": 1069,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1095,
+                  "scope": 1099,
                   "src": "1468:6:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2744,7 +2744,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1064,
+                    "id": 1068,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1468:6:6",
@@ -2758,10 +2758,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1067,
+                  "id": 1071,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1095,
+                  "scope": 1099,
                   "src": "1476:6:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2770,7 +2770,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1066,
+                    "id": 1070,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1476:6:6",
@@ -2785,14 +2785,14 @@
               ],
               "src": "1449:34:6"
             },
-            "scope": 1096,
+            "scope": 1100,
             "src": "1395:249:6",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 1097,
+        "scope": 1101,
         "src": "159:1488:6"
       }
     ],
@@ -2802,14 +2802,14 @@
     "absolutePath": "/Users/cliff/Documents/in-app-pro-shop/contracts/ShopFactory.sol",
     "exportedSymbols": {
       "ShopFactory": [
-        1096
+        1100
       ]
     },
-    "id": 1097,
+    "id": 1101,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 975,
+        "id": 979,
         "literals": [
           "solidity",
           "^",
@@ -2822,9 +2822,9 @@
       {
         "absolutePath": "/Users/cliff/Documents/in-app-pro-shop/contracts/AccessControl.sol",
         "file": "./AccessControl.sol",
-        "id": 976,
+        "id": 980,
         "nodeType": "ImportDirective",
-        "scope": 1097,
+        "scope": 1101,
         "sourceUnit": 155,
         "src": "26:29:6",
         "symbolAliases": [],
@@ -2836,7 +2836,7 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 977,
+              "id": 981,
               "name": "AccessControl",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 154,
@@ -2846,7 +2846,7 @@
                 "typeString": "contract AccessControl"
               }
             },
-            "id": 978,
+            "id": 982,
             "nodeType": "InheritanceSpecifier",
             "src": "183:13:6"
           }
@@ -2854,33 +2854,33 @@
         "contractDependencies": [
           154,
           684,
-          1125,
-          1176,
-          1377,
-          1474,
-          1494,
-          1501,
-          1611,
-          2195,
-          2601
+          2199,
+          1129,
+          1180,
+          1478,
+          1381,
+          1498,
+          1505,
+          1615,
+          2605
         ],
         "contractKind": "contract",
         "documentation": "@title ShopFactory\n@notice Defines functions and events related to management of Shops",
         "fullyImplemented": true,
-        "id": 1096,
+        "id": 1100,
         "linearizedBaseContracts": [
-          1096,
+          1100,
           154,
           684,
-          2601,
-          1501,
-          1494,
-          1474,
-          2195,
-          1611,
-          1176,
-          1125,
-          1377
+          2605,
+          1505,
+          1498,
+          1478,
+          2199,
+          1615,
+          1180,
+          1129,
+          1381
         ],
         "name": "ShopFactory",
         "nodeType": "ContractDefinition",
@@ -2888,20 +2888,20 @@
           {
             "anonymous": false,
             "documentation": "@dev emitted upon creation of a shop\n@return uint256 shopId",
-            "id": 986,
+            "id": 990,
             "name": "NewShop",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 985,
+              "id": 989,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 980,
+                  "id": 984,
                   "indexed": true,
                   "name": "owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 986,
+                  "scope": 990,
                   "src": "308:21:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2910,7 +2910,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 979,
+                    "id": 983,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "308:7:6",
@@ -2924,11 +2924,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 982,
+                  "id": 986,
                   "indexed": false,
                   "name": "shopId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 986,
+                  "scope": 990,
                   "src": "331:14:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2937,7 +2937,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 981,
+                    "id": 985,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "331:7:6",
@@ -2951,11 +2951,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 984,
+                  "id": 988,
                   "indexed": false,
                   "name": "name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 986,
+                  "scope": 990,
                   "src": "347:11:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2964,7 +2964,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 983,
+                    "id": 987,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "347:6:6",
@@ -2983,21 +2983,21 @@
           },
           {
             "body": {
-              "id": 1042,
+              "id": 1046,
               "nodeType": "Block",
               "src": "526:627:6",
               "statements": [
                 {
                   "assignments": [
-                    996
+                    1000
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 996,
+                      "id": 1000,
                       "name": "shopId",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1043,
+                      "scope": 1047,
                       "src": "577:14:6",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -3006,7 +3006,7 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 995,
+                        "id": 999,
                         "name": "uint256",
                         "nodeType": "ElementaryTypeName",
                         "src": "577:7:6",
@@ -3019,12 +3019,12 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 999,
+                  "id": 1003,
                   "initialValue": {
                     "argumentTypes": null,
                     "expression": {
                       "argumentTypes": null,
-                      "id": 997,
+                      "id": 1001,
                       "name": "shops",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
@@ -3035,7 +3035,7 @@
                         "typeString": "struct ProShopBase.Shop storage ref[] storage ref"
                       }
                     },
-                    "id": 998,
+                    "id": 1002,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
@@ -3054,15 +3054,15 @@
                 },
                 {
                   "assignments": [
-                    1001
+                    1005
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1001,
+                      "id": 1005,
                       "name": "owner",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1043,
+                      "scope": 1047,
                       "src": "616:13:6",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -3071,7 +3071,7 @@
                         "typeString": "address"
                       },
                       "typeName": {
-                        "id": 1000,
+                        "id": 1004,
                         "name": "address",
                         "nodeType": "ElementaryTypeName",
                         "src": "616:7:6",
@@ -3084,23 +3084,23 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1004,
+                  "id": 1008,
                   "initialValue": {
                     "argumentTypes": null,
                     "expression": {
                       "argumentTypes": null,
-                      "id": 1002,
+                      "id": 1006,
                       "name": "msg",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2616,
+                      "referencedDeclaration": 2620,
                       "src": "632:3:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_magic_message",
                         "typeString": "msg"
                       }
                     },
-                    "id": 1003,
+                    "id": 1007,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3126,11 +3126,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 1009,
+                            "id": 1013,
                             "name": "owner",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1001,
+                            "referencedDeclaration": 1005,
                             "src": "702:5:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -3139,11 +3139,11 @@
                           },
                           {
                             "argumentTypes": null,
-                            "id": 1010,
+                            "id": 1014,
                             "name": "shopId",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 996,
+                            "referencedDeclaration": 1000,
                             "src": "709:6:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -3152,11 +3152,11 @@
                           },
                           {
                             "argumentTypes": null,
-                            "id": 1011,
+                            "id": 1015,
                             "name": "_name",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 988,
+                            "referencedDeclaration": 992,
                             "src": "717:5:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
@@ -3165,11 +3165,11 @@
                           },
                           {
                             "argumentTypes": null,
-                            "id": 1012,
+                            "id": 1016,
                             "name": "_desc",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 990,
+                            "referencedDeclaration": 994,
                             "src": "724:5:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
@@ -3196,7 +3196,7 @@
                               "typeString": "string memory"
                             }
                           ],
-                          "id": 1008,
+                          "id": 1012,
                           "name": "Shop",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
@@ -3207,7 +3207,7 @@
                             "typeString": "type(struct ProShopBase.Shop storage pointer)"
                           }
                         },
-                        "id": 1013,
+                        "id": 1017,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -3231,7 +3231,7 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1005,
+                        "id": 1009,
                         "name": "shops",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
@@ -3242,7 +3242,7 @@
                           "typeString": "struct ProShopBase.Shop storage ref[] storage ref"
                         }
                       },
-                      "id": 1007,
+                      "id": 1011,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -3256,7 +3256,7 @@
                         "typeString": "function (struct ProShopBase.Shop storage ref) returns (uint256)"
                       }
                     },
-                    "id": 1014,
+                    "id": 1018,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3270,14 +3270,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1015,
+                  "id": 1019,
                   "nodeType": "ExpressionStatement",
                   "src": "686:45:6"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1020,
+                    "id": 1024,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3286,7 +3286,7 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 1016,
+                        "id": 1020,
                         "name": "shopToOwner",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
@@ -3297,14 +3297,14 @@
                           "typeString": "mapping(uint256 => address)"
                         }
                       },
-                      "id": 1018,
+                      "id": 1022,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 1017,
+                        "id": 1021,
                         "name": "shopId",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 996,
+                        "referencedDeclaration": 1000,
                         "src": "794:6:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -3326,11 +3326,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 1019,
+                      "id": 1023,
                       "name": "owner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1001,
+                      "referencedDeclaration": 1005,
                       "src": "804:5:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -3343,7 +3343,7 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 1021,
+                  "id": 1025,
                   "nodeType": "ExpressionStatement",
                   "src": "782:27:6"
                 },
@@ -3353,11 +3353,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1026,
+                        "id": 1030,
                         "name": "shopId",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 996,
+                        "referencedDeclaration": 1000,
                         "src": "888:6:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -3376,7 +3376,7 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 1022,
+                          "id": 1026,
                           "name": "ownedShops",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
@@ -3387,14 +3387,14 @@
                             "typeString": "mapping(address => uint256[] storage ref)"
                           }
                         },
-                        "id": 1024,
+                        "id": 1028,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 1023,
+                          "id": 1027,
                           "name": "owner",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1001,
+                          "referencedDeclaration": 1005,
                           "src": "876:5:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -3412,7 +3412,7 @@
                           "typeString": "uint256[] storage ref"
                         }
                       },
-                      "id": 1025,
+                      "id": 1029,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -3426,7 +3426,7 @@
                         "typeString": "function (uint256) returns (uint256)"
                       }
                     },
-                    "id": 1027,
+                    "id": 1031,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3440,7 +3440,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1028,
+                  "id": 1032,
                   "nodeType": "ExpressionStatement",
                   "src": "865:30:6"
                 },
@@ -3450,11 +3450,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1030,
+                        "id": 1034,
                         "name": "owner",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1001,
+                        "referencedDeclaration": 1005,
                         "src": "965:5:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -3463,7 +3463,7 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1031,
+                        "id": 1035,
                         "name": "ROLE_SHOP_OWNER",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
@@ -3486,18 +3486,18 @@
                           "typeString": "string memory"
                         }
                       ],
-                      "id": 1029,
+                      "id": 1033,
                       "name": "addRole",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1344,
+                      "referencedDeclaration": 1348,
                       "src": "957:7:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (address,string memory)"
                       }
                     },
-                    "id": 1032,
+                    "id": 1036,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3511,7 +3511,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1033,
+                  "id": 1037,
                   "nodeType": "ExpressionStatement",
                   "src": "957:31:6"
                 },
@@ -3521,11 +3521,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1035,
+                        "id": 1039,
                         "name": "owner",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1001,
+                        "referencedDeclaration": 1005,
                         "src": "1067:5:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -3534,11 +3534,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1036,
+                        "id": 1040,
                         "name": "shopId",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 996,
+                        "referencedDeclaration": 1000,
                         "src": "1074:6:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -3547,11 +3547,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1037,
+                        "id": 1041,
                         "name": "_name",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 988,
+                        "referencedDeclaration": 992,
                         "src": "1082:5:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -3574,18 +3574,18 @@
                           "typeString": "string memory"
                         }
                       ],
-                      "id": 1034,
+                      "id": 1038,
                       "name": "NewShop",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 986,
+                      "referencedDeclaration": 990,
                       "src": "1059:7:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_uint256_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (address,uint256,string memory)"
                       }
                     },
-                    "id": 1038,
+                    "id": 1042,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3599,33 +3599,33 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1039,
+                  "id": 1043,
                   "nodeType": "EmitStatement",
                   "src": "1054:34:6"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1040,
+                    "id": 1044,
                     "name": "shopId",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 996,
+                    "referencedDeclaration": 1000,
                     "src": "1140:6:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 994,
-                  "id": 1041,
+                  "functionReturnParameters": 998,
+                  "id": 1045,
                   "nodeType": "Return",
                   "src": "1133:13:6"
                 }
               ]
             },
             "documentation": "@notice Create a Shop",
-            "id": 1043,
+            "id": 1047,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -3633,15 +3633,15 @@
             "name": "createShop",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 991,
+              "id": 995,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 988,
+                  "id": 992,
                   "name": "_name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1043,
+                  "scope": 1047,
                   "src": "440:12:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3650,7 +3650,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 987,
+                    "id": 991,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "440:6:6",
@@ -3664,10 +3664,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 990,
+                  "id": 994,
                   "name": "_desc",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1043,
+                  "scope": 1047,
                   "src": "462:12:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3676,7 +3676,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 989,
+                    "id": 993,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "462:6:6",
@@ -3693,15 +3693,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 994,
+              "id": 998,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 993,
+                  "id": 997,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1043,
+                  "scope": 1047,
                   "src": "513:7:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3710,7 +3710,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 992,
+                    "id": 996,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "513:7:6",
@@ -3725,7 +3725,7 @@
               ],
               "src": "512:9:6"
             },
-            "scope": 1096,
+            "scope": 1100,
             "src": "411:742:6",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -3733,7 +3733,7 @@
           },
           {
             "body": {
-              "id": 1055,
+              "id": 1059,
               "nodeType": "Block",
               "src": "1302:42:6",
               "statements": [
@@ -3742,7 +3742,7 @@
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 1051,
+                      "id": 1055,
                       "name": "ownedShops",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
@@ -3753,14 +3753,14 @@
                         "typeString": "mapping(address => uint256[] storage ref)"
                       }
                     },
-                    "id": 1053,
+                    "id": 1057,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 1052,
+                      "id": 1056,
                       "name": "_owner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1045,
+                      "referencedDeclaration": 1049,
                       "src": "1330:6:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -3778,15 +3778,15 @@
                       "typeString": "uint256[] storage ref"
                     }
                   },
-                  "functionReturnParameters": 1050,
-                  "id": 1054,
+                  "functionReturnParameters": 1054,
+                  "id": 1058,
                   "nodeType": "Return",
                   "src": "1312:25:6"
                 }
               ]
             },
             "documentation": null,
-            "id": 1056,
+            "id": 1060,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -3794,15 +3794,15 @@
             "name": "getShopIds",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1046,
+              "id": 1050,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1045,
+                  "id": 1049,
                   "name": "_owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1056,
+                  "scope": 1060,
                   "src": "1250:14:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3811,7 +3811,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1044,
+                    "id": 1048,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1250:7:6",
@@ -3828,15 +3828,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 1050,
+              "id": 1054,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1049,
+                  "id": 1053,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1056,
+                  "scope": 1060,
                   "src": "1287:6:6",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -3846,7 +3846,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 1047,
+                      "id": 1051,
                       "name": "uint",
                       "nodeType": "ElementaryTypeName",
                       "src": "1287:4:6",
@@ -3855,7 +3855,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 1048,
+                    "id": 1052,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "1287:6:6",
@@ -3870,7 +3870,7 @@
               ],
               "src": "1286:15:6"
             },
-            "scope": 1096,
+            "scope": 1100,
             "src": "1230:114:6",
             "stateMutability": "view",
             "superFunction": null,
@@ -3878,7 +3878,7 @@
           },
           {
             "body": {
-              "id": 1094,
+              "id": 1098,
               "nodeType": "Block",
               "src": "1484:160:6",
               "statements": [
@@ -3892,18 +3892,18 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 1073,
+                        "id": 1077,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "argumentTypes": null,
-                          "id": 1070,
+                          "id": 1074,
                           "name": "_shopId",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1058,
+                          "referencedDeclaration": 1062,
                           "src": "1502:7:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -3916,7 +3916,7 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 1071,
+                            "id": 1075,
                             "name": "shops",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -3927,7 +3927,7 @@
                               "typeString": "struct ProShopBase.Shop storage ref[] storage ref"
                             }
                           },
-                          "id": 1072,
+                          "id": 1076,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
@@ -3955,21 +3955,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 1069,
+                      "id": 1073,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2619,
-                        2620
+                        2623,
+                        2624
                       ],
-                      "referencedDeclaration": 2619,
+                      "referencedDeclaration": 2623,
                       "src": "1494:7:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 1074,
+                    "id": 1078,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3983,7 +3983,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1075,
+                  "id": 1079,
                   "nodeType": "ExpressionStatement",
                   "src": "1494:32:6"
                 },
@@ -3997,7 +3997,7 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 1076,
+                            "id": 1080,
                             "name": "shops",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -4008,14 +4008,14 @@
                               "typeString": "struct ProShopBase.Shop storage ref[] storage ref"
                             }
                           },
-                          "id": 1078,
+                          "id": 1082,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 1077,
+                            "id": 1081,
                             "name": "_shopId",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1058,
+                            "referencedDeclaration": 1062,
                             "src": "1550:7:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -4033,7 +4033,7 @@
                             "typeString": "struct ProShopBase.Shop storage ref"
                           }
                         },
-                        "id": 1079,
+                        "id": 1083,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -4053,7 +4053,7 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 1080,
+                            "id": 1084,
                             "name": "shops",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -4064,14 +4064,14 @@
                               "typeString": "struct ProShopBase.Shop storage ref[] storage ref"
                             }
                           },
-                          "id": 1082,
+                          "id": 1086,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 1081,
+                            "id": 1085,
                             "name": "_shopId",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1058,
+                            "referencedDeclaration": 1062,
                             "src": "1572:7:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -4089,7 +4089,7 @@
                             "typeString": "struct ProShopBase.Shop storage ref"
                           }
                         },
-                        "id": 1083,
+                        "id": 1087,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -4109,7 +4109,7 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 1084,
+                            "id": 1088,
                             "name": "shops",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -4120,14 +4120,14 @@
                               "typeString": "struct ProShopBase.Shop storage ref[] storage ref"
                             }
                           },
-                          "id": 1086,
+                          "id": 1090,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 1085,
+                            "id": 1089,
                             "name": "_shopId",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1058,
+                            "referencedDeclaration": 1062,
                             "src": "1595:7:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -4145,7 +4145,7 @@
                             "typeString": "struct ProShopBase.Shop storage ref"
                           }
                         },
-                        "id": 1087,
+                        "id": 1091,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -4165,7 +4165,7 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 1088,
+                            "id": 1092,
                             "name": "shops",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -4176,14 +4176,14 @@
                               "typeString": "struct ProShopBase.Shop storage ref[] storage ref"
                             }
                           },
-                          "id": 1090,
+                          "id": 1094,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 1089,
+                            "id": 1093,
                             "name": "_shopId",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1058,
+                            "referencedDeclaration": 1062,
                             "src": "1616:7:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -4201,7 +4201,7 @@
                             "typeString": "struct ProShopBase.Shop storage ref"
                           }
                         },
-                        "id": 1091,
+                        "id": 1095,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -4216,7 +4216,7 @@
                         }
                       }
                     ],
-                    "id": 1092,
+                    "id": 1096,
                     "isConstant": false,
                     "isInlineArray": false,
                     "isLValue": false,
@@ -4229,15 +4229,15 @@
                       "typeString": "tuple(address,uint256,string storage ref,string storage ref)"
                     }
                   },
-                  "functionReturnParameters": 1068,
-                  "id": 1093,
+                  "functionReturnParameters": 1072,
+                  "id": 1097,
                   "nodeType": "Return",
                   "src": "1536:101:6"
                 }
               ]
             },
             "documentation": null,
-            "id": 1095,
+            "id": 1099,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -4245,15 +4245,15 @@
             "name": "getShop",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1059,
+              "id": 1063,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1058,
+                  "id": 1062,
                   "name": "_shopId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1095,
+                  "scope": 1099,
                   "src": "1412:15:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4262,7 +4262,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1057,
+                    "id": 1061,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1412:7:6",
@@ -4279,15 +4279,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 1068,
+              "id": 1072,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1061,
+                  "id": 1065,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1095,
+                  "scope": 1099,
                   "src": "1450:7:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4296,7 +4296,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1060,
+                    "id": 1064,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1450:7:6",
@@ -4310,10 +4310,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1063,
+                  "id": 1067,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1095,
+                  "scope": 1099,
                   "src": "1459:7:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4322,7 +4322,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1062,
+                    "id": 1066,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1459:7:6",
@@ -4336,10 +4336,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1065,
+                  "id": 1069,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1095,
+                  "scope": 1099,
                   "src": "1468:6:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4348,7 +4348,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1064,
+                    "id": 1068,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1468:6:6",
@@ -4362,10 +4362,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1067,
+                  "id": 1071,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1095,
+                  "scope": 1099,
                   "src": "1476:6:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4374,7 +4374,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1066,
+                    "id": 1070,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1476:6:6",
@@ -4389,14 +4389,14 @@
               ],
               "src": "1449:34:6"
             },
-            "scope": 1096,
+            "scope": 1100,
             "src": "1395:249:6",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 1097,
+        "scope": 1101,
         "src": "159:1488:6"
       }
     ],
@@ -4408,5 +4408,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-26T22:52:42.526Z"
+  "updatedAt": "2018-12-02T21:06:58.948Z"
 }
