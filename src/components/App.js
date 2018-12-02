@@ -8,6 +8,7 @@ import ShopView from './ShopView';
 
 import { CONTRACTS } from "../constants";
 import { getShops } from "../store/shop/ShopActions";
+import { getSKUs } from "../store/sku/SKUActions";
 import { getSKUTypes } from "../store/sku_type/SKUTypeActions";
 import { accountsFetched, selectAccount } from "../store/account/AccountActions";
 
@@ -25,6 +26,7 @@ class App extends Component {
             selectedAccount,
             selectedShopId,
             getSKUTypes,
+            getSKUs,
             accounts
         } = this.props;
 
@@ -50,6 +52,7 @@ class App extends Component {
         // Get SKUTypes when Shop is selected
         if (selectedShopId && selectedShopId !== prevProps.selectedShopId) {
             getSKUTypes(drizzle.contracts[CONTRACTS.PRO_SHOP], selectedShopId);
+            getSKUs(drizzle.contracts[CONTRACTS.PRO_SHOP], selectedShopId);
         }
 
     }
@@ -83,6 +86,7 @@ const mapDispatchToProps = (dispatch) => ({
     accountsFetched: accounts => dispatch(accountsFetched(accounts)),
     selectAccount: account => dispatch(selectAccount(account)),
     getShops: (contract, account) => dispatch(getShops(contract, account)),
+    getSKUs: (contract, shopId) => dispatch(getSKUs(contract, shopId)),
     getSKUTypes: (contract, shopId) => dispatch(getSKUTypes(contract, shopId))
 });
 

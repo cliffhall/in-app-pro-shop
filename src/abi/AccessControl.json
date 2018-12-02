@@ -1132,7 +1132,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 155,
-        "sourceUnit": 1378,
+        "sourceUnit": 1382,
         "src": "26:65:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1157,10 +1157,10 @@
               "id": 4,
               "name": "RBAC",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1377,
+              "referencedDeclaration": 1381,
               "src": "271:4:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_RBAC_$1377",
+                "typeIdentifier": "t_contract$_RBAC_$1381",
                 "typeString": "contract RBAC"
               }
             },
@@ -1189,15 +1189,15 @@
         ],
         "contractDependencies": [
           684,
-          1125,
-          1176,
-          1377,
-          1474,
-          1494,
-          1501,
-          1611,
-          2195,
-          2601
+          2199,
+          1129,
+          1180,
+          1478,
+          1381,
+          1498,
+          1505,
+          1615,
+          2605
         ],
         "contractKind": "contract",
         "documentation": "@title AccessControl\n@notice Role-based access control and related functions, function modifiers, and events",
@@ -1206,15 +1206,15 @@
         "linearizedBaseContracts": [
           154,
           684,
-          2601,
-          1501,
-          1494,
-          1474,
-          2195,
-          1611,
-          1176,
-          1125,
-          1377
+          2605,
+          1505,
+          1498,
+          1478,
+          2199,
+          1615,
+          1180,
+          1129,
+          1381
         ],
         "name": "AccessControl",
         "nodeType": "ContractDefinition",
@@ -1288,7 +1288,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2616,
+                          "referencedDeclaration": 2620,
                           "src": "490:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1338,7 +1338,7 @@
                       "name": "addRole",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1344,
+                      "referencedDeclaration": 1348,
                       "src": "482:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_string_memory_ptr_$returns$__$",
@@ -1375,7 +1375,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2616,
+                          "referencedDeclaration": 2620,
                           "src": "535:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1425,7 +1425,7 @@
                       "name": "addRole",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1344,
+                      "referencedDeclaration": 1348,
                       "src": "527:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_string_memory_ptr_$returns$__$",
@@ -1765,7 +1765,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2616,
+                          "referencedDeclaration": 2620,
                           "src": "1636:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1815,7 +1815,7 @@
                       "name": "checkRole",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1307,
+                      "referencedDeclaration": 1311,
                       "src": "1626:9:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_view$_t_address_$_t_string_memory_ptr_$returns$__$",
@@ -1878,7 +1878,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2616,
+                          "referencedDeclaration": 2620,
                           "src": "1809:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1928,7 +1928,7 @@
                       "name": "checkRole",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1307,
+                      "referencedDeclaration": 1311,
                       "src": "1799:9:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_view$_t_address_$_t_string_memory_ptr_$returns$__$",
@@ -2078,7 +2078,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2616,
+                            "referencedDeclaration": 2620,
                             "src": "2046:3:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -2132,10 +2132,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2619,
-                        2620
+                        2623,
+                        2624
                       ],
-                      "referencedDeclaration": 2619,
+                      "referencedDeclaration": 2623,
                       "src": "2038:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -2258,10 +2258,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2619,
-                        2620
+                        2623,
+                        2624
                       ],
-                      "referencedDeclaration": 2619,
+                      "referencedDeclaration": 2623,
                       "src": "2228:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -2341,10 +2341,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2619,
-                        2620
+                        2623,
+                        2624
                       ],
-                      "referencedDeclaration": 2619,
+                      "referencedDeclaration": 2623,
                       "src": "2399:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -2944,7 +2944,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 155,
-        "sourceUnit": 1378,
+        "sourceUnit": 1382,
         "src": "26:65:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2969,10 +2969,10 @@
               "id": 4,
               "name": "RBAC",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1377,
+              "referencedDeclaration": 1381,
               "src": "271:4:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_RBAC_$1377",
+                "typeIdentifier": "t_contract$_RBAC_$1381",
                 "typeString": "contract RBAC"
               }
             },
@@ -3001,15 +3001,15 @@
         ],
         "contractDependencies": [
           684,
-          1125,
-          1176,
-          1377,
-          1474,
-          1494,
-          1501,
-          1611,
-          2195,
-          2601
+          2199,
+          1129,
+          1180,
+          1478,
+          1381,
+          1498,
+          1505,
+          1615,
+          2605
         ],
         "contractKind": "contract",
         "documentation": "@title AccessControl\n@notice Role-based access control and related functions, function modifiers, and events",
@@ -3018,15 +3018,15 @@
         "linearizedBaseContracts": [
           154,
           684,
-          2601,
-          1501,
-          1494,
-          1474,
-          2195,
-          1611,
-          1176,
-          1125,
-          1377
+          2605,
+          1505,
+          1498,
+          1478,
+          2199,
+          1615,
+          1180,
+          1129,
+          1381
         ],
         "name": "AccessControl",
         "nodeType": "ContractDefinition",
@@ -3100,7 +3100,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2616,
+                          "referencedDeclaration": 2620,
                           "src": "490:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -3150,7 +3150,7 @@
                       "name": "addRole",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1344,
+                      "referencedDeclaration": 1348,
                       "src": "482:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_string_memory_ptr_$returns$__$",
@@ -3187,7 +3187,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2616,
+                          "referencedDeclaration": 2620,
                           "src": "535:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -3237,7 +3237,7 @@
                       "name": "addRole",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1344,
+                      "referencedDeclaration": 1348,
                       "src": "527:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_string_memory_ptr_$returns$__$",
@@ -3577,7 +3577,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2616,
+                          "referencedDeclaration": 2620,
                           "src": "1636:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -3627,7 +3627,7 @@
                       "name": "checkRole",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1307,
+                      "referencedDeclaration": 1311,
                       "src": "1626:9:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_view$_t_address_$_t_string_memory_ptr_$returns$__$",
@@ -3690,7 +3690,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2616,
+                          "referencedDeclaration": 2620,
                           "src": "1809:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -3740,7 +3740,7 @@
                       "name": "checkRole",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1307,
+                      "referencedDeclaration": 1311,
                       "src": "1799:9:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_view$_t_address_$_t_string_memory_ptr_$returns$__$",
@@ -3890,7 +3890,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2616,
+                            "referencedDeclaration": 2620,
                             "src": "2046:3:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -3944,10 +3944,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2619,
-                        2620
+                        2623,
+                        2624
                       ],
-                      "referencedDeclaration": 2619,
+                      "referencedDeclaration": 2623,
                       "src": "2038:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -4070,10 +4070,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2619,
-                        2620
+                        2623,
+                        2624
                       ],
-                      "referencedDeclaration": 2619,
+                      "referencedDeclaration": 2623,
                       "src": "2228:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -4153,10 +4153,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2619,
-                        2620
+                        2623,
+                        2624
                       ],
-                      "referencedDeclaration": 2619,
+                      "referencedDeclaration": 2623,
                       "src": "2399:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -4735,5 +4735,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-26T22:52:42.481Z"
+  "updatedAt": "2018-12-02T21:06:58.874Z"
 }

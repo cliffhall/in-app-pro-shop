@@ -66,15 +66,16 @@ contract('SKUFactory', function(accounts) {
 
         // verify contents of SKU
         const item = await contract.getSKU(skuId);
-        assert.equal(item.length, 8, "SKU field count wasn't correct");
+        assert.equal(item.length, 9, "SKU field count wasn't correct");
         assert.equal(item[0].toNumber(), shopId, "Shop ID field wasn't correct");
-        assert.equal(item[1].toNumber(), skuTypeId, "SKU Type id field wasn't correct");
-        assert.equal(item[2], price, "price field wasn't correct");
-        assert.equal(item[3], skuName, "SKU name field wasn't correct");
-        assert.equal(item[4], skuDesc, "SKU description field wasn't correct");
-        assert.equal(item[5], consumable, "consumable field wasn't correct");
-        assert.equal(item[6], limited, "limited field wasn't correct");
-        assert.equal(item[7], limit, "limit field wasn't correct");
+        assert.equal(item[1].toNumber(), skuId, "SKU ID field wasn't correct");
+        assert.equal(item[2].toNumber(), skuTypeId, "SKU Type id field wasn't correct");
+        assert.equal(item[3], price, "price field wasn't correct");
+        assert.equal(item[4], skuName, "SKU name field wasn't correct");
+        assert.equal(item[5], skuDesc, "SKU description field wasn't correct");
+        assert.equal(item[6], consumable, "consumable field wasn't correct");
+        assert.equal(item[7], limited, "limited field wasn't correct");
+        assert.equal(item[8], limit, "limit field wasn't correct");
     });
 
 });

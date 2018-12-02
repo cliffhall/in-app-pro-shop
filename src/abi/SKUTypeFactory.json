@@ -1316,14 +1316,14 @@
     "absolutePath": "/Users/cliff/Documents/in-app-pro-shop/contracts/SKUTypeFactory.sol",
     "exportedSymbols": {
       "SKUTypeFactory": [
-        973
+        977
       ]
     },
-    "id": 974,
+    "id": 978,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 846,
+        "id": 850,
         "literals": [
           "solidity",
           "^",
@@ -1336,10 +1336,10 @@
       {
         "absolutePath": "/Users/cliff/Documents/in-app-pro-shop/contracts/ShopFactory.sol",
         "file": "./ShopFactory.sol",
-        "id": 847,
+        "id": 851,
         "nodeType": "ImportDirective",
-        "scope": 974,
-        "sourceUnit": 1097,
+        "scope": 978,
+        "sourceUnit": 1101,
         "src": "26:27:5",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1350,17 +1350,17 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 848,
+              "id": 852,
               "name": "ShopFactory",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1096,
+              "referencedDeclaration": 1100,
               "src": "191:11:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ShopFactory_$1096",
+                "typeIdentifier": "t_contract$_ShopFactory_$1100",
                 "typeString": "contract ShopFactory"
               }
             },
-            "id": 849,
+            "id": 853,
             "nodeType": "InheritanceSpecifier",
             "src": "191:11:5"
           }
@@ -1368,35 +1368,35 @@
         "contractDependencies": [
           154,
           684,
-          1096,
-          1125,
-          1176,
-          1377,
-          1474,
-          1494,
-          1501,
-          1611,
-          2195,
-          2601
+          2199,
+          1100,
+          1129,
+          1180,
+          1478,
+          1381,
+          1498,
+          1505,
+          1615,
+          2605
         ],
         "contractKind": "contract",
         "documentation": "@title SKUTypeFactory\n@notice Defines functions and events related to management of SKU Types",
         "fullyImplemented": true,
-        "id": 973,
+        "id": 977,
         "linearizedBaseContracts": [
-          973,
-          1096,
+          977,
+          1100,
           154,
           684,
-          2601,
-          1501,
-          1494,
-          1474,
-          2195,
-          1611,
-          1176,
-          1125,
-          1377
+          2605,
+          1505,
+          1498,
+          1478,
+          2199,
+          1615,
+          1180,
+          1129,
+          1381
         ],
         "name": "SKUTypeFactory",
         "nodeType": "ContractDefinition",
@@ -1404,20 +1404,20 @@
           {
             "anonymous": false,
             "documentation": "@notice emitted upon the creation of a SKU Type",
-            "id": 857,
+            "id": 861,
             "name": "NewSKUType",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 856,
+              "id": 860,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 851,
+                  "id": 855,
                   "indexed": true,
                   "name": "shopId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 857,
+                  "scope": 861,
                   "src": "298:22:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1426,7 +1426,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 850,
+                    "id": 854,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "298:7:5",
@@ -1440,11 +1440,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 853,
+                  "id": 857,
                   "indexed": false,
                   "name": "skuTypeId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 857,
+                  "scope": 861,
                   "src": "322:17:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1453,7 +1453,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 852,
+                    "id": 856,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "322:7:5",
@@ -1467,11 +1467,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 855,
+                  "id": 859,
                   "indexed": false,
                   "name": "name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 857,
+                  "scope": 861,
                   "src": "341:11:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1480,7 +1480,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 854,
+                    "id": 858,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "341:6:5",
@@ -1499,21 +1499,21 @@
           },
           {
             "body": {
-              "id": 908,
+              "id": 912,
               "nodeType": "Block",
               "src": "659:529:5",
               "statements": [
                 {
                   "assignments": [
-                    872
+                    876
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 872,
+                      "id": 876,
                       "name": "skuTypeId",
                       "nodeType": "VariableDeclaration",
-                      "scope": 909,
+                      "scope": 913,
                       "src": "696:17:5",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -1522,7 +1522,7 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 871,
+                        "id": 875,
                         "name": "uint256",
                         "nodeType": "ElementaryTypeName",
                         "src": "696:7:5",
@@ -1535,12 +1535,12 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 875,
+                  "id": 879,
                   "initialValue": {
                     "argumentTypes": null,
                     "expression": {
                       "argumentTypes": null,
-                      "id": 873,
+                      "id": 877,
                       "name": "skuTypes",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
@@ -1551,7 +1551,7 @@
                         "typeString": "struct ProShopBase.SKUType storage ref[] storage ref"
                       }
                     },
-                    "id": 874,
+                    "id": 878,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
@@ -1577,11 +1577,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 880,
+                            "id": 884,
                             "name": "_shopId",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 859,
+                            "referencedDeclaration": 863,
                             "src": "801:7:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -1590,11 +1590,11 @@
                           },
                           {
                             "argumentTypes": null,
-                            "id": 881,
+                            "id": 885,
                             "name": "skuTypeId",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 872,
+                            "referencedDeclaration": 876,
                             "src": "810:9:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -1603,11 +1603,11 @@
                           },
                           {
                             "argumentTypes": null,
-                            "id": 882,
+                            "id": 886,
                             "name": "_name",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 861,
+                            "referencedDeclaration": 865,
                             "src": "821:5:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
@@ -1616,11 +1616,11 @@
                           },
                           {
                             "argumentTypes": null,
-                            "id": 883,
+                            "id": 887,
                             "name": "_desc",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 863,
+                            "referencedDeclaration": 867,
                             "src": "828:5:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
@@ -1647,7 +1647,7 @@
                               "typeString": "string memory"
                             }
                           ],
-                          "id": 879,
+                          "id": 883,
                           "name": "SKUType",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
@@ -1658,7 +1658,7 @@
                             "typeString": "type(struct ProShopBase.SKUType storage pointer)"
                           }
                         },
-                        "id": 884,
+                        "id": 888,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1682,7 +1682,7 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 876,
+                        "id": 880,
                         "name": "skuTypes",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
@@ -1693,7 +1693,7 @@
                           "typeString": "struct ProShopBase.SKUType storage ref[] storage ref"
                         }
                       },
-                      "id": 878,
+                      "id": 882,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1707,7 +1707,7 @@
                         "typeString": "function (struct ProShopBase.SKUType storage ref) returns (uint256)"
                       }
                     },
-                    "id": 885,
+                    "id": 889,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1721,14 +1721,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 886,
+                  "id": 890,
                   "nodeType": "ExpressionStatement",
                   "src": "779:56:5"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 891,
+                    "id": 895,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1737,7 +1737,7 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 887,
+                        "id": 891,
                         "name": "skuTypeToShop",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
@@ -1748,14 +1748,14 @@
                           "typeString": "mapping(uint256 => uint256)"
                         }
                       },
-                      "id": 889,
+                      "id": 893,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 888,
+                        "id": 892,
                         "name": "skuTypeId",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 872,
+                        "referencedDeclaration": 876,
                         "src": "895:9:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1777,11 +1777,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 890,
+                      "id": 894,
                       "name": "_shopId",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 859,
+                      "referencedDeclaration": 863,
                       "src": "908:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -1794,7 +1794,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 892,
+                  "id": 896,
                   "nodeType": "ExpressionStatement",
                   "src": "881:34:5"
                 },
@@ -1804,11 +1804,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 897,
+                        "id": 901,
                         "name": "skuTypeId",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 872,
+                        "referencedDeclaration": 876,
                         "src": "1001:9:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1827,7 +1827,7 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 893,
+                          "id": 897,
                           "name": "shopSKUTypes",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
@@ -1838,14 +1838,14 @@
                             "typeString": "mapping(uint256 => uint256[] storage ref)"
                           }
                         },
-                        "id": 895,
+                        "id": 899,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 894,
+                          "id": 898,
                           "name": "_shopId",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 859,
+                          "referencedDeclaration": 863,
                           "src": "987:7:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -1863,7 +1863,7 @@
                           "typeString": "uint256[] storage ref"
                         }
                       },
-                      "id": 896,
+                      "id": 900,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1877,7 +1877,7 @@
                         "typeString": "function (uint256) returns (uint256)"
                       }
                     },
-                    "id": 898,
+                    "id": 902,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1891,7 +1891,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 899,
+                  "id": 903,
                   "nodeType": "ExpressionStatement",
                   "src": "974:37:5"
                 },
@@ -1901,11 +1901,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 901,
+                        "id": 905,
                         "name": "_shopId",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 859,
+                        "referencedDeclaration": 863,
                         "src": "1090:7:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1914,11 +1914,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 902,
+                        "id": 906,
                         "name": "skuTypeId",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 872,
+                        "referencedDeclaration": 876,
                         "src": "1099:9:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1927,11 +1927,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 903,
+                        "id": 907,
                         "name": "_name",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 861,
+                        "referencedDeclaration": 865,
                         "src": "1110:5:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -1954,18 +1954,18 @@
                           "typeString": "string memory"
                         }
                       ],
-                      "id": 900,
+                      "id": 904,
                       "name": "NewSKUType",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 857,
+                      "referencedDeclaration": 861,
                       "src": "1079:10:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_uint256_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (uint256,uint256,string memory)"
                       }
                     },
-                    "id": 904,
+                    "id": 908,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1979,33 +1979,33 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 905,
+                  "id": 909,
                   "nodeType": "EmitStatement",
                   "src": "1074:42:5"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 906,
+                    "id": 910,
                     "name": "skuTypeId",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 872,
+                    "referencedDeclaration": 876,
                     "src": "1172:9:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 870,
-                  "id": 907,
+                  "functionReturnParameters": 874,
+                  "id": 911,
                   "nodeType": "Return",
                   "src": "1165:16:5"
                 }
               ]
             },
             "documentation": "@notice Create an SKU (Shopkeeping Unit) Type for a Shop\n@dev Can only be run by the shop owner",
-            "id": 909,
+            "id": 913,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -2014,11 +2014,11 @@
                 "arguments": [
                   {
                     "argumentTypes": null,
-                    "id": 866,
+                    "id": 870,
                     "name": "_shopId",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 859,
+                    "referencedDeclaration": 863,
                     "src": "621:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
@@ -2026,10 +2026,10 @@
                     }
                   }
                 ],
-                "id": 867,
+                "id": 871,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 865,
+                  "id": 869,
                   "name": "onlyShopOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
@@ -2047,15 +2047,15 @@
             "name": "createSKUType",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 864,
+              "id": 868,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 859,
+                  "id": 863,
                   "name": "_shopId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 909,
+                  "scope": 913,
                   "src": "518:15:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2064,7 +2064,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 858,
+                    "id": 862,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "518:7:5",
@@ -2078,10 +2078,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 861,
+                  "id": 865,
                   "name": "_name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 909,
+                  "scope": 913,
                   "src": "543:12:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2090,7 +2090,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 860,
+                    "id": 864,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "543:6:5",
@@ -2104,10 +2104,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 863,
+                  "id": 867,
                   "name": "_desc",
                   "nodeType": "VariableDeclaration",
-                  "scope": 909,
+                  "scope": 913,
                   "src": "565:12:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2116,7 +2116,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 862,
+                    "id": 866,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "565:6:5",
@@ -2133,15 +2133,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 870,
+              "id": 874,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 869,
+                  "id": 873,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 909,
+                  "scope": 913,
                   "src": "646:7:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2150,7 +2150,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 868,
+                    "id": 872,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "646:7:5",
@@ -2165,7 +2165,7 @@
               ],
               "src": "645:9:5"
             },
-            "scope": 973,
+            "scope": 977,
             "src": "486:702:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2173,7 +2173,7 @@
           },
           {
             "body": {
-              "id": 921,
+              "id": 925,
               "nodeType": "Block",
               "src": "1358:54:5",
               "statements": [
@@ -2184,7 +2184,7 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 916,
+                        "id": 920,
                         "name": "skuTypeSKUs",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
@@ -2195,14 +2195,14 @@
                           "typeString": "mapping(uint256 => uint256[] storage ref)"
                         }
                       },
-                      "id": 918,
+                      "id": 922,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 917,
+                        "id": 921,
                         "name": "_skuTypeId",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 911,
+                        "referencedDeclaration": 915,
                         "src": "1387:10:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -2220,7 +2220,7 @@
                         "typeString": "uint256[] storage ref"
                       }
                     },
-                    "id": 919,
+                    "id": 923,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
@@ -2234,15 +2234,15 @@
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 915,
-                  "id": 920,
+                  "functionReturnParameters": 919,
+                  "id": 924,
                   "nodeType": "Return",
                   "src": "1368:37:5"
                 }
               ]
             },
             "documentation": "@notice Get the count of SKUs associated with a given SKU Type",
-            "id": 922,
+            "id": 926,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -2250,15 +2250,15 @@
             "name": "getSKUTypeSKUCount",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 912,
+              "id": 916,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 911,
+                  "id": 915,
                   "name": "_skuTypeId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 922,
+                  "scope": 926,
                   "src": "1308:18:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2267,7 +2267,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 910,
+                    "id": 914,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1308:7:5",
@@ -2284,15 +2284,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 915,
+              "id": 919,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 914,
+                  "id": 918,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 922,
+                  "scope": 926,
                   "src": "1349:7:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2301,7 +2301,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 913,
+                    "id": 917,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1349:7:5",
@@ -2316,7 +2316,7 @@
               ],
               "src": "1348:9:5"
             },
-            "scope": 973,
+            "scope": 977,
             "src": "1280:132:5",
             "stateMutability": "view",
             "superFunction": null,
@@ -2324,7 +2324,7 @@
           },
           {
             "body": {
-              "id": 934,
+              "id": 938,
               "nodeType": "Block",
               "src": "1567:45:5",
               "statements": [
@@ -2333,7 +2333,7 @@
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 930,
+                      "id": 934,
                       "name": "shopSKUTypes",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
@@ -2344,14 +2344,14 @@
                         "typeString": "mapping(uint256 => uint256[] storage ref)"
                       }
                     },
-                    "id": 932,
+                    "id": 936,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 931,
+                      "id": 935,
                       "name": "_shopId",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 924,
+                      "referencedDeclaration": 928,
                       "src": "1597:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2369,15 +2369,15 @@
                       "typeString": "uint256[] storage ref"
                     }
                   },
-                  "functionReturnParameters": 929,
-                  "id": 933,
+                  "functionReturnParameters": 933,
+                  "id": 937,
                   "nodeType": "Return",
                   "src": "1577:28:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 935,
+            "id": 939,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -2385,15 +2385,15 @@
             "name": "getSKUTypeIds",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 925,
+              "id": 929,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 924,
+                  "id": 928,
                   "name": "_shopId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 935,
+                  "scope": 939,
                   "src": "1514:15:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2402,7 +2402,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 923,
+                    "id": 927,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1514:7:5",
@@ -2419,15 +2419,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 929,
+              "id": 933,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 928,
+                  "id": 932,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 935,
+                  "scope": 939,
                   "src": "1552:6:5",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -2437,7 +2437,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 926,
+                      "id": 930,
                       "name": "uint",
                       "nodeType": "ElementaryTypeName",
                       "src": "1552:4:5",
@@ -2446,7 +2446,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 927,
+                    "id": 931,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "1552:6:5",
@@ -2461,7 +2461,7 @@
               ],
               "src": "1551:15:5"
             },
-            "scope": 973,
+            "scope": 977,
             "src": "1491:121:5",
             "stateMutability": "view",
             "superFunction": null,
@@ -2469,7 +2469,7 @@
           },
           {
             "body": {
-              "id": 971,
+              "id": 975,
               "nodeType": "Block",
               "src": "1760:255:5",
               "statements": [
@@ -2483,18 +2483,18 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 952,
+                        "id": 956,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "argumentTypes": null,
-                          "id": 949,
+                          "id": 953,
                           "name": "_skuTypeId",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 937,
+                          "referencedDeclaration": 941,
                           "src": "1778:10:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -2507,7 +2507,7 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 950,
+                            "id": 954,
                             "name": "skuTypes",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -2518,7 +2518,7 @@
                               "typeString": "struct ProShopBase.SKUType storage ref[] storage ref"
                             }
                           },
-                          "id": 951,
+                          "id": 955,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
@@ -2546,21 +2546,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 948,
+                      "id": 952,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2619,
-                        2620
+                        2623,
+                        2624
                       ],
-                      "referencedDeclaration": 2619,
+                      "referencedDeclaration": 2623,
                       "src": "1770:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 953,
+                    "id": 957,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2574,21 +2574,21 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 954,
+                  "id": 958,
                   "nodeType": "ExpressionStatement",
                   "src": "1770:38:5"
                 },
                 {
                   "assignments": [
-                    956
+                    960
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 956,
+                      "id": 960,
                       "name": "skuType",
                       "nodeType": "VariableDeclaration",
-                      "scope": 972,
+                      "scope": 976,
                       "src": "1818:22:5",
                       "stateVariable": false,
                       "storageLocation": "memory",
@@ -2598,7 +2598,7 @@
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 955,
+                        "id": 959,
                         "name": "SKUType",
                         "nodeType": "UserDefinedTypeName",
                         "referencedDeclaration": 664,
@@ -2612,12 +2612,12 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 960,
+                  "id": 964,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 957,
+                      "id": 961,
                       "name": "skuTypes",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
@@ -2628,14 +2628,14 @@
                         "typeString": "struct ProShopBase.SKUType storage ref[] storage ref"
                       }
                     },
-                    "id": 959,
+                    "id": 963,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 958,
+                      "id": 962,
                       "name": "_skuTypeId",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 937,
+                      "referencedDeclaration": 941,
                       "src": "1852:10:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2664,18 +2664,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 961,
+                          "id": 965,
                           "name": "skuType",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 956,
+                          "referencedDeclaration": 960,
                           "src": "1894:7:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_struct$_SKUType_$664_memory_ptr",
                             "typeString": "struct ProShopBase.SKUType memory"
                           }
                         },
-                        "id": 962,
+                        "id": 966,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -2693,18 +2693,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 963,
+                          "id": 967,
                           "name": "skuType",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 956,
+                          "referencedDeclaration": 960,
                           "src": "1922:7:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_struct$_SKUType_$664_memory_ptr",
                             "typeString": "struct ProShopBase.SKUType memory"
                           }
                         },
-                        "id": 964,
+                        "id": 968,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -2722,18 +2722,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 965,
+                          "id": 969,
                           "name": "skuType",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 956,
+                          "referencedDeclaration": 960,
                           "src": "1953:7:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_struct$_SKUType_$664_memory_ptr",
                             "typeString": "struct ProShopBase.SKUType memory"
                           }
                         },
-                        "id": 966,
+                        "id": 970,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -2751,18 +2751,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 967,
+                          "id": 971,
                           "name": "skuType",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 956,
+                          "referencedDeclaration": 960,
                           "src": "1979:7:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_struct$_SKUType_$664_memory_ptr",
                             "typeString": "struct ProShopBase.SKUType memory"
                           }
                         },
-                        "id": 968,
+                        "id": 972,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -2777,7 +2777,7 @@
                         }
                       }
                     ],
-                    "id": 969,
+                    "id": 973,
                     "isConstant": false,
                     "isInlineArray": false,
                     "isLValue": false,
@@ -2790,15 +2790,15 @@
                       "typeString": "tuple(uint256,uint256,string memory,string memory)"
                     }
                   },
-                  "functionReturnParameters": 947,
-                  "id": 970,
+                  "functionReturnParameters": 951,
+                  "id": 974,
                   "nodeType": "Return",
                   "src": "1873:135:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 972,
+            "id": 976,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -2806,15 +2806,15 @@
             "name": "getSKUType",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 938,
+              "id": 942,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 937,
+                  "id": 941,
                   "name": "_skuTypeId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 972,
+                  "scope": 976,
                   "src": "1685:18:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2823,7 +2823,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 936,
+                    "id": 940,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1685:7:5",
@@ -2840,15 +2840,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 947,
+              "id": 951,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 940,
+                  "id": 944,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 972,
+                  "scope": 976,
                   "src": "1726:7:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2857,7 +2857,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 939,
+                    "id": 943,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1726:7:5",
@@ -2871,10 +2871,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 942,
+                  "id": 946,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 972,
+                  "scope": 976,
                   "src": "1735:7:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2883,7 +2883,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 941,
+                    "id": 945,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1735:7:5",
@@ -2897,10 +2897,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 944,
+                  "id": 948,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 972,
+                  "scope": 976,
                   "src": "1744:6:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2909,7 +2909,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 943,
+                    "id": 947,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1744:6:5",
@@ -2923,10 +2923,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 946,
+                  "id": 950,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 972,
+                  "scope": 976,
                   "src": "1752:6:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2935,7 +2935,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 945,
+                    "id": 949,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1752:6:5",
@@ -2950,14 +2950,14 @@
               ],
               "src": "1725:34:5"
             },
-            "scope": 973,
+            "scope": 977,
             "src": "1665:350:5",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 974,
+        "scope": 978,
         "src": "164:1853:5"
       }
     ],
@@ -2967,14 +2967,14 @@
     "absolutePath": "/Users/cliff/Documents/in-app-pro-shop/contracts/SKUTypeFactory.sol",
     "exportedSymbols": {
       "SKUTypeFactory": [
-        973
+        977
       ]
     },
-    "id": 974,
+    "id": 978,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 846,
+        "id": 850,
         "literals": [
           "solidity",
           "^",
@@ -2987,10 +2987,10 @@
       {
         "absolutePath": "/Users/cliff/Documents/in-app-pro-shop/contracts/ShopFactory.sol",
         "file": "./ShopFactory.sol",
-        "id": 847,
+        "id": 851,
         "nodeType": "ImportDirective",
-        "scope": 974,
-        "sourceUnit": 1097,
+        "scope": 978,
+        "sourceUnit": 1101,
         "src": "26:27:5",
         "symbolAliases": [],
         "unitAlias": ""
@@ -3001,17 +3001,17 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 848,
+              "id": 852,
               "name": "ShopFactory",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1096,
+              "referencedDeclaration": 1100,
               "src": "191:11:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ShopFactory_$1096",
+                "typeIdentifier": "t_contract$_ShopFactory_$1100",
                 "typeString": "contract ShopFactory"
               }
             },
-            "id": 849,
+            "id": 853,
             "nodeType": "InheritanceSpecifier",
             "src": "191:11:5"
           }
@@ -3019,35 +3019,35 @@
         "contractDependencies": [
           154,
           684,
-          1096,
-          1125,
-          1176,
-          1377,
-          1474,
-          1494,
-          1501,
-          1611,
-          2195,
-          2601
+          2199,
+          1100,
+          1129,
+          1180,
+          1478,
+          1381,
+          1498,
+          1505,
+          1615,
+          2605
         ],
         "contractKind": "contract",
         "documentation": "@title SKUTypeFactory\n@notice Defines functions and events related to management of SKU Types",
         "fullyImplemented": true,
-        "id": 973,
+        "id": 977,
         "linearizedBaseContracts": [
-          973,
-          1096,
+          977,
+          1100,
           154,
           684,
-          2601,
-          1501,
-          1494,
-          1474,
-          2195,
-          1611,
-          1176,
-          1125,
-          1377
+          2605,
+          1505,
+          1498,
+          1478,
+          2199,
+          1615,
+          1180,
+          1129,
+          1381
         ],
         "name": "SKUTypeFactory",
         "nodeType": "ContractDefinition",
@@ -3055,20 +3055,20 @@
           {
             "anonymous": false,
             "documentation": "@notice emitted upon the creation of a SKU Type",
-            "id": 857,
+            "id": 861,
             "name": "NewSKUType",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 856,
+              "id": 860,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 851,
+                  "id": 855,
                   "indexed": true,
                   "name": "shopId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 857,
+                  "scope": 861,
                   "src": "298:22:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3077,7 +3077,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 850,
+                    "id": 854,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "298:7:5",
@@ -3091,11 +3091,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 853,
+                  "id": 857,
                   "indexed": false,
                   "name": "skuTypeId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 857,
+                  "scope": 861,
                   "src": "322:17:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3104,7 +3104,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 852,
+                    "id": 856,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "322:7:5",
@@ -3118,11 +3118,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 855,
+                  "id": 859,
                   "indexed": false,
                   "name": "name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 857,
+                  "scope": 861,
                   "src": "341:11:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3131,7 +3131,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 854,
+                    "id": 858,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "341:6:5",
@@ -3150,21 +3150,21 @@
           },
           {
             "body": {
-              "id": 908,
+              "id": 912,
               "nodeType": "Block",
               "src": "659:529:5",
               "statements": [
                 {
                   "assignments": [
-                    872
+                    876
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 872,
+                      "id": 876,
                       "name": "skuTypeId",
                       "nodeType": "VariableDeclaration",
-                      "scope": 909,
+                      "scope": 913,
                       "src": "696:17:5",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -3173,7 +3173,7 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 871,
+                        "id": 875,
                         "name": "uint256",
                         "nodeType": "ElementaryTypeName",
                         "src": "696:7:5",
@@ -3186,12 +3186,12 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 875,
+                  "id": 879,
                   "initialValue": {
                     "argumentTypes": null,
                     "expression": {
                       "argumentTypes": null,
-                      "id": 873,
+                      "id": 877,
                       "name": "skuTypes",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
@@ -3202,7 +3202,7 @@
                         "typeString": "struct ProShopBase.SKUType storage ref[] storage ref"
                       }
                     },
-                    "id": 874,
+                    "id": 878,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
@@ -3228,11 +3228,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 880,
+                            "id": 884,
                             "name": "_shopId",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 859,
+                            "referencedDeclaration": 863,
                             "src": "801:7:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -3241,11 +3241,11 @@
                           },
                           {
                             "argumentTypes": null,
-                            "id": 881,
+                            "id": 885,
                             "name": "skuTypeId",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 872,
+                            "referencedDeclaration": 876,
                             "src": "810:9:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -3254,11 +3254,11 @@
                           },
                           {
                             "argumentTypes": null,
-                            "id": 882,
+                            "id": 886,
                             "name": "_name",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 861,
+                            "referencedDeclaration": 865,
                             "src": "821:5:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
@@ -3267,11 +3267,11 @@
                           },
                           {
                             "argumentTypes": null,
-                            "id": 883,
+                            "id": 887,
                             "name": "_desc",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 863,
+                            "referencedDeclaration": 867,
                             "src": "828:5:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
@@ -3298,7 +3298,7 @@
                               "typeString": "string memory"
                             }
                           ],
-                          "id": 879,
+                          "id": 883,
                           "name": "SKUType",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
@@ -3309,7 +3309,7 @@
                             "typeString": "type(struct ProShopBase.SKUType storage pointer)"
                           }
                         },
-                        "id": 884,
+                        "id": 888,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -3333,7 +3333,7 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 876,
+                        "id": 880,
                         "name": "skuTypes",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
@@ -3344,7 +3344,7 @@
                           "typeString": "struct ProShopBase.SKUType storage ref[] storage ref"
                         }
                       },
-                      "id": 878,
+                      "id": 882,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -3358,7 +3358,7 @@
                         "typeString": "function (struct ProShopBase.SKUType storage ref) returns (uint256)"
                       }
                     },
-                    "id": 885,
+                    "id": 889,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3372,14 +3372,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 886,
+                  "id": 890,
                   "nodeType": "ExpressionStatement",
                   "src": "779:56:5"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 891,
+                    "id": 895,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3388,7 +3388,7 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 887,
+                        "id": 891,
                         "name": "skuTypeToShop",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
@@ -3399,14 +3399,14 @@
                           "typeString": "mapping(uint256 => uint256)"
                         }
                       },
-                      "id": 889,
+                      "id": 893,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 888,
+                        "id": 892,
                         "name": "skuTypeId",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 872,
+                        "referencedDeclaration": 876,
                         "src": "895:9:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -3428,11 +3428,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 890,
+                      "id": 894,
                       "name": "_shopId",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 859,
+                      "referencedDeclaration": 863,
                       "src": "908:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -3445,7 +3445,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 892,
+                  "id": 896,
                   "nodeType": "ExpressionStatement",
                   "src": "881:34:5"
                 },
@@ -3455,11 +3455,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 897,
+                        "id": 901,
                         "name": "skuTypeId",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 872,
+                        "referencedDeclaration": 876,
                         "src": "1001:9:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -3478,7 +3478,7 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 893,
+                          "id": 897,
                           "name": "shopSKUTypes",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
@@ -3489,14 +3489,14 @@
                             "typeString": "mapping(uint256 => uint256[] storage ref)"
                           }
                         },
-                        "id": 895,
+                        "id": 899,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 894,
+                          "id": 898,
                           "name": "_shopId",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 859,
+                          "referencedDeclaration": 863,
                           "src": "987:7:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -3514,7 +3514,7 @@
                           "typeString": "uint256[] storage ref"
                         }
                       },
-                      "id": 896,
+                      "id": 900,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -3528,7 +3528,7 @@
                         "typeString": "function (uint256) returns (uint256)"
                       }
                     },
-                    "id": 898,
+                    "id": 902,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3542,7 +3542,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 899,
+                  "id": 903,
                   "nodeType": "ExpressionStatement",
                   "src": "974:37:5"
                 },
@@ -3552,11 +3552,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 901,
+                        "id": 905,
                         "name": "_shopId",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 859,
+                        "referencedDeclaration": 863,
                         "src": "1090:7:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -3565,11 +3565,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 902,
+                        "id": 906,
                         "name": "skuTypeId",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 872,
+                        "referencedDeclaration": 876,
                         "src": "1099:9:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -3578,11 +3578,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 903,
+                        "id": 907,
                         "name": "_name",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 861,
+                        "referencedDeclaration": 865,
                         "src": "1110:5:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -3605,18 +3605,18 @@
                           "typeString": "string memory"
                         }
                       ],
-                      "id": 900,
+                      "id": 904,
                       "name": "NewSKUType",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 857,
+                      "referencedDeclaration": 861,
                       "src": "1079:10:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_uint256_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (uint256,uint256,string memory)"
                       }
                     },
-                    "id": 904,
+                    "id": 908,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3630,33 +3630,33 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 905,
+                  "id": 909,
                   "nodeType": "EmitStatement",
                   "src": "1074:42:5"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 906,
+                    "id": 910,
                     "name": "skuTypeId",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 872,
+                    "referencedDeclaration": 876,
                     "src": "1172:9:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 870,
-                  "id": 907,
+                  "functionReturnParameters": 874,
+                  "id": 911,
                   "nodeType": "Return",
                   "src": "1165:16:5"
                 }
               ]
             },
             "documentation": "@notice Create an SKU (Shopkeeping Unit) Type for a Shop\n@dev Can only be run by the shop owner",
-            "id": 909,
+            "id": 913,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -3665,11 +3665,11 @@
                 "arguments": [
                   {
                     "argumentTypes": null,
-                    "id": 866,
+                    "id": 870,
                     "name": "_shopId",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 859,
+                    "referencedDeclaration": 863,
                     "src": "621:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
@@ -3677,10 +3677,10 @@
                     }
                   }
                 ],
-                "id": 867,
+                "id": 871,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 865,
+                  "id": 869,
                   "name": "onlyShopOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
@@ -3698,15 +3698,15 @@
             "name": "createSKUType",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 864,
+              "id": 868,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 859,
+                  "id": 863,
                   "name": "_shopId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 909,
+                  "scope": 913,
                   "src": "518:15:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3715,7 +3715,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 858,
+                    "id": 862,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "518:7:5",
@@ -3729,10 +3729,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 861,
+                  "id": 865,
                   "name": "_name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 909,
+                  "scope": 913,
                   "src": "543:12:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3741,7 +3741,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 860,
+                    "id": 864,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "543:6:5",
@@ -3755,10 +3755,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 863,
+                  "id": 867,
                   "name": "_desc",
                   "nodeType": "VariableDeclaration",
-                  "scope": 909,
+                  "scope": 913,
                   "src": "565:12:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3767,7 +3767,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 862,
+                    "id": 866,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "565:6:5",
@@ -3784,15 +3784,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 870,
+              "id": 874,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 869,
+                  "id": 873,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 909,
+                  "scope": 913,
                   "src": "646:7:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3801,7 +3801,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 868,
+                    "id": 872,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "646:7:5",
@@ -3816,7 +3816,7 @@
               ],
               "src": "645:9:5"
             },
-            "scope": 973,
+            "scope": 977,
             "src": "486:702:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -3824,7 +3824,7 @@
           },
           {
             "body": {
-              "id": 921,
+              "id": 925,
               "nodeType": "Block",
               "src": "1358:54:5",
               "statements": [
@@ -3835,7 +3835,7 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 916,
+                        "id": 920,
                         "name": "skuTypeSKUs",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
@@ -3846,14 +3846,14 @@
                           "typeString": "mapping(uint256 => uint256[] storage ref)"
                         }
                       },
-                      "id": 918,
+                      "id": 922,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 917,
+                        "id": 921,
                         "name": "_skuTypeId",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 911,
+                        "referencedDeclaration": 915,
                         "src": "1387:10:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -3871,7 +3871,7 @@
                         "typeString": "uint256[] storage ref"
                       }
                     },
-                    "id": 919,
+                    "id": 923,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
@@ -3885,15 +3885,15 @@
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 915,
-                  "id": 920,
+                  "functionReturnParameters": 919,
+                  "id": 924,
                   "nodeType": "Return",
                   "src": "1368:37:5"
                 }
               ]
             },
             "documentation": "@notice Get the count of SKUs associated with a given SKU Type",
-            "id": 922,
+            "id": 926,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -3901,15 +3901,15 @@
             "name": "getSKUTypeSKUCount",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 912,
+              "id": 916,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 911,
+                  "id": 915,
                   "name": "_skuTypeId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 922,
+                  "scope": 926,
                   "src": "1308:18:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3918,7 +3918,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 910,
+                    "id": 914,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1308:7:5",
@@ -3935,15 +3935,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 915,
+              "id": 919,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 914,
+                  "id": 918,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 922,
+                  "scope": 926,
                   "src": "1349:7:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3952,7 +3952,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 913,
+                    "id": 917,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1349:7:5",
@@ -3967,7 +3967,7 @@
               ],
               "src": "1348:9:5"
             },
-            "scope": 973,
+            "scope": 977,
             "src": "1280:132:5",
             "stateMutability": "view",
             "superFunction": null,
@@ -3975,7 +3975,7 @@
           },
           {
             "body": {
-              "id": 934,
+              "id": 938,
               "nodeType": "Block",
               "src": "1567:45:5",
               "statements": [
@@ -3984,7 +3984,7 @@
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 930,
+                      "id": 934,
                       "name": "shopSKUTypes",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
@@ -3995,14 +3995,14 @@
                         "typeString": "mapping(uint256 => uint256[] storage ref)"
                       }
                     },
-                    "id": 932,
+                    "id": 936,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 931,
+                      "id": 935,
                       "name": "_shopId",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 924,
+                      "referencedDeclaration": 928,
                       "src": "1597:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -4020,15 +4020,15 @@
                       "typeString": "uint256[] storage ref"
                     }
                   },
-                  "functionReturnParameters": 929,
-                  "id": 933,
+                  "functionReturnParameters": 933,
+                  "id": 937,
                   "nodeType": "Return",
                   "src": "1577:28:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 935,
+            "id": 939,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -4036,15 +4036,15 @@
             "name": "getSKUTypeIds",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 925,
+              "id": 929,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 924,
+                  "id": 928,
                   "name": "_shopId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 935,
+                  "scope": 939,
                   "src": "1514:15:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4053,7 +4053,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 923,
+                    "id": 927,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1514:7:5",
@@ -4070,15 +4070,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 929,
+              "id": 933,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 928,
+                  "id": 932,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 935,
+                  "scope": 939,
                   "src": "1552:6:5",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -4088,7 +4088,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 926,
+                      "id": 930,
                       "name": "uint",
                       "nodeType": "ElementaryTypeName",
                       "src": "1552:4:5",
@@ -4097,7 +4097,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 927,
+                    "id": 931,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "1552:6:5",
@@ -4112,7 +4112,7 @@
               ],
               "src": "1551:15:5"
             },
-            "scope": 973,
+            "scope": 977,
             "src": "1491:121:5",
             "stateMutability": "view",
             "superFunction": null,
@@ -4120,7 +4120,7 @@
           },
           {
             "body": {
-              "id": 971,
+              "id": 975,
               "nodeType": "Block",
               "src": "1760:255:5",
               "statements": [
@@ -4134,18 +4134,18 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 952,
+                        "id": 956,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "argumentTypes": null,
-                          "id": 949,
+                          "id": 953,
                           "name": "_skuTypeId",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 937,
+                          "referencedDeclaration": 941,
                           "src": "1778:10:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -4158,7 +4158,7 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 950,
+                            "id": 954,
                             "name": "skuTypes",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -4169,7 +4169,7 @@
                               "typeString": "struct ProShopBase.SKUType storage ref[] storage ref"
                             }
                           },
-                          "id": 951,
+                          "id": 955,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
@@ -4197,21 +4197,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 948,
+                      "id": 952,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2619,
-                        2620
+                        2623,
+                        2624
                       ],
-                      "referencedDeclaration": 2619,
+                      "referencedDeclaration": 2623,
                       "src": "1770:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 953,
+                    "id": 957,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4225,21 +4225,21 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 954,
+                  "id": 958,
                   "nodeType": "ExpressionStatement",
                   "src": "1770:38:5"
                 },
                 {
                   "assignments": [
-                    956
+                    960
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 956,
+                      "id": 960,
                       "name": "skuType",
                       "nodeType": "VariableDeclaration",
-                      "scope": 972,
+                      "scope": 976,
                       "src": "1818:22:5",
                       "stateVariable": false,
                       "storageLocation": "memory",
@@ -4249,7 +4249,7 @@
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 955,
+                        "id": 959,
                         "name": "SKUType",
                         "nodeType": "UserDefinedTypeName",
                         "referencedDeclaration": 664,
@@ -4263,12 +4263,12 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 960,
+                  "id": 964,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 957,
+                      "id": 961,
                       "name": "skuTypes",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
@@ -4279,14 +4279,14 @@
                         "typeString": "struct ProShopBase.SKUType storage ref[] storage ref"
                       }
                     },
-                    "id": 959,
+                    "id": 963,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 958,
+                      "id": 962,
                       "name": "_skuTypeId",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 937,
+                      "referencedDeclaration": 941,
                       "src": "1852:10:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -4315,18 +4315,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 961,
+                          "id": 965,
                           "name": "skuType",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 956,
+                          "referencedDeclaration": 960,
                           "src": "1894:7:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_struct$_SKUType_$664_memory_ptr",
                             "typeString": "struct ProShopBase.SKUType memory"
                           }
                         },
-                        "id": 962,
+                        "id": 966,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -4344,18 +4344,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 963,
+                          "id": 967,
                           "name": "skuType",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 956,
+                          "referencedDeclaration": 960,
                           "src": "1922:7:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_struct$_SKUType_$664_memory_ptr",
                             "typeString": "struct ProShopBase.SKUType memory"
                           }
                         },
-                        "id": 964,
+                        "id": 968,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -4373,18 +4373,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 965,
+                          "id": 969,
                           "name": "skuType",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 956,
+                          "referencedDeclaration": 960,
                           "src": "1953:7:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_struct$_SKUType_$664_memory_ptr",
                             "typeString": "struct ProShopBase.SKUType memory"
                           }
                         },
-                        "id": 966,
+                        "id": 970,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -4402,18 +4402,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 967,
+                          "id": 971,
                           "name": "skuType",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 956,
+                          "referencedDeclaration": 960,
                           "src": "1979:7:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_struct$_SKUType_$664_memory_ptr",
                             "typeString": "struct ProShopBase.SKUType memory"
                           }
                         },
-                        "id": 968,
+                        "id": 972,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -4428,7 +4428,7 @@
                         }
                       }
                     ],
-                    "id": 969,
+                    "id": 973,
                     "isConstant": false,
                     "isInlineArray": false,
                     "isLValue": false,
@@ -4441,15 +4441,15 @@
                       "typeString": "tuple(uint256,uint256,string memory,string memory)"
                     }
                   },
-                  "functionReturnParameters": 947,
-                  "id": 970,
+                  "functionReturnParameters": 951,
+                  "id": 974,
                   "nodeType": "Return",
                   "src": "1873:135:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 972,
+            "id": 976,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -4457,15 +4457,15 @@
             "name": "getSKUType",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 938,
+              "id": 942,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 937,
+                  "id": 941,
                   "name": "_skuTypeId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 972,
+                  "scope": 976,
                   "src": "1685:18:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4474,7 +4474,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 936,
+                    "id": 940,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1685:7:5",
@@ -4491,15 +4491,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 947,
+              "id": 951,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 940,
+                  "id": 944,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 972,
+                  "scope": 976,
                   "src": "1726:7:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4508,7 +4508,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 939,
+                    "id": 943,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1726:7:5",
@@ -4522,10 +4522,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 942,
+                  "id": 946,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 972,
+                  "scope": 976,
                   "src": "1735:7:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4534,7 +4534,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 941,
+                    "id": 945,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1735:7:5",
@@ -4548,10 +4548,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 944,
+                  "id": 948,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 972,
+                  "scope": 976,
                   "src": "1744:6:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4560,7 +4560,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 943,
+                    "id": 947,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1744:6:5",
@@ -4574,10 +4574,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 946,
+                  "id": 950,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 972,
+                  "scope": 976,
                   "src": "1752:6:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4586,7 +4586,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 945,
+                    "id": 949,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1752:6:5",
@@ -4601,14 +4601,14 @@
               ],
               "src": "1725:34:5"
             },
-            "scope": 973,
+            "scope": 977,
             "src": "1665:350:5",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 974,
+        "scope": 978,
         "src": "164:1853:5"
       }
     ],
@@ -4620,5 +4620,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-26T22:52:42.522Z"
+  "updatedAt": "2018-12-02T21:06:58.940Z"
 }
