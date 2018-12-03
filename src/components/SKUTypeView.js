@@ -1,8 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { Button, Panel, Table } from "react-bootstrap";
+import { AtomSpinner } from "react-epic-spinners";
+import { Button, Panel, Table, Well } from "react-bootstrap";
+
+import SKUView from './SKUView';
 
 class SKUTypeView extends Component {
+
+    // Render the SKU rows
+    renderSKUs = () => {
+        const {skusFetched, skus, skuType} = this.props;
+
+        return skusFetched
+            ? skus.map( sku => skuType.skuTypeId === sku.skuTypeId ? <SKUView key={sku.skuId} sku={sku}/> : null )
+            : <Well>
+                <h2>Fetching SKUs</h2>
+                <AtomSpinner color='red'/>
+            </Well>;
+    };
 
     render() {
 
@@ -23,23 +38,18 @@ class SKUTypeView extends Component {
             <Panel.Body>
                 <Table striped bordered condensed hover>
                     <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                    </tr>
+                        <tr>
+                            <td>ID</td>
+                            <td>Name</td>
+                            <td>Description</td>
+                            <td>Price</td>
+                            <td>Consumable</td>
+                            <td>Limited</td>
+                            <td>Limit</td>
+                        </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Flathead Screwdriver</td>
-                        <td>Old school, slip it in the slot in turn</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Trucker Cap</td>
-                        <td>Wide, flat brim. Ugly as hell.</td>
-                    </tr>
+                        {this.renderSKUs()}
                     </tbody>
                 </Table>
             </Panel.Body>
@@ -49,10 +59,12 @@ class SKUTypeView extends Component {
 
 const mapStateToProps = (state) => ({
     skuTypeFormDisplayed: state.skuTypeState.skuTypeFormDisplayed,
+    skusFetched: state.skuState.skusFetched,
+    skus: state.skuState.skus
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    //showSKUTForm: () => dispatch(showSKUForm()),
+    //showSKUForm: () => dispatch(showSKUForm()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SKUTypeView);

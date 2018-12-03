@@ -49,7 +49,7 @@ class App extends Component {
             getShops(drizzle.contracts[CONTRACTS.PRO_SHOP], selectedAccount);
         }
 
-        // Get SKUTypes when Shop is selected
+        // Get SKUs & SKUTypes when Shop is selected
         if (selectedShopId && selectedShopId !== prevProps.selectedShopId) {
             getSKUTypes(drizzle.contracts[CONTRACTS.PRO_SHOP], selectedShopId);
             getSKUs(drizzle.contracts[CONTRACTS.PRO_SHOP], selectedShopId);
