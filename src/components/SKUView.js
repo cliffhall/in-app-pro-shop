@@ -8,7 +8,6 @@ class SKUView extends Component {
 
         return  (
             <tr>
-                <td>{sku.skuId}</td>
                 <td>{sku.name}</td>
                 <td>{sku.description}</td>
                 <td>{sku.price}</td>
