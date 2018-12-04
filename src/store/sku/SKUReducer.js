@@ -96,7 +96,8 @@ function skuReducer(state=INITIAL_STATE, action) {
         case TOGGLE_FORM:
             reduced = {
                 ...state,
-                skuFormDisplayed: !state.skuFormDisplayed
+                skuFormDisplayed: !state.skuFormDisplayed,
+                newSKU: INITIAL_STATE.newSKU
             };
             break;
 

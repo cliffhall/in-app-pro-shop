@@ -18,12 +18,8 @@ export const PanelBodyFlexRow = styled(Panel.Body)`
 export const PanelGroupFlexCol = styled(PanelGroup)`
   margin: 25px;
   flex-grow: 2;
- 
 `;
-
 
 export const FlexChild = styled.div`
   margin: 25px;
 `;
-
-

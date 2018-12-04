@@ -13,7 +13,7 @@ class ShopView extends Component {
 
     // Render the SKU Type panels in a responsive panel group
     renderSKUTypeList = () => {
-        return <PanelGroupFlexCol accordion id="skuTypes">
+        return <PanelGroupFlexCol id="skuTypes">
             {
                 this.renderSKUTypes()
             }
@@ -22,10 +22,10 @@ class ShopView extends Component {
 
     // Render the SKU Type panels
     renderSKUTypes = () => {
-        const {skuTypesFetched, skuTypes} = this.props;
+        const {skuTypesFetched, skuTypes, drizzle} = this.props;
 
         return skuTypesFetched
-            ? skuTypes.map( skuType => <SKUTypeView key={skuType.skuTypeId} skuType={skuType}/> )
+            ? skuTypes.map( skuType => <SKUTypeView drizzle={drizzle} key={skuType.skuTypeId} skuType={skuType}/> )
             : <Well>
                 <h2>Fetching SKU Types</h2>
                 <AtomSpinner color='red'/>
@@ -100,6 +100,7 @@ class ShopView extends Component {
                                 type="text"
                                 bsSize='large'
                                 placeholder="SKU Type Name"
+                                value={name}
                                 onChange={handleNameChange}
                             />
                             <FormControl.Feedback />
@@ -116,6 +117,7 @@ class ShopView extends Component {
                                 componentClass="textarea"
                                 bsSize='large'
                                 placeholder="Description"
+                                value={description}
                                 onChange={handleDescChange}
                             />
                             <FormControl.Feedback />
@@ -140,14 +142,14 @@ class ShopView extends Component {
     // Render the Shop panel
     render() {
 
-        const {shop, toggleTypeForm, skuTypeFormDisplayed} = this.props;
+        const {shop, toggleTypeForm, skuTypeFormDisplayed, skuFormDisplayed} = this.props;
 
         return  <Panel>
                     <Panel.Heading>
                         <Panel.Title>
                             {shop.name}
                             <div className="pull-right">
-                            {skuTypeFormDisplayed
+                            {skuTypeFormDisplayed || skuFormDisplayed
                                 ? null
                                 : <Button onClick={toggleTypeForm}>Add SKU Type</Button>}
                             </div>
@@ -173,9 +175,9 @@ const mapStateToProps = (state) => ({
     skuTypesFetched: state.skuTypeState.skuTypesFetched,
     creatingSKUType: state.skuTypeState.creatingSKUType,
     skuTypeFormDisplayed: state.skuTypeState.skuTypeFormDisplayed,
+    skuFormDisplayed: state.skuState.skuFormDisplayed,
     name: state.skuTypeState.newSKUType.name,
-    description: state.skuTypeState.newSKUType.description,
-
+    description: state.skuTypeState.newSKUType.description
 });
 
 const mapDispatchToProps = (dispatch) => ({

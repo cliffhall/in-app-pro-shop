@@ -10,6 +10,7 @@ export const NAME_CHANGED         = 'sku-type/name-changed';
 export const DESC_CHANGED         = 'sku-type/description-changed';
 export const CREATING_SKU_TYPE    = 'sku-type/creating';
 export const SKU_TYPE_CREATED     = 'sku-type/created';
+export const SKU_TYPE_SELECTED    = 'sku-type/selected';
 
 export const getSKUTypes = (contract, shopId) => {
 
@@ -52,6 +53,15 @@ export const getSKUTypes = (contract, shopId) => {
         });
 
     }
+};
+
+export const selectSKUType = selectedSKUTypeId => {
+
+    return {
+        type: SKU_TYPE_SELECTED,
+        selectedSKUTypeId
+    };
+
 };
 
 export const toggleTypeForm = () => {
