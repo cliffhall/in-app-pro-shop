@@ -13,14 +13,16 @@ describe( "A valid Shop entity", () => {
         const SHOP_ID = 52;
         const NAME = 'Barely Legal Pawn';
         const DESC = 'Great stuff, cheap!';
+        const FIAT = 'USD';
 
-        let shop = new Shop(OWNER, SHOP_ID, NAME, DESC);
+        let shop = new Shop(OWNER, SHOP_ID, NAME, DESC, FIAT);
 
         expect( shop ).not.toBeUndefined();
         expect( shop.owner ).toBe( OWNER );
         expect( shop.shopId ).toBe( SHOP_ID );
         expect( shop.name ).toBe( NAME );
         expect( shop.description ).toBe( DESC );
+        expect( shop.fiat ).toBe( FIAT );
         expect( shop.isValid() ).toBe( true );
 
     });
@@ -31,8 +33,9 @@ describe( "A valid Shop entity", () => {
         const SHOP_ID = 52;
         const NAME = 'Barely Legal Pawn';
         const DESC = 'Great stuff, cheap!';
+        const FIAT = 'USD';
 
-        const INPUT = [ OWNER, SHOP_ID, NAME, DESC ];
+        const INPUT = [ OWNER, SHOP_ID, NAME, DESC, FIAT ];
 
         let shop = Shop.fromArray( INPUT );
 
@@ -41,6 +44,7 @@ describe( "A valid Shop entity", () => {
         expect( shop.shopId ).toBe( SHOP_ID );
         expect( shop.name ).toBe( NAME );
         expect( shop.description ).toBe( DESC );
+        expect( shop.fiat ).toBe( FIAT );
         expect( shop.isValid() ).toBe( true );
 
     });
@@ -51,12 +55,14 @@ describe( "A valid Shop entity", () => {
         const SHOP_ID = 52;
         const NAME = 'Barely Legal Pawn';
         const DESC = 'Great stuff, cheap!';
+        const FIAT = 'USD';
 
         const INPUT = {
             owner: OWNER,
             shopId: SHOP_ID,
             name: NAME,
-            description: DESC
+            description: DESC,
+            fiat: FIAT
         };
 
         let shop = Shop.fromObject( INPUT );
@@ -66,6 +72,7 @@ describe( "A valid Shop entity", () => {
         expect( shop.shopId ).toBe( SHOP_ID );
         expect( shop.name ).toBe( NAME );
         expect( shop.description ).toBe( DESC );
+        expect( shop.fiat ).toBe( FIAT );
         expect( shop.isValid() ).toBe( true );
 
     });
@@ -76,8 +83,9 @@ describe( "A valid Shop entity", () => {
         const SHOP_ID = 52;
         const NAME = 'Barely Legal Pawn';
         const DESC = 'Great stuff, cheap!';
+        const FIAT = 'USD';
 
-        let obj = new Shop(OWNER, SHOP_ID, NAME, DESC).toObject();
+        let obj = new Shop(OWNER, SHOP_ID, NAME, DESC, FIAT).toObject();
         let shop = Shop.fromObject( obj );
 
         expect( shop ).not.toBeUndefined();
@@ -85,6 +93,7 @@ describe( "A valid Shop entity", () => {
         expect( shop.shopId ).toBe( SHOP_ID );
         expect( shop.name ).toBe( NAME );
         expect( shop.description ).toBe( DESC );
+        expect( shop.fiat ).toBe( FIAT );
         expect( shop.isValid() ).toBe( true );
 
     });

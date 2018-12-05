@@ -33,12 +33,13 @@ export const fetchShops = async (contract, ids) => {
  * @param contract
  * @param name
  * @param description
+ * @param fiat
  * @param owner
  */
-export const createShop = async (contract, owner, name, description, callback) => {
+export const createShop = async (contract, owner, name, description, fiat, callback) => {
 
     contract.events[EVENTS.NEW_SHOP]({owner: owner}).once('data', callback);
 
-    contract.methods.createShop(name, description).send({from: owner});
+    contract.methods.createShop(name, description, fiat).send({from: owner});
 
 };

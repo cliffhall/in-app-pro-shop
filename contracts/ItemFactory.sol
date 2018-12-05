@@ -59,12 +59,6 @@ contract ItemFactory is SKUFactory {
         // Create and store Item
         items.push(Item(owner, _shopId, itemId, skuTypeId, _skuId, false));
 
-        // Map the Item ID to the Shop
-        itemToShop[itemId] = _shopId;
-
-        // Map the Item ID to the Owner
-        itemToOwner[itemId] = owner;
-
         // Add Item ID to Owner's Items list
         ownedItems[owner].push(itemId);
 

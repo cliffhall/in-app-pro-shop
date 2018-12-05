@@ -10,6 +10,7 @@ export const SHOPS_REQUESTED  = 'shop/items-requested';
 export const SHOPS_FETCHED    = 'shop/items-fetched';
 export const SHOP_SELECTED    = 'shop/selected';
 export const NAME_CHANGED     = 'shop/name-changed';
+export const FIAT_CHANGED     = 'shop/fiat-changed';
 export const DESC_CHANGED     = 'shop/description-changed';
 export const CREATING_SHOP    = 'shop/creating';
 export const SHOP_CREATED     = 'shop/created';
@@ -66,7 +67,7 @@ export const selectShop = shopId => {
 
 };
 
-export const createNewShop = (contract, owner, name, description) => {
+export const createNewShop = (contract, owner, name, description, fiat) => {
 
     return async function(dispatch) {
 
@@ -75,13 +76,14 @@ export const createNewShop = (contract, owner, name, description) => {
             creatingShop: true,
             owner,
             name,
-            description
+            description,
+            fiat
         });
 
-        createShop(contract, owner, name, description, event => {
+        createShop(contract, owner, name, description, fiat, event => {
 
             const shopId = event.returnValues[1];
-            const shop = new Shop(owner, shopId, name, description);
+            const shop = new Shop(owner, shopId, name, description, fiat);
 
             dispatch({
                 type: SHOP_CREATED,
@@ -111,6 +113,15 @@ export const descChanged = description => {
     return {
         type: DESC_CHANGED,
         description
+    };
+
+};
+
+export const fiatChanged = fiat => {
+
+    return {
+        type: FIAT_CHANGED,
+        fiat
     };
 
 };

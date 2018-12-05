@@ -33,9 +33,6 @@ contract SKUTypeFactory is ShopFactory {
         // Create and store SKU Type
         skuTypes.push(SKUType(_shopId, skuTypeId, _name, _desc));
 
-        // Map SKU Type to Shop ID
-        skuTypeToShop[skuTypeId] = _shopId;
-
         // Add SKU Type to Shop's SKU Type list
         shopSKUTypes[_shopId].push(skuTypeId);
 

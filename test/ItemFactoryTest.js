@@ -9,6 +9,7 @@ contract('ItemFactory', function(accounts) {
     const itemOwner = accounts[3];
     const shopName = "Rarely Beagle Pawn";
     const shopDesc = "Great mutts, cheap!";
+    const shopFiat = "USD";
     const skuTypeName = "Weapons";
     const skuTypeDesc = "Things that make you go ouch!";
     const skuName = "Magic Sword";
@@ -26,10 +27,10 @@ contract('ItemFactory', function(accounts) {
 
         // Invoke the function with 'call' to get the return value contractead of the transaction
         // NOTE: this doesn't actually write the data
-        shopId = await contract.createShop.call(shopName, shopDesc, {from: shopOwner});
+        shopId = await contract.createShop.call(shopName, shopDesc, shopFiat, {from: shopOwner});
 
         // Now call the function for real and write the data
-        await contract.createShop(shopName, shopDesc, {from: shopOwner});
+        await contract.createShop(shopName, shopDesc, shopFiat, {from: shopOwner});
 
         // First, get the skuTypeID with a call so it doesn't return a transaction
         skuTypeId = await contract.createSKUType.call(shopId, skuTypeName, skuTypeDesc, {from: shopOwner});
@@ -57,7 +58,7 @@ contract('ItemFactory', function(accounts) {
         const fee = accounting.calcFee(price, franchiseFeePercent);
 
         // Calc net for shop owner
-        const net = accounting.calcNet(price, franchiseFeePercent)
+        const net = accounting.calcNet(price, franchiseFeePercent);
 
         // Get the item id
         const itemId = await contract.createItem.call(shopId, skuId, {from: itemOwner, value: price});

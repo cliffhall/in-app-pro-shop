@@ -11,14 +11,16 @@ class Shop {
      * @param shopId
      * @param name
      * @param description
+     * @param fiat
      * @constructor
      */
 
-    constructor (owner, shopId, name, description) {
+    constructor (owner, shopId, name, description, fiat="USD") {
         this.owner = owner;
         this.shopId = shopId;
         this.name = name;
         this.description = description;
+        this.fiat = fiat;
     }
 
     /**
@@ -27,7 +29,7 @@ class Shop {
      * @returns {Shop}
      */
     static fromArray(a) {
-        return new Shop(a[0], a[1], a[2], a[3]);
+        return new Shop(a[0], a[1], a[2], a[3], a[4]);
     }
 
     /**
@@ -36,7 +38,7 @@ class Shop {
      * @returns {Shop}
      */
     static fromObject(o) {
-        return new Shop(o.owner, o.shopId, o.name, o.description);
+        return new Shop(o.owner, o.shopId, o.name, o.description, o.fiat);
     }
 
     /**
@@ -56,7 +58,8 @@ class Shop {
             this.owner,
             this.shopId,
             this.name,
-            this.description
+            this.description,
+            this.fiat
         ].join(', ');
     }
 
@@ -126,6 +129,22 @@ class Shop {
     };
 
     /**
+     * Is this Shop instance's fiat field valid?
+     * @returns {boolean}
+     */
+    fiatIsValid() {
+        let valid = false;
+        try {
+            valid = (
+                typeof this.fiat === 'string' &&
+                this.fiat.length > 0
+            );
+        } catch (e) {
+        }
+        return valid;
+    };
+
+    /**
      * Is this Shop instance valid?
      * @returns {boolean}
      */
@@ -134,7 +153,8 @@ class Shop {
             this.ownerIsValid() &&
             this.shopIdIsValid() &&
             this.nameIsValid() &&
-            this.descriptionIsValid()
+            this.descriptionIsValid() &&
+            this.fiatIsValid()
         );
     };
 }
