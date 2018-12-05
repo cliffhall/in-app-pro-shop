@@ -41,9 +41,6 @@ contract SKUFactory is SKUTypeFactory {
         // Create and store SKU Type
         skus.push(SKU(_shopId, skuId, _skuTypeId, _price, _name, _desc, _consumable, _limited, _limit));
 
-        // Map SKU to Shop
-        skuToShop[skuId] = _shopId;
-
         // Add SKU to Shop's SKU list
         shopSKUs[_shopId].push(skuId);
 

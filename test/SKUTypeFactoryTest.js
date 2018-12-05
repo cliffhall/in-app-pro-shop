@@ -8,6 +8,7 @@ contract('SKUTypeFactory', function(accounts) {
     const notShopOwner = accounts[3];
     const shopName = "Rarely Beagle Pawn";
     const shopDesc = "Great mutts, cheap!";
+    const shopFiat = "USD";
     const skuTypeName = "Weapons";
     const skuTypeDesc = "Things that make you go ouch!";
 
@@ -17,10 +18,10 @@ contract('SKUTypeFactory', function(accounts) {
         contract = await ProShop.new();
 
         // Get the Shop ID (using call, to avoid receiving a transaction)
-        shopId = (await contract.createShop.call(shopName, shopDesc, {from: shopOwner})).toNumber();
+        shopId = (await contract.createShop.call(shopName, shopDesc, shopFiat, {from: shopOwner})).toNumber();
 
         // Now call the function for real and write the data
-        await contract.createShop(shopName, shopDesc, {from: shopOwner});
+        await contract.createShop(shopName, shopDesc, shopFiat, {from: shopOwner});
 
     });
 

@@ -10,6 +10,7 @@ contract('ProShop', function(accounts) {
     const customer = accounts[2];
     const shopName = "Rarely Beagle Pawn";
     const shopDesc = "Great mutts, cheap!";
+    const shopFiat = "USD";
     const skuTypeName = "Weapons";
     const skuTypeDesc = "Things that make you go ouch!";
     const skuName = "Magic Sword";
@@ -25,12 +26,12 @@ contract('ProShop', function(accounts) {
         // Get the contract contractance for this suite
         contract = await ProShop.new();
 
-        // Invoke the function with 'call' to get the return value contractead of the transaction
+        // Invoke the function with 'call' to get the return value of the transaction
         // NOTE: this doesn't actually write the data
-        shopId = (await contract.createShop.call(shopName, shopDesc, {from: shopOwner})).toNumber();
+        shopId = (await contract.createShop.call(shopName, shopDesc, shopFiat, {from: shopOwner})).toNumber();
 
         // Now call the function for real and write the data
-        await contract.createShop(shopName, shopDesc, {from: shopOwner});
+        await contract.createShop(shopName, shopDesc, shopFiat, {from: shopOwner});
 
         // First, get the skuTypeID with a call so it doesn't return a transaction
         skuTypeId = (await contract.createSKUType.call(shopId, skuTypeName, skuTypeDesc, {from: shopOwner})).toNumber();

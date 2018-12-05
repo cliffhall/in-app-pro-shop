@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { HollowDotsSpinner, AtomSpinner } from 'react-epic-spinners'
-import { Well, Form, FormGroup, FormControl, HelpBlock, Button } from 'react-bootstrap';
+import { Well, Form, FormGroup, FormControl, HelpBlock, Button, ToggleButton, ToggleButtonGroup, ControlLabel, Glyphicon} from 'react-bootstrap';
 
-import { CONTRACTS } from "../constants";
+import { CONTRACTS, CURRENCIES } from "../constants";
 import { FlexChild, FlexRow } from "../styles";
-import { createNewShop, nameChanged, descChanged } from "../store/shop/ShopActions";
+import { createNewShop, nameChanged, descChanged, fiatChanged } from "../store/shop/ShopActions";
 
 class SplashView extends Component {
 
@@ -60,9 +60,11 @@ class SplashView extends Component {
             selectedAccount,
             name,
             description,
+            fiat,
             createNewShop,
             nameChanged,
             descChanged,
+            fiatChanged,
             creatingShop
         } = this.props;
 
@@ -70,7 +72,7 @@ class SplashView extends Component {
         const ERROR = 'error';
 
         const handleSubmit = () => {
-            createNewShop(drizzle.contracts[CONTRACTS.PRO_SHOP], selectedAccount, name, description);
+            createNewShop(drizzle.contracts[CONTRACTS.PRO_SHOP], selectedAccount, name, description, fiat);
         };
 
         const getNameValidationState = () => {
@@ -94,6 +96,10 @@ class SplashView extends Component {
 
         const handleDescChange = e => {
             descChanged(e.target.value);
+        };
+
+        const handleFiatChange = selection => {
+            fiatChanged(selection);
         };
 
         return <FlexChild><Well><Form>
@@ -129,6 +135,17 @@ class SplashView extends Component {
                     : null}
             </FormGroup>
 
+            <FormGroup>
+                <ControlLabel>Fiat Currency for Prices</ControlLabel>
+                <br/>
+                <ToggleButtonGroup
+                    type="radio"
+                    name="shopCurrency"
+                    onChange={handleFiatChange}
+                    value={fiat}>
+                    {Object.values(CURRENCIES).map(sym => <ToggleButton value={sym.symbol}><Glyphicon glyph={sym.icon} /> - {sym.symbol}</ToggleButton>)}
+                </ToggleButtonGroup>
+            </FormGroup>
             {creatingShop
                 ? <HollowDotsSpinner color='black'/>
                 : <Button
@@ -158,13 +175,15 @@ const mapStateToProps = (state) => ({
     selectedAccount: state.accountState.selectedAccount,
     name: state.shopState.newShop.name,
     description: state.shopState.newShop.description,
+    fiat: state.shopState.newShop.fiat,
     creatingShop: state.shopState.creatingShop
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    createNewShop: (contract, owner, name, description) => dispatch(createNewShop(contract, owner, name, description)),
+    createNewShop: (contract, owner, name, description, fiat) => dispatch(createNewShop(contract, owner, name, description, fiat)),
     nameChanged: name => {dispatch(nameChanged(name))},
     descChanged: description => {dispatch(descChanged(description))},
+    fiatChanged: fiat => {dispatch(fiatChanged(fiat))},
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SplashView);

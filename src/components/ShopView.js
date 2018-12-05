@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { AtomSpinner, HollowDotsSpinner } from "react-epic-spinners";
-import { Panel, Glyphicon, Well, Button, Form, FormGroup, FormControl, HelpBlock } from "react-bootstrap";
+import {Panel, Glyphicon, Well, Button, Form, FormGroup, FormControl, HelpBlock, Label} from "react-bootstrap";
 
 import SKUTypeView from './SKUTypeView';
 
@@ -154,7 +154,7 @@ class ShopView extends Component {
                                 : <Button onClick={toggleTypeForm}>Add SKU Type</Button>}
                             </div>
                         </Panel.Title>
-                        {shop.description}
+                        <Label bsStyle="success"><Glyphicon glyph={shop.fiat.toLowerCase()}/></Label>&nbsp;|&nbsp;{shop.description}
                     </Panel.Heading>
                     <PanelBodyFlexRow>
                         {this.renderSKUTypeList()}

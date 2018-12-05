@@ -6,7 +6,9 @@ import {
     SHOP_SELECTED,
     NAME_CHANGED,
     DESC_CHANGED,
-    CREATING_SHOP, SHOP_CREATED
+    FIAT_CHANGED,
+    CREATING_SHOP,
+    SHOP_CREATED
 } from './ShopActions';
 
 import {
@@ -18,6 +20,7 @@ const INITIAL_STATE = {
         owner: null,
         name: "",
         description: "",
+        fiat: "USD"
     },
     creatingShop: false,
 
@@ -101,6 +104,16 @@ function shopReducer(state=INITIAL_STATE, action) {
             };
             break;
 
+        case FIAT_CHANGED:
+            reduced = {
+                ...state,
+                newShop: {
+                    ...state.newShop,
+                    fiat: action.fiat,
+                }
+            };
+            break;
+
         case CREATING_SHOP:
             reduced = {
                 ...state,
@@ -108,7 +121,8 @@ function shopReducer(state=INITIAL_STATE, action) {
                 newShop: {
                     owner: action.owner,
                     name: action.name,
-                    description: action.description
+                    description: action.description,
+                    fiat: action.fiat
                 }
             };
             break;

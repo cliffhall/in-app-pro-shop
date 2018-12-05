@@ -20,7 +20,8 @@ contract ShopFactory is AccessControl {
      */
     function createShop(
         string _name,
-        string _desc
+        string _desc,
+        string _fiat
     )
         public
         returns (uint256)
@@ -30,7 +31,7 @@ contract ShopFactory is AccessControl {
         address owner = msg.sender;
 
         // Create and store Shop
-        shops.push(Shop(owner, shopId, _name, _desc));
+        shops.push(Shop(owner, shopId, _name, _desc, _fiat));
 
         // Map Shop ID to owner address
         shopToOwner[shopId] = owner;
@@ -55,9 +56,9 @@ contract ShopFactory is AccessControl {
     }
 
     // @notice Get a Shop's properties by ID
-    function getShop(uint256 _shopId) public view returns (address, uint256, string, string) {
+    function getShop(uint256 _shopId) public view returns (address, uint256, string, string, string) {
         require(_shopId <= shops.length);
-        return (shops[_shopId].owner, shops[_shopId].shopId, shops[_shopId].name, shops[_shopId].description);
+        return (shops[_shopId].owner, shops[_shopId].shopId, shops[_shopId].name, shops[_shopId].description, shops[_shopId].fiat );
     }
 
 }

@@ -15,9 +15,10 @@ contract('ShopFactory', function(accounts) {
         // The name and description of the new shop
         const shopName = "Barely Legal Pawn";
         const shopDesc = "Great stuff, cheap!";
+        const shopFiat = "USD";
 
         // Get the Shop ID (using call, to avoid receiving a transaction)
-        const shopId = (await contract.createShop.call(shopName, shopDesc, {from: shopOwner})).toNumber();
+        const shopId = (await contract.createShop.call(shopName, shopDesc, shopFiat, {from: shopOwner})).toNumber();
         assert.equal(shopId, 0, "Shop id wasn't returned");
 
         /*
@@ -32,7 +33,7 @@ contract('ShopFactory', function(accounts) {
         */
 
         // Now call the function for real and write the data
-        await contract.createShop(shopName, shopDesc, {from: shopOwner});
+        await contract.createShop(shopName, shopDesc, shopFiat, {from: shopOwner});
 
         // Make sure the shop count for this owner is correct
         const shopIds = await contract.getShopIds(shopOwner);
@@ -45,9 +46,10 @@ contract('ShopFactory', function(accounts) {
         // The name and description of the new shop
         const shopName = "Fairly Regal Pawn";
         const shopDesc = "Cheap stuff, pricey!";
+        const shopFiat = "USD";
 
         // Get the Shop ID (using call, to avoid receiving a transaction)
-        const shopId = (await contract.createShop.call(shopName, shopDesc, {from: shopOwner})).toNumber();
+        const shopId = (await contract.createShop.call(shopName, shopDesc, shopFiat, {from: shopOwner})).toNumber();
         assert.equal(shopId, 1, "Shop id wasn't returned");
 
         /*
@@ -62,7 +64,7 @@ contract('ShopFactory', function(accounts) {
         */
 
         // Now call the function for real and write the data
-        await contract.createShop(shopName, shopDesc, {from: shopOwner});
+        await contract.createShop(shopName, shopDesc, shopFiat, {from: shopOwner});
 
         // Make sure the owner's Shop count is correct
         const shopIds = await contract.getShopIds(shopOwner);
@@ -83,6 +85,7 @@ contract('ShopFactory', function(accounts) {
         // The name and description of the new shop
         const shopName = "Barely Legal Pawn";
         const shopDesc = "Great stuff, cheap!";
+        const shopFiat = "USD";
         const shopId = 0;
 
         // Make sure the owner's Shop count is correct
@@ -92,6 +95,7 @@ contract('ShopFactory', function(accounts) {
         assert.equal(shop[1].toNumber(), shopId,    "Shop ID was wrong");
         assert.equal(shop[2], shopName,  "Shop name was wrong");
         assert.equal(shop[3], shopDesc,  "Shop description was wrong");
+        assert.equal(shop[4], shopFiat,  "Shop fiat currency was wrong");
 
     });
 

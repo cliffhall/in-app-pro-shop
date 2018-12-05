@@ -67,19 +67,9 @@ contract ProShopBase is ERC721Token {
     mapping (address => uint256[]) public ownedShops;
 
     /**
-     * @dev Mapping of SKU Type ID to Shop ID
-     */
-    mapping (uint256 => uint256) public skuTypeToShop;
-
-    /**
      * @dev Mapping of Shop ID to SKU Type list
      */
     mapping (uint256 => uint256[]) public shopSKUTypes;
-
-    /**
-     * @dev Mapping of SKU ID to Shop ID
-     */
-    mapping (uint256 => uint256) public skuToShop;
 
     /**
      * @dev Mapping of SKU Type ID to SKU list
@@ -97,19 +87,9 @@ contract ProShopBase is ERC721Token {
     mapping (uint256 => uint256[]) public skuItems;
 
     /**
-     * @dev Mapping of Item ID to Shop ID
-     */
-    mapping (uint256 => uint256) public itemToShop;
-
-    /**
      * @dev Mapping of Owner Address to list of owned Items
      */
     mapping (address => uint256[]) public ownedItems;
-
-    /**
-     * @dev Mapping of Item ID to Owner Address
-     */
-    mapping (uint256 => address) public itemToOwner;
 
     /**
      * @dev Mapping of Shop ID to SKU list
@@ -120,21 +100,6 @@ contract ProShopBase is ERC721Token {
      * @dev Mapping of Shop ID to its available Ether balance
      */
     mapping (uint256 => uint256) public shopBalances;
-
-    /**
-     * @notice the attributes of an item
-     */
-    struct Attribute {
-
-        // Name of the attribute
-        string name;
-
-        // Description of the attribute (optional)
-        string description;
-
-        // Value of the attribute (optional)
-        uint256 value;
-    }
 
     /**
      * @notice Structure of a Pro Shop Item
@@ -176,6 +141,9 @@ contract ProShopBase is ERC721Token {
 
         // Description of the shop
         string description;
+
+        // Fiat currency for prices
+        string fiat;
     }
 
     /**
@@ -230,9 +198,6 @@ contract ProShopBase is ERC721Token {
         // can be created?
         uint256 limit;
 
-        // The attributes of the item
-        // TODO: Why can't this be an array
-        // mapping(uint256 => Attribute) attributes;
     }
 
 }
