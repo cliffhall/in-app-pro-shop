@@ -13,20 +13,21 @@ class SplashView extends Component {
         return <FlexChild>
             <h1>In-App purchases for your Dapp made easy</h1>
             <p>
-                The goal of In-App Pro Shop is to allow Ethereum developers to add in-app purchases quickly
-                and to make it easy to support assets from other apps, if you so choose.
+                The goal of In-App Pro Shop is to allow Ethereum developers to add in-app purchases without having
+                to build a system from scratch, and to make it easy to support assets from other apps.
             </p>
 
             <p>
                 Using smart contracts that live on the blockchain and a web-based maintenance
-                application, it implements a franchise system, whereby you can create a Shop,
+                application, it implements a franchise system, whereby you can quickly create a Shop,
                 define and categorize the <a href="https://en.wikipedia.org/wiki/Stock_keeping_unit"  rel="noopener noreferrer" target="_blank">SKU</a>s
-                that identify the products they will sell, and integrate that Shop into their application.
+                that identify the products you will sell, and integrate that Shop into your application.
             </p>
 
             <p>
                 Your application can then interact with the In-App Pro Shop smart contracts
-                to allow users to purchase items, which are minted as <a href="http://erc721.org/" rel="noopener noreferrer" target="_blank">ERC-721 non-fungible tokens</a>.
+                to allow users to purchase items, which are minted as <a href="http://erc721.org/" rel="noopener noreferrer" target="_blank">ERC-721 non-fungible tokens</a>,
+                which users can trade or rent on the open market.
             </p>
 
             <p>
@@ -143,7 +144,7 @@ class SplashView extends Component {
                     name="shopCurrency"
                     onChange={handleFiatChange}
                     value={fiat}>
-                    {Object.values(CURRENCIES).map(sym => <ToggleButton value={sym.symbol}><Glyphicon glyph={sym.icon} /> - {sym.symbol}</ToggleButton>)}
+                    {Object.values(CURRENCIES).map(sym => <ToggleButton key={sym.symbol} value={sym.symbol}><Glyphicon glyph={sym.icon} /> - {sym.symbol}</ToggleButton>)}
                 </ToggleButtonGroup>
             </FormGroup>
             {creatingShop

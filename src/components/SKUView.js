@@ -10,10 +10,10 @@ class SKUView extends Component {
             <tr>
                 <td>{sku.name}</td>
                 <td>{sku.description}</td>
-                <td>{sku.price}</td>
-                <td>{sku.consumable ? 'yes' : 'no'}</td>
-                <td>{sku.limited ? 'yes' : 'no'}</td>
-                <td>{sku.limited ? sku.limit : ''}</td>
+                <td align="right">{parseFloat(sku.price / 100).toFixed(2)}</td>
+                <td align="middle">{sku.consumable ? 'yes' : 'no'}</td>
+                <td align="middle">{sku.limited ? 'yes' : 'no'}</td>
+                <td align="right">{sku.limited ? sku.limit : ''}</td>
             </tr>
         );
     }
