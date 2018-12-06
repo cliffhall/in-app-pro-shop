@@ -31,6 +31,7 @@
     "openzeppelin-solidity": "1.11.0",
     "react": "^16.4.0",
     "react-bootstrap": "^0.32.4",
+    "react-currency-masked-input": "^2.2.0",
     "react-dom": "^16.4.0",
     "react-epic-spinners": "^0.2.1",
     "react-redux": "^5.0.7",

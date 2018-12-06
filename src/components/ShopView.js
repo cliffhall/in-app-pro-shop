@@ -22,10 +22,10 @@ class ShopView extends Component {
 
     // Render the SKU Type panels
     renderSKUTypes = () => {
-        const {skuTypesFetched, skuTypes, drizzle} = this.props;
+        const {skuTypesFetched, skuTypes, drizzle, shop} = this.props;
 
         return skuTypesFetched
-            ? skuTypes.map( skuType => <SKUTypeView drizzle={drizzle} key={skuType.skuTypeId} skuType={skuType}/> )
+            ? skuTypes.map( skuType => <SKUTypeView drizzle={drizzle} key={skuType.skuTypeId} skuType={skuType} shop={shop}/> )
             : <Well>
                 <h2>Fetching SKU Types</h2>
                 <AtomSpinner color='red'/>

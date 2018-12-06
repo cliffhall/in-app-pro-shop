@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { AtomSpinner, HollowDotsSpinner } from "react-epic-spinners";
 import { Button, Checkbox, Form, FormControl, FormGroup, Glyphicon, HelpBlock, Panel, Table, Well } from "react-bootstrap";
+import CurrencyInput from 'react-currency-masked-input'
 
 import {
     priceChanged,
@@ -14,14 +15,14 @@ import {
     createNewSKU
 } from "../store/sku/SKUActions";
 import SKUView from './SKUView';
-import CONTRACTS from "../constants/Contracts";
+import {CONTRACTS, CURRENCIES} from "../constants";
 import { selectSKUType } from "../store/sku_type/SKUTypeActions";
 import { FlexChild, PanelBodyFlexRow, PanelGroupFlexCol } from "../styles";
 
 class SKUTypeView extends Component {
 
     renderSKUList = () => {
-        const {skusFetched, skuType} = this.props;
+        const {skusFetched, skuType, shop} = this.props;
         return skusFetched
             ? <PanelGroupFlexCol id={`skus-${skuType.skuTypeId}`}>
                     <Table striped bordered condensed hover>
@@ -29,10 +30,10 @@ class SKUTypeView extends Component {
                     <tr>
                         <td>Name</td>
                         <td>Description</td>
-                        <td>Price</td>
-                        <td>Consumable</td>
-                        <td>Limited</td>
-                        <td>Limit</td>
+                        <td align="right">Price&nbsp;<Glyphicon glyph={CURRENCIES[shop.fiat].icon} /></td>
+                        <td align="middle">Consumable</td>
+                        <td align="middle">Limited</td>
+                        <td align="right">Limit</td>
                     </tr>
                     </thead>
                     <tbody>
@@ -57,6 +58,7 @@ class SKUTypeView extends Component {
 
         const {
             drizzle,
+            shop,
             skuType,
             newSKU,
             selectedAccount,
@@ -121,8 +123,9 @@ class SKUTypeView extends Component {
             descChanged(e.target.value);
         };
 
-        const handlePriceChange = e => {
-            priceChanged(Number(e.target.value));
+        const handlePriceChange = (e, masked) => {
+            let val = parseInt(masked * 100);
+            priceChanged(val);
         };
 
         const handleLimitChange = e => {
@@ -188,13 +191,7 @@ class SKUTypeView extends Component {
                         <FormGroup
                             controlId='priceField'
                             validationState={getPriceValidationState()}>
-                            <FormControl
-                                disabled={creatingSKU}
-                                type="text"
-                                bsSize='large'
-                                placeholder="Price"
-                                onChange={handlePriceChange}
-                            />
+                            <CurrencyInput placeholder={`Price (${shop.fiat})`} className='form-control input-lg' onChange={handlePriceChange}/>
                             <FormControl.Feedback />
                             {(getPriceValidationState() === ERROR)
                                 ? <HelpBlock>Enter a non-negative numeric value</HelpBlock>
