@@ -43,27 +43,4 @@ contract SKUTypeFactory is ShopFactory {
         return skuTypeId;
     }
 
-    /**
-     * @notice Get the count of SKUs associated with a given SKU Type
-     */
-    function getSKUTypeSKUCount(uint256 _skuTypeId) public view returns (uint256) {
-        return skuTypeSKUs[_skuTypeId].length;
-    }
-
-    // @notice Get the list of SKU Type Ids associated with a given Shop
-    function getSKUTypeIds(uint256 _shopId) public view returns (uint[] memory) {
-        return shopSKUTypes[_shopId];
-    }
-
-    // @notice Get a SKUTypes properties by ID
-    function getSKUType(uint256 _skuTypeId) public view returns (uint256, uint256, string, string) {
-        require(_skuTypeId <= skuTypes.length);
-        SKUType memory skuType = skuTypes[_skuTypeId];
-        return (
-            skuType.shopId,
-            skuType.skuTypeId,
-            skuType.name,
-            skuType.description
-        );
-    }
 }

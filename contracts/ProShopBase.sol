@@ -3,17 +3,28 @@ pragma solidity ^0.4.24;
 import "openzeppelin-solidity/contracts/token/ERC721/ERC721Token.sol";
 import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 import "./AccessControl.sol";
-
+import "./StockRoomInterface.sol";
 
 /**
  * @title ProShopBase
- * @notice Defines structs for the In-game Pro Shop System
+ * @notice Defines collections, mappings, and structs for the sales side of the In-game Pro Shop System
  */
-contract ProShopBase is ERC721Token {
+contract ProShopBase is ERC721Token, AccessControl {
 
     using SafeMath for uint256;
 
     constructor() public ERC721Token(TOKEN_NAME, TOKEN_SYMBOL) {}
+
+    StockRoomInterface internal stockRoom;
+
+    /**
+     * @dev modifier to scope access to owner of given shop
+     */
+    modifier onlyShopOwner(uint256 _shopId) {
+        address owner = stockRoom.getShopOwner(_shopId);
+        require(msg.sender == owner);
+        _;
+    }
 
     /**
      * @notice Name of the non fungible token
@@ -26,24 +37,29 @@ contract ProShopBase is ERC721Token {
     string public constant TOKEN_SYMBOL = "IAPS";
 
     /**
-     * @notice All of the Shops
-     */
-    Shop[] public shops;
-
-    /**
-     * @notice All of the SKU Types
-     */
-    SKUType[] public skuTypes;
-
-    /**
-     * @notice All of the SKUs
-     */
-    SKU[] public skus;
-
-    /**
      * @notice All of the Items
      */
     Item[] public items;
+
+    /**
+     * @dev Mapping of SKU id to Item list
+     */
+    mapping (uint256 => uint256[]) public skuItems;
+
+    /**
+     * @dev Mapping of Shop ID to SKU list
+     */
+    mapping (uint256 => uint256[]) public shopItems;
+
+    /**
+     * @dev Mapping of Owner Address to list of owned Items
+     */
+    mapping (address => uint256[]) public ownedItems;
+
+    /**
+     * @dev Mapping of Shop ID to its available Ether balance
+     */
+    mapping (uint256 => uint256) public shopBalances;
 
     /**
      * @notice The franchise owner's available balance
@@ -55,51 +71,6 @@ contract ProShopBase is ERC721Token {
      * Must be between 0 and 100
      */
     uint256 public franchiseFeePercent;
-
-    /**
-     * @dev Mapping of Shop ID to Owner Address
-     */
-    mapping (uint256 => address) public shopToOwner;
-
-    /**
-     * @dev Mapping of Owner Address to list of owned Shops
-     */
-    mapping (address => uint256[]) public ownedShops;
-
-    /**
-     * @dev Mapping of Shop ID to SKU Type list
-     */
-    mapping (uint256 => uint256[]) public shopSKUTypes;
-
-    /**
-     * @dev Mapping of SKU Type ID to SKU list
-     */
-    mapping (uint256 => uint256[]) public skuTypeSKUs;
-
-    /**
-     * @dev Mapping of Shop ID to SKU list
-     */
-    mapping (uint256 => uint256[]) public shopSKUs;
-
-    /**
-     * @dev Mapping of SKU id to Item list
-     */
-    mapping (uint256 => uint256[]) public skuItems;
-
-    /**
-     * @dev Mapping of Owner Address to list of owned Items
-     */
-    mapping (address => uint256[]) public ownedItems;
-
-    /**
-     * @dev Mapping of Shop ID to SKU list
-     */
-    mapping (uint256 => uint256[]) public shopItems;
-
-    /**
-     * @dev Mapping of Shop ID to its available Ether balance
-     */
-    mapping (uint256 => uint256) public shopBalances;
 
     /**
      * @notice Structure of a Pro Shop Item
@@ -115,89 +86,11 @@ contract ProShopBase is ERC721Token {
         // The id of this item
         uint256 itemId;
 
-        // Id of SKU Type of this item
-        uint256 skuTypeId;
-
         // Id of SKU of this item
         uint256 skuId;
 
         // Has the item been consumed?
         bool consumed;
-    }
-
-    /**
-     * @notice Structure of a Pro Shop
-     */
-    struct Shop {
-
-        // Owner of the item
-        address owner;
-
-        // The id of this shop
-        uint256 shopId;
-
-        // Name of the item
-        string name;
-
-        // Description of the shop
-        string description;
-
-        // Fiat currency for prices
-        string fiat;
-    }
-
-    /**
-     * @notice the attributes of an item
-     */
-    struct SKUType {
-
-        // ID of the Shop this SKU Type belongs to
-        uint256 shopId;
-
-        // ID of the SKU Type
-        uint256 skuTypeId;
-
-        // Name of the SKU Type
-        string name;
-
-        // Description of the SKU Type (optional)
-        string description;
-    }
-
-    /**
-     * @notice Structure of a Pro Shop SKU (Shopkeeping Unit)
-     */
-    struct SKU {
-
-        // The shop this SKU belongs to
-        uint256 shopId;
-
-        // The id of this SKU
-        uint256 skuId;
-
-        // Type of the SKU
-        uint256 skuTypeId;
-
-        // Price of the SKU
-        uint256 price;
-
-        // Name of the item
-        string name;
-
-        // Description of the SKU
-        string description;
-
-        // Can it be consumed (used up)
-        bool consumable;
-
-        // Is there a limit to the number of Items that can
-        // be minted from this SKU?
-        bool limited;
-
-        // If limited, what is the maximum number that
-        // can be created?
-        uint256 limit;
-
     }
 
 }
