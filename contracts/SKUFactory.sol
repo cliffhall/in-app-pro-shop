@@ -28,9 +28,9 @@ contract SKUFactory is SKUTypeFactory {
         bool _limited,
         uint256 _limit
     )
-        public
-        onlyShopOwner(_shopId)
-        returns(uint256)
+    public
+    onlyShopOwner(_shopId)
+    returns(uint256)
     {
         // SKUs must have a non-zero price
         require(_price > 0);
@@ -54,27 +54,4 @@ contract SKUFactory is SKUTypeFactory {
         return skuId;
     }
 
-    // @notice Get the list of SKU Ids associated with a given Shop
-    function getSKUIds(uint256 _shopId) public view returns (uint[] memory) {
-        return shopSKUs[_shopId];
-    }
-
-    // @notice Get a SKU's properties by ID
-    function getSKU(uint256 _skuId) public view returns (
-        uint256, uint256, uint256,  uint256, string, string, bool, bool, uint256)
-    {
-        require(_skuId <= skus.length);
-        SKU memory sku = skus[_skuId];
-        return (
-            sku.shopId,
-            sku.skuId,
-            sku.skuTypeId,
-            sku.price,
-            sku.name,
-            sku.description,
-            sku.consumable,
-            sku.limited,
-            sku.limit
-        );
-    }
 }

@@ -1,13 +1,13 @@
 pragma solidity ^0.4.24;
 
-import "./AccessControl.sol";
+import "./StockRoomBase.sol";
 
 
 /**
  * @title ShopFactory
  * @notice Defines functions and events related to management of Shops
  */
-contract ShopFactory is AccessControl {
+contract ShopFactory is StockRoomBase {
 
     /**
      * @dev emitted upon creation of a shop
@@ -47,18 +47,6 @@ contract ShopFactory is AccessControl {
 
         // Return the new Shop ID
         return shopId;
-    }
-
-
-    // @notice Get the list of Shop Ids associated with a given Owner
-    function getShopIds(address _owner) public view returns (uint[] memory) {
-        return ownedShops[_owner];
-    }
-
-    // @notice Get a Shop's properties by ID
-    function getShop(uint256 _shopId) public view returns (address, uint256, string, string, string) {
-        require(_shopId <= shops.length);
-        return (shops[_shopId].owner, shops[_shopId].shopId, shops[_shopId].name, shops[_shopId].description, shops[_shopId].fiat );
     }
 
 }
