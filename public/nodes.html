@@ -1,7 +1,7 @@
 <!-- canvas -->
 <body style="background-color: #1682FB; padding:0; margin:0;">
 
-    <canvas id="nodes" style="height:100%; width:100%;"></canvas>
+    <canvas id="nodes" style="height:100%; width:100%;"/>
 
     <script>
         let canvas = document.getElementById('nodes'),
@@ -31,25 +31,25 @@
 
         // Random speed
         function getRandomSpeed(pos){
-            let  min = -1,
-                max = 1;
+            let  min = -1, max = 1, retval;
             switch(pos){
                 case 'top':
-                    return [randomNumFrom(min, max), randomNumFrom(0.1, max)];
+                    retval = [randomNumFrom(min, max), randomNumFrom(0.1, max)];
                     break;
+
                 case 'right':
-                    return [randomNumFrom(min, -0.1), randomNumFrom(min, max)];
+                    retval = [randomNumFrom(min, -0.1), randomNumFrom(min, max)];
                     break;
+
                 case 'bottom':
-                    return [randomNumFrom(min, max), randomNumFrom(min, -0.1)];
+                    retval = [randomNumFrom(min, max), randomNumFrom(min, -0.1)];
                     break;
+
                 case 'left':
-                    return [randomNumFrom(0.1, max), randomNumFrom(min, max)];
-                    break;
-                default:
-                    return;
+                    retval = [randomNumFrom(0.1, max), randomNumFrom(min, max)];
                     break;
             }
+            return retval;
         }
         function randomArrayItem(arr){
             return arr[Math.floor(Math.random() * arr.length)];
@@ -60,10 +60,10 @@
 
         // Random Ball
         function getRandomBall(){
-            let pos = randomArrayItem(['top', 'right', 'bottom', 'left']);
+            let pos = randomArrayItem(['top', 'right', 'bottom', 'left']), retval;
             switch(pos){
                 case 'top':
-                    return {
+                    retval = {
                         x: randomSidePos(can_w),
                         y: -R,
                         vx: getRandomSpeed('top')[0],
@@ -71,10 +71,11 @@
                         r: R,
                         alpha: 1,
                         phase: randomNumFrom(100, 300)
-                    }
+                    };
                     break;
+
                 case 'right':
-                    return {
+                    retval = {
                         x: can_w + R,
                         y: randomSidePos(can_h),
                         vx: getRandomSpeed('right')[0],
@@ -82,10 +83,11 @@
                         r: R,
                         alpha: 1,
                         phase: randomNumFrom(100, 300)
-                    }
+                    };
                     break;
+
                 case 'bottom':
-                    return {
+                    retval = {
                         x: randomSidePos(can_w),
                         y: can_h + R,
                         vx: getRandomSpeed('bottom')[0],
@@ -93,10 +95,11 @@
                         r: R,
                         alpha: 1,
                         phase: randomNumFrom(100, 300)
-                    }
+                    };
                     break;
+
                 case 'left':
-                    return {
+                    retval = {
                         x: -R,
                         y: randomSidePos(can_h),
                         vx: getRandomSpeed('left')[0],
@@ -104,9 +107,10 @@
                         r: R,
                         alpha: 1,
                         phase: randomNumFrom(100, 300)
-                    }
+                    };
                     break;
             }
+            return retval;
         }
         function randomSidePos(length){
             return Math.ceil(Math.random() * length);
@@ -222,7 +226,7 @@
             can_h = parseInt(canvas.getAttribute('height'));
         }
 
-        window.addEventListener('resize', function(e){
+        window.addEventListener('resize', function(){
             console.log('Window Resize...');
             initCanvas();
         });
