@@ -28,9 +28,9 @@ contract SKUFactory is SKUTypeFactory {
         bool _limited,
         uint256 _limit
     )
-    public
-    onlyShopOwner(_shopId)
-    returns(uint256)
+        public
+        onlyShopOwner(_shopId)
+        returns(uint256)
     {
         // SKUs must have a non-zero price
         require(_price > 0);

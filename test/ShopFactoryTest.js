@@ -1,4 +1,4 @@
-const ProShop = artifacts.require("./ProShop.sol");
+const StockRoom = artifacts.require("./StockRoom.sol");
 
 contract('ShopFactory', function(accounts) {
 
@@ -7,7 +7,7 @@ contract('ShopFactory', function(accounts) {
 
     before(async () => {
         // Get the contract instance for this suite
-        contract  = await ProShop.new();
+        contract  = await StockRoom.new();
     });
 
     it("should allow anyone to create a shop", async function() {

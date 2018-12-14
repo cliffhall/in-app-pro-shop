@@ -23,7 +23,7 @@ contract SKUTypeFactory is ShopFactory {
         string _name,
         string _desc
     )
-        public
+        external
         onlyShopOwner(_shopId)
         returns(uint256)
     {

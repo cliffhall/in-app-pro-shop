@@ -36,7 +36,7 @@ contract ItemFactory is ProShopBase {
         require(stockRoom.canMintItem(_skuId, skuItems[_skuId].length) == true);
 
         // Make sure enough Ether has been sent
-        require(msg.value == stockRoom.getItemPriceInEther(_skuId));
+        require(msg.value == stockRoom.getPriceInEther(_skuId));
 
         // Calculate and store the franchise fee
         uint256 franchiseFee = msg.value.div(franchiseFeePercent);

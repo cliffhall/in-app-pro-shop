@@ -23,7 +23,7 @@ contract ShopFactory is StockRoomBase {
         string _desc,
         string _fiat
     )
-        public
+        external
         returns (uint256)
     {
         // Get Shop ID and owner address
