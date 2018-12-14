@@ -52,7 +52,7 @@ class ShopView extends Component {
         const ERROR = 'error';
 
         const handleSubmit = () => {
-            createNewSKUType(drizzle.contracts[CONTRACTS.PRO_SHOP], selectedAccount, selectedShopId, name, description);
+            createNewSKUType(drizzle.contracts[CONTRACTS.STOCK_ROOM], selectedAccount, selectedShopId, name, description);
         };
 
         const getNameValidationState = () => {
