@@ -57,32 +57,32 @@ Two stratified sets of Solidity contracts, ending with *ProShop.sol* and *StockR
 #### Stockroom Contract Structure
 ```
 * RBAC (Open Zepplin contract for implementing role-based access)
-|
+:
 * AccessControl (Role-based access, SafeMath, contract pause, unpause, upgrade)
-|
+:
 * StockRoomBase (Structs, state vars, and mappings related to Shops, SKU Types, and SKUs)
-|
+:
 * ShopFactory (Factory method and related event for creating new Shops)
-|
+:
 * SKUTypeFactory (Factory method and related event for creating new SKU Types)
-|
+:
 * SKUFactory (Factory method and related event for creating new SKUs)
-|
+:
 * StockRoom (Utility methods for accessing contract data)
 ```
 
 #### ProShop Contract Structure
 ```
 * ERC721Token (Open Zepplin contract for implementing ERC-721 non-fungible tokens)
-|
-|  * RBAC (Open Zepplin contract for implementing role-based access)
-|  |
-+--* AccessControl (Role-based access, SafeMath, contract pause, unpause, upgrade)
-|
+:
+:  * RBAC (Open Zepplin contract for implementing role-based access)
+:  :
+:..* AccessControl (Role-based access, SafeMath, contract pause, unpause, upgrade)
+:
 * ProShopBase (Structs, state vars, and mappings related to Items and balances)
-|
+:
 * ItemFactory (Factory method and related event for selling and minting new Items)
-|
+:
 * ProShop (Utility methods for accessing contract and withdrawing balances)
 ```
 
