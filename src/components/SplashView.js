@@ -73,7 +73,7 @@ class SplashView extends Component {
         const ERROR = 'error';
 
         const handleSubmit = () => {
-            createNewShop(drizzle.contracts[CONTRACTS.PRO_SHOP], selectedAccount, name, description, fiat);
+            createNewShop(drizzle.contracts[CONTRACTS.STOCK_ROOM], selectedAccount, name, description, fiat);
         };
 
         const getNameValidationState = () => {
