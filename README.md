@@ -61,7 +61,6 @@ Two stratified sets of Solidity contracts, ending with ProShop.sol and StockRoom
 + AccessControl +---\
                      +---> ProShopBase +---> ItemFactory +---> ProShop
 + ERC721Token   *---/
-
 ```
 
 ### Web
