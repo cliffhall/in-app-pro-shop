@@ -173,6 +173,7 @@ Communicates with the Ethereum client, allows compiling, migrating, debugging, e
 ## React App
 ### Launch application
 Compiles, serves, and launches app on http://localhost:3000/. Watches files for changes and reloads app in browser automatically.
+Make sure you have launched Ganache first.
 
 ```npm run app:start```
 
