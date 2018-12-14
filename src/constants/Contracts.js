@@ -1,5 +1,6 @@
 const CONTRACTS = {
-    PRO_SHOP: 'ProShop'
+    PRO_SHOP: 'ProShop',
+    STOCK_ROOM: 'StockRoom'
 };
 
 export default CONTRACTS;

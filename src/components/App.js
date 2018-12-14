@@ -46,13 +46,13 @@ class App extends Component {
 
         // Get Shops when account is selected
         if (selectedAccount && selectedAccount !== prevProps.selectedAccount) {
-            getShops(drizzle.contracts[CONTRACTS.PRO_SHOP], selectedAccount);
+            getShops(drizzle.contracts[CONTRACTS.STOCK_ROOM], selectedAccount);
         }
 
         // Get SKUs & SKUTypes when Shop is selected
         if (selectedShopId && selectedShopId !== prevProps.selectedShopId) {
-            getSKUTypes(drizzle.contracts[CONTRACTS.PRO_SHOP], selectedShopId);
-            getSKUs(drizzle.contracts[CONTRACTS.PRO_SHOP], selectedShopId);
+            getSKUTypes(drizzle.contracts[CONTRACTS.STOCK_ROOM], selectedShopId);
+            getSKUs(drizzle.contracts[CONTRACTS.STOCK_ROOM], selectedShopId);
         }
 
     }

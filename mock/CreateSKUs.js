@@ -1,5 +1,5 @@
 // Create mock SKUs
-const ProShop = artifacts.require("./ProShop.sol");
+const StockRoom = artifacts.require("./StockRoom.sol");
 
 module.exports = async function(done){
 
@@ -38,24 +38,14 @@ module.exports = async function(done){
         ["You were meant to wield this blade, you just know it.", "Hide your bad self in plain sight!"],
         ["Cast spells, turn your enemies into frogs, whatever.", "Aww hells, yes. Pimp don't do it justice."]
     ];
-/*
-uint256 _shopId,
-        uint256 _skuTypeId,
-        uint256 _price,
-        string _name,
-        string _desc,
-        bool _consumable,
-        bool _limited,
-        uint256 _limit
- */
-    let contract = await ProShop.deployed();
+
+    let contract = await StockRoom.deployed();
     let promises = [];
     shopIds.forEach( (shopId, x) => {
         skuTypeIds[x].forEach( (id, y) => {
                 promises.push(contract.createSKU(
                     shopIds[x],
                     skuTypeIds[x][y],
-                    //web3.toWei(prices[x][y], "ether"),
                     prices[x][y],
                     names[x][y],
                     descs[x][y],

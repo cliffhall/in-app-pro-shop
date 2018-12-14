@@ -1,5 +1,5 @@
 // Create mock shops
-const ProShop = artifacts.require("./ProShop.sol");
+const StockRoom = artifacts.require("./StockRoom.sol");
 
 module.exports = async function(done){
 
@@ -7,7 +7,7 @@ module.exports = async function(done){
     const names = ["Barely Legal Pawn", "Fairly Regal Pawn"];
     const descs = ["Great stuff, cheap!", "Cheap stuff, pricey!"];
     const fiat = 'USD';
-    let contract = await ProShop.deployed();
+    let contract = await StockRoom.deployed();
     let promises = names.map( (name,idx) => contract.createShop(name, descs[idx], fiat, {from: shopOwner}) );
     try {
         await Promise.all(promises);
