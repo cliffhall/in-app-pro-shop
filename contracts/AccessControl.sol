@@ -1,14 +1,13 @@
 pragma solidity ^0.4.24;
 
 import "openzeppelin-solidity/contracts/ownership/RBAC/RBAC.sol";
-import "./ProShopBase.sol";
 
 
 /**
  * @title AccessControl
  * @notice Role-based access control and related functions, function modifiers, and events
  */
-contract AccessControl is RBAC, ProShopBase {
+contract AccessControl is RBAC {
 
     /**
      * @dev constructor. Sets msg.sender as system admin by default
@@ -72,15 +71,6 @@ contract AccessControl is RBAC, ProShopBase {
      */
     modifier onlyFranchiseOwner() {
         checkRole(msg.sender, ROLE_FRANCHISE_OWNER);
-        _;
-    }
-
-    /**
-     * @dev modifier to scope access to owner of given shop
-     */
-    modifier onlyShopOwner(uint256 _shopId) {
-        address owner = shopToOwner[_shopId];
-        require(msg.sender == owner);
         _;
     }
 

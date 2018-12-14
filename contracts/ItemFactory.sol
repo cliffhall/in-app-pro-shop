@@ -1,13 +1,13 @@
 pragma solidity ^0.4.24;
 
-import "./SKUFactory.sol";
+import "./ProShopBase.sol";
 
 
 /**
  * @title ItemFactory
- * @notice Defines functions and events related to management of Items
+ * @notice Defines factory and events related to saleable Items (ERC721 tokens)
  */
-contract ItemFactory is SKUFactory {
+contract ItemFactory is ProShopBase {
 
     /**
      * @notice emitted upon the creation of an Item
@@ -15,9 +15,8 @@ contract ItemFactory is SKUFactory {
     event NewItem(
         uint256 indexed shopId,
         uint256 indexed skuId,
-        uint256 indexed skuTypeId,
         uint256 itemId,
-        uint256 price,
+        uint256 amount,
         uint256 fee,
         uint256 net
     );
@@ -34,10 +33,10 @@ contract ItemFactory is SKUFactory {
         returns (uint256)
     {
         // Make sure the item can be minted
-        require(canMintItem(_skuId) == true);
+        require(stockRoom.canMintItem(_skuId, skuItems[_skuId].length) == true);
 
         // Make sure enough Ether has been sent
-        require(msg.value == skus[_skuId].price);
+        require(msg.value == stockRoom.getPriceInEther(_skuId));
 
         // Calculate and store the franchise fee
         uint256 franchiseFee = msg.value.div(franchiseFeePercent);
@@ -53,11 +52,8 @@ contract ItemFactory is SKUFactory {
         // Get the owner address
         address owner = msg.sender;
 
-        // Get the SKU Type
-        uint256 skuTypeId = skus[_skuId].skuTypeId;
-
         // Create and store Item
-        items.push(Item(owner, _shopId, itemId, skuTypeId, _skuId, false));
+        items.push(Item(owner, _shopId, itemId, _skuId, false));
 
         // Add Item ID to Owner's Items list
         ownedItems[owner].push(itemId);
@@ -72,40 +68,10 @@ contract ItemFactory is SKUFactory {
         super._mint(owner, itemId);
 
         // Emit event with the name of the new Item
-        emit NewItem(_shopId, _skuId, skuTypeId, itemId, skus[_skuId].price, franchiseFee, shopNetSale);
+        emit NewItem(_shopId, _skuId, itemId, msg.value, franchiseFee, shopNetSale);
 
         // Return the new Item ID
         return itemId;
-    }
-
-    function canMintItem(uint256 _skuId) public view returns (bool) {
-        return (!skus[_skuId].limited || (getSKUItemCount(_skuId) < skus[_skuId].limit));
-    }
-
-    /**
-     * @notice Get the count of minted Items associated with a given Shop
-     */
-    function getShopItemCount(uint256 _shopId) public view returns (uint256) {
-        return shopItems[_shopId].length;
-    }
-
-    /**
-     * @notice Get the count of minted Items associated with a given SKU
-     */
-    function getSKUItemCount(uint256 _skuId) public view returns (uint256) {
-        return skuItems[_skuId].length;
-    }
-
-    /**
-     * @notice Get the count of Items associated with a given Owner
-     */
-    function getItemCount(address _owner) public view returns (uint256) {
-        return ownedItems[_owner].length;
-    }
-
-    // @notice Get the list of Item Ids associated with a given Owner
-    function getItemIds(address _owner) public view returns (uint[] memory) {
-        return ownedItems[_owner];
     }
 
 }

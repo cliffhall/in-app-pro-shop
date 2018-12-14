@@ -78,7 +78,7 @@ class SKUTypeView extends Component {
 
         const handleSubmit = () => {
             createNewSKU(
-                drizzle.contracts[CONTRACTS.PRO_SHOP],
+                drizzle.contracts[CONTRACTS.STOCK_ROOM],
                 selectedAccount,
                 skuType.shopId,
                 skuType.skuTypeId,

@@ -1,5 +1,5 @@
 // Create mock SKU Types
-const ProShop = artifacts.require("./ProShop.sol");
+const StockRoom = artifacts.require("./StockRoom.sol");
 
 module.exports = async function(done){
 
@@ -14,7 +14,7 @@ module.exports = async function(done){
         ["Be whoever you want. On the internet, no one knows you're a potato.", "Dress your best, shame all the rest!"]
     ];
 
-    let contract = await ProShop.deployed();
+    let contract = await StockRoom.deployed();
     let promises = [];
     shopIds.forEach( (shopId, x) => {
         names[x].forEach( (nameSet, y) => {

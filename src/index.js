@@ -8,20 +8,25 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 
 import ProShop from './abi/ProShop.json';
+import StockRoom from './abi/StockRoom.json';
 import App from './components/App'
 import store from './store';
 
 const drizzleOptions = {
     contracts: [
-        ProShop
+        ProShop,
+        StockRoom
     ],
     events: {
-        ProShop: [
-            'NewShop',
-            'NewSKUType',
-            'NewSKU',
+        ProSHop: [
+            'NewItem',
             'ShopBalanceWithdrawn',
             'FranchiseBalanceWithdrawn'
+        ],
+        StockRoom: [
+            'NewShop',
+            'NewSKUType',
+            'NewSKU'
         ]
     },
     web3:{
