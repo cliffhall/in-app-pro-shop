@@ -46,7 +46,7 @@ CryptoKities can be used in various games in the
 The _In App Pro Shop_ project is composed of:
 
 ### Blockchain
-A stratified set of Solidity contracts, one inheriting from another, ending with ProShop.sol, which is deployed.
+Two stratified sets of Solidity contracts, ending with ProShop.sol and StockRoom.sol, which are deployed.
 * [Openzepplin-Solidity](https://github.com/OpenZeppelin/openzeppelin-solidity) base contracts for ERC721 tokens, role-based access control, safe math, and more.
 * [FiatContract](https://fiatcontract.com) external contract dependency for getting current ETH -> USD/EUR/GBP quotes from the blockchain.
 * [Ganache-CLI](https://github.com/trufflesuite/ganache-cli) for local blockchain.
