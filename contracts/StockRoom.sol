@@ -28,12 +28,12 @@ contract StockRoom is SKUFactory {
     }
 
     // @notice get an item's price in Ether
-    function getItemPriceInEther(uint256 _skuId) external view returns (uint256){
+    function getPriceInEther(uint256 _skuId) external view returns (uint256) {
         SKU memory sku = skus[_skuId];
         bytes32 fiat = keccak256(abi.encodePacked(shops[sku.shopId].fiat));
         uint256 ethQuote;
         if (fiat == keccak256("USD")) {
-            ethQuote = fiatContract.USD(0);
+           ethQuote = fiatContract.USD(0);
         } else if (fiat == keccak256("EUR")) {
             ethQuote = fiatContract.EUR(0);
         } else if (fiat == keccak256("GBP")) {

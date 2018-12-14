@@ -1,4 +1,4 @@
-const ProShop = artifacts.require("./ProShop.sol");
+const StockRoom = artifacts.require("./StockRoom.sol");
 const exceptions = require ('./util/Exceptions');
 
 contract('SKUTypeFactory', function(accounts) {
@@ -15,7 +15,7 @@ contract('SKUTypeFactory', function(accounts) {
     // Set up a shop for this test suite
     before(async () => {
         // Get the contract instance for this suite
-        contract = await ProShop.new();
+        contract = await StockRoom.new();
 
         // Get the Shop ID (using call, to avoid receiving a transaction)
         shopId = (await contract.createShop.call(shopName, shopDesc, shopFiat, {from: shopOwner})).toNumber();

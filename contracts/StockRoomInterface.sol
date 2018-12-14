@@ -15,7 +15,7 @@ interface StockRoomInterface {
         string _name,
         string _desc,
         string _fiat
-    ) public returns (uint256);
+    ) external returns (uint256);
 
     // @notice Create a SKU for a Shop
     function createSKU(
@@ -27,17 +27,17 @@ interface StockRoomInterface {
         bool _consumable,
         bool _limited,
         uint256 _limit
-    ) public returns(uint256);
+    ) external returns(uint256);
 
     // @notice Create a SKU Type for a Shop
     function createSKUType(
         uint256 _shopId,
         string _name,
         string _desc
-    ) public returns(uint256);
+    ) external returns(uint256);
 
-    // @notice get an Item's price in Ether
-    function getItemPriceInEther(uint256 _skuId) external view returns (uint256);
+    // @notice get an SKU's price in Ether
+    function getPriceInEther(uint256 _skuId) external view returns (uint256);
 
     // @notice confirm this is a StockRoom contract
     function isStockRoom() external pure returns (bool);

@@ -1,10 +1,12 @@
 const ProShop = artifacts.require("./ProShop.sol");
+const StockRoom = artifacts.require("./StockRoom.sol");
+const FiatContract = artifacts.require('./FiatContract.sol');
 const exceptions = require ('./util/Exceptions');
 const accounting = require('./util/Accounting');
 
 contract('ProShop', function(accounts) {
 
-    let contract, shopId, skuTypeId, skuId;
+    let contract, fiatContract, stockRoom, shopId, skuTypeId, skuId;
     const franchiseOwner = accounts[0];
     const shopOwner = accounts[1];
     const customer = accounts[2];
@@ -18,49 +20,64 @@ contract('ProShop', function(accounts) {
     const consumable = false;
     const limited = true;
     const limit = 5000;
-    const price = web3.toWei(.25, "ether");
-    const franchiseFeePercent = .10;
+    const franchiseFeePercent = 3;
+    const ethQuote = 1000000000000000000;
+    const usdQuote = 33652131190000;
+    const eurQuote = 40154176530000;
+    const gbpQuote = 44664290720000;
+    const skuPrice = 5;
+    const itemAmount = skuPrice * usdQuote;
 
     // Set up a shop with a SKU Type and SKU for this test suite
     before(async () => {
-        // Get the contract contractance for this suite
+
+        // Get the FiatContract for this suite and initialize ETH quotes
+        fiatContract = await FiatContract.deployed();
+        await fiatContract.update(0, "ETH", ethQuote, usdQuote, eurQuote, gbpQuote, {from: franchiseOwner});
+
+        // Get the StockRoom contract for this suite
+        stockRoom = await StockRoom.new();
+        await stockRoom.setFiatContractAddress(fiatContract.address);
+
+        // Get the ProShop contract for this suite
         contract = await ProShop.new();
+        await contract.setStockRoomContractAddress(stockRoom.address);
 
         // Invoke the function with 'call' to get the return value of the transaction
         // NOTE: this doesn't actually write the data
-        shopId = (await contract.createShop.call(shopName, shopDesc, shopFiat, {from: shopOwner})).toNumber();
+        shopId = (await stockRoom.createShop.call(shopName, shopDesc, shopFiat, {from: shopOwner})).toNumber();
 
         // Now call the function for real and write the data
-        await contract.createShop(shopName, shopDesc, shopFiat, {from: shopOwner});
+        await stockRoom.createShop(shopName, shopDesc, shopFiat, {from: shopOwner});
 
         // First, get the skuTypeID with a call so it doesn't return a transaction
-        skuTypeId = (await contract.createSKUType.call(shopId, skuTypeName, skuTypeDesc, {from: shopOwner})).toNumber();
+        skuTypeId = (await stockRoom.createSKUType.call(shopId, skuTypeName, skuTypeDesc, {from: shopOwner})).toNumber();
 
         // Now do it for real
-        await contract.createSKUType(shopId, skuTypeName, skuTypeDesc, {from: shopOwner});
+        await stockRoom.createSKUType(shopId, skuTypeName, skuTypeDesc, {from: shopOwner});
 
         // First, get the skuTypeID with a call so it doesn't return a transaction
-        skuId = (await contract.createSKU.call(shopId, skuTypeId, price, skuName, skuDesc, consumable, limited, limit, {from: shopOwner})).toNumber();
+        skuId = (await stockRoom.createSKU.call(shopId, skuTypeId, skuPrice, skuName, skuDesc, consumable, limited, limit, {from: shopOwner})).toNumber();
 
         // Now do it for real
-        await contract.createSKU(shopId, skuTypeId, price, skuName, skuDesc, consumable, limited, limit, {from: shopOwner});
+        await stockRoom.createSKU(shopId, skuTypeId, skuPrice, skuName, skuDesc, consumable, limited, limit, {from: shopOwner});
 
         // Purchase an item
-        await contract.createItem(shopId, skuId, {from: customer, value: price});
+        await contract.createItem(shopId, skuId, {from: customer, value: itemAmount});
 
         // Purchase a second item
-        await contract.createItem(shopId, skuId, {from: customer, value: price});
+        await contract.createItem(shopId, skuId, {from: customer, value: itemAmount});
 
     });
 
     it("should allow the franchise owner to check their balance", async function() {
 
         // Calculate expected balance
-        const expected = web3.toBigNumber(accounting.calcFee(price * 2, franchiseFeePercent));
+        const expected = accounting.calcFee(itemAmount, franchiseFeePercent) * 2;
 
         // Get franchise balance
         const balance = await contract.checkFranchiseBalance({from: franchiseOwner});
-        assert.equal(balance.toNumber(), expected.toNumber(), "Balance wasn't correct");
+        assert.equal(balance.toNumber(), expected, "Balance wasn't correct");
 
     });
 
@@ -74,11 +91,11 @@ contract('ProShop', function(accounts) {
     it("should allow the franchise owner to withdraw their balance", async function() {
 
         // Get amount to withdraw from the contract
-        const withdrawal = web3.toBigNumber(accounting.calcFee(price * 2, franchiseFeePercent));
+        const withdrawal = accounting.calcFee(itemAmount, franchiseFeePercent) * 2;
 
         // Listen for FranchiseBalanceWithdrawn event
         contract.FranchiseBalanceWithdrawn().watch((err,response) => {
-            assert.equal(response.args.amount.toNumber(), withdrawal.toNumber());
+            assert.equal(response.args.amount.toNumber(), withdrawal);
         });
 
         // Get the franchise owner's balance before the withdrawal
@@ -103,23 +120,23 @@ contract('ProShop', function(accounts) {
     it("should allow the shop owner to check their balance", async function() {
 
         // Calc expected balance
-        const expected = web3.toBigNumber(accounting.calcNet(price * 2, franchiseFeePercent));
+        const expected = accounting.calcNet(itemAmount, franchiseFeePercent) * 2;
 
         // Get the shop balance
         const balance = await contract.checkShopBalance(shopId, {from: shopOwner});
-        assert.equal(balance.toNumber(), expected.toNumber(), "Balance wasn't correct");
+        assert.equal(balance.toNumber(), expected, "Balance wasn't correct");
 
     });
 
     it("should allow the shop owner to withdraw their balance", async function() {
 
         // Get amount to withdraw from the contract
-        const withdrawal = web3.toBigNumber(accounting.calcNet(price * 2, franchiseFeePercent));
+        const withdrawal = accounting.calcNet(itemAmount, franchiseFeePercent) * 2;
 
         // Listen for ShopBalanceWithdrawn event
         contract.ShopBalanceWithdrawn().watch((err,response) => {
             assert.equal(response.args.shopId.toNumber(), shopId);
-            assert.equal(response.args.amount.toNumber(), withdrawal.toNumber());
+            assert.equal(response.args.amount.toNumber(), withdrawal);
         });
 
         // Get the shop owner's balance before the withdrawal

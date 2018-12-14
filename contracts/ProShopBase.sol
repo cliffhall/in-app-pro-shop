@@ -5,6 +5,7 @@ import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 import "./AccessControl.sol";
 import "./StockRoomInterface.sol";
 
+
 /**
  * @title ProShopBase
  * @notice Defines collections, mappings, and structs for the sales side of the In-game Pro Shop System
