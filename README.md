@@ -48,8 +48,19 @@ The _In App Pro Shop_ project is composed of:
 ### Blockchain
 A stratified set of Solidity contracts, one inheriting from another, ending with ProShop.sol, which is deployed.
 * [Openzepplin-Solidity](https://github.com/OpenZeppelin/openzeppelin-solidity) base contracts for ERC721 tokens, role-based access control, safe math, and more.
+* [FiatContract](https://fiatcontract.com) external contract dependency for getting current ETH -> USD/EUR/GBP quotes from the blockchain.
 * [Ganache-CLI](https://github.com/trufflesuite/ganache-cli) for local blockchain.
 * [Truffle](https://github.com/trufflesuite/truffle) for compiling, testing, and migrating contracts to the blockchain.
+
+#### Contract Structure
+```
++ AccessControl +---> StockRoomBase +---> ShopFactory +---> SKUTypeFactory +---> SKUFactory +---> StockRoom
+
++ AccessControl +---\
+                     +---> ProShopBase +---> ItemFactory +---> ProShop
++ ERC721Token   *---/
+
+```
 
 ### Web
 A React/Redux application for maintaining Shops and checking/withdrawing Shop owner and Franchise Owner balances.
@@ -61,7 +72,7 @@ A React/Redux application for maintaining Shops and checking/withdrawing Shop ow
 * [Styled-components](https://github.com/styled-components/styled-components) for easy application of CSS in JS.
 * [Drizzle](https://github.com/trufflesuite/drizzle) and [Drizzle-react](https://github.com/trufflesuite/drizzle-react) for interacting with the blockchain and keeping data fresh.
 
-## Project Structure
+#### Project Structure
 ```
 + in-app-pro-shop
 |
