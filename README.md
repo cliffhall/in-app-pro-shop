@@ -58,7 +58,7 @@ Two stratified sets of Solidity contracts, ending with *ProShop.sol* and *StockR
 ```
 * RBAC (Open Zepplin contract for implementing role-based access)
 |
-* AccessControl (Role-based access, contract pause, unpause, upgrade)
+* AccessControl (Role-based access, SafeMath, contract pause, unpause, upgrade)
 |
 * StockRoomBase (Structs, state vars, and mappings related to Shops, SKU Types, and SKUs)
 |
@@ -77,7 +77,7 @@ Two stratified sets of Solidity contracts, ending with *ProShop.sol* and *StockR
 |
 |  * RBAC (Open Zepplin contract for implementing role-based access)
 |  |
-+--* AccessControl (Role-based access, contract pause, unpause, upgrade)
++--* AccessControl (Role-based access, SafeMath, contract pause, unpause, upgrade)
 |
 * ProShopBase (Structs, state vars, and mappings related to Items and balances)
 |
