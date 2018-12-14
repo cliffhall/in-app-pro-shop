@@ -46,7 +46,7 @@ CryptoKities can be used in various games in the
 The _In App Pro Shop_ project is composed of:
 
 ### Blockchain
-Two stratified sets of Solidity contracts, ending with ProShop.sol and StockRoom.sol, which are deployed.
+Two stratified sets of Solidity contracts, ending with *ProShop.sol* and *StockRoom.sol*, which are deployed.
 
 #### Dependencies
 * [Openzepplin-Solidity](https://github.com/OpenZeppelin/openzeppelin-solidity) base contracts for ERC721 tokens, role-based access control, safe math, and more.
@@ -54,13 +54,36 @@ Two stratified sets of Solidity contracts, ending with ProShop.sol and StockRoom
 * [Ganache-CLI](https://github.com/trufflesuite/ganache-cli) for running a local blockchain.
 * [Truffle](https://github.com/trufflesuite/truffle) for compiling, testing, and migrating contracts to the blockchain.
 
-#### Contract Structure
+#### Stockroom Contract Structure
 ```
-+ AccessControl +---> StockRoomBase +---> ShopFactory +---> SKUTypeFactory +---> SKUFactory +---> StockRoom
+* RBAC (Open Zepplin contract for implementing role-based access)
+|
+* AccessControl (Role-based access, contract pause, unpause, upgrade)
+|
+* StockRoomBase (Structs, state vars, and mappings related to Shops, SKU Types, and SKUs)
+|
+* ShopFactory (Factory method and related event for creating new Shops)
+|
+* SKUTypeFactory (Factory method and related event for creating new SKU Types)
+|
+* SKUFactory (Factory method and related event for creating new SKUs)
+|
+* StockRoom (Utility methods for accessing contract data)
+```
 
-+ AccessControl +---\
-                     +---> ProShopBase +---> ItemFactory +---> ProShop
-+ ERC721Token   *---/
+#### ProShop Contract Structure
+```
+* ERC721Token (Open Zepplin contract for implementing ERC-721 non-fungible tokens)
+|
+|     * RBAC (Open Zepplin contract for implementing role-based access)
+|     |
++--+--* AccessControl (Role-based access, contract pause, unpause, upgrade)
+   |
+   * ProShopBase (Structs, state vars, and mappings related to Items and balances)
+   |
+   * ItemFactory (Factory method and related event for selling and minting new Items)
+   |
+   * ProShop (Utility methods for accessing contract and withdrawing balances)
 ```
 
 ### Web
