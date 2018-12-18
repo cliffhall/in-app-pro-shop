@@ -8,12 +8,13 @@ const panelImageColorLeft = props => props.theme.navbar.left;
 const panelImageColorRight = props => props.theme.navbar.right;
 
 
-const StyledBootstrapFlexPanel = styled(Panel.Heading)`
+const StyledBootstrapFlexPanel = styled(Panel)`
     &&& {
-        box-shadow: 0 1px 7px 2px rgba(0, 0, 0, 0.43);
         padding: 0;
         border-radius: 10px;
-        border-bottom: unset;
+        box-shadow: 0 1px 7px 2px rgba(25, 25, 25, 0.43);
+        border: 1px solid ${props => props.theme.panel.bg};
+        background-color: ${props => props.theme.panel.bg}; 
      }
 `;
 

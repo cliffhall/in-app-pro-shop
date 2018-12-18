@@ -11,6 +11,9 @@ const StyledBootstrapWell = styled(Well)`
     &&& {
         background-image: linear-gradient(to bottom, ${navbarImageColorTop}, ${navbarImageColorBottom});
         background-color: ${props => props.theme.well.bg}; 
+        border: 1px solid ${props => props.theme.well.border};
+        box-shadow: 0 1px 7px 2px rgba(25, 25, 25, 0.43);
+        border-radius: 10px;
         padding-top: 0;
     }
     
