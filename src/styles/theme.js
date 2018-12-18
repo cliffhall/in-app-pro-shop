@@ -16,7 +16,7 @@ export default {
         menuitem: {
             top: colors.accent1,
             bottom: colors.text1,
-            active: colors.white,
+            active: colors.light,
             button: colors.text1,
             hover: colors.accent1,
             disabled: colors.grayMedium
@@ -45,6 +45,7 @@ export default {
             top: colors.white,
             bg: colors.light,
             label: colors.text2,
+            hover: colors.accent1,
             disabled: colors.grayMedium
         },
 

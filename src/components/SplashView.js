@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { HollowDotsSpinner, AtomSpinner } from 'react-epic-spinners'
-import { Form, FormGroup, FormControl, HelpBlock, ToggleButton, ToggleButtonGroup, ControlLabel, Glyphicon} from 'react-bootstrap';
+import { Form, FormGroup, FormControl, HelpBlock, ControlLabel, Glyphicon} from 'react-bootstrap';
 
-import { AppWell, AppButton } from '../styles';
+import { AppWell, AppButton, AppToggleButton, AppToggleButtonGroup } from '../styles';
 import { CONTRACTS, CURRENCIES } from "../constants";
 import { FlexChild, FlexRow } from "../styles";
 import { createNewShop, nameChanged, descChanged, fiatChanged } from "../store/shop/ShopActions";
@@ -144,13 +144,13 @@ class SplashView extends Component {
             <FormGroup>
                 <ControlLabel>Fiat Currency for Prices</ControlLabel>
                 <br/>
-                <ToggleButtonGroup
+                <AppToggleButtonGroup
                     type="radio"
                     name="shopCurrency"
                     onChange={handleFiatChange}
                     value={fiat}>
-                    {Object.values(CURRENCIES).map(sym => <ToggleButton key={sym.symbol} value={sym.symbol}><Glyphicon glyph={sym.icon} /> - {sym.symbol}</ToggleButton>)}
-                </ToggleButtonGroup>
+                    {Object.values(CURRENCIES).map(sym => <AppToggleButton key={sym.symbol} value={sym.symbol}><Glyphicon glyph={sym.icon} /> - {sym.symbol}</AppToggleButton>)}
+                </AppToggleButtonGroup>
             </FormGroup>
             {creatingShop
                 ? <HollowDotsSpinner color='black'/>
