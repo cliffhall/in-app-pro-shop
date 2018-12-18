@@ -1,25 +1,52 @@
-import styled from 'styled-components';
-import {Panel, PanelGroup} from 'react-bootstrap';
+import {injectGlobal} from 'styled-components';
+import {AppNavbar, AppNavbarHeader, AppNav, AppNavbarBrand, AppNavDropdown, AppMenuItem, AppMonoMenuItem} from "./components/AppNav";
+import {AppWell} from "./components/AppWell";
+import {AppButton} from "./components/AppButton";
+import {FlexRow, FlexChild} from "./components/AppFlex";
+import {AppPanel, AppPanelHeading, AppPanelTitle, AppPanelBody, AppPanelGroup} from "./components/AppPanel";
 
-export const FlexRow = styled.section`
-  display: flex;
-   @media (max-width: 1023px) {
-    flex-wrap: wrap;
-  }
-`;
+export {
+    AppNavbar,
+    AppNavbarHeader,
+    AppNav,
+    AppNavbarBrand,
+    AppNavDropdown,
+    AppMenuItem,
+    AppMonoMenuItem,
+    AppWell,
+    FlexRow,
+    FlexChild,
+    AppPanel,
+    AppPanelHeading,
+    AppPanelTitle,
+    AppPanelBody,
+    AppPanelGroup,
+    AppButton
+}
 
-export const PanelBodyFlexRow = styled(Panel.Body)`
-  display: flex;
-   @media (max-width: 1023px) {
-    flex-wrap: wrap;
-  }
-`;
+injectGlobal`
+    @font-face {
+        font-family: "Raleway";
+        font-style: normal;
+        src: url("fonts/Raleway/Raleway-Regular.ttf");
+    }
 
-export const PanelGroupFlexCol = styled(PanelGroup)`
-  margin: 25px;
-  flex-grow: 2;
-`;
+    @font-face {
+        font-family: "Raleway Semi-Bold";
+        font-style: normal;
+        src: url("fonts/Raleway/Raleway-SemiBold.ttf");
+    }
 
-export const FlexChild = styled.div`
-  margin: 25px;
+    @font-face {
+        font-family: 'PT Mono';
+        font-style: normal;
+        src: url("fonts/PT_Mono/PTM55FT.ttf");
+    }
+
+    body {
+        font-family: 'Raleway', sans-serif;
+        font-size: 16px;
+        background-color: #FEFEFE;
+        min-width: 768px;
+    }
 `;

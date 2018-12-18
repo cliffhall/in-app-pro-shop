@@ -1,23 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { AtomSpinner, HollowDotsSpinner } from "react-epic-spinners";
-import {Panel, Glyphicon, Well, Button, Form, FormGroup, FormControl, HelpBlock, Label} from "react-bootstrap";
+import { Glyphicon, Form, FormGroup, FormControl, HelpBlock } from "react-bootstrap";
 
 import SKUTypeView from './SKUTypeView';
 
 import { CONTRACTS } from "../constants";
-import { FlexChild, PanelBodyFlexRow, PanelGroupFlexCol } from "../styles";
+import {
+    FlexChild,
+    AppPanel,
+    AppPanelHeading,
+    AppPanelTitle,
+    AppPanelBody,
+    AppPanelGroup,
+    AppWell,
+    AppButton
+} from "../styles";
 import { toggleTypeForm, createNewSKUType, nameChanged, descChanged } from "../store/sku_type/SKUTypeActions";
 
 class ShopView extends Component {
 
     // Render the SKU Type panels in a responsive panel group
     renderSKUTypeList = () => {
-        return <PanelGroupFlexCol id="skuTypes">
+        return <AppPanelGroup id="skuTypes">
             {
                 this.renderSKUTypes()
             }
-        </PanelGroupFlexCol>
+        </AppPanelGroup>
     };
 
     // Render the SKU Type panels
@@ -26,10 +35,10 @@ class ShopView extends Component {
 
         return skuTypesFetched
             ? skuTypes.map( skuType => <SKUTypeView drizzle={drizzle} key={skuType.skuTypeId} skuType={skuType} shop={shop}/> )
-            : <Well>
+            : <AppWell>
                 <h2>Fetching SKU Types</h2>
                 <AtomSpinner color='red'/>
-            </Well>;
+            </AppWell>;
     };
 
     // Render the New SKU Type form
@@ -79,17 +88,17 @@ class ShopView extends Component {
         };
 
         return <FlexChild>
-            <Panel>
-                <Panel.Heading>
-                    <Panel.Title>
+            <AppPanel>
+                <AppPanelHeading>
+                    <AppPanelTitle>
                         Create SKU Type
                         <div className="pull-right">
-                            <Button  onClick={toggleTypeForm} bsSize='xsmall'><Glyphicon glyph="remove" /></Button>
+                            <AppButton  onClick={toggleTypeForm} bsSize='xsmall'><Glyphicon glyph="remove" /></AppButton>
                         </div>
-                    </Panel.Title>
-                    SKU types allow you to categorize your Shop's SKUs
-                </Panel.Heading>
-                <Panel.Body>
+                    </AppPanelTitle>
+                    Categorize what you sell
+                </AppPanelHeading>
+                <AppPanelBody>
                     <Form>
 
                         <FormGroup
@@ -128,14 +137,14 @@ class ShopView extends Component {
 
                         {creatingSKUType
                             ? <HollowDotsSpinner color='black'/>
-                            : <Button
+                            : <AppButton
                                 bsSize='large'
                                 disabled={isSubmitDisabled()}
-                                onClick={handleSubmit}>Create</Button>}
+                                onClick={handleSubmit}>Create</AppButton>}
 
                     </Form>
-                </Panel.Body>
-            </Panel>
+                </AppPanelBody>
+            </AppPanel>
         </FlexChild>;
     };
 
@@ -144,23 +153,23 @@ class ShopView extends Component {
 
         const {shop, toggleTypeForm, skuTypeFormDisplayed, skuFormDisplayed} = this.props;
 
-        return  <Panel>
-                    <Panel.Heading>
-                        <Panel.Title>
+        return  <AppPanel>
+                    <AppPanelHeading>
+                        <AppPanelTitle>
                             {shop.name}
                             <div className="pull-right">
                             {skuTypeFormDisplayed || skuFormDisplayed
                                 ? null
-                                : <Button onClick={toggleTypeForm}>Add SKU Type</Button>}
+                                : <AppButton onClick={toggleTypeForm}>Add SKU Type</AppButton>}
                             </div>
-                        </Panel.Title>
-                        <Label bsStyle="success"><Glyphicon glyph={shop.fiat.toLowerCase()}/></Label>&nbsp;|&nbsp;{shop.description}
-                    </Panel.Heading>
-                    <PanelBodyFlexRow>
+                        </AppPanelTitle>
+                        {shop.description}
+                    </AppPanelHeading>
+                    <AppPanelBody>
                         {this.renderSKUTypeList()}
                         {skuTypeFormDisplayed ? this.renderNewSKUTypeForm() : null}
-                    </PanelBodyFlexRow>
-                </Panel>;
+                    </AppPanelBody>
+                </AppPanel>;
     }
 }
 

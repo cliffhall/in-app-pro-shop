@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { AtomSpinner, HollowDotsSpinner } from "react-epic-spinners";
-import { Button, Checkbox, Form, FormControl, FormGroup, Glyphicon, HelpBlock, Panel, Table, Well } from "react-bootstrap";
+import { Checkbox, Form, FormControl, FormGroup, Glyphicon, HelpBlock, Table } from "react-bootstrap";
 import CurrencyInput from 'react-currency-masked-input'
 
 import {
@@ -17,14 +17,23 @@ import {
 import SKUView from './SKUView';
 import {CONTRACTS, CURRENCIES} from "../constants";
 import { selectSKUType } from "../store/sku_type/SKUTypeActions";
-import { FlexChild, PanelBodyFlexRow, PanelGroupFlexCol } from "../styles";
+import {
+    FlexChild,
+    AppPanel,
+    AppPanelHeading,
+    AppPanelTitle,
+    AppPanelBody,
+    AppPanelGroup,
+    AppWell,
+    AppButton
+} from "../styles";
 
 class SKUTypeView extends Component {
 
     renderSKUList = () => {
         const {skusFetched, skuType, shop} = this.props;
         return skusFetched
-            ? <PanelGroupFlexCol id={`skus-${skuType.skuTypeId}`}>
+            ? <AppPanelGroup id={`skus-${skuType.skuTypeId}`}>
                     <Table striped bordered condensed hover>
                     <thead>
                     <tr>
@@ -40,11 +49,11 @@ class SKUTypeView extends Component {
                         {this.renderSKUs()}
                     </tbody>
                   </Table>
-              </PanelGroupFlexCol>
-            : <Well>
+              </AppPanelGroup>
+            : <AppWell>
                 <h2>Fetching SKUs</h2>
                 <AtomSpinner color='red'/>
-            </Well>;
+            </AppWell>;
     };
 
     // Render the SKU rows
@@ -141,17 +150,17 @@ class SKUTypeView extends Component {
         };
 
         return <FlexChild>
-            <Panel>
-                <Panel.Heading>
-                    <Panel.Title>
+            <AppPanel>
+                <AppPanelHeading>
+                    <AppPanelTitle>
                         Create SKU
                         <div className="pull-right">
-                            <Button onClick={toggleForm} bsSize='xsmall'><Glyphicon glyph="remove" /></Button>
+                            <AppButton onClick={toggleForm} bsSize='xsmall'><Glyphicon glyph="remove" /></AppButton>
                         </div>
-                    </Panel.Title>
-                    SKUs describe the items you will sell in your Shop
-                </Panel.Heading>
-                <Panel.Body>
+                    </AppPanelTitle>
+                    Describe what you sell
+                </AppPanelHeading>
+                <AppPanelBody>
                     <Form>
 
                         <FormGroup
@@ -230,14 +239,14 @@ class SKUTypeView extends Component {
 
                         {creatingSKU
                             ? <HollowDotsSpinner color='black'/>
-                            : <Button
+                            : <AppButton
                                 bsSize='large'
                                 disabled={isSubmitDisabled()}
-                                onClick={handleSubmit}>Create</Button>}
+                                onClick={handleSubmit}>Create</AppButton>}
                     </Form>
 
-                </Panel.Body>
-            </Panel>
+                </AppPanelBody>
+            </AppPanel>
         </FlexChild>;
     };
 
@@ -264,23 +273,25 @@ class SKUTypeView extends Component {
             skuFormDisplayed
         } = this.props;
 
-        return  <Panel eventKey={skuType.skuTypeId}>
-            <Panel.Heading>
-                <Panel.Title>
+        return  <React.Fragment><AppPanel>
+            <AppPanelHeading>
+                <AppPanelTitle>
                     {skuType.name}
                     <div className="pull-right">
                         {skuTypeFormDisplayed || skuFormDisplayed
                             ? null
-                            : <Button onClick={this.handleToggleForm}>Add SKU</Button>}
+                            : <AppButton onClick={this.handleToggleForm}>Add SKU</AppButton>}
                     </div>
-                </Panel.Title>
+                </AppPanelTitle>
                 {skuType.description}
-            </Panel.Heading>
-            <PanelBodyFlexRow>
+            </AppPanelHeading>
+            <AppPanelBody>
                 {this.renderSKUList()}
                 {skuFormDisplayed && selectedSKUTypeId === skuType.skuTypeId ? this.renderNewSKUForm() : null}
-            </PanelBodyFlexRow>
-        </Panel>;
+            </AppPanelBody>
+        </AppPanel>
+            <div>&nbsp;</div>
+        </React.Fragment>;
     }
 }
 
