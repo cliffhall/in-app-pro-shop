@@ -7,20 +7,21 @@ const navbarImageColorLeft = props => props.theme.navbar.left;
 const navbarImageColorRight = props => props.theme.navbar.right;
 
 const StyledBootstrapNavbar = styled(Navbar)`
+        align-items: center;
         background-image: linear-gradient(to right, ${navbarImageColorLeft}, ${navbarImageColorRight});
         background-color: ${props => props.theme.navbar.bg}; 
-        width: 100%;
         border-radius: 0;
         border: none;
         border-bottom: 1px solid ${props => props.theme.navbar.bottom};
+        box-shadow: 0 0 7px 0 rgba(25, 25, 25, 0.43);
         display: flex;
         flex-direction: row;
-        justify-content: flex-end;
-        align-items: center;
         flex-grow: 1;
+        justify-content: flex-end;
         margin: 0;
         margin-bottom: 20px;
         padding-right: ${variables.SPACING_15};
+        width: 100%;
                 
         .container {
             width: 100% !important;
@@ -107,6 +108,7 @@ export class AppNav extends Component {
 
 const StyledBootstrapNavDropdown = styled(NavDropdown)`
     font-family: 'Raleway Semi-Bold', sans-serif;
+    font-size: 14px;
 
     &&& .dropdown-toggle {
         color: ${props => props.theme.navbar.button};

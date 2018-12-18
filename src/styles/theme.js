@@ -27,7 +27,8 @@ export default {
             bottom: colors.accent2,
             bg: colors.accent1,
             head: colors.accent2,
-            label: colors.text2
+            label: colors.text2,
+            border: colors.accent2,
         },
 
         panel: {
@@ -36,7 +37,7 @@ export default {
             bg: colors.accent2,
             title: colors.accent2,
             subtitle: colors.light,
-            divider: colors.light
+            divider: colors.accent2
         },
 
         button: {
