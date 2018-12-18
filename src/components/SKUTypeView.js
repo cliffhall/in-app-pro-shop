@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from "react-redux";
-import { AtomSpinner, HollowDotsSpinner } from "react-epic-spinners";
-import { Checkbox, Form, FormControl, FormGroup, Glyphicon, HelpBlock, Table } from "react-bootstrap";
+import React, {Component} from 'react';
+import {connect} from "react-redux";
+import {AtomSpinner, HollowDotsSpinner} from "react-epic-spinners";
+import {Checkbox, Form, FormControl, FormGroup, Glyphicon, HelpBlock} from "react-bootstrap";
 import CurrencyInput from 'react-currency-masked-input'
 
 import {
@@ -25,7 +25,8 @@ import {
     AppPanelBody,
     AppPanelGroup,
     AppWell,
-    AppButton
+    AppButton,
+    AppTable
 } from "../styles";
 
 class SKUTypeView extends Component {
@@ -34,7 +35,7 @@ class SKUTypeView extends Component {
         const {skusFetched, skuType, shop} = this.props;
         return skusFetched
             ? <AppPanelGroup id={`skus-${skuType.skuTypeId}`}>
-                    <Table striped bordered condensed hover>
+                    <AppTable striped bordered condensed hover>
                     <thead>
                     <tr>
                         <td>Name</td>
@@ -48,7 +49,7 @@ class SKUTypeView extends Component {
                     <tbody>
                         {this.renderSKUs()}
                     </tbody>
-                  </Table>
+                  </AppTable>
               </AppPanelGroup>
             : <AppWell>
                 <h2>Fetching SKUs</h2>
