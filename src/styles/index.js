@@ -1,6 +1,7 @@
 import {injectGlobal} from 'styled-components';
 import {AppWell} from "./components/AppWell";
 import {AppTable} from "./components/AppTable";
+import {AppForm, AppHelpBlock} from "./components/AppForm";
 import {FlexRow, FlexChild} from "./components/AppFlex";
 import {AppNavbar, AppNavbarHeader, AppNav, AppNavbarBrand, AppNavDropdown, AppMenuItem, AppMonoMenuItem} from "./components/AppNav";
 import {AppButton, AppToggleButton, AppToggleButtonGroup} from "./components/AppButton";
@@ -25,7 +26,9 @@ export {
     AppButton,
     AppToggleButton,
     AppToggleButtonGroup,
-    AppTable
+    AppTable,
+    AppForm,
+    AppHelpBlock
 }
 
 injectGlobal`

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {AtomSpinner, HollowDotsSpinner} from "react-epic-spinners";
-import {Checkbox, Form, FormControl, FormGroup, Glyphicon, HelpBlock} from "react-bootstrap";
+import {Checkbox, FormControl, FormGroup, Glyphicon} from "react-bootstrap";
 import CurrencyInput from 'react-currency-masked-input'
 
 import {
@@ -26,7 +26,9 @@ import {
     AppPanelGroup,
     AppWell,
     AppButton,
-    AppTable
+    AppTable,
+    AppForm,
+    AppHelpBlock
 } from "../styles";
 
 class SKUTypeView extends Component {
@@ -101,11 +103,11 @@ class SKUTypeView extends Component {
         };
 
         const getNameValidationState = () => {
-            return (newSKU.name.length === 0) ? null : (newSKU.name.length > 1) ? SUCCESS : ERROR;
+            return (newSKU.name.length === 0) ? null : (newSKU.name.length >= 5) ? SUCCESS : ERROR;
         };
 
         const getDescValidationState = () => {
-            return (newSKU.description.length === 0) ? null : (newSKU.description.length > 1) ? SUCCESS : ERROR;
+            return (newSKU.description.length === 0) ? null : (newSKU.description.length >= 10) ? SUCCESS : ERROR;
         };
 
         const getPriceValidationState = () => {
@@ -162,7 +164,7 @@ class SKUTypeView extends Component {
                     Describe what you sell
                 </AppPanelHeading>
                 <AppPanelBody>
-                    <Form>
+                    <AppForm>
 
                         <FormGroup
                             controlId='nameField'
@@ -177,7 +179,7 @@ class SKUTypeView extends Component {
                             />
                             <FormControl.Feedback />
                             {(getNameValidationState() === ERROR)
-                                ? <HelpBlock>Enter at least 5 characters</HelpBlock>
+                                ? <AppHelpBlock>Enter at least 5 characters</AppHelpBlock>
                                 : null}
                         </FormGroup>
 
@@ -194,7 +196,7 @@ class SKUTypeView extends Component {
                             />
                             <FormControl.Feedback />
                             {(getDescValidationState() === ERROR)
-                                ? <HelpBlock>Enter at least 10 characters</HelpBlock>
+                                ? <AppHelpBlock>Enter at least 10 characters</AppHelpBlock>
                                 : null}
                         </FormGroup>
 
@@ -204,7 +206,7 @@ class SKUTypeView extends Component {
                             <CurrencyInput placeholder={`Price (${shop.fiat})`} className='form-control input-lg' onChange={handlePriceChange}/>
                             <FormControl.Feedback />
                             {(getPriceValidationState() === ERROR)
-                                ? <HelpBlock>Enter a non-negative numeric value</HelpBlock>
+                                ? <AppHelpBlock>Enter a non-negative numeric value</AppHelpBlock>
                                 : null}
                         </FormGroup>
 
@@ -233,7 +235,7 @@ class SKUTypeView extends Component {
                                     />
                                     <FormControl.Feedback />
                                     {(getLimitValidationState() === ERROR)
-                                        ? <HelpBlock>Enter a positive numeric value</HelpBlock>
+                                        ? <AppHelpBlock>Enter a positive numeric value</AppHelpBlock>
                                         : null}
                                 </FormGroup>
                             : null}
@@ -244,14 +246,14 @@ class SKUTypeView extends Component {
                                 bsSize='large'
                                 disabled={isSubmitDisabled()}
                                 onClick={handleSubmit}>Create</AppButton>}
-                    </Form>
+                    </AppForm>
 
                 </AppPanelBody>
             </AppPanel>
         </FlexChild>;
     };
 
-    // Toggle SKU form and select/deselect SKU Type
+    // Toggle SKU Form and select/deselect SKU Type
     handleToggleForm = () => {
 
         const {

@@ -16,7 +16,7 @@ const StyledBootstrapButton = styled(Button)`
     }
     
     &&& :hover {
-        color: ${props => props.disabled ? props.theme.button.disabled : props.theme.button.label};
+        color: ${props => props.disabled ? props.theme.button.disabled : props.theme.button.hover};
     }
 
 `;

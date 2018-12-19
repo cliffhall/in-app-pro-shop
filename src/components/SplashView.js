@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { HollowDotsSpinner, AtomSpinner } from 'react-epic-spinners'
-import { Form, FormGroup, FormControl, HelpBlock, ControlLabel, Glyphicon} from 'react-bootstrap';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {HollowDotsSpinner, AtomSpinner} from 'react-epic-spinners'
+import {FormGroup, FormControl, ControlLabel, Glyphicon} from 'react-bootstrap';
 
-import { AppWell, AppButton, AppToggleButton, AppToggleButtonGroup } from '../styles';
-import { CONTRACTS, CURRENCIES } from "../constants";
-import { FlexChild, FlexRow } from "../styles";
-import { createNewShop, nameChanged, descChanged, fiatChanged } from "../store/shop/ShopActions";
+import {AppWell, AppButton, AppToggleButton, AppToggleButtonGroup, AppForm, AppHelpBlock} from '../styles';
+import {CONTRACTS, CURRENCIES} from "../constants";
+import {FlexChild, FlexRow} from "../styles";
+import {createNewShop, nameChanged, descChanged, fiatChanged} from "../store/shop/ShopActions";
 
 class SplashView extends Component {
 
@@ -82,11 +82,11 @@ class SplashView extends Component {
         };
 
         const getNameValidationState = () => {
-            return (name.length === 0) ? null : (name.length > 5) ? SUCCESS : ERROR;
+            return (name.length === 0) ? null : (name.length >= 5) ? SUCCESS : ERROR;
         };
 
         const getDescValidationState = () => {
-            return (description.length === 0) ? null : (description.length > 10) ? SUCCESS : ERROR;
+            return (description.length === 0) ? null : (description.length >= 10) ? SUCCESS : ERROR;
         };
 
         const isSubmitDisabled = () => {
@@ -108,7 +108,7 @@ class SplashView extends Component {
             fiatChanged(selection);
         };
 
-        return <FlexChild><AppWell><Form>
+        return <FlexChild><AppWell><AppForm>
             <h2>Create&nbsp;a&nbsp;New&nbsp;Shop</h2>
             <FormGroup
                 controlId='nameField'
@@ -122,7 +122,7 @@ class SplashView extends Component {
                 />
                 <FormControl.Feedback />
                 {(getNameValidationState() === ERROR)
-                    ? <HelpBlock>Enter at least 5 characters</HelpBlock>
+                    ? <AppHelpBlock>Enter at least 5 characters</AppHelpBlock>
                     : null}
             </FormGroup>
             <FormGroup
@@ -137,7 +137,7 @@ class SplashView extends Component {
                 />
                 <FormControl.Feedback />
                 {(getDescValidationState() === ERROR)
-                    ? <HelpBlock>Enter at least 10 characters</HelpBlock>
+                    ? <AppHelpBlock>Enter at least 10 characters</AppHelpBlock>
                     : null}
             </FormGroup>
 
@@ -159,7 +159,7 @@ class SplashView extends Component {
                     disabled={isSubmitDisabled()}
                     onClick={handleSubmit}>Create</AppButton>}
 
-        </Form></AppWell></FlexChild>;
+        </AppForm></AppWell></FlexChild>;
     };
 
     render() {

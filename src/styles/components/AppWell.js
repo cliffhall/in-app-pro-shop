@@ -20,13 +20,7 @@ const StyledBootstrapWell = styled(Well)`
     & h2 {
         color: ${props => props.theme.well.head};
         text-shadow: 0 1px 0 rgba(19, 16, 16, 0.75);
-    }
-    
-    & label {
-        color: ${props => props.theme.well.label};
-        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
-    }
-    
+    }    
 `;
 
 export class AppWell extends Component {

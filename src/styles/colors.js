@@ -6,12 +6,12 @@ const colors = {
     dark:    '#090809',
     clear:   'transparent',
 
-    accent1: '#3B60E4',
-    accent2: '#75DBCD',
+    accent1: '#325bec',
+    accent2: '#03ffdc',
     accent3: '#F03A47',
 
-    text1: '#394565',
-    text2: '#1e2e67',
+    text1: '#092e90',
+    text2: '#0b3cec',
 
     grayLight: '#eeeeee',
     grayMedium: '#999999',
