@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { AtomSpinner, HollowDotsSpinner } from "react-epic-spinners";
-import { Glyphicon, FormGroup, FormControl } from "react-bootstrap";
+import { FormGroup, FormControl } from "react-bootstrap";
 
 import SKUTypeView from './SKUTypeView';
 
@@ -90,19 +90,11 @@ class ShopView extends Component {
         };
 
         return <FlexChild>
-            <AppPanel>
-                <AppPanelHeading>
-                    <AppPanelTitle>
-                        Create SKU Type
-                        <div className="pull-right">
-                            <AppButton  onClick={toggleTypeForm} bsSize='xsmall'><Glyphicon glyph="remove" /></AppButton>
-                        </div>
-                    </AppPanelTitle>
-                    Categorize what you sell
-                </AppPanelHeading>
-                <AppPanelBody>
+            <AppWell>
                     <AppForm>
-
+                        <h2>
+                            Add Category
+                        </h2>
                         <FormGroup
                             controlId='nameField'
                             validationState={getNameValidationState()}>
@@ -110,7 +102,7 @@ class ShopView extends Component {
                                 disabled={creatingSKUType}
                                 type="text"
                                 bsSize='large'
-                                placeholder="SKU Type Name"
+                                placeholder="Name"
                                 value={name}
                                 onChange={handleNameChange}
                             />
@@ -144,9 +136,15 @@ class ShopView extends Component {
                                 disabled={isSubmitDisabled()}
                                 onClick={handleSubmit}>Create</AppButton>}
 
+                        <span>&nbsp;</span>
+
+                        <AppButton
+                            onClick={toggleTypeForm}
+                            bsSize='large'>Cancel</AppButton>
+
+
                     </AppForm>
-                </AppPanelBody>
-            </AppPanel>
+            </AppWell>
         </FlexChild>;
     };
 
@@ -162,7 +160,7 @@ class ShopView extends Component {
                             <div className="pull-right">
                             {skuTypeFormDisplayed || skuFormDisplayed
                                 ? null
-                                : <AppButton onClick={toggleTypeForm}>Add SKU Type</AppButton>}
+                                : <AppButton onClick={toggleTypeForm}>Add Category</AppButton>}
                             </div>
                         </AppPanelTitle>
                         {shop.description}

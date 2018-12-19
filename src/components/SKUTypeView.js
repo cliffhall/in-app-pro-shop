@@ -153,103 +153,101 @@ class SKUTypeView extends Component {
         };
 
         return <FlexChild>
-            <AppPanel>
-                <AppPanelHeading>
-                    <AppPanelTitle>
-                        Create SKU
-                        <div className="pull-right">
-                            <AppButton onClick={toggleForm} bsSize='xsmall'><Glyphicon glyph="remove" /></AppButton>
-                        </div>
-                    </AppPanelTitle>
-                    Describe what you sell
-                </AppPanelHeading>
-                <AppPanelBody>
-                    <AppForm>
+            <AppWell>
+                <AppForm>
 
-                        <FormGroup
-                            controlId='nameField'
-                            validationState={getNameValidationState()}>
-                            <FormControl
-                                disabled={creatingSKU}
-                                type="text"
-                                bsSize='large'
-                                placeholder="SKU Name"
-                                value={newSKU.name}
-                                onChange={handleNameChange}
-                            />
-                            <FormControl.Feedback />
-                            {(getNameValidationState() === ERROR)
-                                ? <AppHelpBlock>Enter at least 5 characters</AppHelpBlock>
-                                : null}
-                        </FormGroup>
+                    <h2>Add Item</h2>
 
-                        <FormGroup
-                            controlId='descField'
-                            validationState={getDescValidationState()}>
-                            <FormControl
-                                disabled={creatingSKU}
-                                componentClass="textarea"
-                                bsSize='large'
-                                placeholder="Description"
-                                value={newSKU.description}
-                                onChange={handleDescChange}
-                            />
-                            <FormControl.Feedback />
-                            {(getDescValidationState() === ERROR)
-                                ? <AppHelpBlock>Enter at least 10 characters</AppHelpBlock>
-                                : null}
-                        </FormGroup>
-
-                        <FormGroup
-                            controlId='priceField'
-                            validationState={getPriceValidationState()}>
-                            <CurrencyInput placeholder={`Price (${shop.fiat})`} className='form-control input-lg' onChange={handlePriceChange}/>
-                            <FormControl.Feedback />
-                            {(getPriceValidationState() === ERROR)
-                                ? <AppHelpBlock>Enter a non-negative numeric value</AppHelpBlock>
-                                : null}
-                        </FormGroup>
-
-                        <FormGroup
-                            controlId='checksGroup'>
-                            <Checkbox
-                                inline
-                                onChange={handleConsumableChange}
-                                checked={newSKU.consumable}>Consumable</Checkbox>
-                            <Checkbox
-                                inline
-                                onChange={handleLimitedChange}
-                                checked={newSKU.limited}>Limited</Checkbox>
-                        </FormGroup>
-
-                        {newSKU.limited
-                            ? <FormGroup
-                                    controlId='limitField'
-                                    validationState={getLimitValidationState()}>
-                                    <FormControl
-                                         disabled={creatingSKU}
-                                         type="text"
-                                         bsSize='large'
-                                         placeholder="Limit"
-                                         onChange={handleLimitChange}
-                                    />
-                                    <FormControl.Feedback />
-                                    {(getLimitValidationState() === ERROR)
-                                        ? <AppHelpBlock>Enter a positive numeric value</AppHelpBlock>
-                                        : null}
-                                </FormGroup>
+                    <FormGroup
+                        controlId='nameField'
+                        validationState={getNameValidationState()}>
+                        <FormControl
+                            disabled={creatingSKU}
+                            type="text"
+                            bsSize='large'
+                            placeholder="Name"
+                            value={newSKU.name}
+                            onChange={handleNameChange}
+                        />
+                        <FormControl.Feedback />
+                        {(getNameValidationState() === ERROR)
+                            ? <AppHelpBlock>Enter at least 5 characters</AppHelpBlock>
                             : null}
+                    </FormGroup>
 
-                        {creatingSKU
-                            ? <HollowDotsSpinner color='black'/>
-                            : <AppButton
-                                bsSize='large'
-                                disabled={isSubmitDisabled()}
-                                onClick={handleSubmit}>Create</AppButton>}
-                    </AppForm>
+                    <FormGroup
+                        controlId='descField'
+                        validationState={getDescValidationState()}>
+                        <FormControl
+                            disabled={creatingSKU}
+                            componentClass="textarea"
+                            bsSize='large'
+                            placeholder="Description"
+                            value={newSKU.description}
+                            onChange={handleDescChange}
+                        />
+                        <FormControl.Feedback />
+                        {(getDescValidationState() === ERROR)
+                            ? <AppHelpBlock>Enter at least 10 characters</AppHelpBlock>
+                            : null}
+                    </FormGroup>
 
-                </AppPanelBody>
-            </AppPanel>
+                    <FormGroup
+                        controlId='priceField'
+                        validationState={getPriceValidationState()}>
+                        <CurrencyInput placeholder={`Price (${shop.fiat})`} className='form-control input-lg' onChange={handlePriceChange}/>
+                        <FormControl.Feedback />
+                        {(getPriceValidationState() === ERROR)
+                            ? <AppHelpBlock>Enter a non-negative numeric value</AppHelpBlock>
+                            : null}
+                    </FormGroup>
+
+                    <FormGroup
+                        controlId='checksGroup'>
+                        <Checkbox
+                            inline
+                            onChange={handleConsumableChange}
+                            checked={newSKU.consumable}>Consumable</Checkbox>
+                        <Checkbox
+                            inline
+                            onChange={handleLimitedChange}
+                            checked={newSKU.limited}>Limited</Checkbox>
+                    </FormGroup>
+
+                    {newSKU.limited
+                        ? <FormGroup
+                                controlId='limitField'
+                                validationState={getLimitValidationState()}>
+                                <FormControl
+                                     disabled={creatingSKU}
+                                     type="text"
+                                     bsSize='large'
+                                     placeholder="Limit"
+                                     onChange={handleLimitChange}
+                                />
+                                <FormControl.Feedback />
+                                {(getLimitValidationState() === ERROR)
+                                    ? <AppHelpBlock>Enter a positive numeric value</AppHelpBlock>
+                                    : null}
+                            </FormGroup>
+                        : null}
+
+                    {creatingSKU
+                        ? <HollowDotsSpinner color='black'/>
+                        : <AppButton
+                            bsSize='large'
+                            disabled={isSubmitDisabled()}
+                            onClick={handleSubmit}>Create</AppButton>}
+
+                    <span>&nbsp;</span>
+
+                    <AppButton
+                        onClick={toggleForm}
+                        bsSize='large'>Cancel</AppButton>
+
+
+                </AppForm>
+            </AppWell>
         </FlexChild>;
     };
 
@@ -283,7 +281,7 @@ class SKUTypeView extends Component {
                     <div className="pull-right">
                         {skuTypeFormDisplayed || skuFormDisplayed
                             ? null
-                            : <AppButton onClick={this.handleToggleForm}>Add SKU</AppButton>}
+                            : <AppButton onClick={this.handleToggleForm}>Add Item</AppButton>}
                     </div>
                 </AppPanelTitle>
                 {skuType.description}
