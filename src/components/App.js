@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from "styled-components";
+import {ThemeProvider} from "styled-components";
 
 import NavigationBar from './NavigationBar';
 import SplashView from './SplashView';
 import ShopView from './ShopView';
+import theme from "../styles/theme";
 
 import { CONTRACTS } from "../constants";
 import { getShops } from "../store/shop/ShopActions";
@@ -14,6 +16,12 @@ import { accountsFetched, selectAccount } from "../store/account/AccountActions"
 
 const Wrapper = styled.section`
   padding: 5em;
+  -webkit-touch-callout: none;
+    -webkit-user-select: none; 
+     -khtml-user-select: none; 
+       -moz-user-select: none; 
+        -ms-user-select: none; 
+            user-select: none; 
 `;
 
 class App extends Component {
@@ -69,10 +77,12 @@ class App extends Component {
             : <SplashView drizzle={drizzle} drizzleState={drizzleState} initialized={initialized}/>;
     };
 
-    render() { return <Wrapper>
+    render() { return <ThemeProvider theme={this.props.theme}>
+        <Wrapper>
             {this.renderNavigation()}
             {this.renderAppContent()}
-        </Wrapper>;
+        </Wrapper>
+    </ThemeProvider>;
     }
 }
 
@@ -80,6 +90,7 @@ const mapStateToProps = (state) => ({
     accounts: state.accountState.accounts,
     selectedAccount: state.accountState.selectedAccount,
     selectedShopId: state.shopState.selectedShopId,
+    theme: theme.appTheme
 });
 
 const mapDispatchToProps = (dispatch) => ({

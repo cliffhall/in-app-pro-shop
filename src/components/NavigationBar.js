@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Navbar, Nav, NavDropdown, MenuItem, Glyphicon} from 'react-bootstrap';
-
+import { Navbar, Glyphicon} from 'react-bootstrap';
+import { AppNavbar, AppNavbarHeader, AppNav, AppNavbarBrand, AppNavDropdown, AppMenuItem, AppMonoMenuItem} from '../styles';
 import { selectShop } from '../store/shop/ShopActions';
 import { selectAccount } from '../store/account/AccountActions';
 
@@ -16,70 +16,66 @@ class NavigationBar extends Component {
     renderAccountsMenu() {
         const {initialized, accounts, selectedAccount, selectAccount, creatingShop} = this.props;
         return initialized && accounts
-            ? <NavDropdown
+            ? <AppNavDropdown
                 disabled={creatingShop}
                 title={`Accounts (${accounts.length})`}
                 id='account-dropdown'>
                 {accounts.map(
-                    account => <MenuItem
+                    account => <AppMonoMenuItem
                         key={account}
-                        eventKey={account}
-                        disabled={account === selectedAccount}
-                        onSelect={() => selectAccount(account)}
-                    >{account}</MenuItem>)}
-                <MenuItem divider/>
-                <MenuItem disabled={!selectedAccount}
-                          onClick={() => this.viewAccountOnEtherscan(selectedAccount)}>View Selected Account on Etherscan</MenuItem>
-            </NavDropdown>
-            : initialized ? <NavDropdown title='Accounts' id='account-dropdown'>
-                <MenuItem disabled={true}>No Accounts</MenuItem>
-            </NavDropdown> : null;
+                        active={account === selectedAccount}
+                        onSelect={() => {if (account !== selectedAccount) selectAccount(account)}}
+                    >{account}</AppMonoMenuItem>)}
+                <AppMenuItem divider/>
+                <AppMenuItem disabled={!selectedAccount}
+                          onClick={() => this.viewAccountOnEtherscan(selectedAccount)}>View Selected Account on Etherscan</AppMenuItem>
+            </AppNavDropdown>
+            : initialized ? <AppNavDropdown title='Accounts' id='account-dropdown'>
+                <AppMenuItem disabled={true}>No Accounts</AppMenuItem>
+            </AppNavDropdown> : null;
     };
 
     // Render the shops menu
     renderShopsMenu() {
         const {accounts, shops, selectShop, selectedShopId, creatingShop} = this.props;
         return accounts
-            ? <NavDropdown
+            ? <AppNavDropdown
                 disabled={creatingShop}
                 title={`Shops (${shops.length})`}
                 id='shop-dropdown'>
                 {shops.length
                     ? shops.map(
-                        shop => <MenuItem
+                        shop => <AppMenuItem
                             key={shop.shopId}
-                            eventKey={shop.shopId}
                             active={shop.shopId === selectedShopId}
                             onSelect={() => selectShop(shop.shopId)}
-                        >{shop.name}</MenuItem>)
-                    : <MenuItem disabled={true}>No Shops</MenuItem>}
-                <MenuItem divider/>
-                {selectedShopId
-                    ? <MenuItem onClick={() => selectShop(null)}>Create Shop</MenuItem>
-                    : <MenuItem disabled>Create Shop</MenuItem>}
-            </NavDropdown>
+                        >{shop.name}</AppMenuItem>)
+                    : <AppMenuItem disabled={true}>No Shops</AppMenuItem>}
+                    <AppMenuItem divider/>
+                    <AppMenuItem onClick={() => selectShop(null)} disabled={!selectedShopId}>Create Shop</AppMenuItem>
+            </AppNavDropdown>
             : null;
     };
 
     // Render the Navbar
     render() {
 
-        return <Navbar fixedTop={true} collapseOnSelect>
-            <Navbar.Header>
-                <Navbar.Brand>
+        return <AppNavbar fixedTop={true} collapseOnSelect>
+            <AppNavbarHeader>
+                <AppNavbarBrand>
                     <Glyphicon glyph="tower"/>
                     &nbsp;
                     In-App Pro Shop
-                </Navbar.Brand>
+                </AppNavbarBrand>
                 <Navbar.Toggle/>
-            </Navbar.Header>
+            </AppNavbarHeader>
             <Navbar.Collapse>
-                <Nav pullRight>
+                <AppNav pullRight>
                 {this.renderShopsMenu()}
                 {this.renderAccountsMenu()}
-                </Nav>
+                </AppNav>
             </Navbar.Collapse>
-        </Navbar>;
+        </AppNavbar>;
     }
 }
 
