@@ -1,7 +1,8 @@
-import styled from "styled-components";
-import {Form, HelpBlock} from "react-bootstrap";
-import {Component} from "react";
 import React from "react";
+import {Component} from "react";
+import styled from "styled-components";
+import {Form, FormControl, HelpBlock} from "react-bootstrap";
+import CurrencyInput from 'react-currency-masked-input';
 
 const StyledBootstrapForm = styled(Form)`
 
@@ -19,6 +20,32 @@ export class AppForm extends Component {
     }
 }
 
+const StyledBootstrapFormControl = styled(FormControl)`
+
+    color: ${props => props.theme.form.input};
+    resize: none;
+`;
+
+export class AppFormControl extends Component {
+    render() {
+        const {...props} = this.props;
+        return <StyledBootstrapFormControl {...props}/>
+    }
+}
+
+
+const StyledBootstrapCurrencyInput = styled(CurrencyInput)`
+
+    color: ${props => props.theme.form.input};
+    
+`;
+
+export class AppCurrencyInput extends Component {
+    render() {
+        const {...props} = this.props;
+        return <StyledBootstrapCurrencyInput {...props}/>
+    }
+}
 
 const StyledBootstrapHelpBlock = styled(HelpBlock)`
 

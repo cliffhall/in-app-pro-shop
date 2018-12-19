@@ -16,6 +16,7 @@ import {
     AppWell,
     AppButton,
     AppForm,
+    AppFormControl,
     AppHelpBlock
 } from "../styles";
 import { toggleTypeForm, createNewSKUType, nameChanged, descChanged } from "../store/sku_type/SKUTypeActions";
@@ -98,7 +99,7 @@ class ShopView extends Component {
                         <FormGroup
                             controlId='nameField'
                             validationState={getNameValidationState()}>
-                            <FormControl
+                            <AppFormControl
                                 disabled={creatingSKUType}
                                 type="text"
                                 bsSize='large'
@@ -115,7 +116,7 @@ class ShopView extends Component {
                         <FormGroup
                             controlId='descField'
                             validationState={getDescValidationState()}>
-                            <FormControl
+                            <AppFormControl
                                 disabled={creatingSKUType}
                                 componentClass="textarea"
                                 bsSize='large'

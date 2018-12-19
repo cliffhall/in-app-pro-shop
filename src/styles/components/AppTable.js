@@ -15,6 +15,13 @@ const StyledBootstrapTable = styled(Table)`
     &&& > tbody {
         font-family: 'Raleway', sans-serif;
     }
+    
+    &&& > thead {
+        white-space: nowrap;
+        .glyphicon {
+            font-size: 14px;
+        }
+    }
 
 `;
 

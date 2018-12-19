@@ -3,7 +3,15 @@ import {connect} from 'react-redux';
 import {HollowDotsSpinner, AtomSpinner} from 'react-epic-spinners'
 import {FormGroup, FormControl, ControlLabel, Glyphicon} from 'react-bootstrap';
 
-import {AppWell, AppButton, AppToggleButton, AppToggleButtonGroup, AppForm, AppHelpBlock} from '../styles';
+import {
+    AppWell,
+    AppButton,
+    AppToggleButton,
+    AppToggleButtonGroup,
+    AppForm,
+    AppFormControl,
+    AppHelpBlock
+} from '../styles';
 import {CONTRACTS, CURRENCIES} from "../constants";
 import {FlexChild, FlexRow} from "../styles";
 import {createNewShop, nameChanged, descChanged, fiatChanged} from "../store/shop/ShopActions";
@@ -113,7 +121,7 @@ class SplashView extends Component {
             <FormGroup
                 controlId='nameField'
                 validationState={getNameValidationState()}>
-                <FormControl
+                <AppFormControl
                     disabled={creatingShop}
                     type="text"
                     bsSize='large'
@@ -128,7 +136,7 @@ class SplashView extends Component {
             <FormGroup
                 controlId='descField'
                 validationState={getDescValidationState()}>
-                <FormControl
+                <AppFormControl
                     disabled={creatingShop}
                     componentClass="textarea"
                     bsSize='large'
