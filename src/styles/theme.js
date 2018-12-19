@@ -27,7 +27,6 @@ export default {
             bottom: colors.accent2,
             bg: colors.accent1,
             head: colors.accent2,
-            label: colors.text2,
             border: colors.accent2,
         },
 
@@ -37,20 +36,28 @@ export default {
             bg: colors.accent2,
             title: colors.accent2,
             subtitle: colors.light,
-            divider: colors.accent2
+            divider: colors.accent2,
+            label: colors.text1,
         },
 
         button: {
             bottom: colors.light,
             top: colors.white,
             bg: colors.light,
-            label: colors.text2,
-            hover: colors.accent1,
+            label: colors.text1,
+            hover: colors.text2,
             disabled: colors.grayMedium
         },
 
+        table: {
+            header_bg: colors.light,
+            header: colors.text1
+        },
 
-
+        form: {
+            label: colors.text1,
+            help: colors.text1
+        },
     },
 
 };

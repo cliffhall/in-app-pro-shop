@@ -7,8 +7,8 @@ import React from "react";
 const StyledBootstrapTable = styled(Table)`
 
     &&& {
-        color: ${props => props.disabled ? props.theme.button.disabled : props.theme.button.label}; 
-        background-color: ${props => props.theme.button.bg}; 
+        color: ${props => props.theme.table.header}; 
+        background-color: ${props => props.theme.table.header_bg}; 
         font-family: 'Raleway Semi-Bold', sans-serif;
     }
 

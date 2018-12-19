@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { AtomSpinner, HollowDotsSpinner } from "react-epic-spinners";
-import { Glyphicon, Form, FormGroup, FormControl, HelpBlock } from "react-bootstrap";
+import { Glyphicon, FormGroup, FormControl } from "react-bootstrap";
 
 import SKUTypeView from './SKUTypeView';
 
@@ -14,7 +14,9 @@ import {
     AppPanelBody,
     AppPanelGroup,
     AppWell,
-    AppButton
+    AppButton,
+    AppForm,
+    AppHelpBlock
 } from "../styles";
 import { toggleTypeForm, createNewSKUType, nameChanged, descChanged } from "../store/sku_type/SKUTypeActions";
 
@@ -65,11 +67,11 @@ class ShopView extends Component {
         };
 
         const getNameValidationState = () => {
-            return (name.length === 0) ? null : (name.length > 5) ? SUCCESS : ERROR;
+            return (name.length === 0) ? null : (name.length >= 5) ? SUCCESS : ERROR;
         };
 
         const getDescValidationState = () => {
-            return (description.length === 0) ? null : (description.length > 10) ? SUCCESS : ERROR;
+            return (description.length === 0) ? null : (description.length >= 10) ? SUCCESS : ERROR;
         };
 
         const isSubmitDisabled = () => {
@@ -99,7 +101,7 @@ class ShopView extends Component {
                     Categorize what you sell
                 </AppPanelHeading>
                 <AppPanelBody>
-                    <Form>
+                    <AppForm>
 
                         <FormGroup
                             controlId='nameField'
@@ -114,7 +116,7 @@ class ShopView extends Component {
                             />
                             <FormControl.Feedback />
                             {(getNameValidationState() === ERROR)
-                                ? <HelpBlock>Enter at least 5 characters</HelpBlock>
+                                ? <AppHelpBlock>Enter at least 5 characters</AppHelpBlock>
                                 : null}
                         </FormGroup>
 
@@ -131,7 +133,7 @@ class ShopView extends Component {
                             />
                             <FormControl.Feedback />
                             {(getDescValidationState() === ERROR)
-                                ? <HelpBlock>Enter at least 10 characters</HelpBlock>
+                                ? <AppHelpBlock>Enter at least 10 characters</AppHelpBlock>
                                 : null}
                         </FormGroup>
 
@@ -142,7 +144,7 @@ class ShopView extends Component {
                                 disabled={isSubmitDisabled()}
                                 onClick={handleSubmit}>Create</AppButton>}
 
-                    </Form>
+                    </AppForm>
                 </AppPanelBody>
             </AppPanel>
         </FlexChild>;
