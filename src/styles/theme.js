@@ -56,7 +56,8 @@ export default {
 
         form: {
             label: colors.text1,
-            help: colors.text1
+            help: colors.text1,
+            input: colors.text2
         },
     },
 

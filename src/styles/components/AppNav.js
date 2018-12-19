@@ -82,7 +82,7 @@ export class AppNavbarBrand extends Component {
 }
 
 const StyledBootstrapNav = styled(Nav)`    
-    
+
     &&& .active > .dropdown-toggle {
         color: ${props => props.theme.navbar.button};
         background-image: unset !important;
@@ -94,7 +94,7 @@ const StyledBootstrapNav = styled(Nav)`
         color: ${props => props.theme.navbar.button};
         background-image: unset !important;
         background-color: unset;
-        box-shadow: unset
+        box-shadow: unset;
     }
     
 `;
@@ -109,9 +109,10 @@ export class AppNav extends Component {
 const StyledBootstrapNavDropdown = styled(NavDropdown)`
     font-family: 'Raleway Semi-Bold', sans-serif;
     font-size: 14px;
-
+    
     &&& .dropdown-toggle {
         color: ${props => props.theme.navbar.button};
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
     }
 
     &&& .dropdown-toggle :hover {
@@ -132,6 +133,7 @@ const StyledBootstrapNavDropdown = styled(NavDropdown)`
         color: ${props => props.theme.menuitem.active};
         background-color: ${props => props.theme.navbar.left};
         background-image: unset;
+        text-shadow: none;
     }
     
     &&& .disabled > a {
@@ -158,6 +160,8 @@ export class AppNavDropdown extends Component {
 const StyledBootstrapMenuItem = styled(MenuItem)`
 
     font-family: 'Raleway Semi-Bold', sans-serif;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+
     &&& a:hover {
         color:  ${props => props.theme.menuitem.hover};
         background-color: ${props => props.theme.menuitem.active};

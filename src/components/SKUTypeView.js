@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {AtomSpinner, HollowDotsSpinner} from "react-epic-spinners";
 import {Checkbox, FormControl, FormGroup, Glyphicon} from "react-bootstrap";
-import CurrencyInput from 'react-currency-masked-input'
 
 import {
     priceChanged,
@@ -28,7 +27,9 @@ import {
     AppButton,
     AppTable,
     AppForm,
-    AppHelpBlock
+    AppFormControl,
+    AppHelpBlock,
+    AppCurrencyInput
 } from "../styles";
 
 class SKUTypeView extends Component {
@@ -42,7 +43,7 @@ class SKUTypeView extends Component {
                     <tr>
                         <td>Name</td>
                         <td>Description</td>
-                        <td align="right">Price&nbsp;<Glyphicon glyph={CURRENCIES[shop.fiat].icon} /></td>
+                        <td align="right">Price (<Glyphicon glyph={CURRENCIES[shop.fiat].icon} />)</td>
                         <td align="middle">Consumable</td>
                         <td align="middle">Limited</td>
                         <td align="right">Limit</td>
@@ -161,7 +162,7 @@ class SKUTypeView extends Component {
                     <FormGroup
                         controlId='nameField'
                         validationState={getNameValidationState()}>
-                        <FormControl
+                        <AppFormControl
                             disabled={creatingSKU}
                             type="text"
                             bsSize='large'
@@ -178,7 +179,7 @@ class SKUTypeView extends Component {
                     <FormGroup
                         controlId='descField'
                         validationState={getDescValidationState()}>
-                        <FormControl
+                        <AppFormControl
                             disabled={creatingSKU}
                             componentClass="textarea"
                             bsSize='large'
@@ -195,7 +196,9 @@ class SKUTypeView extends Component {
                     <FormGroup
                         controlId='priceField'
                         validationState={getPriceValidationState()}>
-                        <CurrencyInput placeholder={`Price (${shop.fiat})`} className='form-control input-lg' onChange={handlePriceChange}/>
+                        <AppCurrencyInput placeholder={`Price (${shop.fiat})`}
+                                       className='form-control input-lg'
+                                       onChange={handlePriceChange}/>
                         <FormControl.Feedback />
                         {(getPriceValidationState() === ERROR)
                             ? <AppHelpBlock>Enter a non-negative numeric value</AppHelpBlock>
@@ -218,7 +221,7 @@ class SKUTypeView extends Component {
                         ? <FormGroup
                                 controlId='limitField'
                                 validationState={getLimitValidationState()}>
-                                <FormControl
+                                <AppFormControl
                                      disabled={creatingSKU}
                                      type="text"
                                      bsSize='large'

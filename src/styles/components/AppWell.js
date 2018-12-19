@@ -20,6 +20,7 @@ const StyledBootstrapWell = styled(Well)`
     & h2 {
         color: ${props => props.theme.well.head};
         text-shadow: 0 1px 0 rgba(19, 16, 16, 0.75);
+        font-family: 'Raleway Semi-Bold', sans-serif;
     }    
 `;
 
