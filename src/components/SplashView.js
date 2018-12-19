@@ -19,7 +19,7 @@ class SplashView extends Component {
             </h3>
 
             <ul>
-                <li>Quickly create a Shop, defining and categorizing the products you will sell.</li>
+                <li>Quickly create a Shop, defining and categorizing the items you will sell.</li>
 
                 <li>Interact with the In-App Pro Shop smart contracts to allow users to purchase Items.</li>
 
