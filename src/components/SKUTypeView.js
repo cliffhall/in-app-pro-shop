@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from "react-redux";
-import { AtomSpinner, HollowDotsSpinner } from "react-epic-spinners";
-import { Button, Checkbox, Form, FormControl, FormGroup, Glyphicon, HelpBlock, Panel, Table, Well } from "react-bootstrap";
+import React, {Component} from 'react';
+import {connect} from "react-redux";
+import {AtomSpinner, HollowDotsSpinner} from "react-epic-spinners";
+import {Checkbox, FormControl, FormGroup, Glyphicon} from "react-bootstrap";
 import CurrencyInput from 'react-currency-masked-input'
 
 import {
@@ -17,15 +17,27 @@ import {
 import SKUView from './SKUView';
 import {CONTRACTS, CURRENCIES} from "../constants";
 import { selectSKUType } from "../store/sku_type/SKUTypeActions";
-import { FlexChild, PanelBodyFlexRow, PanelGroupFlexCol } from "../styles";
+import {
+    FlexChild,
+    AppPanel,
+    AppPanelHeading,
+    AppPanelTitle,
+    AppPanelBody,
+    AppPanelGroup,
+    AppWell,
+    AppButton,
+    AppTable,
+    AppForm,
+    AppHelpBlock
+} from "../styles";
 
 class SKUTypeView extends Component {
 
     renderSKUList = () => {
         const {skusFetched, skuType, shop} = this.props;
         return skusFetched
-            ? <PanelGroupFlexCol id={`skus-${skuType.skuTypeId}`}>
-                    <Table striped bordered condensed hover>
+            ? <AppPanelGroup id={`skus-${skuType.skuTypeId}`}>
+                    <AppTable striped bordered condensed hover>
                     <thead>
                     <tr>
                         <td>Name</td>
@@ -39,12 +51,12 @@ class SKUTypeView extends Component {
                     <tbody>
                         {this.renderSKUs()}
                     </tbody>
-                  </Table>
-              </PanelGroupFlexCol>
-            : <Well>
+                  </AppTable>
+              </AppPanelGroup>
+            : <AppWell>
                 <h2>Fetching SKUs</h2>
                 <AtomSpinner color='red'/>
-            </Well>;
+            </AppWell>;
     };
 
     // Render the SKU rows
@@ -91,11 +103,11 @@ class SKUTypeView extends Component {
         };
 
         const getNameValidationState = () => {
-            return (newSKU.name.length === 0) ? null : (newSKU.name.length > 1) ? SUCCESS : ERROR;
+            return (newSKU.name.length === 0) ? null : (newSKU.name.length >= 5) ? SUCCESS : ERROR;
         };
 
         const getDescValidationState = () => {
-            return (newSKU.description.length === 0) ? null : (newSKU.description.length > 1) ? SUCCESS : ERROR;
+            return (newSKU.description.length === 0) ? null : (newSKU.description.length >= 10) ? SUCCESS : ERROR;
         };
 
         const getPriceValidationState = () => {
@@ -141,107 +153,105 @@ class SKUTypeView extends Component {
         };
 
         return <FlexChild>
-            <Panel>
-                <Panel.Heading>
-                    <Panel.Title>
-                        Create SKU
-                        <div className="pull-right">
-                            <Button onClick={toggleForm} bsSize='xsmall'><Glyphicon glyph="remove" /></Button>
-                        </div>
-                    </Panel.Title>
-                    SKUs describe the items you will sell in your Shop
-                </Panel.Heading>
-                <Panel.Body>
-                    <Form>
+            <AppWell>
+                <AppForm>
 
-                        <FormGroup
-                            controlId='nameField'
-                            validationState={getNameValidationState()}>
-                            <FormControl
-                                disabled={creatingSKU}
-                                type="text"
-                                bsSize='large'
-                                placeholder="SKU Name"
-                                value={newSKU.name}
-                                onChange={handleNameChange}
-                            />
-                            <FormControl.Feedback />
-                            {(getNameValidationState() === ERROR)
-                                ? <HelpBlock>Enter at least 5 characters</HelpBlock>
-                                : null}
-                        </FormGroup>
+                    <h2>Add Item</h2>
 
-                        <FormGroup
-                            controlId='descField'
-                            validationState={getDescValidationState()}>
-                            <FormControl
-                                disabled={creatingSKU}
-                                componentClass="textarea"
-                                bsSize='large'
-                                placeholder="Description"
-                                value={newSKU.description}
-                                onChange={handleDescChange}
-                            />
-                            <FormControl.Feedback />
-                            {(getDescValidationState() === ERROR)
-                                ? <HelpBlock>Enter at least 10 characters</HelpBlock>
-                                : null}
-                        </FormGroup>
-
-                        <FormGroup
-                            controlId='priceField'
-                            validationState={getPriceValidationState()}>
-                            <CurrencyInput placeholder={`Price (${shop.fiat})`} className='form-control input-lg' onChange={handlePriceChange}/>
-                            <FormControl.Feedback />
-                            {(getPriceValidationState() === ERROR)
-                                ? <HelpBlock>Enter a non-negative numeric value</HelpBlock>
-                                : null}
-                        </FormGroup>
-
-                        <FormGroup
-                            controlId='checksGroup'>
-                            <Checkbox
-                                inline
-                                onChange={handleConsumableChange}
-                                checked={newSKU.consumable}>Consumable</Checkbox>
-                            <Checkbox
-                                inline
-                                onChange={handleLimitedChange}
-                                checked={newSKU.limited}>Limited</Checkbox>
-                        </FormGroup>
-
-                        {newSKU.limited
-                            ? <FormGroup
-                                    controlId='limitField'
-                                    validationState={getLimitValidationState()}>
-                                    <FormControl
-                                         disabled={creatingSKU}
-                                         type="text"
-                                         bsSize='large'
-                                         placeholder="Limit"
-                                         onChange={handleLimitChange}
-                                    />
-                                    <FormControl.Feedback />
-                                    {(getLimitValidationState() === ERROR)
-                                        ? <HelpBlock>Enter a positive numeric value</HelpBlock>
-                                        : null}
-                                </FormGroup>
+                    <FormGroup
+                        controlId='nameField'
+                        validationState={getNameValidationState()}>
+                        <FormControl
+                            disabled={creatingSKU}
+                            type="text"
+                            bsSize='large'
+                            placeholder="Name"
+                            value={newSKU.name}
+                            onChange={handleNameChange}
+                        />
+                        <FormControl.Feedback />
+                        {(getNameValidationState() === ERROR)
+                            ? <AppHelpBlock>Enter at least 5 characters</AppHelpBlock>
                             : null}
+                    </FormGroup>
 
-                        {creatingSKU
-                            ? <HollowDotsSpinner color='black'/>
-                            : <Button
-                                bsSize='large'
-                                disabled={isSubmitDisabled()}
-                                onClick={handleSubmit}>Create</Button>}
-                    </Form>
+                    <FormGroup
+                        controlId='descField'
+                        validationState={getDescValidationState()}>
+                        <FormControl
+                            disabled={creatingSKU}
+                            componentClass="textarea"
+                            bsSize='large'
+                            placeholder="Description"
+                            value={newSKU.description}
+                            onChange={handleDescChange}
+                        />
+                        <FormControl.Feedback />
+                        {(getDescValidationState() === ERROR)
+                            ? <AppHelpBlock>Enter at least 10 characters</AppHelpBlock>
+                            : null}
+                    </FormGroup>
 
-                </Panel.Body>
-            </Panel>
+                    <FormGroup
+                        controlId='priceField'
+                        validationState={getPriceValidationState()}>
+                        <CurrencyInput placeholder={`Price (${shop.fiat})`} className='form-control input-lg' onChange={handlePriceChange}/>
+                        <FormControl.Feedback />
+                        {(getPriceValidationState() === ERROR)
+                            ? <AppHelpBlock>Enter a non-negative numeric value</AppHelpBlock>
+                            : null}
+                    </FormGroup>
+
+                    <FormGroup
+                        controlId='checksGroup'>
+                        <Checkbox
+                            inline
+                            onChange={handleConsumableChange}
+                            checked={newSKU.consumable}>Consumable</Checkbox>
+                        <Checkbox
+                            inline
+                            onChange={handleLimitedChange}
+                            checked={newSKU.limited}>Limited</Checkbox>
+                    </FormGroup>
+
+                    {newSKU.limited
+                        ? <FormGroup
+                                controlId='limitField'
+                                validationState={getLimitValidationState()}>
+                                <FormControl
+                                     disabled={creatingSKU}
+                                     type="text"
+                                     bsSize='large'
+                                     placeholder="Limit"
+                                     onChange={handleLimitChange}
+                                />
+                                <FormControl.Feedback />
+                                {(getLimitValidationState() === ERROR)
+                                    ? <AppHelpBlock>Enter a positive numeric value</AppHelpBlock>
+                                    : null}
+                            </FormGroup>
+                        : null}
+
+                    {creatingSKU
+                        ? <HollowDotsSpinner color='black'/>
+                        : <AppButton
+                            bsSize='large'
+                            disabled={isSubmitDisabled()}
+                            onClick={handleSubmit}>Create</AppButton>}
+
+                    <span>&nbsp;</span>
+
+                    <AppButton
+                        onClick={toggleForm}
+                        bsSize='large'>Cancel</AppButton>
+
+
+                </AppForm>
+            </AppWell>
         </FlexChild>;
     };
 
-    // Toggle SKU form and select/deselect SKU Type
+    // Toggle SKU Form and select/deselect SKU Type
     handleToggleForm = () => {
 
         const {
@@ -264,23 +274,25 @@ class SKUTypeView extends Component {
             skuFormDisplayed
         } = this.props;
 
-        return  <Panel eventKey={skuType.skuTypeId}>
-            <Panel.Heading>
-                <Panel.Title>
+        return  <React.Fragment><AppPanel>
+            <AppPanelHeading>
+                <AppPanelTitle>
                     {skuType.name}
                     <div className="pull-right">
                         {skuTypeFormDisplayed || skuFormDisplayed
                             ? null
-                            : <Button onClick={this.handleToggleForm}>Add SKU</Button>}
+                            : <AppButton onClick={this.handleToggleForm}>Add Item</AppButton>}
                     </div>
-                </Panel.Title>
+                </AppPanelTitle>
                 {skuType.description}
-            </Panel.Heading>
-            <PanelBodyFlexRow>
+            </AppPanelHeading>
+            <AppPanelBody>
                 {this.renderSKUList()}
                 {skuFormDisplayed && selectedSKUTypeId === skuType.skuTypeId ? this.renderNewSKUForm() : null}
-            </PanelBodyFlexRow>
-        </Panel>;
+            </AppPanelBody>
+        </AppPanel>
+            <div>&nbsp;</div>
+        </React.Fragment>;
     }
 }
 

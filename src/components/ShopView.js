@@ -1,23 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { AtomSpinner, HollowDotsSpinner } from "react-epic-spinners";
-import {Panel, Glyphicon, Well, Button, Form, FormGroup, FormControl, HelpBlock, Label} from "react-bootstrap";
+import { FormGroup, FormControl } from "react-bootstrap";
 
 import SKUTypeView from './SKUTypeView';
 
 import { CONTRACTS } from "../constants";
-import { FlexChild, PanelBodyFlexRow, PanelGroupFlexCol } from "../styles";
+import {
+    FlexChild,
+    AppPanel,
+    AppPanelHeading,
+    AppPanelTitle,
+    AppPanelBody,
+    AppPanelGroup,
+    AppWell,
+    AppButton,
+    AppForm,
+    AppHelpBlock
+} from "../styles";
 import { toggleTypeForm, createNewSKUType, nameChanged, descChanged } from "../store/sku_type/SKUTypeActions";
 
 class ShopView extends Component {
 
     // Render the SKU Type panels in a responsive panel group
     renderSKUTypeList = () => {
-        return <PanelGroupFlexCol id="skuTypes">
+        return <AppPanelGroup id="skuTypes">
             {
                 this.renderSKUTypes()
             }
-        </PanelGroupFlexCol>
+        </AppPanelGroup>
     };
 
     // Render the SKU Type panels
@@ -26,10 +37,10 @@ class ShopView extends Component {
 
         return skuTypesFetched
             ? skuTypes.map( skuType => <SKUTypeView drizzle={drizzle} key={skuType.skuTypeId} skuType={skuType} shop={shop}/> )
-            : <Well>
+            : <AppWell>
                 <h2>Fetching SKU Types</h2>
                 <AtomSpinner color='red'/>
-            </Well>;
+            </AppWell>;
     };
 
     // Render the New SKU Type form
@@ -56,11 +67,11 @@ class ShopView extends Component {
         };
 
         const getNameValidationState = () => {
-            return (name.length === 0) ? null : (name.length > 5) ? SUCCESS : ERROR;
+            return (name.length === 0) ? null : (name.length >= 5) ? SUCCESS : ERROR;
         };
 
         const getDescValidationState = () => {
-            return (description.length === 0) ? null : (description.length > 10) ? SUCCESS : ERROR;
+            return (description.length === 0) ? null : (description.length >= 10) ? SUCCESS : ERROR;
         };
 
         const isSubmitDisabled = () => {
@@ -79,19 +90,11 @@ class ShopView extends Component {
         };
 
         return <FlexChild>
-            <Panel>
-                <Panel.Heading>
-                    <Panel.Title>
-                        Create SKU Type
-                        <div className="pull-right">
-                            <Button  onClick={toggleTypeForm} bsSize='xsmall'><Glyphicon glyph="remove" /></Button>
-                        </div>
-                    </Panel.Title>
-                    SKU types allow you to categorize your Shop's SKUs
-                </Panel.Heading>
-                <Panel.Body>
-                    <Form>
-
+            <AppWell>
+                    <AppForm>
+                        <h2>
+                            Add Category
+                        </h2>
                         <FormGroup
                             controlId='nameField'
                             validationState={getNameValidationState()}>
@@ -99,13 +102,13 @@ class ShopView extends Component {
                                 disabled={creatingSKUType}
                                 type="text"
                                 bsSize='large'
-                                placeholder="SKU Type Name"
+                                placeholder="Name"
                                 value={name}
                                 onChange={handleNameChange}
                             />
                             <FormControl.Feedback />
                             {(getNameValidationState() === ERROR)
-                                ? <HelpBlock>Enter at least 5 characters</HelpBlock>
+                                ? <AppHelpBlock>Enter at least 5 characters</AppHelpBlock>
                                 : null}
                         </FormGroup>
 
@@ -122,20 +125,26 @@ class ShopView extends Component {
                             />
                             <FormControl.Feedback />
                             {(getDescValidationState() === ERROR)
-                                ? <HelpBlock>Enter at least 10 characters</HelpBlock>
+                                ? <AppHelpBlock>Enter at least 10 characters</AppHelpBlock>
                                 : null}
                         </FormGroup>
 
                         {creatingSKUType
                             ? <HollowDotsSpinner color='black'/>
-                            : <Button
+                            : <AppButton
                                 bsSize='large'
                                 disabled={isSubmitDisabled()}
-                                onClick={handleSubmit}>Create</Button>}
+                                onClick={handleSubmit}>Create</AppButton>}
 
-                    </Form>
-                </Panel.Body>
-            </Panel>
+                        <span>&nbsp;</span>
+
+                        <AppButton
+                            onClick={toggleTypeForm}
+                            bsSize='large'>Cancel</AppButton>
+
+
+                    </AppForm>
+            </AppWell>
         </FlexChild>;
     };
 
@@ -144,23 +153,23 @@ class ShopView extends Component {
 
         const {shop, toggleTypeForm, skuTypeFormDisplayed, skuFormDisplayed} = this.props;
 
-        return  <Panel>
-                    <Panel.Heading>
-                        <Panel.Title>
+        return  <AppPanel>
+                    <AppPanelHeading>
+                        <AppPanelTitle>
                             {shop.name}
                             <div className="pull-right">
                             {skuTypeFormDisplayed || skuFormDisplayed
                                 ? null
-                                : <Button onClick={toggleTypeForm}>Add SKU Type</Button>}
+                                : <AppButton onClick={toggleTypeForm}>Add Category</AppButton>}
                             </div>
-                        </Panel.Title>
-                        <Label bsStyle="success"><Glyphicon glyph={shop.fiat.toLowerCase()}/></Label>&nbsp;|&nbsp;{shop.description}
-                    </Panel.Heading>
-                    <PanelBodyFlexRow>
+                        </AppPanelTitle>
+                        {shop.description}
+                    </AppPanelHeading>
+                    <AppPanelBody>
                         {this.renderSKUTypeList()}
                         {skuTypeFormDisplayed ? this.renderNewSKUTypeForm() : null}
-                    </PanelBodyFlexRow>
-                </Panel>;
+                    </AppPanelBody>
+                </AppPanel>;
     }
 }
 
