@@ -90,11 +90,11 @@ class SplashView extends Component {
         };
 
         const getNameValidationState = () => {
-            return (name.length === 0) ? null : (name.length >= 5) ? SUCCESS : ERROR;
+            return (name.length === 0) ? null : (name.length >= 3) ? SUCCESS : ERROR;
         };
 
         const getDescValidationState = () => {
-            return (description.length === 0) ? null : (description.length >= 10) ? SUCCESS : ERROR;
+            return (description.length === 0) ? null : (description.length >= 5) ? SUCCESS : ERROR;
         };
 
         const isSubmitDisabled = () => {
@@ -130,7 +130,7 @@ class SplashView extends Component {
                 />
                 <FormControl.Feedback />
                 {(getNameValidationState() === ERROR)
-                    ? <AppHelpBlock>Enter at least 5 characters</AppHelpBlock>
+                    ? <AppHelpBlock>Enter at least 3 characters</AppHelpBlock>
                     : null}
             </FormGroup>
             <FormGroup
@@ -145,7 +145,7 @@ class SplashView extends Component {
                 />
                 <FormControl.Feedback />
                 {(getDescValidationState() === ERROR)
-                    ? <AppHelpBlock>Enter at least 10 characters</AppHelpBlock>
+                    ? <AppHelpBlock>Enter at least 5 characters</AppHelpBlock>
                     : null}
             </FormGroup>
 
