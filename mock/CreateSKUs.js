@@ -11,8 +11,8 @@ module.exports = async function(done){
     ];
 
     const prices  = [
-        [1, 1],
-        [2, 5]
+        [1250, 500],
+        [200, 400]
     ];
 
     const consumable  = [

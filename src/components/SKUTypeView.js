@@ -104,11 +104,11 @@ class SKUTypeView extends Component {
         };
 
         const getNameValidationState = () => {
-            return (newSKU.name.length === 0) ? null : (newSKU.name.length >= 5) ? SUCCESS : ERROR;
+            return (newSKU.name.length === 0) ? null : (newSKU.name.length >= 3) ? SUCCESS : ERROR;
         };
 
         const getDescValidationState = () => {
-            return (newSKU.description.length === 0) ? null : (newSKU.description.length >= 10) ? SUCCESS : ERROR;
+            return (newSKU.description.length === 0) ? null : (newSKU.description.length >= 5) ? SUCCESS : ERROR;
         };
 
         const getPriceValidationState = () => {
@@ -172,7 +172,7 @@ class SKUTypeView extends Component {
                         />
                         <FormControl.Feedback />
                         {(getNameValidationState() === ERROR)
-                            ? <AppHelpBlock>Enter at least 5 characters</AppHelpBlock>
+                            ? <AppHelpBlock>Enter at least 3 characters</AppHelpBlock>
                             : null}
                     </FormGroup>
 
@@ -189,7 +189,7 @@ class SKUTypeView extends Component {
                         />
                         <FormControl.Feedback />
                         {(getDescValidationState() === ERROR)
-                            ? <AppHelpBlock>Enter at least 10 characters</AppHelpBlock>
+                            ? <AppHelpBlock>Enter at least 5 characters</AppHelpBlock>
                             : null}
                     </FormGroup>
 
