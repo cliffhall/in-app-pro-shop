@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import {connect} from "react-redux";
 import {AtomSpinner, HollowDotsSpinner} from "react-epic-spinners";
 import {Checkbox, FormControl, FormGroup, Glyphicon} from "react-bootstrap";
@@ -263,9 +264,22 @@ class SKUTypeView extends Component {
             toggleForm,
             selectSKUType
         } = this.props;
+        if (!skuFormDisplayed) {
+            setTimeout( () => {
+                this.scrollToTop();
+            }, 100)
+        }
         selectSKUType(skuFormDisplayed ? null: skuType.skuTypeId);
         toggleForm();
 
+    };
+
+    scrollToTop = () => {
+        const target = ReactDOM.findDOMNode(this).offsetTop - 70;
+        window.scrollTo({
+            top: target,
+            behavior: "smooth"
+        })
     };
 
     render() {

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import styled from "styled-components";
 import {ThemeProvider} from "styled-components";
 
 import NavigationBar from './NavigationBar';
@@ -14,15 +13,7 @@ import { getSKUs } from "../store/sku/SKUActions";
 import { getSKUTypes } from "../store/sku_type/SKUTypeActions";
 import { accountsFetched, selectAccount } from "../store/account/AccountActions";
 
-const Wrapper = styled.section`
-  padding: 5em;
-  -webkit-touch-callout: none;
-    -webkit-user-select: none; 
-     -khtml-user-select: none; 
-       -moz-user-select: none; 
-        -ms-user-select: none; 
-            user-select: none; 
-`;
+import {AppWrapper} from "../styles";
 
 class App extends Component {
 
@@ -78,10 +69,10 @@ class App extends Component {
     };
 
     render() { return <ThemeProvider theme={this.props.theme}>
-        <Wrapper>
+        <AppWrapper>
             {this.renderNavigation()}
             {this.renderAppContent()}
-        </Wrapper>
+        </AppWrapper>
     </ThemeProvider>;
     }
 }
