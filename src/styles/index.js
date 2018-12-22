@@ -1,4 +1,5 @@
 import {injectGlobal} from 'styled-components';
+import {AppWrapper} from "./components/AppWrapper";
 import {AppWell} from "./components/AppWell";
 import {AppTable} from "./components/AppTable";
 import {FlexRow, FlexChild} from "./components/AppFlex";
@@ -8,6 +9,7 @@ import {AppButton, AppToggleButton, AppToggleButtonGroup} from "./components/App
 import {AppPanel, AppPanelHeading, AppPanelTitle, AppPanelBody, AppPanelGroup} from "./components/AppPanel";
 
 export {
+    AppWrapper,
     AppNavbar,
     AppNavbarHeader,
     AppNav,
