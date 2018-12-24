@@ -1,12 +1,12 @@
 import {injectGlobal} from 'styled-components';
 import {AppWrapper} from "./components/AppWrapper";
-import {AppWell} from "./components/AppWell";
 import {AppTable} from "./components/AppTable";
 import {FlexRow, FlexChild} from "./components/AppFlex";
+import {AppWell, AppSlidingWell} from "./components/AppWell";
 import {AppForm, AppFormControl, AppCurrencyInput, AppHelpBlock} from "./components/AppForm";
 import {AppNavbar, AppNavbarHeader, AppNav, AppNavbarBrand, AppNavDropdown, AppMenuItem, AppMonoMenuItem} from "./components/AppNav";
 import {AppButton, AppToggleButton, AppToggleButtonGroup} from "./components/AppButton";
-import {AppPanel, AppPanelHeading, AppPanelTitle, AppPanelBody, AppPanelGroup} from "./components/AppPanel";
+import {AppPanel, AppSlidingPanel, AppPanelHeading, AppPanelTitle, AppPanelBody, AppPanelGroup} from "./components/AppPanel";
 
 export {
     AppWrapper,
@@ -18,9 +18,11 @@ export {
     AppMenuItem,
     AppMonoMenuItem,
     AppWell,
+    AppSlidingWell,
     FlexRow,
     FlexChild,
     AppPanel,
+    AppSlidingPanel,
     AppPanelHeading,
     AppPanelTitle,
     AppPanelBody,

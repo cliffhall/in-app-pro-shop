@@ -1,14 +1,15 @@
-import styled from 'styled-components';
-import {Panel, PanelGroup} from 'react-bootstrap';
+import styled from "styled-components";
+import {Panel, PanelGroup} from "react-bootstrap";
 import {Component} from "react";
 import React from "react";
 
+import {slideInUp} from '../animations';
 
 const panelImageColorLeft = props => props.theme.navbar.left;
 const panelImageColorRight = props => props.theme.navbar.right;
 
 
-const StyledBootstrapFlexPanel = styled(Panel)`
+const StyledBootstrapPanel = styled(Panel)`
     &&& {
         padding: 0;
         border-radius: 10px;
@@ -18,12 +19,25 @@ const StyledBootstrapFlexPanel = styled(Panel)`
      }
 `;
 
+
 export class AppPanel extends Component {
     render() {
         const {...props} = this.props;
-        return <StyledBootstrapFlexPanel {...props}/>
+        return <StyledBootstrapPanel {...props}/>
     }
 }
+
+const SlidingBootstrapPanel = styled(AppPanel)`
+    animation: ${slideInUp} .23s ease-out;
+`;
+
+export class AppSlidingPanel extends Component {
+    render() {
+        const {...props} = this.props;
+        return <SlidingBootstrapPanel {...props}/>
+    }
+}
+
 
 
 const StyledBootstrapPanelHeading = styled(Panel.Heading)`

@@ -25,6 +25,7 @@ import {
     AppPanelBody,
     AppPanelGroup,
     AppWell,
+    AppSlidingWell,
     AppButton,
     AppTable,
     AppForm,
@@ -155,7 +156,7 @@ class SKUTypeView extends Component {
         };
 
         return <FlexChild>
-            <AppWell>
+            <AppSlidingWell>
                 <AppForm>
 
                     <h2>Add Item</h2>
@@ -251,7 +252,7 @@ class SKUTypeView extends Component {
 
 
                 </AppForm>
-            </AppWell>
+            </AppSlidingWell>
         </FlexChild>;
     };
 

@@ -3,8 +3,11 @@ import {Well} from "react-bootstrap";
 import {Component} from "react";
 import React from "react";
 
+import {slideInLeft} from '../animations';
+
 const navbarImageColorTop = props => props.theme.well.top;
 const navbarImageColorBottom = props => props.theme.well.bottom;
+
 
 const StyledBootstrapWell = styled(Well)`
 
@@ -28,5 +31,16 @@ export class AppWell extends Component {
     render() {
         const {...props} = this.props;
         return <StyledBootstrapWell {...props}/>
+    }
+}
+
+const SlidingBootstrapWell = styled(AppWell)`
+    animation: ${slideInLeft} .23s ease-out;
+`;
+
+export class AppSlidingWell extends Component {
+    render() {
+        const {...props} = this.props;
+        return <SlidingBootstrapWell {...props}/>
     }
 }
