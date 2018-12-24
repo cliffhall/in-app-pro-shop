@@ -4,7 +4,7 @@ import {HollowDotsSpinner, AtomSpinner} from 'react-epic-spinners'
 import {FormGroup, FormControl, ControlLabel, Glyphicon} from 'react-bootstrap';
 
 import {
-    AppWell,
+    AppSlidingWell,
     AppButton,
     AppToggleButton,
     AppToggleButtonGroup,
@@ -54,15 +54,15 @@ class SplashView extends Component {
         const {initialized} = this.props;
         return <FlexChild>
             {initialized
-                ? <AppWell>
+                ? <AppSlidingWell>
                     <h2>Connect an Ethereum Account</h2>
                     <p>In order to use this Dapp, you must use a browser plugin (e.g., Metamask) or an Ethereum-aware browser (e.g., Trust)</p>
                     <p>You'll need to configure your plugin or browser with one or more accounts that you'll use to maintain Shops, withdraw balances, and make test purchases.</p>
-                    </AppWell>
-                : <AppWell>
-                    <h2>Connecting&nbsp;Ethereum</h2>
+                    </AppSlidingWell>
+                : <AppSlidingWell>
+                    <h2>Connect&nbsp;to&nbsp;Ether&nbsp;...&nbsp;</h2>
                     <AtomSpinner color='red'/>
-                  </AppWell>
+                  </AppSlidingWell>
             }
         </FlexChild>;
     };
@@ -116,7 +116,7 @@ class SplashView extends Component {
             fiatChanged(selection);
         };
 
-        return <FlexChild><AppWell><AppForm>
+        return <FlexChild><AppSlidingWell><AppForm>
             <h2>Create&nbsp;a&nbsp;New&nbsp;Shop</h2>
             <FormGroup
                 controlId='nameField'
@@ -167,7 +167,7 @@ class SplashView extends Component {
                     disabled={isSubmitDisabled()}
                     onClick={handleSubmit}>Create</AppButton>}
 
-        </AppForm></AppWell></FlexChild>;
+        </AppForm></AppSlidingWell></FlexChild>;
     };
 
     render() {

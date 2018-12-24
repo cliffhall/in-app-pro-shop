@@ -39,15 +39,8 @@ function SKUTypeReducer(state=INITIAL_STATE, action) {
     switch (action.type)
     {
         case ACCOUNT_SELECTED:
-            reduced = INITIAL_STATE;
-            break;
-
         case SHOP_SELECTED:
-            reduced = {
-                ...state,
-                newSKUType: INITIAL_STATE.newSKUType,
-                skuTypeFormDisplayed: false
-            };
+            reduced = INITIAL_STATE;
             break;
 
         case SKU_TYPE_SELECTED:

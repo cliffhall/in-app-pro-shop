@@ -8,12 +8,13 @@ import SKUTypeView from './SKUTypeView';
 import { CONTRACTS } from "../constants";
 import {
     FlexChild,
-    AppPanel,
+    AppSlidingPanel,
     AppPanelHeading,
     AppPanelTitle,
     AppPanelBody,
     AppPanelGroup,
     AppWell,
+    AppSlidingWell,
     AppButton,
     AppForm,
     AppFormControl,
@@ -39,7 +40,7 @@ class ShopView extends Component {
         return skuTypesFetched
             ? skuTypes.map( skuType => <SKUTypeView drizzle={drizzle} key={skuType.skuTypeId} skuType={skuType} shop={shop}/> )
             : <AppWell>
-                <h2>Fetching SKU Types</h2>
+                <h2>Fetching Categories</h2>
                 <AtomSpinner color='red'/>
             </AppWell>;
     };
@@ -91,7 +92,7 @@ class ShopView extends Component {
         };
 
         return <FlexChild>
-            <AppWell>
+            <AppSlidingWell>
                     <AppForm>
                         <h2>
                             Add Category
@@ -145,21 +146,21 @@ class ShopView extends Component {
 
 
                     </AppForm>
-            </AppWell>
+            </AppSlidingWell>
         </FlexChild>;
     };
 
     // Render the Shop panel
     render() {
 
-        const {shop, toggleTypeForm, skuTypeFormDisplayed, skuFormDisplayed} = this.props;
+        const {shop, toggleTypeForm, skuTypeFormDisplayed, skuFormDisplayed, skuTypesFetched} = this.props;
 
-        return  <AppPanel>
+        return  <AppSlidingPanel>
                     <AppPanelHeading>
                         <AppPanelTitle>
                             {shop.name}
                             <div className="pull-right">
-                            {skuTypeFormDisplayed || skuFormDisplayed
+                            {!skuTypesFetched || skuTypeFormDisplayed || skuFormDisplayed
                                 ? null
                                 : <AppButton onClick={toggleTypeForm}>Add Category</AppButton>}
                             </div>
@@ -170,7 +171,7 @@ class ShopView extends Component {
                         {this.renderSKUTypeList()}
                         {skuTypeFormDisplayed ? this.renderNewSKUTypeForm() : null}
                     </AppPanelBody>
-                </AppPanel>;
+                </AppSlidingPanel>;
     }
 }
 

@@ -22,6 +22,8 @@ export const getSKUTypes = (contract, shopId) => {
             idsFetched: false
         });
 
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+
         // Get the SKU ids
         const ids = await fetchSKUTypeIds(contract, shopId);
 
