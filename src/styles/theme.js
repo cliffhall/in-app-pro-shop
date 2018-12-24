@@ -51,7 +51,8 @@ export default {
 
         table: {
             header_bg: colors.light,
-            header: colors.text1
+            header: colors.text1,
+            row_bg: colors.grayLight
         },
 
         form: {
