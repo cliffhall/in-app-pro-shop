@@ -59,17 +59,18 @@ contract ProShop is ItemFactory {
     }
 
     /**
-     * @notice Allow a shop owner to check the accumulated balance of their shop
+     * @notice Allow a shop owner to check the accumulated balance of their shop in Ether or Shop fiat
      */
-    function checkShopBalance(uint256 _shopId) external view onlyShopOwner(_shopId) returns(uint256) {
-        return shopBalances[_shopId];
+    function checkShopBalance(uint256 _shopId, bool _inFiat) external view onlyShopOwner(_shopId) returns(uint256) {
+        uint256 balance = shopBalances[_shopId];
+        return (balance > 0 && _inFiat) ? stockRoom.convertEtherToShopFiat(_shopId, balance) : balance;
     }
 
     /**
-     * @notice Allow the franchise owner to check their accumulated balance
+     * @notice Allow the franchise owner to check their accumulated balance in Ether or franchise fiat
      */
-    function checkFranchiseBalance() external view onlyFranchiseOwner() returns(uint256) {
-        return franchiseBalance;
+    function checkFranchiseBalance(bool _inFiat) external view onlyFranchiseOwner() returns(uint256) {
+        return (franchiseBalance > 0 && _inFiat) ? stockRoom.convertEtherToFranchiseFiat(franchiseBalance) : franchiseBalance;
     }
 
     // @notice Get the list of Item Ids associated with a given Owner

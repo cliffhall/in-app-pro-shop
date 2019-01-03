@@ -30,33 +30,36 @@ contract StockRoom is SKUFactory {
     // @notice get an item's price in Ether
     function getPriceInEther(uint256 _skuId) external view returns (uint256) {
         SKU memory sku = skus[_skuId];
-        bytes32 fiat = keccak256(abi.encodePacked(shops[sku.shopId].fiat));
-        uint256 ethQuote;
-        if (fiat == keccak256("USD")) {
-            ethQuote = fiatContract.USD(0);
-        } else if (fiat == keccak256("EUR")) {
-            ethQuote = fiatContract.EUR(0);
-        } else if (fiat == keccak256("GBP")) {
-            ethQuote = fiatContract.GBP(0);
-        }
-        return ethQuote * sku.price;
+        uint256 quote = getQuote(shops[sku.shopId].fiat);
+        return quote * sku.price;
     }
 
-    // @notice convert an Ether amount to a Shop's fiat (e.g, for USD, balance in cents)
-    function convertEtherToFiat(uint256 _shopId, uint256 _balance) external view returns (uint256) {
-        bytes32 fiat;
-        if (_shopId >= 0) fiat = keccak256(abi.encodePacked(shops[_shopId].fiat));
-        uint256 ethQuote;
+    // @notice convert an Ether amount to a Shop's fiat currency
+    function convertEtherToShopFiat(uint256 _shopId, uint256 _amount) external view returns (uint256) {
+        uint256 quote = getQuote(shops[_shopId].fiat);
+        return _amount.div(quote);
+    }
+
+    // @notice convert an Ether amount to the Franchise's fiat currency
+    function convertEtherToFranchiseFiat(uint256 _amount) external view returns (uint256) {
+        uint256 quote = getQuote("USD");
+        return _amount.div(quote);
+    }
+
+    // @notice get a quote for Ether in the given fiat currency
+    function getQuote(string _fiat) private view returns (uint256) {
+        bytes32 fiat = keccak256(abi.encodePacked(_fiat));
+        uint256 quote;
         if (fiat == keccak256("USD")) {
-            ethQuote = fiatContract.USD(0);
+            quote = fiatContract.USD(0);
         } else if (fiat == keccak256("EUR")) {
-            ethQuote = fiatContract.EUR(0);
+            quote = fiatContract.EUR(0);
         } else if (fiat == keccak256("GBP")) {
-            ethQuote = fiatContract.GBP(0);
+            quote = fiatContract.GBP(0);
         } else {
-            ethQuote = fiatContract.USD(0); // franchise
+            quote = fiatContract.USD(0); // franchise
         }
-        return _balance.div(ethQuote);
+        return quote;
     }
 
     // @notice confirm whether an item can be minted based on limit and current item count

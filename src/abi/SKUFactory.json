@@ -659,10 +659,10 @@
         ],
         "contractDependencies": [
           132,
+          913,
+          1114,
           318,
-          392,
-          933,
-          1134
+          392
         ],
         "contractKind": "contract",
         "documentation": "@title SKUFactory\n@notice Defines functions and events related to management of SKUs",
@@ -672,9 +672,9 @@
           258,
           318,
           392,
-          933,
+          913,
           132,
-          1134
+          1114
         ],
         "name": "SKUFactory",
         "nodeType": "ContractDefinition",
@@ -847,10 +847,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1222,
-                        1223
+                        1202,
+                        1203
                       ],
-                      "referencedDeclaration": 1222,
+                      "referencedDeclaration": 1202,
                       "src": "804:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -916,10 +916,10 @@
                       "name": "skus",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 869,
+                      "referencedDeclaration": 849,
                       "src": "872:4:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_array$_t_struct$_SKU_$932_storage_$dyn_storage",
+                        "typeIdentifier": "t_array$_t_struct$_SKU_$912_storage_$dyn_storage",
                         "typeString": "struct StockRoomBase.SKU storage ref[] storage ref"
                       }
                     },
@@ -1108,10 +1108,10 @@
                           "name": "SKU",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 932,
+                          "referencedDeclaration": 912,
                           "src": "941:3:2",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_struct$_SKU_$932_storage_ptr_$",
+                            "typeIdentifier": "t_type$_t_struct$_SKU_$912_storage_ptr_$",
                             "typeString": "type(struct StockRoomBase.SKU storage pointer)"
                           }
                         },
@@ -1125,7 +1125,7 @@
                         "nodeType": "FunctionCall",
                         "src": "941:84:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_SKU_$932_memory",
+                          "typeIdentifier": "t_struct$_SKU_$912_memory",
                           "typeString": "struct StockRoomBase.SKU memory"
                         }
                       }
@@ -1133,7 +1133,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_SKU_$932_memory",
+                          "typeIdentifier": "t_struct$_SKU_$912_memory",
                           "typeString": "struct StockRoomBase.SKU memory"
                         }
                       ],
@@ -1143,10 +1143,10 @@
                         "name": "skus",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 869,
+                        "referencedDeclaration": 849,
                         "src": "931:4:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_SKU_$932_storage_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_struct$_SKU_$912_storage_$dyn_storage",
                           "typeString": "struct StockRoomBase.SKU storage ref[] storage ref"
                         }
                       },
@@ -1160,7 +1160,7 @@
                       "referencedDeclaration": null,
                       "src": "931:9:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_SKU_$932_storage_$returns$_t_uint256_$",
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_SKU_$912_storage_$returns$_t_uint256_$",
                         "typeString": "function (struct StockRoomBase.SKU storage ref) returns (uint256)"
                       }
                     },
@@ -1215,7 +1215,7 @@
                           "name": "shopSKUs",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 893,
+                          "referencedDeclaration": 873,
                           "src": "1075:8:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_uint256_$dyn_storage_$",
@@ -1312,7 +1312,7 @@
                           "name": "skuTypeSKUs",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 888,
+                          "referencedDeclaration": 868,
                           "src": "1160:11:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_uint256_$dyn_storage_$",
@@ -1514,7 +1514,7 @@
                   "name": "onlyShopOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 860,
+                  "referencedDeclaration": 840,
                   "src": "699:13:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$_t_uint256_$",
@@ -1844,10 +1844,10 @@
         ],
         "contractDependencies": [
           132,
+          913,
+          1114,
           318,
-          392,
-          933,
-          1134
+          392
         ],
         "contractKind": "contract",
         "documentation": "@title SKUFactory\n@notice Defines functions and events related to management of SKUs",
@@ -1857,9 +1857,9 @@
           258,
           318,
           392,
-          933,
+          913,
           132,
-          1134
+          1114
         ],
         "name": "SKUFactory",
         "nodeType": "ContractDefinition",
@@ -2032,10 +2032,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1222,
-                        1223
+                        1202,
+                        1203
                       ],
-                      "referencedDeclaration": 1222,
+                      "referencedDeclaration": 1202,
                       "src": "804:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -2101,10 +2101,10 @@
                       "name": "skus",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 869,
+                      "referencedDeclaration": 849,
                       "src": "872:4:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_array$_t_struct$_SKU_$932_storage_$dyn_storage",
+                        "typeIdentifier": "t_array$_t_struct$_SKU_$912_storage_$dyn_storage",
                         "typeString": "struct StockRoomBase.SKU storage ref[] storage ref"
                       }
                     },
@@ -2293,10 +2293,10 @@
                           "name": "SKU",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 932,
+                          "referencedDeclaration": 912,
                           "src": "941:3:2",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_struct$_SKU_$932_storage_ptr_$",
+                            "typeIdentifier": "t_type$_t_struct$_SKU_$912_storage_ptr_$",
                             "typeString": "type(struct StockRoomBase.SKU storage pointer)"
                           }
                         },
@@ -2310,7 +2310,7 @@
                         "nodeType": "FunctionCall",
                         "src": "941:84:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_SKU_$932_memory",
+                          "typeIdentifier": "t_struct$_SKU_$912_memory",
                           "typeString": "struct StockRoomBase.SKU memory"
                         }
                       }
@@ -2318,7 +2318,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_SKU_$932_memory",
+                          "typeIdentifier": "t_struct$_SKU_$912_memory",
                           "typeString": "struct StockRoomBase.SKU memory"
                         }
                       ],
@@ -2328,10 +2328,10 @@
                         "name": "skus",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 869,
+                        "referencedDeclaration": 849,
                         "src": "931:4:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_SKU_$932_storage_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_struct$_SKU_$912_storage_$dyn_storage",
                           "typeString": "struct StockRoomBase.SKU storage ref[] storage ref"
                         }
                       },
@@ -2345,7 +2345,7 @@
                       "referencedDeclaration": null,
                       "src": "931:9:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_SKU_$932_storage_$returns$_t_uint256_$",
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_SKU_$912_storage_$returns$_t_uint256_$",
                         "typeString": "function (struct StockRoomBase.SKU storage ref) returns (uint256)"
                       }
                     },
@@ -2400,7 +2400,7 @@
                           "name": "shopSKUs",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 893,
+                          "referencedDeclaration": 873,
                           "src": "1075:8:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_uint256_$dyn_storage_$",
@@ -2497,7 +2497,7 @@
                           "name": "skuTypeSKUs",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 888,
+                          "referencedDeclaration": 868,
                           "src": "1160:11:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_uint256_$dyn_storage_$",
@@ -2699,7 +2699,7 @@
                   "name": "onlyShopOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 860,
+                  "referencedDeclaration": 840,
                   "src": "699:13:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$_t_uint256_$",
@@ -2980,5 +2980,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2019-01-03T17:49:29.044Z"
+  "updatedAt": "2019-01-03T21:03:40.311Z"
 }
