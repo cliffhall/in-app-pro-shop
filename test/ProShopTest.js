@@ -70,21 +70,36 @@ contract('ProShop', function(accounts) {
 
     });
 
-    it("should allow the franchise owner to check their balance", async function() {
+    it("should allow the franchise owner to check their balance in Ether", async function() {
 
         // Calculate expected balance
         const expected = accounting.calcFee(itemAmount, franchiseFeePercent) * 2;
 
         // Get franchise balance
-        const balance = await contract.checkFranchiseBalance({from: franchiseOwner});
+        const balance = await contract.checkFranchiseBalance(false, {from: franchiseOwner});
         assert.equal(balance.toNumber(), expected, "Balance wasn't correct");
+
+    });
+
+    it("should allow the franchise owner to check their balance in the Franchise fiat currency", async function() {
+
+        // Calculate expected balance
+        const balance = accounting.calcFee(itemAmount, franchiseFeePercent) * 2;
+        const expected = parseInt(balance/usdQuote);
+
+        // Get franchise balance
+        const fiatBalance = await contract.checkFranchiseBalance(true, {from: franchiseOwner});
+        assert.equal(fiatBalance.toNumber(), expected, "FiatBalance wasn't correct");
 
     });
 
     it("should not allow anyone else to check the franchise balance", async function() {
 
-        // Try to let shop owner check franchise balance
-        await exceptions.catchRevert(contract.checkFranchiseBalance({from: shopOwner}));
+        // Try to let shop owner check franchise balance in Ether
+        await exceptions.catchRevert(contract.checkFranchiseBalance(false, {from: shopOwner}));
+
+        // Try to let shop owner check franchise balance in Fiat
+        await exceptions.catchRevert(contract.checkFranchiseBalance(true, {from: shopOwner}));
 
     });
 
@@ -122,7 +137,7 @@ contract('ProShop', function(accounts) {
         const expected = accounting.calcNet(itemAmount, franchiseFeePercent) * 2;
 
         // Get the shop balance
-        const balance = await contract.checkShopBalance(shopId, {from: shopOwner});
+        const balance = await contract.checkShopBalance(shopId, false, {from: shopOwner});
         assert.equal(balance.toNumber(), expected, "Balance wasn't correct");
 
     });
@@ -133,9 +148,20 @@ contract('ProShop', function(accounts) {
         const balance = accounting.calcNet(itemAmount, franchiseFeePercent) * 2;
         const expected = parseInt(balance/usdQuote);
 
-        // Get the shop balance in Fiat currency
-        const fiatBalance = await stockRoom.convertEtherToFiat(shopId, balance);
+        const fiatBalance = await contract.checkShopBalance(shopId, true, {from: shopOwner});
         assert.equal(fiatBalance.toNumber(), expected, "Fiat Balance wasn't correct");
+
+    });
+
+    it("should allow anyone to convert an Ether amount to a Shop's fiat currency", async function() {
+
+        // Calc expected fiat amount
+        const amount = skuPrice * usdQuote;
+        const expected = parseInt(amount/usdQuote);
+
+        // Get the amount in Fiat currency
+        const fiatAmount = await stockRoom.convertEtherToShopFiat(shopId, amount);
+        assert.equal(fiatAmount.toNumber(), expected, "Fiat amount wasn't correct");
 
     });
 
@@ -170,8 +196,11 @@ contract('ProShop', function(accounts) {
 
     it("should not allow anyone else to check the shop balance", async function() {
 
-        // Try to let customer check shop balance
-        await exceptions.catchRevert(contract.checkShopBalance(shopId, {from: customer}));
+        // Try to let customer check shop balance in Ether
+        await exceptions.catchRevert(contract.checkShopBalance(shopId, false, {from: customer}));
+
+        // Try to let customer check shop balance in Shop's fiat
+        await exceptions.catchRevert(contract.checkShopBalance(shopId, true, {from: customer}));
 
     });
 });

@@ -242,7 +242,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 133,
-        "sourceUnit": 1135,
+        "sourceUnit": 1115,
         "src": "26:65:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -256,10 +256,10 @@
               "id": 3,
               "name": "RBAC",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1134,
+              "referencedDeclaration": 1114,
               "src": "243:4:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_RBAC_$1134",
+                "typeIdentifier": "t_contract$_RBAC_$1114",
                 "typeString": "contract RBAC"
               }
             },
@@ -269,7 +269,7 @@
           }
         ],
         "contractDependencies": [
-          1134
+          1114
         ],
         "contractKind": "contract",
         "documentation": "@title AccessControl\n@notice Role-based access control and related functions, function modifiers, and events",
@@ -277,7 +277,7 @@
         "id": 132,
         "linearizedBaseContracts": [
           132,
-          1134
+          1114
         ],
         "name": "AccessControl",
         "nodeType": "ContractDefinition",
@@ -351,7 +351,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1219,
+                          "referencedDeclaration": 1199,
                           "src": "449:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -401,7 +401,7 @@
                       "name": "addRole",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1101,
+                      "referencedDeclaration": 1081,
                       "src": "441:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_string_memory_ptr_$returns$__$",
@@ -438,7 +438,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1219,
+                          "referencedDeclaration": 1199,
                           "src": "494:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -488,7 +488,7 @@
                       "name": "addRole",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1101,
+                      "referencedDeclaration": 1081,
                       "src": "486:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_string_memory_ptr_$returns$__$",
@@ -828,7 +828,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1219,
+                          "referencedDeclaration": 1199,
                           "src": "1595:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -878,7 +878,7 @@
                       "name": "checkRole",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1064,
+                      "referencedDeclaration": 1044,
                       "src": "1585:9:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_view$_t_address_$_t_string_memory_ptr_$returns$__$",
@@ -941,7 +941,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1219,
+                          "referencedDeclaration": 1199,
                           "src": "1768:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -991,7 +991,7 @@
                       "name": "checkRole",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1064,
+                      "referencedDeclaration": 1044,
                       "src": "1758:9:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_view$_t_address_$_t_string_memory_ptr_$returns$__$",
@@ -1087,10 +1087,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1222,
-                        1223
+                        1202,
+                        1203
                       ],
-                      "referencedDeclaration": 1222,
+                      "referencedDeclaration": 1202,
                       "src": "1963:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1170,10 +1170,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1222,
-                        1223
+                        1202,
+                        1203
                       ],
-                      "referencedDeclaration": 1222,
+                      "referencedDeclaration": 1202,
                       "src": "2134:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1773,7 +1773,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 133,
-        "sourceUnit": 1135,
+        "sourceUnit": 1115,
         "src": "26:65:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1787,10 +1787,10 @@
               "id": 3,
               "name": "RBAC",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1134,
+              "referencedDeclaration": 1114,
               "src": "243:4:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_RBAC_$1134",
+                "typeIdentifier": "t_contract$_RBAC_$1114",
                 "typeString": "contract RBAC"
               }
             },
@@ -1800,7 +1800,7 @@
           }
         ],
         "contractDependencies": [
-          1134
+          1114
         ],
         "contractKind": "contract",
         "documentation": "@title AccessControl\n@notice Role-based access control and related functions, function modifiers, and events",
@@ -1808,7 +1808,7 @@
         "id": 132,
         "linearizedBaseContracts": [
           132,
-          1134
+          1114
         ],
         "name": "AccessControl",
         "nodeType": "ContractDefinition",
@@ -1882,7 +1882,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1219,
+                          "referencedDeclaration": 1199,
                           "src": "449:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1932,7 +1932,7 @@
                       "name": "addRole",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1101,
+                      "referencedDeclaration": 1081,
                       "src": "441:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_string_memory_ptr_$returns$__$",
@@ -1969,7 +1969,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1219,
+                          "referencedDeclaration": 1199,
                           "src": "494:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -2019,7 +2019,7 @@
                       "name": "addRole",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1101,
+                      "referencedDeclaration": 1081,
                       "src": "486:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_string_memory_ptr_$returns$__$",
@@ -2359,7 +2359,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1219,
+                          "referencedDeclaration": 1199,
                           "src": "1595:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -2409,7 +2409,7 @@
                       "name": "checkRole",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1064,
+                      "referencedDeclaration": 1044,
                       "src": "1585:9:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_view$_t_address_$_t_string_memory_ptr_$returns$__$",
@@ -2472,7 +2472,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1219,
+                          "referencedDeclaration": 1199,
                           "src": "1768:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -2522,7 +2522,7 @@
                       "name": "checkRole",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1064,
+                      "referencedDeclaration": 1044,
                       "src": "1758:9:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_view$_t_address_$_t_string_memory_ptr_$returns$__$",
@@ -2618,10 +2618,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1222,
-                        1223
+                        1202,
+                        1203
                       ],
-                      "referencedDeclaration": 1222,
+                      "referencedDeclaration": 1202,
                       "src": "1963:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -2701,10 +2701,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1222,
-                        1223
+                        1202,
+                        1203
                       ],
-                      "referencedDeclaration": 1222,
+                      "referencedDeclaration": 1202,
                       "src": "2134:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -3283,5 +3283,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2019-01-03T17:49:29.039Z"
+  "updatedAt": "2019-01-03T21:03:40.306Z"
 }

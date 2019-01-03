@@ -513,7 +513,7 @@
         "id": 321,
         "nodeType": "ImportDirective",
         "scope": 393,
-        "sourceUnit": 934,
+        "sourceUnit": 914,
         "src": "26:29:4",
         "symbolAliases": [],
         "unitAlias": ""
@@ -527,10 +527,10 @@
               "id": 322,
               "name": "StockRoomBase",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 933,
+              "referencedDeclaration": 913,
               "src": "183:13:4",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_StockRoomBase_$933",
+                "typeIdentifier": "t_contract$_StockRoomBase_$913",
                 "typeString": "contract StockRoomBase"
               }
             },
@@ -541,8 +541,8 @@
         ],
         "contractDependencies": [
           132,
-          933,
-          1134
+          913,
+          1114
         ],
         "contractKind": "contract",
         "documentation": "@title ShopFactory\n@notice Defines functions and events related to management of Shops",
@@ -550,9 +550,9 @@
         "id": 392,
         "linearizedBaseContracts": [
           392,
-          933,
+          913,
           132,
-          1134
+          1114
         ],
         "name": "ShopFactory",
         "nodeType": "ContractDefinition",
@@ -700,10 +700,10 @@
                       "name": "shops",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 863,
+                      "referencedDeclaration": 843,
                       "src": "618:5:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_array$_t_struct$_Shop_$904_storage_$dyn_storage",
+                        "typeIdentifier": "t_array$_t_struct$_Shop_$884_storage_$dyn_storage",
                         "typeString": "struct StockRoomBase.Shop storage ref[] storage ref"
                       }
                     },
@@ -765,7 +765,7 @@
                       "name": "msg",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1219,
+                      "referencedDeclaration": 1199,
                       "src": "656:3:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_magic_message",
@@ -889,10 +889,10 @@
                           "name": "Shop",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 904,
+                          "referencedDeclaration": 884,
                           "src": "721:4:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_struct$_Shop_$904_storage_ptr_$",
+                            "typeIdentifier": "t_type$_t_struct$_Shop_$884_storage_ptr_$",
                             "typeString": "type(struct StockRoomBase.Shop storage pointer)"
                           }
                         },
@@ -906,7 +906,7 @@
                         "nodeType": "FunctionCall",
                         "src": "721:40:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Shop_$904_memory",
+                          "typeIdentifier": "t_struct$_Shop_$884_memory",
                           "typeString": "struct StockRoomBase.Shop memory"
                         }
                       }
@@ -914,7 +914,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Shop_$904_memory",
+                          "typeIdentifier": "t_struct$_Shop_$884_memory",
                           "typeString": "struct StockRoomBase.Shop memory"
                         }
                       ],
@@ -924,10 +924,10 @@
                         "name": "shops",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 863,
+                        "referencedDeclaration": 843,
                         "src": "710:5:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_Shop_$904_storage_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_struct$_Shop_$884_storage_$dyn_storage",
                           "typeString": "struct StockRoomBase.Shop storage ref[] storage ref"
                         }
                       },
@@ -941,7 +941,7 @@
                       "referencedDeclaration": null,
                       "src": "710:10:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Shop_$904_storage_$returns$_t_uint256_$",
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Shop_$884_storage_$returns$_t_uint256_$",
                         "typeString": "function (struct StockRoomBase.Shop storage ref) returns (uint256)"
                       }
                     },
@@ -979,7 +979,7 @@
                         "name": "shopToOwner",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 873,
+                        "referencedDeclaration": 853,
                         "src": "813:11:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
@@ -1069,7 +1069,7 @@
                           "name": "ownedShops",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 878,
+                          "referencedDeclaration": 858,
                           "src": "896:10:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_uint256_$dyn_storage_$",
@@ -1179,7 +1179,7 @@
                       "name": "addRole",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1101,
+                      "referencedDeclaration": 1081,
                       "src": "988:7:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_string_memory_ptr_$returns$__$",
@@ -1480,7 +1480,7 @@
         "id": 321,
         "nodeType": "ImportDirective",
         "scope": 393,
-        "sourceUnit": 934,
+        "sourceUnit": 914,
         "src": "26:29:4",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1494,10 +1494,10 @@
               "id": 322,
               "name": "StockRoomBase",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 933,
+              "referencedDeclaration": 913,
               "src": "183:13:4",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_StockRoomBase_$933",
+                "typeIdentifier": "t_contract$_StockRoomBase_$913",
                 "typeString": "contract StockRoomBase"
               }
             },
@@ -1508,8 +1508,8 @@
         ],
         "contractDependencies": [
           132,
-          933,
-          1134
+          913,
+          1114
         ],
         "contractKind": "contract",
         "documentation": "@title ShopFactory\n@notice Defines functions and events related to management of Shops",
@@ -1517,9 +1517,9 @@
         "id": 392,
         "linearizedBaseContracts": [
           392,
-          933,
+          913,
           132,
-          1134
+          1114
         ],
         "name": "ShopFactory",
         "nodeType": "ContractDefinition",
@@ -1667,10 +1667,10 @@
                       "name": "shops",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 863,
+                      "referencedDeclaration": 843,
                       "src": "618:5:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_array$_t_struct$_Shop_$904_storage_$dyn_storage",
+                        "typeIdentifier": "t_array$_t_struct$_Shop_$884_storage_$dyn_storage",
                         "typeString": "struct StockRoomBase.Shop storage ref[] storage ref"
                       }
                     },
@@ -1732,7 +1732,7 @@
                       "name": "msg",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1219,
+                      "referencedDeclaration": 1199,
                       "src": "656:3:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_magic_message",
@@ -1856,10 +1856,10 @@
                           "name": "Shop",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 904,
+                          "referencedDeclaration": 884,
                           "src": "721:4:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_struct$_Shop_$904_storage_ptr_$",
+                            "typeIdentifier": "t_type$_t_struct$_Shop_$884_storage_ptr_$",
                             "typeString": "type(struct StockRoomBase.Shop storage pointer)"
                           }
                         },
@@ -1873,7 +1873,7 @@
                         "nodeType": "FunctionCall",
                         "src": "721:40:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Shop_$904_memory",
+                          "typeIdentifier": "t_struct$_Shop_$884_memory",
                           "typeString": "struct StockRoomBase.Shop memory"
                         }
                       }
@@ -1881,7 +1881,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Shop_$904_memory",
+                          "typeIdentifier": "t_struct$_Shop_$884_memory",
                           "typeString": "struct StockRoomBase.Shop memory"
                         }
                       ],
@@ -1891,10 +1891,10 @@
                         "name": "shops",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 863,
+                        "referencedDeclaration": 843,
                         "src": "710:5:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_Shop_$904_storage_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_struct$_Shop_$884_storage_$dyn_storage",
                           "typeString": "struct StockRoomBase.Shop storage ref[] storage ref"
                         }
                       },
@@ -1908,7 +1908,7 @@
                       "referencedDeclaration": null,
                       "src": "710:10:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Shop_$904_storage_$returns$_t_uint256_$",
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Shop_$884_storage_$returns$_t_uint256_$",
                         "typeString": "function (struct StockRoomBase.Shop storage ref) returns (uint256)"
                       }
                     },
@@ -1946,7 +1946,7 @@
                         "name": "shopToOwner",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 873,
+                        "referencedDeclaration": 853,
                         "src": "813:11:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
@@ -2036,7 +2036,7 @@
                           "name": "ownedShops",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 878,
+                          "referencedDeclaration": 858,
                           "src": "896:10:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_uint256_$dyn_storage_$",
@@ -2146,7 +2146,7 @@
                       "name": "addRole",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1101,
+                      "referencedDeclaration": 1081,
                       "src": "988:7:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_string_memory_ptr_$returns$__$",
@@ -2426,5 +2426,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2019-01-03T17:49:29.048Z"
+  "updatedAt": "2019-01-03T21:03:40.316Z"
 }

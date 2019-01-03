@@ -441,14 +441,14 @@
     "absolutePath": "/Users/cliff/Documents/in-app-pro-shop/contracts/StockRoomBase.sol",
     "exportedSymbols": {
       "StockRoomBase": [
-        933
+        913
       ]
     },
-    "id": 934,
+    "id": 914,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 831,
+        "id": 811,
         "literals": [
           "solidity",
           "^",
@@ -461,10 +461,10 @@
       {
         "absolutePath": "openzeppelin-solidity/contracts/math/SafeMath.sol",
         "file": "openzeppelin-solidity/contracts/math/SafeMath.sol",
-        "id": 832,
+        "id": 812,
         "nodeType": "ImportDirective",
-        "scope": 934,
-        "sourceUnit": 1028,
+        "scope": 914,
+        "sourceUnit": 1008,
         "src": "26:59:6",
         "symbolAliases": [],
         "unitAlias": ""
@@ -472,9 +472,9 @@
       {
         "absolutePath": "/Users/cliff/Documents/in-app-pro-shop/contracts/AccessControl.sol",
         "file": "./AccessControl.sol",
-        "id": 833,
+        "id": 813,
         "nodeType": "ImportDirective",
-        "scope": 934,
+        "scope": 914,
         "sourceUnit": 133,
         "src": "86:29:6",
         "symbolAliases": [],
@@ -483,9 +483,9 @@
       {
         "absolutePath": "/Users/cliff/Documents/in-app-pro-shop/contracts/FiatContractInterface.sol",
         "file": "./FiatContractInterface.sol",
-        "id": 834,
+        "id": 814,
         "nodeType": "ImportDirective",
-        "scope": 934,
+        "scope": 914,
         "sourceUnit": 171,
         "src": "116:37:6",
         "symbolAliases": [],
@@ -497,7 +497,7 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 835,
+              "id": 815,
               "name": "AccessControl",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 132,
@@ -507,45 +507,45 @@
                 "typeString": "contract AccessControl"
               }
             },
-            "id": 836,
+            "id": 816,
             "nodeType": "InheritanceSpecifier",
             "src": "322:13:6"
           }
         ],
         "contractDependencies": [
           132,
-          1134
+          1114
         ],
         "contractKind": "contract",
         "documentation": "@title StockRoomBase\n@notice Defines collections, mappings, and structs for the StockRoom side of the In-game Pro Shop System",
         "fullyImplemented": true,
-        "id": 933,
+        "id": 913,
         "linearizedBaseContracts": [
-          933,
+          913,
           132,
-          1134
+          1114
         ],
         "name": "StockRoomBase",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "id": 839,
+            "id": 819,
             "libraryName": {
               "contractScope": null,
-              "id": 837,
+              "id": 817,
               "name": "SafeMath",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1027,
+              "referencedDeclaration": 1007,
               "src": "349:8:6",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_SafeMath_$1027",
+                "typeIdentifier": "t_contract$_SafeMath_$1007",
                 "typeString": "library SafeMath"
               }
             },
             "nodeType": "UsingForDirective",
             "src": "343:27:6",
             "typeName": {
-              "id": 838,
+              "id": 818,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "362:7:6",
@@ -557,10 +557,10 @@
           },
           {
             "constant": false,
-            "id": 841,
+            "id": 821,
             "name": "fiatContract",
             "nodeType": "VariableDeclaration",
-            "scope": 933,
+            "scope": 913,
             "src": "376:43:6",
             "stateVariable": true,
             "storageLocation": "default",
@@ -570,7 +570,7 @@
             },
             "typeName": {
               "contractScope": null,
-              "id": 840,
+              "id": 820,
               "name": "FiatContractInterface",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 170,
@@ -585,21 +585,21 @@
           },
           {
             "body": {
-              "id": 859,
+              "id": 839,
               "nodeType": "Block",
               "src": "542:102:6",
               "statements": [
                 {
                   "assignments": [
-                    846
+                    826
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 846,
+                      "id": 826,
                       "name": "owner",
                       "nodeType": "VariableDeclaration",
-                      "scope": 860,
+                      "scope": 840,
                       "src": "552:13:6",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -608,7 +608,7 @@
                         "typeString": "address"
                       },
                       "typeName": {
-                        "id": 845,
+                        "id": 825,
                         "name": "address",
                         "nodeType": "ElementaryTypeName",
                         "src": "552:7:6",
@@ -621,30 +621,30 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 850,
+                  "id": 830,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 847,
+                      "id": 827,
                       "name": "shopToOwner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 873,
+                      "referencedDeclaration": 853,
                       "src": "568:11:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
                         "typeString": "mapping(uint256 => address)"
                       }
                     },
-                    "id": 849,
+                    "id": 829,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 848,
+                      "id": 828,
                       "name": "_shopId",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 843,
+                      "referencedDeclaration": 823,
                       "src": "580:7:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -675,7 +675,7 @@
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         },
-                        "id": 855,
+                        "id": 835,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -684,18 +684,18 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 852,
+                            "id": 832,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1219,
+                            "referencedDeclaration": 1199,
                             "src": "606:3:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 853,
+                          "id": 833,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -713,11 +713,11 @@
                         "operator": "==",
                         "rightExpression": {
                           "argumentTypes": null,
-                          "id": 854,
+                          "id": 834,
                           "name": "owner",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 846,
+                          "referencedDeclaration": 826,
                           "src": "620:5:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -738,21 +738,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 851,
+                      "id": 831,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1222,
-                        1223
+                        1202,
+                        1203
                       ],
-                      "referencedDeclaration": 1222,
+                      "referencedDeclaration": 1202,
                       "src": "598:7:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 856,
+                    "id": 836,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -766,31 +766,31 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 857,
+                  "id": 837,
                   "nodeType": "ExpressionStatement",
                   "src": "598:28:6"
                 },
                 {
-                  "id": 858,
+                  "id": 838,
                   "nodeType": "PlaceholderStatement",
                   "src": "636:1:6"
                 }
               ]
             },
             "documentation": "@dev modifier to scope access to owner of given shop",
-            "id": 860,
+            "id": 840,
             "name": "onlyShopOwner",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 844,
+              "id": 824,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 843,
+                  "id": 823,
                   "name": "_shopId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 860,
+                  "scope": 840,
                   "src": "525:15:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -799,7 +799,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 842,
+                    "id": 822,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "525:7:6",
@@ -819,36 +819,36 @@
           },
           {
             "constant": false,
-            "id": 863,
+            "id": 843,
             "name": "shops",
             "nodeType": "VariableDeclaration",
-            "scope": 933,
+            "scope": 913,
             "src": "698:19:6",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_struct$_Shop_$904_storage_$dyn_storage",
+              "typeIdentifier": "t_array$_t_struct$_Shop_$884_storage_$dyn_storage",
               "typeString": "struct StockRoomBase.Shop[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 861,
+                "id": 841,
                 "name": "Shop",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 904,
+                "referencedDeclaration": 884,
                 "src": "698:4:6",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Shop_$904_storage_ptr",
+                  "typeIdentifier": "t_struct$_Shop_$884_storage_ptr",
                   "typeString": "struct StockRoomBase.Shop"
                 }
               },
-              "id": 862,
+              "id": 842,
               "length": null,
               "nodeType": "ArrayTypeName",
               "src": "698:6:6",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_struct$_Shop_$904_storage_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_struct$_Shop_$884_storage_$dyn_storage_ptr",
                 "typeString": "struct StockRoomBase.Shop[]"
               }
             },
@@ -857,36 +857,36 @@
           },
           {
             "constant": false,
-            "id": 866,
+            "id": 846,
             "name": "skuTypes",
             "nodeType": "VariableDeclaration",
-            "scope": 933,
+            "scope": 913,
             "src": "776:25:6",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_struct$_SKUType_$913_storage_$dyn_storage",
+              "typeIdentifier": "t_array$_t_struct$_SKUType_$893_storage_$dyn_storage",
               "typeString": "struct StockRoomBase.SKUType[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 864,
+                "id": 844,
                 "name": "SKUType",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 913,
+                "referencedDeclaration": 893,
                 "src": "776:7:6",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_SKUType_$913_storage_ptr",
+                  "typeIdentifier": "t_struct$_SKUType_$893_storage_ptr",
                   "typeString": "struct StockRoomBase.SKUType"
                 }
               },
-              "id": 865,
+              "id": 845,
               "length": null,
               "nodeType": "ArrayTypeName",
               "src": "776:9:6",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_struct$_SKUType_$913_storage_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_struct$_SKUType_$893_storage_$dyn_storage_ptr",
                 "typeString": "struct StockRoomBase.SKUType[]"
               }
             },
@@ -895,36 +895,36 @@
           },
           {
             "constant": false,
-            "id": 869,
+            "id": 849,
             "name": "skus",
             "nodeType": "VariableDeclaration",
-            "scope": 933,
+            "scope": 913,
             "src": "855:17:6",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_struct$_SKU_$932_storage_$dyn_storage",
+              "typeIdentifier": "t_array$_t_struct$_SKU_$912_storage_$dyn_storage",
               "typeString": "struct StockRoomBase.SKU[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 867,
+                "id": 847,
                 "name": "SKU",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 932,
+                "referencedDeclaration": 912,
                 "src": "855:3:6",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_SKU_$932_storage_ptr",
+                  "typeIdentifier": "t_struct$_SKU_$912_storage_ptr",
                   "typeString": "struct StockRoomBase.SKU"
                 }
               },
-              "id": 868,
+              "id": 848,
               "length": null,
               "nodeType": "ArrayTypeName",
               "src": "855:5:6",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_struct$_SKU_$932_storage_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_struct$_SKU_$912_storage_$dyn_storage_ptr",
                 "typeString": "struct StockRoomBase.SKU[]"
               }
             },
@@ -933,10 +933,10 @@
           },
           {
             "constant": false,
-            "id": 873,
+            "id": 853,
             "name": "shopToOwner",
             "nodeType": "VariableDeclaration",
-            "scope": 933,
+            "scope": 913,
             "src": "943:47:6",
             "stateVariable": true,
             "storageLocation": "default",
@@ -945,9 +945,9 @@
               "typeString": "mapping(uint256 => address)"
             },
             "typeName": {
-              "id": 872,
+              "id": 852,
               "keyType": {
-                "id": 870,
+                "id": 850,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
                 "src": "952:7:6",
@@ -963,7 +963,7 @@
                 "typeString": "mapping(uint256 => address)"
               },
               "valueType": {
-                "id": 871,
+                "id": 851,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "963:7:6",
@@ -978,10 +978,10 @@
           },
           {
             "constant": false,
-            "id": 878,
+            "id": 858,
             "name": "ownedShops",
             "nodeType": "VariableDeclaration",
-            "scope": 933,
+            "scope": 913,
             "src": "1073:48:6",
             "stateVariable": true,
             "storageLocation": "default",
@@ -990,9 +990,9 @@
               "typeString": "mapping(address => uint256[])"
             },
             "typeName": {
-              "id": 877,
+              "id": 857,
               "keyType": {
-                "id": 874,
+                "id": 854,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "1082:7:6",
@@ -1009,7 +1009,7 @@
               },
               "valueType": {
                 "baseType": {
-                  "id": 875,
+                  "id": 855,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "1093:7:6",
@@ -1018,7 +1018,7 @@
                     "typeString": "uint256"
                   }
                 },
-                "id": 876,
+                "id": 856,
                 "length": null,
                 "nodeType": "ArrayTypeName",
                 "src": "1093:9:6",
@@ -1033,10 +1033,10 @@
           },
           {
             "constant": false,
-            "id": 883,
+            "id": 863,
             "name": "shopSKUTypes",
             "nodeType": "VariableDeclaration",
-            "scope": 933,
+            "scope": 913,
             "src": "1192:50:6",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1045,9 +1045,9 @@
               "typeString": "mapping(uint256 => uint256[])"
             },
             "typeName": {
-              "id": 882,
+              "id": 862,
               "keyType": {
-                "id": 879,
+                "id": 859,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
                 "src": "1201:7:6",
@@ -1064,7 +1064,7 @@
               },
               "valueType": {
                 "baseType": {
-                  "id": 880,
+                  "id": 860,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "1212:7:6",
@@ -1073,7 +1073,7 @@
                     "typeString": "uint256"
                   }
                 },
-                "id": 881,
+                "id": 861,
                 "length": null,
                 "nodeType": "ArrayTypeName",
                 "src": "1212:9:6",
@@ -1088,10 +1088,10 @@
           },
           {
             "constant": false,
-            "id": 888,
+            "id": 868,
             "name": "skuTypeSKUs",
             "nodeType": "VariableDeclaration",
-            "scope": 933,
+            "scope": 913,
             "src": "1312:49:6",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1100,9 +1100,9 @@
               "typeString": "mapping(uint256 => uint256[])"
             },
             "typeName": {
-              "id": 887,
+              "id": 867,
               "keyType": {
-                "id": 884,
+                "id": 864,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
                 "src": "1321:7:6",
@@ -1119,7 +1119,7 @@
               },
               "valueType": {
                 "baseType": {
-                  "id": 885,
+                  "id": 865,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "1332:7:6",
@@ -1128,7 +1128,7 @@
                     "typeString": "uint256"
                   }
                 },
-                "id": 886,
+                "id": 866,
                 "length": null,
                 "nodeType": "ArrayTypeName",
                 "src": "1332:9:6",
@@ -1143,10 +1143,10 @@
           },
           {
             "constant": false,
-            "id": 893,
+            "id": 873,
             "name": "shopSKUs",
             "nodeType": "VariableDeclaration",
-            "scope": 933,
+            "scope": 913,
             "src": "1427:46:6",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1155,9 +1155,9 @@
               "typeString": "mapping(uint256 => uint256[])"
             },
             "typeName": {
-              "id": 892,
+              "id": 872,
               "keyType": {
-                "id": 889,
+                "id": 869,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
                 "src": "1436:7:6",
@@ -1174,7 +1174,7 @@
               },
               "valueType": {
                 "baseType": {
-                  "id": 890,
+                  "id": 870,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "1447:7:6",
@@ -1183,7 +1183,7 @@
                     "typeString": "uint256"
                   }
                 },
-                "id": 891,
+                "id": 871,
                 "length": null,
                 "nodeType": "ArrayTypeName",
                 "src": "1447:9:6",
@@ -1198,14 +1198,14 @@
           },
           {
             "canonicalName": "StockRoomBase.Shop",
-            "id": 904,
+            "id": 884,
             "members": [
               {
                 "constant": false,
-                "id": 895,
+                "id": 875,
                 "name": "owner",
                 "nodeType": "VariableDeclaration",
-                "scope": 904,
+                "scope": 884,
                 "src": "1587:13:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1214,7 +1214,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 894,
+                  "id": 874,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "1587:7:6",
@@ -1228,10 +1228,10 @@
               },
               {
                 "constant": false,
-                "id": 897,
+                "id": 877,
                 "name": "shopId",
                 "nodeType": "VariableDeclaration",
-                "scope": 904,
+                "scope": 884,
                 "src": "1642:14:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1240,7 +1240,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 896,
+                  "id": 876,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "1642:7:6",
@@ -1254,10 +1254,10 @@
               },
               {
                 "constant": false,
-                "id": 899,
+                "id": 879,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
-                "scope": 904,
+                "scope": 884,
                 "src": "1695:11:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1266,7 +1266,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 898,
+                  "id": 878,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "1695:6:6",
@@ -1280,10 +1280,10 @@
               },
               {
                 "constant": false,
-                "id": 901,
+                "id": 881,
                 "name": "description",
                 "nodeType": "VariableDeclaration",
-                "scope": 904,
+                "scope": 884,
                 "src": "1752:18:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1292,7 +1292,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 900,
+                  "id": 880,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "1752:6:6",
@@ -1306,10 +1306,10 @@
               },
               {
                 "constant": false,
-                "id": 903,
+                "id": 883,
                 "name": "fiat",
                 "nodeType": "VariableDeclaration",
-                "scope": 904,
+                "scope": 884,
                 "src": "1817:11:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1318,7 +1318,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 902,
+                  "id": 882,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "1817:6:6",
@@ -1333,20 +1333,20 @@
             ],
             "name": "Shop",
             "nodeType": "StructDefinition",
-            "scope": 933,
+            "scope": 913,
             "src": "1535:300:6",
             "visibility": "public"
           },
           {
             "canonicalName": "StockRoomBase.SKUType",
-            "id": 913,
+            "id": 893,
             "members": [
               {
                 "constant": false,
-                "id": 906,
+                "id": 886,
                 "name": "shopId",
                 "nodeType": "VariableDeclaration",
-                "scope": 913,
+                "scope": 893,
                 "src": "1975:14:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1355,7 +1355,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 905,
+                  "id": 885,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "1975:7:6",
@@ -1369,10 +1369,10 @@
               },
               {
                 "constant": false,
-                "id": 908,
+                "id": 888,
                 "name": "skuTypeId",
                 "nodeType": "VariableDeclaration",
-                "scope": 913,
+                "scope": 893,
                 "src": "2030:17:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1381,7 +1381,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 907,
+                  "id": 887,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "2030:7:6",
@@ -1395,10 +1395,10 @@
               },
               {
                 "constant": false,
-                "id": 910,
+                "id": 890,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
-                "scope": 913,
+                "scope": 893,
                 "src": "2090:11:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1407,7 +1407,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 909,
+                  "id": 889,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "2090:6:6",
@@ -1421,10 +1421,10 @@
               },
               {
                 "constant": false,
-                "id": 912,
+                "id": 892,
                 "name": "description",
                 "nodeType": "VariableDeclaration",
-                "scope": 913,
+                "scope": 893,
                 "src": "2162:18:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1433,7 +1433,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 911,
+                  "id": 891,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "2162:6:6",
@@ -1448,20 +1448,20 @@
             ],
             "name": "SKUType",
             "nodeType": "StructDefinition",
-            "scope": 933,
+            "scope": 913,
             "src": "1898:289:6",
             "visibility": "public"
           },
           {
             "canonicalName": "StockRoomBase.SKU",
-            "id": 932,
+            "id": 912,
             "members": [
               {
                 "constant": false,
-                "id": 915,
+                "id": 895,
                 "name": "shopId",
                 "nodeType": "VariableDeclaration",
-                "scope": 932,
+                "scope": 912,
                 "src": "2333:14:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1470,7 +1470,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 914,
+                  "id": 894,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "2333:7:6",
@@ -1484,10 +1484,10 @@
               },
               {
                 "constant": false,
-                "id": 917,
+                "id": 897,
                 "name": "skuId",
                 "nodeType": "VariableDeclaration",
-                "scope": 932,
+                "scope": 912,
                 "src": "2388:13:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1496,7 +1496,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 916,
+                  "id": 896,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "2388:7:6",
@@ -1510,10 +1510,10 @@
               },
               {
                 "constant": false,
-                "id": 919,
+                "id": 899,
                 "name": "skuTypeId",
                 "nodeType": "VariableDeclaration",
-                "scope": 932,
+                "scope": 912,
                 "src": "2439:17:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1522,7 +1522,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 918,
+                  "id": 898,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "2439:7:6",
@@ -1536,10 +1536,10 @@
               },
               {
                 "constant": false,
-                "id": 921,
+                "id": 901,
                 "name": "price",
                 "nodeType": "VariableDeclaration",
-                "scope": 932,
+                "scope": 912,
                 "src": "2495:13:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1548,7 +1548,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 920,
+                  "id": 900,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "2495:7:6",
@@ -1562,10 +1562,10 @@
               },
               {
                 "constant": false,
-                "id": 923,
+                "id": 903,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
-                "scope": 932,
+                "scope": 912,
                 "src": "2547:11:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1574,7 +1574,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 922,
+                  "id": 902,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "2547:6:6",
@@ -1588,10 +1588,10 @@
               },
               {
                 "constant": false,
-                "id": 925,
+                "id": 905,
                 "name": "description",
                 "nodeType": "VariableDeclaration",
-                "scope": 932,
+                "scope": 912,
                 "src": "2603:18:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1600,7 +1600,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 924,
+                  "id": 904,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "2603:6:6",
@@ -1614,10 +1614,10 @@
               },
               {
                 "constant": false,
-                "id": 927,
+                "id": 907,
                 "name": "consumable",
                 "nodeType": "VariableDeclaration",
-                "scope": 932,
+                "scope": 912,
                 "src": "2672:15:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1626,7 +1626,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 926,
+                  "id": 906,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "2672:4:6",
@@ -1640,10 +1640,10 @@
               },
               {
                 "constant": false,
-                "id": 929,
+                "id": 909,
                 "name": "limited",
                 "nodeType": "VariableDeclaration",
-                "scope": 932,
+                "scope": 912,
                 "src": "2794:12:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1652,7 +1652,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 928,
+                  "id": 908,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "2794:4:6",
@@ -1666,10 +1666,10 @@
               },
               {
                 "constant": false,
-                "id": 931,
+                "id": 911,
                 "name": "limit",
                 "nodeType": "VariableDeclaration",
-                "scope": 932,
+                "scope": 912,
                 "src": "2899:13:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1678,7 +1678,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 930,
+                  "id": 910,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "2899:7:6",
@@ -1693,12 +1693,12 @@
             ],
             "name": "SKU",
             "nodeType": "StructDefinition",
-            "scope": 933,
+            "scope": 913,
             "src": "2271:649:6",
             "visibility": "public"
           }
         ],
-        "scope": 934,
+        "scope": 914,
         "src": "296:2627:6"
       }
     ],
@@ -1708,14 +1708,14 @@
     "absolutePath": "/Users/cliff/Documents/in-app-pro-shop/contracts/StockRoomBase.sol",
     "exportedSymbols": {
       "StockRoomBase": [
-        933
+        913
       ]
     },
-    "id": 934,
+    "id": 914,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 831,
+        "id": 811,
         "literals": [
           "solidity",
           "^",
@@ -1728,10 +1728,10 @@
       {
         "absolutePath": "openzeppelin-solidity/contracts/math/SafeMath.sol",
         "file": "openzeppelin-solidity/contracts/math/SafeMath.sol",
-        "id": 832,
+        "id": 812,
         "nodeType": "ImportDirective",
-        "scope": 934,
-        "sourceUnit": 1028,
+        "scope": 914,
+        "sourceUnit": 1008,
         "src": "26:59:6",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1739,9 +1739,9 @@
       {
         "absolutePath": "/Users/cliff/Documents/in-app-pro-shop/contracts/AccessControl.sol",
         "file": "./AccessControl.sol",
-        "id": 833,
+        "id": 813,
         "nodeType": "ImportDirective",
-        "scope": 934,
+        "scope": 914,
         "sourceUnit": 133,
         "src": "86:29:6",
         "symbolAliases": [],
@@ -1750,9 +1750,9 @@
       {
         "absolutePath": "/Users/cliff/Documents/in-app-pro-shop/contracts/FiatContractInterface.sol",
         "file": "./FiatContractInterface.sol",
-        "id": 834,
+        "id": 814,
         "nodeType": "ImportDirective",
-        "scope": 934,
+        "scope": 914,
         "sourceUnit": 171,
         "src": "116:37:6",
         "symbolAliases": [],
@@ -1764,7 +1764,7 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 835,
+              "id": 815,
               "name": "AccessControl",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 132,
@@ -1774,45 +1774,45 @@
                 "typeString": "contract AccessControl"
               }
             },
-            "id": 836,
+            "id": 816,
             "nodeType": "InheritanceSpecifier",
             "src": "322:13:6"
           }
         ],
         "contractDependencies": [
           132,
-          1134
+          1114
         ],
         "contractKind": "contract",
         "documentation": "@title StockRoomBase\n@notice Defines collections, mappings, and structs for the StockRoom side of the In-game Pro Shop System",
         "fullyImplemented": true,
-        "id": 933,
+        "id": 913,
         "linearizedBaseContracts": [
-          933,
+          913,
           132,
-          1134
+          1114
         ],
         "name": "StockRoomBase",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "id": 839,
+            "id": 819,
             "libraryName": {
               "contractScope": null,
-              "id": 837,
+              "id": 817,
               "name": "SafeMath",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1027,
+              "referencedDeclaration": 1007,
               "src": "349:8:6",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_SafeMath_$1027",
+                "typeIdentifier": "t_contract$_SafeMath_$1007",
                 "typeString": "library SafeMath"
               }
             },
             "nodeType": "UsingForDirective",
             "src": "343:27:6",
             "typeName": {
-              "id": 838,
+              "id": 818,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "362:7:6",
@@ -1824,10 +1824,10 @@
           },
           {
             "constant": false,
-            "id": 841,
+            "id": 821,
             "name": "fiatContract",
             "nodeType": "VariableDeclaration",
-            "scope": 933,
+            "scope": 913,
             "src": "376:43:6",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1837,7 +1837,7 @@
             },
             "typeName": {
               "contractScope": null,
-              "id": 840,
+              "id": 820,
               "name": "FiatContractInterface",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 170,
@@ -1852,21 +1852,21 @@
           },
           {
             "body": {
-              "id": 859,
+              "id": 839,
               "nodeType": "Block",
               "src": "542:102:6",
               "statements": [
                 {
                   "assignments": [
-                    846
+                    826
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 846,
+                      "id": 826,
                       "name": "owner",
                       "nodeType": "VariableDeclaration",
-                      "scope": 860,
+                      "scope": 840,
                       "src": "552:13:6",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -1875,7 +1875,7 @@
                         "typeString": "address"
                       },
                       "typeName": {
-                        "id": 845,
+                        "id": 825,
                         "name": "address",
                         "nodeType": "ElementaryTypeName",
                         "src": "552:7:6",
@@ -1888,30 +1888,30 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 850,
+                  "id": 830,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 847,
+                      "id": 827,
                       "name": "shopToOwner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 873,
+                      "referencedDeclaration": 853,
                       "src": "568:11:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
                         "typeString": "mapping(uint256 => address)"
                       }
                     },
-                    "id": 849,
+                    "id": 829,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 848,
+                      "id": 828,
                       "name": "_shopId",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 843,
+                      "referencedDeclaration": 823,
                       "src": "580:7:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -1942,7 +1942,7 @@
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         },
-                        "id": 855,
+                        "id": 835,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1951,18 +1951,18 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 852,
+                            "id": 832,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1219,
+                            "referencedDeclaration": 1199,
                             "src": "606:3:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 853,
+                          "id": 833,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1980,11 +1980,11 @@
                         "operator": "==",
                         "rightExpression": {
                           "argumentTypes": null,
-                          "id": 854,
+                          "id": 834,
                           "name": "owner",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 846,
+                          "referencedDeclaration": 826,
                           "src": "620:5:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -2005,21 +2005,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 851,
+                      "id": 831,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1222,
-                        1223
+                        1202,
+                        1203
                       ],
-                      "referencedDeclaration": 1222,
+                      "referencedDeclaration": 1202,
                       "src": "598:7:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 856,
+                    "id": 836,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2033,31 +2033,31 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 857,
+                  "id": 837,
                   "nodeType": "ExpressionStatement",
                   "src": "598:28:6"
                 },
                 {
-                  "id": 858,
+                  "id": 838,
                   "nodeType": "PlaceholderStatement",
                   "src": "636:1:6"
                 }
               ]
             },
             "documentation": "@dev modifier to scope access to owner of given shop",
-            "id": 860,
+            "id": 840,
             "name": "onlyShopOwner",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 844,
+              "id": 824,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 843,
+                  "id": 823,
                   "name": "_shopId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 860,
+                  "scope": 840,
                   "src": "525:15:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2066,7 +2066,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 842,
+                    "id": 822,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "525:7:6",
@@ -2086,36 +2086,36 @@
           },
           {
             "constant": false,
-            "id": 863,
+            "id": 843,
             "name": "shops",
             "nodeType": "VariableDeclaration",
-            "scope": 933,
+            "scope": 913,
             "src": "698:19:6",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_struct$_Shop_$904_storage_$dyn_storage",
+              "typeIdentifier": "t_array$_t_struct$_Shop_$884_storage_$dyn_storage",
               "typeString": "struct StockRoomBase.Shop[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 861,
+                "id": 841,
                 "name": "Shop",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 904,
+                "referencedDeclaration": 884,
                 "src": "698:4:6",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Shop_$904_storage_ptr",
+                  "typeIdentifier": "t_struct$_Shop_$884_storage_ptr",
                   "typeString": "struct StockRoomBase.Shop"
                 }
               },
-              "id": 862,
+              "id": 842,
               "length": null,
               "nodeType": "ArrayTypeName",
               "src": "698:6:6",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_struct$_Shop_$904_storage_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_struct$_Shop_$884_storage_$dyn_storage_ptr",
                 "typeString": "struct StockRoomBase.Shop[]"
               }
             },
@@ -2124,36 +2124,36 @@
           },
           {
             "constant": false,
-            "id": 866,
+            "id": 846,
             "name": "skuTypes",
             "nodeType": "VariableDeclaration",
-            "scope": 933,
+            "scope": 913,
             "src": "776:25:6",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_struct$_SKUType_$913_storage_$dyn_storage",
+              "typeIdentifier": "t_array$_t_struct$_SKUType_$893_storage_$dyn_storage",
               "typeString": "struct StockRoomBase.SKUType[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 864,
+                "id": 844,
                 "name": "SKUType",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 913,
+                "referencedDeclaration": 893,
                 "src": "776:7:6",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_SKUType_$913_storage_ptr",
+                  "typeIdentifier": "t_struct$_SKUType_$893_storage_ptr",
                   "typeString": "struct StockRoomBase.SKUType"
                 }
               },
-              "id": 865,
+              "id": 845,
               "length": null,
               "nodeType": "ArrayTypeName",
               "src": "776:9:6",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_struct$_SKUType_$913_storage_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_struct$_SKUType_$893_storage_$dyn_storage_ptr",
                 "typeString": "struct StockRoomBase.SKUType[]"
               }
             },
@@ -2162,36 +2162,36 @@
           },
           {
             "constant": false,
-            "id": 869,
+            "id": 849,
             "name": "skus",
             "nodeType": "VariableDeclaration",
-            "scope": 933,
+            "scope": 913,
             "src": "855:17:6",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_struct$_SKU_$932_storage_$dyn_storage",
+              "typeIdentifier": "t_array$_t_struct$_SKU_$912_storage_$dyn_storage",
               "typeString": "struct StockRoomBase.SKU[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 867,
+                "id": 847,
                 "name": "SKU",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 932,
+                "referencedDeclaration": 912,
                 "src": "855:3:6",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_SKU_$932_storage_ptr",
+                  "typeIdentifier": "t_struct$_SKU_$912_storage_ptr",
                   "typeString": "struct StockRoomBase.SKU"
                 }
               },
-              "id": 868,
+              "id": 848,
               "length": null,
               "nodeType": "ArrayTypeName",
               "src": "855:5:6",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_struct$_SKU_$932_storage_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_struct$_SKU_$912_storage_$dyn_storage_ptr",
                 "typeString": "struct StockRoomBase.SKU[]"
               }
             },
@@ -2200,10 +2200,10 @@
           },
           {
             "constant": false,
-            "id": 873,
+            "id": 853,
             "name": "shopToOwner",
             "nodeType": "VariableDeclaration",
-            "scope": 933,
+            "scope": 913,
             "src": "943:47:6",
             "stateVariable": true,
             "storageLocation": "default",
@@ -2212,9 +2212,9 @@
               "typeString": "mapping(uint256 => address)"
             },
             "typeName": {
-              "id": 872,
+              "id": 852,
               "keyType": {
-                "id": 870,
+                "id": 850,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
                 "src": "952:7:6",
@@ -2230,7 +2230,7 @@
                 "typeString": "mapping(uint256 => address)"
               },
               "valueType": {
-                "id": 871,
+                "id": 851,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "963:7:6",
@@ -2245,10 +2245,10 @@
           },
           {
             "constant": false,
-            "id": 878,
+            "id": 858,
             "name": "ownedShops",
             "nodeType": "VariableDeclaration",
-            "scope": 933,
+            "scope": 913,
             "src": "1073:48:6",
             "stateVariable": true,
             "storageLocation": "default",
@@ -2257,9 +2257,9 @@
               "typeString": "mapping(address => uint256[])"
             },
             "typeName": {
-              "id": 877,
+              "id": 857,
               "keyType": {
-                "id": 874,
+                "id": 854,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "1082:7:6",
@@ -2276,7 +2276,7 @@
               },
               "valueType": {
                 "baseType": {
-                  "id": 875,
+                  "id": 855,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "1093:7:6",
@@ -2285,7 +2285,7 @@
                     "typeString": "uint256"
                   }
                 },
-                "id": 876,
+                "id": 856,
                 "length": null,
                 "nodeType": "ArrayTypeName",
                 "src": "1093:9:6",
@@ -2300,10 +2300,10 @@
           },
           {
             "constant": false,
-            "id": 883,
+            "id": 863,
             "name": "shopSKUTypes",
             "nodeType": "VariableDeclaration",
-            "scope": 933,
+            "scope": 913,
             "src": "1192:50:6",
             "stateVariable": true,
             "storageLocation": "default",
@@ -2312,9 +2312,9 @@
               "typeString": "mapping(uint256 => uint256[])"
             },
             "typeName": {
-              "id": 882,
+              "id": 862,
               "keyType": {
-                "id": 879,
+                "id": 859,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
                 "src": "1201:7:6",
@@ -2331,7 +2331,7 @@
               },
               "valueType": {
                 "baseType": {
-                  "id": 880,
+                  "id": 860,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "1212:7:6",
@@ -2340,7 +2340,7 @@
                     "typeString": "uint256"
                   }
                 },
-                "id": 881,
+                "id": 861,
                 "length": null,
                 "nodeType": "ArrayTypeName",
                 "src": "1212:9:6",
@@ -2355,10 +2355,10 @@
           },
           {
             "constant": false,
-            "id": 888,
+            "id": 868,
             "name": "skuTypeSKUs",
             "nodeType": "VariableDeclaration",
-            "scope": 933,
+            "scope": 913,
             "src": "1312:49:6",
             "stateVariable": true,
             "storageLocation": "default",
@@ -2367,9 +2367,9 @@
               "typeString": "mapping(uint256 => uint256[])"
             },
             "typeName": {
-              "id": 887,
+              "id": 867,
               "keyType": {
-                "id": 884,
+                "id": 864,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
                 "src": "1321:7:6",
@@ -2386,7 +2386,7 @@
               },
               "valueType": {
                 "baseType": {
-                  "id": 885,
+                  "id": 865,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "1332:7:6",
@@ -2395,7 +2395,7 @@
                     "typeString": "uint256"
                   }
                 },
-                "id": 886,
+                "id": 866,
                 "length": null,
                 "nodeType": "ArrayTypeName",
                 "src": "1332:9:6",
@@ -2410,10 +2410,10 @@
           },
           {
             "constant": false,
-            "id": 893,
+            "id": 873,
             "name": "shopSKUs",
             "nodeType": "VariableDeclaration",
-            "scope": 933,
+            "scope": 913,
             "src": "1427:46:6",
             "stateVariable": true,
             "storageLocation": "default",
@@ -2422,9 +2422,9 @@
               "typeString": "mapping(uint256 => uint256[])"
             },
             "typeName": {
-              "id": 892,
+              "id": 872,
               "keyType": {
-                "id": 889,
+                "id": 869,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
                 "src": "1436:7:6",
@@ -2441,7 +2441,7 @@
               },
               "valueType": {
                 "baseType": {
-                  "id": 890,
+                  "id": 870,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "1447:7:6",
@@ -2450,7 +2450,7 @@
                     "typeString": "uint256"
                   }
                 },
-                "id": 891,
+                "id": 871,
                 "length": null,
                 "nodeType": "ArrayTypeName",
                 "src": "1447:9:6",
@@ -2465,14 +2465,14 @@
           },
           {
             "canonicalName": "StockRoomBase.Shop",
-            "id": 904,
+            "id": 884,
             "members": [
               {
                 "constant": false,
-                "id": 895,
+                "id": 875,
                 "name": "owner",
                 "nodeType": "VariableDeclaration",
-                "scope": 904,
+                "scope": 884,
                 "src": "1587:13:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2481,7 +2481,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 894,
+                  "id": 874,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "1587:7:6",
@@ -2495,10 +2495,10 @@
               },
               {
                 "constant": false,
-                "id": 897,
+                "id": 877,
                 "name": "shopId",
                 "nodeType": "VariableDeclaration",
-                "scope": 904,
+                "scope": 884,
                 "src": "1642:14:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2507,7 +2507,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 896,
+                  "id": 876,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "1642:7:6",
@@ -2521,10 +2521,10 @@
               },
               {
                 "constant": false,
-                "id": 899,
+                "id": 879,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
-                "scope": 904,
+                "scope": 884,
                 "src": "1695:11:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2533,7 +2533,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 898,
+                  "id": 878,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "1695:6:6",
@@ -2547,10 +2547,10 @@
               },
               {
                 "constant": false,
-                "id": 901,
+                "id": 881,
                 "name": "description",
                 "nodeType": "VariableDeclaration",
-                "scope": 904,
+                "scope": 884,
                 "src": "1752:18:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2559,7 +2559,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 900,
+                  "id": 880,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "1752:6:6",
@@ -2573,10 +2573,10 @@
               },
               {
                 "constant": false,
-                "id": 903,
+                "id": 883,
                 "name": "fiat",
                 "nodeType": "VariableDeclaration",
-                "scope": 904,
+                "scope": 884,
                 "src": "1817:11:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2585,7 +2585,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 902,
+                  "id": 882,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "1817:6:6",
@@ -2600,20 +2600,20 @@
             ],
             "name": "Shop",
             "nodeType": "StructDefinition",
-            "scope": 933,
+            "scope": 913,
             "src": "1535:300:6",
             "visibility": "public"
           },
           {
             "canonicalName": "StockRoomBase.SKUType",
-            "id": 913,
+            "id": 893,
             "members": [
               {
                 "constant": false,
-                "id": 906,
+                "id": 886,
                 "name": "shopId",
                 "nodeType": "VariableDeclaration",
-                "scope": 913,
+                "scope": 893,
                 "src": "1975:14:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2622,7 +2622,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 905,
+                  "id": 885,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "1975:7:6",
@@ -2636,10 +2636,10 @@
               },
               {
                 "constant": false,
-                "id": 908,
+                "id": 888,
                 "name": "skuTypeId",
                 "nodeType": "VariableDeclaration",
-                "scope": 913,
+                "scope": 893,
                 "src": "2030:17:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2648,7 +2648,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 907,
+                  "id": 887,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "2030:7:6",
@@ -2662,10 +2662,10 @@
               },
               {
                 "constant": false,
-                "id": 910,
+                "id": 890,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
-                "scope": 913,
+                "scope": 893,
                 "src": "2090:11:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2674,7 +2674,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 909,
+                  "id": 889,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "2090:6:6",
@@ -2688,10 +2688,10 @@
               },
               {
                 "constant": false,
-                "id": 912,
+                "id": 892,
                 "name": "description",
                 "nodeType": "VariableDeclaration",
-                "scope": 913,
+                "scope": 893,
                 "src": "2162:18:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2700,7 +2700,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 911,
+                  "id": 891,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "2162:6:6",
@@ -2715,20 +2715,20 @@
             ],
             "name": "SKUType",
             "nodeType": "StructDefinition",
-            "scope": 933,
+            "scope": 913,
             "src": "1898:289:6",
             "visibility": "public"
           },
           {
             "canonicalName": "StockRoomBase.SKU",
-            "id": 932,
+            "id": 912,
             "members": [
               {
                 "constant": false,
-                "id": 915,
+                "id": 895,
                 "name": "shopId",
                 "nodeType": "VariableDeclaration",
-                "scope": 932,
+                "scope": 912,
                 "src": "2333:14:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2737,7 +2737,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 914,
+                  "id": 894,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "2333:7:6",
@@ -2751,10 +2751,10 @@
               },
               {
                 "constant": false,
-                "id": 917,
+                "id": 897,
                 "name": "skuId",
                 "nodeType": "VariableDeclaration",
-                "scope": 932,
+                "scope": 912,
                 "src": "2388:13:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2763,7 +2763,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 916,
+                  "id": 896,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "2388:7:6",
@@ -2777,10 +2777,10 @@
               },
               {
                 "constant": false,
-                "id": 919,
+                "id": 899,
                 "name": "skuTypeId",
                 "nodeType": "VariableDeclaration",
-                "scope": 932,
+                "scope": 912,
                 "src": "2439:17:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2789,7 +2789,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 918,
+                  "id": 898,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "2439:7:6",
@@ -2803,10 +2803,10 @@
               },
               {
                 "constant": false,
-                "id": 921,
+                "id": 901,
                 "name": "price",
                 "nodeType": "VariableDeclaration",
-                "scope": 932,
+                "scope": 912,
                 "src": "2495:13:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2815,7 +2815,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 920,
+                  "id": 900,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "2495:7:6",
@@ -2829,10 +2829,10 @@
               },
               {
                 "constant": false,
-                "id": 923,
+                "id": 903,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
-                "scope": 932,
+                "scope": 912,
                 "src": "2547:11:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2841,7 +2841,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 922,
+                  "id": 902,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "2547:6:6",
@@ -2855,10 +2855,10 @@
               },
               {
                 "constant": false,
-                "id": 925,
+                "id": 905,
                 "name": "description",
                 "nodeType": "VariableDeclaration",
-                "scope": 932,
+                "scope": 912,
                 "src": "2603:18:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2867,7 +2867,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 924,
+                  "id": 904,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "2603:6:6",
@@ -2881,10 +2881,10 @@
               },
               {
                 "constant": false,
-                "id": 927,
+                "id": 907,
                 "name": "consumable",
                 "nodeType": "VariableDeclaration",
-                "scope": 932,
+                "scope": 912,
                 "src": "2672:15:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2893,7 +2893,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 926,
+                  "id": 906,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "2672:4:6",
@@ -2907,10 +2907,10 @@
               },
               {
                 "constant": false,
-                "id": 929,
+                "id": 909,
                 "name": "limited",
                 "nodeType": "VariableDeclaration",
-                "scope": 932,
+                "scope": 912,
                 "src": "2794:12:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2919,7 +2919,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 928,
+                  "id": 908,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "2794:4:6",
@@ -2933,10 +2933,10 @@
               },
               {
                 "constant": false,
-                "id": 931,
+                "id": 911,
                 "name": "limit",
                 "nodeType": "VariableDeclaration",
-                "scope": 932,
+                "scope": 912,
                 "src": "2899:13:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2945,7 +2945,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 930,
+                  "id": 910,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "2899:7:6",
@@ -2960,12 +2960,12 @@
             ],
             "name": "SKU",
             "nodeType": "StructDefinition",
-            "scope": 933,
+            "scope": 913,
             "src": "2271:649:6",
             "visibility": "public"
           }
         ],
-        "scope": 934,
+        "scope": 914,
         "src": "296:2627:6"
       }
     ],
@@ -2977,5 +2977,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2019-01-03T17:49:29.063Z"
+  "updatedAt": "2019-01-03T21:03:40.319Z"
 }

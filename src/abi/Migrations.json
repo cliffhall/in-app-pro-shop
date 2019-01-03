@@ -1530,8 +1530,14 @@
       "links": {},
       "address": "0x4be402b32209cadac29c3bfb460714823db2d99f",
       "transactionHash": "0x2ba2ede879a33f81f7f692cb568dcf7a71100d9d5fc2b583eb7ad23dce0810a3"
+    },
+    "1546541769832": {
+      "events": {},
+      "links": {},
+      "address": "0x32b616b7ae9202b32e088f2ab12c5461ee6de502",
+      "transactionHash": "0x862f808096930ee3037844c6b636e5a5c157085c2c544393051940ec8c3a6888"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2019-01-03T17:49:31.712Z"
+  "updatedAt": "2019-01-03T21:03:43.319Z"
 }

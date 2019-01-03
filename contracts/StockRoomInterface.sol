@@ -39,6 +39,12 @@ interface StockRoomInterface {
     // @notice get an SKU's price in Ether
     function getPriceInEther(uint256 _skuId) external view returns (uint256);
 
+    // @notice convert an Ether amount to a Shop's fiat currency
+    function convertEtherToShopFiat(uint256 _shopId, uint256 _amount) external view returns (uint256);
+
+    // @notice convert an Ether amount to the Franchise's fiat currency
+    function convertEtherToFranchiseFiat(uint256 _amount) external view returns (uint256);
+
     // @notice confirm this is a StockRoom contract
     function isStockRoom() external pure returns (bool);
 
