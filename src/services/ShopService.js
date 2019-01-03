@@ -43,3 +43,16 @@ export const createShop = async (contract, owner, name, description, fiat, callb
     contract.methods.createShop(name, description, fiat).send({from: owner});
 
 };
+
+/**
+ * Fetch the fiat balance for the given Shop
+ * @param contract
+ * @param owner
+ * @param shopId
+ * @returns {number[]}
+ */
+export const fetchShopBalance = async (contract, owner, shopId) => {
+
+    const fiatBalance = await contract.methods.checkShopBalance(shopId, true).call({from: owner});
+    return (fiatBalance / 100).toFixed(2);
+};

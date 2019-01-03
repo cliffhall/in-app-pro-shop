@@ -1,4 +1,6 @@
 import {
+    BALANCE_REQUESTED,
+    BALANCE_FETCHED,
     IDS_REQUESTED,
     IDS_FETCHED,
     SHOPS_REQUESTED,
@@ -8,7 +10,7 @@ import {
     DESC_CHANGED,
     FIAT_CHANGED,
     CREATING_SHOP,
-    SHOP_CREATED
+    SHOP_CREATED,
 } from './ShopActions';
 
 import {
@@ -32,7 +34,10 @@ const INITIAL_STATE = {
     shopsFetched: false,
     shops:[],
 
-    selectedShopId: null
+    selectedShopId: null,
+    fetchingShopBalance: false,
+    shopBalanceFetched: false,
+    selectedShopBalance: 0
 };
 
 function shopReducer(state=INITIAL_STATE, action) {
@@ -80,9 +85,30 @@ function shopReducer(state=INITIAL_STATE, action) {
         case SHOP_SELECTED:
             reduced = {
                 ...state,
-                selectedShopId: action.selectedShopId
+                selectedShopId: action.selectedShopId,
+                fetchingShopBalance: false,
+                shopBalanceFetched: false,
+                selectedShopBalance: 0
             };
             break;
+
+        case BALANCE_REQUESTED:
+            reduced = {
+                ...state,
+                fetchingShopBalance: action.fetchingShopBalance,
+                shopBalanceFetched: action.shopBalanceFetched
+            };
+            break;
+
+        case BALANCE_FETCHED:
+            reduced = {
+                ...state,
+                fetchingShopBalance: action.fetchingShopBalance,
+                shopBalanceFetched: action.shopBalanceFetched,
+                selectedShopBalance: action.selectedShopBalance
+            };
+            break;
+
 
         case NAME_CHANGED:
             reduced = {

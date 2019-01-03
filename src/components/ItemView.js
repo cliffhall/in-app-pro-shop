@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
-class SKUView extends Component {
+class ItemView extends Component {
 
     render() {
 
@@ -19,4 +19,4 @@ class SKUView extends Component {
     }
 }
 
-export default SKUView;
+export default ItemView;

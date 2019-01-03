@@ -1,19 +1,21 @@
 // Service functions
-import { fetchShopIds, fetchShops, createShop } from '../../services/ShopService';
+import { fetchShopIds, fetchShops, createShop, fetchShopBalance } from '../../services/ShopService';
 import { Shop } from '../../domain';
 
 
 // Shop related actions
-export const IDS_REQUESTED    = 'shop/ids-requested';
-export const IDS_FETCHED      = 'shop/ids-fetched';
-export const SHOPS_REQUESTED  = 'shop/items-requested';
-export const SHOPS_FETCHED    = 'shop/items-fetched';
-export const SHOP_SELECTED    = 'shop/selected';
-export const NAME_CHANGED     = 'shop/name-changed';
-export const FIAT_CHANGED     = 'shop/fiat-changed';
-export const DESC_CHANGED     = 'shop/description-changed';
-export const CREATING_SHOP    = 'shop/creating';
-export const SHOP_CREATED     = 'shop/created';
+export const IDS_REQUESTED     = 'shop/ids-requested';
+export const IDS_FETCHED       = 'shop/ids-fetched';
+export const BALANCE_REQUESTED = 'shop/balance-requested';
+export const BALANCE_FETCHED   = 'shop/balance-fetched';
+export const SHOPS_REQUESTED   = 'shop/items-requested';
+export const SHOPS_FETCHED     = 'shop/items-fetched';
+export const SHOP_SELECTED     = 'shop/selected';
+export const NAME_CHANGED      = 'shop/name-changed';
+export const FIAT_CHANGED      = 'shop/fiat-changed';
+export const DESC_CHANGED      = 'shop/description-changed';
+export const CREATING_SHOP     = 'shop/creating';
+export const SHOP_CREATED      = 'shop/created';
 
 export const getShops = (contract, owner) => {
 
@@ -98,6 +100,28 @@ export const createNewShop = (contract, owner, name, description, fiat) => {
 
 };
 
+export const getShopBalance = (contract, owner, shopId) => {
+
+    return async function(dispatch) {
+
+        dispatch({
+            type: BALANCE_REQUESTED,
+            fetchingShopBalance: true,
+            shopBalanceFetched: false,
+        });
+
+        const selectedShopBalance = await fetchShopBalance(contract, owner, shopId);
+
+        dispatch({
+            type: BALANCE_FETCHED,
+            selectedShopBalance,
+            fetchingShopBalance: false,
+            shopBalanceFetched: true
+        });
+
+    };
+
+};
 
 export const nameChanged = name => {
 

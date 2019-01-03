@@ -1,64 +1,20 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Navbar, Glyphicon} from 'react-bootstrap';
-import { AppNavbar, AppNavbarHeader, AppNav, AppNavbarBrand, AppNavDropdown, AppMenuItem, AppMonoMenuItem} from '../styles';
-import { selectShop } from '../store/shop/ShopActions';
-import { selectAccount } from '../store/account/AccountActions';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Navbar, Glyphicon} from 'react-bootstrap';
+
+import ShopsMenu from "./ShopsMenu";
+import AccountsMenu from "./AccountsMenu";
+import {selectShop} from '../store/shop/ShopActions';
+import {selectAccount} from '../store/account/AccountActions';
+import {AppNavbar, AppNavbarHeader, AppNav, AppNavbarBrand} from '../styles';
+import BalanceMenu from "./BalanceMenu";
 
 class NavigationBar extends Component {
 
-    // Open the selected account on etherscan.io
-    viewAccountOnEtherscan(selectedAccount) {
-        window.open(`https://etherscan.io/address/${selectedAccount}`);
-    };
-
-    // Render the accounts menu
-    renderAccountsMenu() {
-        const {initialized, accounts, selectedAccount, selectAccount, creatingShop} = this.props;
-        return initialized && accounts
-            ? <AppNavDropdown
-                disabled={creatingShop}
-                title={`Accounts (${accounts.length})`}
-                id='account-dropdown'>
-                {accounts.map(
-                    account => <AppMonoMenuItem
-                        key={account}
-                        active={account === selectedAccount}
-                        onSelect={() => {if (account !== selectedAccount) selectAccount(account)}}
-                    >{account}</AppMonoMenuItem>)}
-                <AppMenuItem divider/>
-                <AppMenuItem disabled={!selectedAccount}
-                          onClick={() => this.viewAccountOnEtherscan(selectedAccount)}>View Selected Account on Etherscan</AppMenuItem>
-            </AppNavDropdown>
-            : initialized ? <AppNavDropdown title='Accounts' id='account-dropdown'>
-                <AppMenuItem disabled={true}>No Accounts</AppMenuItem>
-            </AppNavDropdown> : null;
-    };
-
-    // Render the shops menu
-    renderShopsMenu() {
-        const {accounts, shops, selectShop, selectedShopId, creatingShop} = this.props;
-        return accounts
-            ? <AppNavDropdown
-                disabled={creatingShop}
-                title={`Shops (${shops.length})`}
-                id='shop-dropdown'>
-                {shops.length
-                    ? shops.map(
-                        shop => <AppMenuItem
-                            key={shop.shopId}
-                            active={shop.shopId === selectedShopId}
-                            onSelect={() => selectShop(shop.shopId)}
-                        >{shop.name}</AppMenuItem>)
-                    : <AppMenuItem disabled={true}>No Shops</AppMenuItem>}
-                    <AppMenuItem divider/>
-                    <AppMenuItem onClick={() => selectShop(null)} disabled={!selectedShopId}>Create Shop</AppMenuItem>
-            </AppNavDropdown>
-            : null;
-    };
-
     // Render the Navbar
     render() {
+
+        const {initialized, accounts, selectedShopBalance} = this.props;
 
         return <AppNavbar fixedTop={true} collapseOnSelect>
             <AppNavbarHeader>
@@ -71,8 +27,9 @@ class NavigationBar extends Component {
             </AppNavbarHeader>
             <Navbar.Collapse>
                 <AppNav pullRight>
-                {this.renderShopsMenu()}
-                {this.renderAccountsMenu()}
+                {selectedShopBalance ? <BalanceMenu {...this.props}/> : null}
+                {accounts ? <ShopsMenu {...this.props}/> : null}
+                {initialized ? <AccountsMenu {...this.props}/> : null}
                 </AppNav>
             </Navbar.Collapse>
         </AppNavbar>;
@@ -83,8 +40,13 @@ const mapStateToProps = (state) => ({
     accounts: state.accountState.accounts,
     selectedAccount: state.accountState.selectedAccount,
     shops: state.shopState.shops,
+    shop: state.shopState.shops.find(shop => shop.shopId === state.shopState.selectedShopId),
     selectedShopId: state.shopState.selectedShopId,
-    creatingShop: state.shopState.creatingShop
+    creatingShop: state.shopState.creatingShop,
+    shopBalanceFetched: state.shopState.shopBalanceFetched,
+    selectedShopBalance: state.shopState.selectedShopBalance,
+
+
 });
 
 const mapDispatchToProps = (dispatch) => ({
