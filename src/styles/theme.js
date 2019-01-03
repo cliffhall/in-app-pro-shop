@@ -26,7 +26,7 @@ export default {
             top: colors.accent1,
             bottom: colors.accent2,
             bg: colors.accent1,
-            head: colors.accent2,
+            head: colors.light,
             border: colors.accent2,
         },
 

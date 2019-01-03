@@ -1,19 +1,14 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {HollowDotsSpinner, AtomSpinner} from 'react-epic-spinners'
-import {FormGroup, FormControl, ControlLabel, Glyphicon} from 'react-bootstrap';
+import {AtomSpinner} from 'react-epic-spinners'
 
 import {
     AppSlidingWell,
-    AppButton,
-    AppToggleButton,
-    AppToggleButtonGroup,
-    AppForm,
-    AppFormControl,
-    AppHelpBlock
+    AppWell,
+    FlexChild,
+    FlexRow
 } from '../styles';
-import {CONTRACTS, CURRENCIES} from "../constants";
-import {FlexChild, FlexRow} from "../styles";
+import ShopForm from "./ShopForm";
 import {createNewShop, nameChanged, descChanged, fiatChanged} from "../store/shop/ShopActions";
 
 class SplashView extends Component {
@@ -58,116 +53,14 @@ class SplashView extends Component {
                     <h2>Connect an Ethereum Account</h2>
                     <p>In order to use this Dapp, you must use a browser plugin (e.g., Metamask) or an Ethereum-aware browser (e.g., Trust)</p>
                     <p>You'll need to configure your plugin or browser with one or more accounts that you'll use to maintain Shops, withdraw balances, and make test purchases.</p>
-                    </AppSlidingWell>
-                : <AppSlidingWell>
+                    <p>If you have an appropriate browser / plugin with configured accounts, be sure you're signed in.</p>
+                  </AppSlidingWell>
+                : <AppWell>
                     <h2>Connect&nbsp;to&nbsp;Ether&nbsp;...&nbsp;</h2>
                     <AtomSpinner color='red'/>
-                  </AppSlidingWell>
+                  </AppWell>
             }
         </FlexChild>;
-    };
-
-    renderNewShopForm = () => {
-
-        const {
-            drizzle,
-            selectedAccount,
-            name,
-            description,
-            fiat,
-            createNewShop,
-            nameChanged,
-            descChanged,
-            fiatChanged,
-            creatingShop
-        } = this.props;
-
-        const SUCCESS = 'success';
-        const ERROR = 'error';
-
-        const handleSubmit = () => {
-            createNewShop(drizzle.contracts[CONTRACTS.STOCK_ROOM], selectedAccount, name, description, fiat);
-        };
-
-        const getNameValidationState = () => {
-            return (name.length === 0) ? null : (name.length >= 3) ? SUCCESS : ERROR;
-        };
-
-        const getDescValidationState = () => {
-            return (description.length === 0) ? null : (description.length >= 5) ? SUCCESS : ERROR;
-        };
-
-        const isSubmitDisabled = () => {
-            return (
-                getNameValidationState() !== SUCCESS ||
-                getDescValidationState() !== SUCCESS
-            );
-        };
-
-        const handleNameChange = e => {
-            nameChanged(e.target.value);
-        };
-
-        const handleDescChange = e => {
-            descChanged(e.target.value);
-        };
-
-        const handleFiatChange = selection => {
-            fiatChanged(selection);
-        };
-
-        return <FlexChild><AppSlidingWell><AppForm>
-            <h2>Create&nbsp;a&nbsp;New&nbsp;Shop</h2>
-            <FormGroup
-                controlId='nameField'
-                validationState={getNameValidationState()}>
-                <AppFormControl
-                    disabled={creatingShop}
-                    type="text"
-                    bsSize='large'
-                    placeholder="Shop Name"
-                    onChange={handleNameChange}
-                />
-                <FormControl.Feedback />
-                {(getNameValidationState() === ERROR)
-                    ? <AppHelpBlock>Enter at least 3 characters</AppHelpBlock>
-                    : null}
-            </FormGroup>
-            <FormGroup
-                controlId='descField'
-                validationState={getDescValidationState()}>
-                <AppFormControl
-                    disabled={creatingShop}
-                    componentClass="textarea"
-                    bsSize='large'
-                    placeholder="Description"
-                    onChange={handleDescChange}
-                />
-                <FormControl.Feedback />
-                {(getDescValidationState() === ERROR)
-                    ? <AppHelpBlock>Enter at least 5 characters</AppHelpBlock>
-                    : null}
-            </FormGroup>
-
-            <FormGroup>
-                <ControlLabel>Fiat Currency for Prices</ControlLabel>
-                <br/>
-                <AppToggleButtonGroup
-                    type="radio"
-                    name="shopCurrency"
-                    onChange={handleFiatChange}
-                    value={fiat}>
-                    {Object.values(CURRENCIES).map(sym => <AppToggleButton key={sym.symbol} value={sym.symbol}><Glyphicon glyph={sym.icon} /> - {sym.symbol}</AppToggleButton>)}
-                </AppToggleButtonGroup>
-            </FormGroup>
-            {creatingShop
-                ? <HollowDotsSpinner color='black'/>
-                : <AppButton
-                    bsSize='large'
-                    disabled={isSubmitDisabled()}
-                    onClick={handleSubmit}>Create</AppButton>}
-
-        </AppForm></AppSlidingWell></FlexChild>;
     };
 
     render() {
@@ -178,7 +71,7 @@ class SplashView extends Component {
             {this.renderSplashContent()}
             {!selectedAccount
                 ? this.renderNoAccountContent()
-                : this.renderNewShopForm()
+                : <ShopForm {...this.props}/>
             }
         </FlexRow>
     }

@@ -1,17 +1,16 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import {ThemeProvider} from "styled-components";
 
-import NavigationBar from './NavigationBar';
-import SplashView from './SplashView';
-import ShopView from './ShopView';
 import theme from "../styles/theme";
-
-import { CONTRACTS } from "../constants";
-import { getShops } from "../store/shop/ShopActions";
-import { getSKUs } from "../store/sku/SKUActions";
-import { getSKUTypes } from "../store/sku_type/SKUTypeActions";
-import { accountsFetched, selectAccount } from "../store/account/AccountActions";
+import ShopView from './ShopView';
+import SplashView from './SplashView';
+import NavigationBar from './NavigationBar';
+import {CONTRACTS} from "../constants";
+import {getShopBalance, getShops} from "../store/shop/ShopActions";
+import {getSKUs} from "../store/sku/SKUActions";
+import {getSKUTypes} from "../store/sku_type/SKUTypeActions";
+import {accountsFetched, selectAccount} from "../store/account/AccountActions";
 
 import {AppWrapper} from "../styles";
 
@@ -26,7 +25,8 @@ class App extends Component {
             selectedShopId,
             getSKUTypes,
             getSKUs,
-            accounts
+            accounts,
+            checkShopBalance
         } = this.props;
 
         const {drizzleState, drizzle, initialized} = this.props.drizzleContext;
@@ -50,6 +50,7 @@ class App extends Component {
 
         // Get SKUs & SKUTypes when Shop is selected
         if (selectedShopId && selectedShopId !== prevProps.selectedShopId) {
+            checkShopBalance(drizzle.contracts[CONTRACTS.PRO_SHOP], selectedAccount, selectedShopId);
             getSKUTypes(drizzle.contracts[CONTRACTS.STOCK_ROOM], selectedShopId);
             getSKUs(drizzle.contracts[CONTRACTS.STOCK_ROOM], selectedShopId);
         }
@@ -89,7 +90,9 @@ const mapDispatchToProps = (dispatch) => ({
     selectAccount: account => dispatch(selectAccount(account)),
     getShops: (contract, account) => dispatch(getShops(contract, account)),
     getSKUs: (contract, shopId) => dispatch(getSKUs(contract, shopId)),
-    getSKUTypes: (contract, shopId) => dispatch(getSKUTypes(contract, shopId))
+    getSKUTypes: (contract, shopId) => dispatch(getSKUTypes(contract, shopId)),
+    checkShopBalance: (contract, owner, shopId) => dispatch(getShopBalance(contract, owner, shopId)),
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

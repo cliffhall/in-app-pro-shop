@@ -161,7 +161,6 @@ const StyledBootstrapMenuItem = styled(MenuItem)`
 
     font-family: 'Raleway Semi-Bold', sans-serif;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
-
     &&& a:hover {
         color:  ${props => props.theme.menuitem.hover};
         background-color: ${props => props.theme.menuitem.active};
@@ -183,7 +182,11 @@ export class AppMenuItem extends Component {
 const StyledBootstrapMonoMenuItem = styled(AppMenuItem)`
 
     font-family: 'PT Mono', monospace;
-    
+    text-align: right;
+    .glyphicon {
+        font-size: 10px;
+    }
+
 `;
 
 export class AppMonoMenuItem extends Component {

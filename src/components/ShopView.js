@@ -1,159 +1,31 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { AtomSpinner, HollowDotsSpinner } from "react-epic-spinners";
-import { FormGroup, FormControl } from "react-bootstrap";
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
-import SKUTypeView from './SKUTypeView';
-
-import { CONTRACTS } from "../constants";
+import CategoryList from './CategoryList';
+import CategoryForm from './CategoryForm';
 import {
-    FlexChild,
     AppSlidingPanel,
     AppPanelHeading,
     AppPanelTitle,
     AppPanelBody,
-    AppPanelGroup,
-    AppWell,
-    AppSlidingWell,
-    AppButton,
-    AppForm,
-    AppFormControl,
-    AppHelpBlock
+    AppButton
 } from "../styles";
-import { toggleTypeForm, createNewSKUType, nameChanged, descChanged } from "../store/sku_type/SKUTypeActions";
+import {toggleTypeForm, createNewSKUType, nameChanged, descChanged} from '../store/sku_type/SKUTypeActions';
 
 class ShopView extends Component {
-
-    // Render the SKU Type panels in a responsive panel group
-    renderSKUTypeList = () => {
-        return <AppPanelGroup id="skuTypes">
-            {
-                this.renderSKUTypes()
-            }
-        </AppPanelGroup>
-    };
-
-    // Render the SKU Type panels
-    renderSKUTypes = () => {
-        const {skuTypesFetched, skuTypes, drizzle, shop} = this.props;
-
-        return skuTypesFetched
-            ? skuTypes.map( skuType => <SKUTypeView drizzle={drizzle} key={skuType.skuTypeId} skuType={skuType} shop={shop}/> )
-            : <AppWell>
-                <h2>Fetching Categories</h2>
-                <AtomSpinner color='red'/>
-            </AppWell>;
-    };
-
-    // Render the New SKU Type form
-    renderNewSKUTypeForm = () => {
-
-        const {
-            drizzle,
-            selectedAccount,
-            selectedShopId,
-            name,
-            description,
-            createNewSKUType,
-            nameChanged,
-            descChanged,
-            creatingSKUType,
-            toggleTypeForm
-        } = this.props;
-
-        const SUCCESS = 'success';
-        const ERROR = 'error';
-
-        const handleSubmit = () => {
-            createNewSKUType(drizzle.contracts[CONTRACTS.STOCK_ROOM], selectedAccount, selectedShopId, name, description);
-        };
-
-        const getNameValidationState = () => {
-            return (name.length === 0) ? null : (name.length >= 3) ? SUCCESS : ERROR;
-        };
-
-        const getDescValidationState = () => {
-            return (description.length === 0) ? null : (description.length >= 5) ? SUCCESS : ERROR;
-        };
-
-        const isSubmitDisabled = () => {
-            return (
-                getNameValidationState() !== SUCCESS ||
-                getDescValidationState() !== SUCCESS
-            );
-        };
-
-        const handleNameChange = e => {
-            nameChanged(e.target.value);
-        };
-
-        const handleDescChange = e => {
-            descChanged(e.target.value);
-        };
-
-        return <FlexChild>
-            <AppSlidingWell>
-                    <AppForm>
-                        <h2>
-                            Add Category
-                        </h2>
-                        <FormGroup
-                            controlId='nameField'
-                            validationState={getNameValidationState()}>
-                            <AppFormControl
-                                disabled={creatingSKUType}
-                                type="text"
-                                bsSize='large'
-                                placeholder="Name"
-                                value={name}
-                                onChange={handleNameChange}
-                            />
-                            <FormControl.Feedback />
-                            {(getNameValidationState() === ERROR)
-                                ? <AppHelpBlock>Enter at least 3 characters</AppHelpBlock>
-                                : null}
-                        </FormGroup>
-
-                        <FormGroup
-                            controlId='descField'
-                            validationState={getDescValidationState()}>
-                            <AppFormControl
-                                disabled={creatingSKUType}
-                                componentClass="textarea"
-                                bsSize='large'
-                                placeholder="Description"
-                                value={description}
-                                onChange={handleDescChange}
-                            />
-                            <FormControl.Feedback />
-                            {(getDescValidationState() === ERROR)
-                                ? <AppHelpBlock>Enter at least 5 characters</AppHelpBlock>
-                                : null}
-                        </FormGroup>
-
-                        {creatingSKUType
-                            ? <HollowDotsSpinner color='black'/>
-                            : <AppButton
-                                bsSize='large'
-                                disabled={isSubmitDisabled()}
-                                onClick={handleSubmit}>Create</AppButton>}
-
-                        <span>&nbsp;</span>
-
-                        <AppButton
-                            onClick={toggleTypeForm}
-                            bsSize='large'>Cancel</AppButton>
-
-
-                    </AppForm>
-            </AppSlidingWell>
-        </FlexChild>;
-    };
 
     // Render the Shop panel
     render() {
 
-        const {shop, toggleTypeForm, skuTypeFormDisplayed, skuFormDisplayed, skuTypesFetched} = this.props;
+        const {
+            shop,
+            toggleTypeForm,
+            skuTypeFormDisplayed,
+            skuFormDisplayed,
+            skuTypesFetched,
+            selectedShopBalance,
+            shopBalanceFetched
+        } = this.props;
 
         return  <AppSlidingPanel>
                     <AppPanelHeading>
@@ -168,8 +40,8 @@ class ShopView extends Component {
                         {shop.description}
                     </AppPanelHeading>
                     <AppPanelBody>
-                        {this.renderSKUTypeList()}
-                        {skuTypeFormDisplayed ? this.renderNewSKUTypeForm() : null}
+                        <CategoryList {...this.props}/>
+                        {skuTypeFormDisplayed ? <CategoryForm {...this.props}/> : null}
                     </AppPanelBody>
                 </AppSlidingPanel>;
     }
@@ -188,7 +60,10 @@ const mapStateToProps = (state) => ({
     skuTypeFormDisplayed: state.skuTypeState.skuTypeFormDisplayed,
     skuFormDisplayed: state.skuState.skuFormDisplayed,
     name: state.skuTypeState.newSKUType.name,
-    description: state.skuTypeState.newSKUType.description
+    description: state.skuTypeState.newSKUType.description,
+    selectedShopBalance: state.shopState.selectedShopBalance,
+    shopBalanceFetched: state.shopState.shopBalanceFetched,
+    fetchingShopBalance: state.shopState.fetchingShopBalance
 });
 
 const mapDispatchToProps = (dispatch) => ({
