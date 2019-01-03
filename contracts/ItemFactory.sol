@@ -39,7 +39,7 @@ contract ItemFactory is ProShopBase {
         require(msg.value == stockRoom.getPriceInEther(_skuId));
 
         // Calculate and store the franchise fee
-        uint256 franchiseFee = msg.value.div(franchiseFeePercent);
+        uint256 franchiseFee = uint256(msg.value.div(100).mul(franchiseFeePercent));
         franchiseBalance = franchiseBalance.add(franchiseFee);
 
         // Calculate and store the Shop's net sale amount

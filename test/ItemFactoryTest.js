@@ -25,7 +25,7 @@ contract('ItemFactory', function(accounts) {
     const usdQuote = 33652131190000;
     const eurQuote = 40154176530000;
     const gbpQuote = 44664290720000;
-    const skuPrice = 5;
+    const skuPrice = 500;
     const itemAmount = skuPrice * usdQuote;
 
     // Set up a shop with a SKU Type and SKU for this test suite
@@ -66,6 +66,14 @@ contract('ItemFactory', function(accounts) {
     it("should not allow a user to create an Item if the SKU price is not sent", async function() {
 
         await exceptions.catchRevert(contract.createItem(shopId, skuId, {from: itemOwner, value: skuPrice/2}));
+
+    });
+
+    it("should calculate the right Item price in ether", async function() {
+
+        // Get the price in ether
+        const priceInEther = await stockRoom.getPriceInEther.call(skuId, {from: itemOwner});
+        assert.equal(priceInEther.toNumber(), itemAmount, "Item price wasn't correct");
 
     });
 
