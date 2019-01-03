@@ -33,13 +33,30 @@ contract StockRoom is SKUFactory {
         bytes32 fiat = keccak256(abi.encodePacked(shops[sku.shopId].fiat));
         uint256 ethQuote;
         if (fiat == keccak256("USD")) {
-           ethQuote = fiatContract.USD(0);
+            ethQuote = fiatContract.USD(0);
         } else if (fiat == keccak256("EUR")) {
             ethQuote = fiatContract.EUR(0);
         } else if (fiat == keccak256("GBP")) {
             ethQuote = fiatContract.GBP(0);
         }
         return ethQuote * sku.price;
+    }
+
+    // @notice convert an Ether amount to a Shop's fiat (e.g, for USD, balance in cents)
+    function convertEtherToFiat(uint256 _shopId, uint256 _balance) external view returns (uint256) {
+        bytes32 fiat;
+        if (_shopId >= 0) fiat = keccak256(abi.encodePacked(shops[_shopId].fiat));
+        uint256 ethQuote;
+        if (fiat == keccak256("USD")) {
+            ethQuote = fiatContract.USD(0);
+        } else if (fiat == keccak256("EUR")) {
+            ethQuote = fiatContract.EUR(0);
+        } else if (fiat == keccak256("GBP")) {
+            ethQuote = fiatContract.GBP(0);
+        } else {
+            ethQuote = fiatContract.USD(0); // franchise
+        }
+        return _balance.div(ethQuote);
     }
 
     // @notice confirm whether an item can be minted based on limit and current item count

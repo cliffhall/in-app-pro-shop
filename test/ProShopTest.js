@@ -25,7 +25,7 @@ contract('ProShop', function(accounts) {
     const usdQuote = 33652131190000;
     const eurQuote = 40154176530000;
     const gbpQuote = 44664290720000;
-    const skuPrice = 5;
+    const skuPrice = 500;
     const itemAmount = skuPrice * usdQuote;
 
     // Set up a shop with a SKU Type and SKU for this test suite
@@ -116,8 +116,7 @@ contract('ProShop', function(accounts) {
         assert.equal(initial.plus(withdrawal).minus(txCost).toNumber(), final.toNumber(), "Amount incorrect");
     });
 
-
-    it("should allow the shop owner to check their balance", async function() {
+    it("should allow the shop owner to check their balance in Ether", async function() {
 
         // Calc expected balance
         const expected = accounting.calcNet(itemAmount, franchiseFeePercent) * 2;
@@ -125,6 +124,18 @@ contract('ProShop', function(accounts) {
         // Get the shop balance
         const balance = await contract.checkShopBalance(shopId, {from: shopOwner});
         assert.equal(balance.toNumber(), expected, "Balance wasn't correct");
+
+    });
+
+    it("should allow the shop owner to check their balance in their Shop's fiat currency", async function() {
+
+        // Calc expected fiat balance
+        const balance = accounting.calcNet(itemAmount, franchiseFeePercent) * 2;
+        const expected = parseInt(balance/usdQuote);
+
+        // Get the shop balance in Fiat currency
+        const fiatBalance = await stockRoom.convertEtherToFiat(shopId, balance);
+        assert.equal(fiatBalance.toNumber(), expected, "Fiat Balance wasn't correct");
 
     });
 
