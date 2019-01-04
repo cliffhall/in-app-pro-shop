@@ -116,7 +116,7 @@ A React/Redux application for maintaining Shops and checking/withdrawing Shop ow
 |   |
 |   +---+ components (React app UI components)
 |   |   |
-|   |   +---+ theme (Application theme config)
+|   |   +---+ theme (Application theme configuration)
 |   |       |
 |   |       + ---+ kit (Styled component kit)
 |   |
