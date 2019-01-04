@@ -22,9 +22,7 @@ class ShopView extends Component {
             toggleTypeForm,
             skuTypeFormDisplayed,
             skuFormDisplayed,
-            skuTypesFetched,
-            selectedShopBalance,
-            shopBalanceFetched
+            skuTypesFetched
         } = this.props;
 
         return  <AppSlidingPanel>

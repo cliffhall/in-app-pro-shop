@@ -4,7 +4,7 @@ import {Navbar, Glyphicon} from 'react-bootstrap';
 
 import ShopsMenu from "./ShopsMenu";
 import AccountsMenu from "./AccountsMenu";
-import {selectShop} from '../store/shop/ShopActions';
+import {selectShop, transferShopBalance} from '../store/shop/ShopActions';
 import {selectAccount} from '../store/account/AccountActions';
 import {AppNavbar, AppNavbarHeader, AppNav, AppNavbarBrand} from '../styles';
 import BalanceMenu from "./BalanceMenu";
@@ -45,13 +45,12 @@ const mapStateToProps = (state) => ({
     creatingShop: state.shopState.creatingShop,
     shopBalanceFetched: state.shopState.shopBalanceFetched,
     selectedShopBalance: state.shopState.selectedShopBalance,
-
-
 });
 
 const mapDispatchToProps = (dispatch) => ({
     selectAccount: account => dispatch(selectAccount(account)),
     selectShop: shopId => dispatch(selectShop(shopId)),
+    transferShopBalance: (contract, owner, shopId) => dispatch(transferShopBalance(contract, owner, shopId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavigationBar);
