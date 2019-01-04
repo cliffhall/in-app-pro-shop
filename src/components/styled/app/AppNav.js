@@ -1,7 +1,8 @@
-import React, {Component} from 'react';
-import styled from 'styled-components';
-import { Navbar, Nav, NavDropdown, MenuItem } from 'react-bootstrap';
-import * as variables from '../variables';
+import React, {Component} from "react";
+import styled from "styled-components";
+import { Navbar, Nav, NavDropdown, MenuItem } from "react-bootstrap";
+
+import * as variables from "../variables";
 
 const navbarImageColorLeft = props => props.theme.navbar.left;
 const navbarImageColorRight = props => props.theme.navbar.right;

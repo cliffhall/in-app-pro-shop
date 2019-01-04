@@ -1,8 +1,8 @@
 import React from "react";
 import {Component} from "react";
 import styled from "styled-components";
+import CurrencyInput from "react-currency-masked-input";
 import {Form, FormControl, HelpBlock} from "react-bootstrap";
-import CurrencyInput from 'react-currency-masked-input';
 
 const StyledBootstrapForm = styled(Form)`
 

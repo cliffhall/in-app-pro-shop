@@ -1,5 +1,5 @@
 import React from "react";
-import {FormGroup} from "react-bootstrap";
+import {FormGroup, FormControl} from "react-bootstrap";
 import {HollowDotsSpinner} from "react-epic-spinners";
 
 import {
@@ -9,9 +9,8 @@ import {
     AppHelpBlock,
     AppSlidingWell,
     FlexChild
-} from "../styles";
+} from "./styled";
 import {CONTRACTS} from "../constants";
-import FormControl from "react-bootstrap/es/FormControl";
 
 export default function CategoryForm(props) {
 

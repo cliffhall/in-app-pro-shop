@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {AtomSpinner} from 'react-epic-spinners'
+import React, {Component} from "react";
+import {connect} from "react-redux";
+import {AtomSpinner} from "react-epic-spinners";
 
 import {
     AppSlidingWell,
     AppWell,
     FlexChild,
     FlexRow
-} from '../styles';
+} from "./styled";
 import ShopForm from "./ShopForm";
 import {createNewShop, nameChanged, descChanged, fiatChanged} from "../store/shop/ShopActions";
 

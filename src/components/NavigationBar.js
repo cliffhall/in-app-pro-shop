@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {Navbar, Glyphicon} from 'react-bootstrap';
+import React, {Component} from "react";
+import {connect} from "react-redux";
+import {Navbar, Glyphicon} from "react-bootstrap";
 
 import ShopsMenu from "./ShopsMenu";
-import AccountsMenu from "./AccountsMenu";
-import {selectShop, transferShopBalance} from '../store/shop/ShopActions';
-import {selectAccount} from '../store/account/AccountActions';
-import {AppNavbar, AppNavbarHeader, AppNav, AppNavbarBrand} from '../styles';
 import BalanceMenu from "./BalanceMenu";
+import AccountsMenu from "./AccountsMenu";
+import {selectAccount} from "../store/account/AccountActions";
+import {selectShop, transferShopBalance} from "../store/shop/ShopActions";
+import {AppNavbar, AppNavbarHeader, AppNav, AppNavbarBrand} from "./styled";
 
 class NavigationBar extends Component {
 

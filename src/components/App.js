@@ -2,17 +2,17 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {ThemeProvider} from "styled-components";
 
-import theme from "../styles/theme";
-import ShopView from './ShopView';
-import SplashView from './SplashView';
-import NavigationBar from './NavigationBar';
+import theme from "./styled/theme";
+import ShopView from "./ShopView";
+import SplashView from "./SplashView";
+import NavigationBar from "./NavigationBar";
 import {CONTRACTS} from "../constants";
-import {getShopBalance, getShops} from "../store/shop/ShopActions";
 import {getSKUs} from "../store/sku/SKUActions";
 import {getSKUTypes} from "../store/sku_type/SKUTypeActions";
+import {getShopBalance, getShops} from "../store/shop/ShopActions";
 import {accountsFetched, selectAccount} from "../store/account/AccountActions";
 
-import {AppWrapper} from "../styles";
+import {AppWrapper} from "./styled";
 
 class App extends Component {
 

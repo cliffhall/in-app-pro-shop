@@ -1,12 +1,13 @@
-import {injectGlobal} from 'styled-components';
-import {AppWrapper} from "./components/AppWrapper";
-import {AppTable} from "./components/AppTable";
-import {FlexRow, FlexChild} from "./components/AppFlex";
-import {AppWell, AppSlidingWell} from "./components/AppWell";
-import {AppForm, AppFormControl, AppCurrencyInput, AppHelpBlock} from "./components/AppForm";
-import {AppNavbar, AppNavbarHeader, AppNav, AppNavbarBrand, AppNavDropdown, AppMenuItem, AppMonoMenuItem} from "./components/AppNav";
-import {AppButton, AppToggleButton, AppToggleButtonGroup} from "./components/AppButton";
-import {AppPanel, AppSlidingPanel, AppPanelHeading, AppPanelTitle, AppPanelBody, AppPanelGroup} from "./components/AppPanel";
+import {injectGlobal} from "styled-components";
+
+import {AppTable} from "./app/AppTable";
+import {AppWrapper} from "./app/AppWrapper";
+import {FlexRow, FlexChild} from "./app/AppFlex";
+import {AppWell, AppSlidingWell} from "./app/AppWell";
+import {AppButton, AppToggleButton, AppToggleButtonGroup} from "./app/AppButton";
+import {AppForm, AppFormControl, AppCurrencyInput, AppHelpBlock} from "./app/AppForm";
+import {AppPanel, AppSlidingPanel, AppPanelHeading, AppPanelTitle, AppPanelBody, AppPanelGroup} from "./app/AppPanel";
+import {AppNavbar, AppNavbarHeader, AppNav, AppNavbarBrand, AppNavDropdown, AppMenuItem, AppMonoMenuItem} from "./app/AppNav";
 
 export {
     AppWrapper,

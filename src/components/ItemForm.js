@@ -10,7 +10,7 @@ import {
     AppHelpBlock,
     AppSlidingWell,
     FlexChild
-} from "../styles";
+} from "./styled";
 import {CONTRACTS} from "../constants";
 import FormControl from "react-bootstrap/es/FormControl";
 

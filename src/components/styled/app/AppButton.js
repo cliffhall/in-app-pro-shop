@@ -1,7 +1,7 @@
+import React from "react";
+import {Component} from "react";
 import styled from "styled-components";
 import {Button, ToggleButton, ToggleButtonGroup} from "react-bootstrap";
-import {Component} from "react";
-import React from "react";
 
 const buttonImageColorTop = props => props.theme.button.top;
 const buttonImageColorBottom = props => props.theme.button.bottom;
@@ -48,7 +48,6 @@ export class AppToggleButton extends Component {
         return <StyledBootstrapToggleButton {...props}/>
     }
 }
-
 
 export const AppToggleButtonGroup = styled(ToggleButtonGroup)`
     

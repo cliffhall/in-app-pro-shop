@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import {Table} from "react-bootstrap";
-import {Component} from "react";
 import React from "react";
+import {Component} from "react";
+import {Table} from "react-bootstrap";
+import styled from "styled-components";
 
 
 const StyledBootstrapTable = styled(Table)`

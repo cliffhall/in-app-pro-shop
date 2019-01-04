@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
+import React, {Component} from "react";
+import ReactDOM from "react-dom";
 import {connect} from "react-redux";
 
 import ItemList from "./ItemList";
@@ -10,7 +10,7 @@ import {
     AppPanelTitle,
     AppPanelBody,
     AppButton
-} from "../styles";
+} from "./styled";
 import {
     priceChanged,
     descChanged,

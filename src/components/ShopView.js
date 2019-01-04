@@ -1,16 +1,16 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, {Component} from "react";
+import {connect} from "react-redux";
 
-import CategoryList from './CategoryList';
-import CategoryForm from './CategoryForm';
+import CategoryList from "./CategoryList";
+import CategoryForm from "./CategoryForm";
 import {
     AppSlidingPanel,
     AppPanelHeading,
     AppPanelTitle,
     AppPanelBody,
     AppButton
-} from "../styles";
-import {toggleTypeForm, createNewSKUType, nameChanged, descChanged} from '../store/sku_type/SKUTypeActions';
+} from "./styled";
+import {toggleTypeForm, createNewSKUType, nameChanged, descChanged} from "../store/sku_type/SKUTypeActions";
 
 class ShopView extends Component {
 
