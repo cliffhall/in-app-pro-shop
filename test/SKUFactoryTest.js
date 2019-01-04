@@ -1,6 +1,6 @@
 const StockRoom = artifacts.require("./StockRoom.sol");
-const FiatContract = artifacts.require('./FiatContract.sol');
-const exceptions = require ('./util/Exceptions');
+const FiatContract = artifacts.require("./FiatContract.sol");
+const exceptions = require ("./util/Exceptions");
 
 contract('SKUFactory', function(accounts) {
 
