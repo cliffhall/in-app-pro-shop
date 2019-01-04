@@ -1,21 +1,23 @@
 // Service functions
-import { fetchShopIds, fetchShops, createShop, fetchShopBalance } from '../../services/ShopService';
+import { fetchShopIds, fetchShops, createShop, fetchShopBalance, withdrawShopBalance } from '../../services/ShopService';
 import { Shop } from '../../domain';
 
 
 // Shop related actions
-export const IDS_REQUESTED     = 'shop/ids-requested';
-export const IDS_FETCHED       = 'shop/ids-fetched';
-export const BALANCE_REQUESTED = 'shop/balance-requested';
-export const BALANCE_FETCHED   = 'shop/balance-fetched';
-export const SHOPS_REQUESTED   = 'shop/items-requested';
-export const SHOPS_FETCHED     = 'shop/items-fetched';
-export const SHOP_SELECTED     = 'shop/selected';
-export const NAME_CHANGED      = 'shop/name-changed';
-export const FIAT_CHANGED      = 'shop/fiat-changed';
-export const DESC_CHANGED      = 'shop/description-changed';
-export const CREATING_SHOP     = 'shop/creating';
-export const SHOP_CREATED      = 'shop/created';
+export const IDS_REQUESTED       = 'shop/ids-requested';
+export const IDS_FETCHED         = 'shop/ids-fetched';
+export const SHOPS_REQUESTED     = 'shop/items-requested';
+export const SHOPS_FETCHED       = 'shop/items-fetched';
+export const SHOP_SELECTED       = 'shop/selected';
+export const NAME_CHANGED        = 'shop/name-changed';
+export const FIAT_CHANGED        = 'shop/fiat-changed';
+export const DESC_CHANGED        = 'shop/description-changed';
+export const CREATING_SHOP       = 'shop/creating';
+export const SHOP_CREATED        = 'shop/created';
+export const BALANCE_REQUESTED   = 'shop/balance-requested';
+export const BALANCE_FETCHED     = 'shop/balance-fetched';
+export const BALANCE_WITHDRAWING = 'shop/balance-withdrawing';
+export const BALANCE_WITHDRAWN   = 'shop/balance-withdrawn';
 
 export const getShops = (contract, owner) => {
 
@@ -146,6 +148,32 @@ export const fiatChanged = fiat => {
     return {
         type: FIAT_CHANGED,
         fiat
+    };
+
+};
+
+export const transferShopBalance = (contract, owner, shopId) => {
+
+    return async function(dispatch) {
+
+        dispatch({
+            type: BALANCE_WITHDRAWING,
+            withdrawingBalance: true,
+            balanceWithdrawn: true
+        });
+
+        withdrawShopBalance(contract, owner, shopId, event => {
+
+            dispatch({
+                type: BALANCE_WITHDRAWN,
+                withdrawingBalance: false,
+                balanceWithdrawn: true
+            });
+
+            dispatch(getShopBalance(contract, owner, shopId));
+
+        } );
+
     };
 
 };

@@ -8,9 +8,7 @@ export default function ShopsMenu(props) {
         shops,
         selectShop,
         selectedShopId,
-        creatingShop,
-        shopBalanceFetched,
-        selectedShopBalance
+        creatingShop
     } = props;
 
     // Render the menu

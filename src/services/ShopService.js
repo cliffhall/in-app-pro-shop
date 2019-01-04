@@ -56,3 +56,18 @@ export const fetchShopBalance = async (contract, owner, shopId) => {
     const fiatBalance = await contract.methods.checkShopBalance(shopId, true).call({from: owner});
     return (fiatBalance / 100).toFixed(2);
 };
+
+/**
+ * Witdraw the Shop balance (transfer to owner's address)
+ * @param contract
+ * @param owner
+ * @param shopId
+ * @returns {number[]}
+ */
+export const withdrawShopBalance = async (contract, owner, shopId, callback) => {
+
+    contract.events[EVENTS.SHOP_BALANCE_WITHDRAWN]({owner: owner}).once('data', callback);
+
+    contract.methods.withdrawShopBalance(shopId).send({from: owner});
+
+};
