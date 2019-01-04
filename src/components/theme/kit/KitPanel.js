@@ -8,7 +8,6 @@ import {slideInUp} from '../animations';
 const panelImageColorLeft = props => props.theme.navbar.left;
 const panelImageColorRight = props => props.theme.navbar.right;
 
-
 const StyledBootstrapPanel = styled(Panel)`
     &&& {
         padding: 0;
@@ -19,15 +18,14 @@ const StyledBootstrapPanel = styled(Panel)`
      }
 `;
 
-
-export class AppPanel extends Component {
+export class KitPanel extends Component {
     render() {
         const {...props} = this.props;
         return <StyledBootstrapPanel {...props}/>
     }
 }
 
-const SlidingBootstrapPanel = styled(AppPanel)`
+const SlidingBootstrapPanel = styled(KitPanel)`
     animation: ${slideInUp} .23s ease-out;
 `;
 
@@ -37,8 +35,6 @@ export class AppSlidingPanel extends Component {
         return <SlidingBootstrapPanel {...props}/>
     }
 }
-
-
 
 const StyledBootstrapPanelHeading = styled(Panel.Heading)`
     &&& {
@@ -53,7 +49,7 @@ const StyledBootstrapPanelHeading = styled(Panel.Heading)`
      }
 `;
 
-export class AppPanelHeading extends Component {
+export class KitPanelHeading extends Component {
     render() {
         const {...props} = this.props;
         return <StyledBootstrapPanelHeading {...props}/>
@@ -68,7 +64,7 @@ const StyledBootstrapFlexPanelTitle = styled(Panel.Title)`
     }
 `;
 
-export class AppPanelTitle extends Component {
+export class KitPanelTitle extends Component {
     render() {
         const {...props} = this.props;
         return <StyledBootstrapFlexPanelTitle {...props}/>
@@ -86,7 +82,7 @@ const StyledBootstrapPanelBody = styled(Panel.Body)`
     }
 `;
 
-export class AppPanelBody extends Component {
+export class KitPanelBody extends Component {
     render() {
         const {...props} = this.props;
         return <StyledBootstrapPanelBody {...props}/>
@@ -98,7 +94,7 @@ const StyledBootstrapPanelGroup = styled(PanelGroup)`
   flex-grow: 2;  
 `;
 
-export class AppPanelGroup extends Component {
+export class KitPanelGroup extends Component {
     render() {
         const {...props} = this.props;
         return <StyledBootstrapPanelGroup {...props}/>

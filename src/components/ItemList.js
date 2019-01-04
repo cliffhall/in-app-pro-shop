@@ -4,7 +4,7 @@ import {AtomSpinner} from "react-epic-spinners";
 
 import ItemView from "./ItemView";
 import {CURRENCIES} from "../constants";
-import {AppPanelGroup, AppTable, AppWell} from "./styled";
+import {KitPanelGroup, KitTable, KitWell} from "./theme";
 
 export default function ItemList(props) {
     const {skusFetched, skuType, shop, skus} = props;
@@ -15,8 +15,8 @@ export default function ItemList(props) {
     };
 
     return skusFetched
-        ? <AppPanelGroup id={`skus-${skuType.skuTypeId}`}>
-            <AppTable striped bordered condensed hover>
+        ? <KitPanelGroup id={`skus-${skuType.skuTypeId}`}>
+            <KitTable striped bordered condensed hover>
                 <thead>
                 <tr>
                     <td>Name</td>
@@ -30,10 +30,10 @@ export default function ItemList(props) {
                 <tbody>
                 {renderSKUs()}
                 </tbody>
-            </AppTable>
-        </AppPanelGroup>
-        : <AppWell>
+            </KitTable>
+        </KitPanelGroup>
+        : <KitWell>
             <h2>Fetching SKUs</h2>
             <AtomSpinner color='red'/>
-        </AppWell>;
+        </KitWell>;
 };

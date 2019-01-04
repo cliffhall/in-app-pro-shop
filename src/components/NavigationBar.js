@@ -7,7 +7,7 @@ import BalanceMenu from "./BalanceMenu";
 import AccountsMenu from "./AccountsMenu";
 import {selectAccount} from "../store/account/AccountActions";
 import {selectShop, transferShopBalance} from "../store/shop/ShopActions";
-import {AppNavbar, AppNavbarHeader, AppNav, AppNavbarBrand} from "./styled";
+import {KitNavbar, KitNavbarHeader, KitNav, KitNavbarBrand} from "./theme";
 
 class NavigationBar extends Component {
 
@@ -16,23 +16,23 @@ class NavigationBar extends Component {
 
         const {initialized, accounts, selectedShopBalance} = this.props;
 
-        return <AppNavbar fixedTop={true} collapseOnSelect>
-            <AppNavbarHeader>
-                <AppNavbarBrand>
+        return <KitNavbar fixedTop={true} collapseOnSelect>
+            <KitNavbarHeader>
+                <KitNavbarBrand>
                     <Glyphicon glyph="tower"/>
                     &nbsp;
                     In-App Pro Shop
-                </AppNavbarBrand>
+                </KitNavbarBrand>
                 <Navbar.Toggle/>
-            </AppNavbarHeader>
+            </KitNavbarHeader>
             <Navbar.Collapse>
-                <AppNav pullRight>
+                <KitNav pullRight>
                 {selectedShopBalance ? <BalanceMenu {...this.props}/> : null}
                 {accounts ? <ShopsMenu {...this.props}/> : null}
                 {initialized ? <AccountsMenu {...this.props}/> : null}
-                </AppNav>
+                </KitNav>
             </Navbar.Collapse>
-        </AppNavbar>;
+        </KitNavbar>;
     }
 }
 

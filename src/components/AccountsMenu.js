@@ -1,6 +1,6 @@
 import React from "react";
 
-import {AppMenuItem, AppMonoMenuItem, AppNavDropdown} from "./styled";
+import {KitMenuItem, KitMonoMenuItem, KitNavDropdown} from "./theme";
 
 export default function AccountsMenu(props) {
 
@@ -14,21 +14,21 @@ export default function AccountsMenu(props) {
 
     // Render the menu
     return accounts
-        ? <AppNavDropdown
+        ? <KitNavDropdown
             disabled={creatingShop}
             title={`Accounts (${accounts.length})`}
             id='account-dropdown'>
             {accounts.map(
-                account => <AppMonoMenuItem
+                account => <KitMonoMenuItem
                     key={account}
                     active={account === selectedAccount}
                     onSelect={() => {if (account !== selectedAccount) selectAccount(account)}}
-                >{account}</AppMonoMenuItem>)}
-            <AppMenuItem divider/>
-            <AppMenuItem disabled={!selectedAccount}
-                         onClick={() => viewAccountOnEtherscan(selectedAccount)}>View Selected Account on Etherscan</AppMenuItem>
-        </AppNavDropdown>
-        : <AppNavDropdown title='Accounts' id='account-dropdown'>
-            <AppMenuItem disabled={true}>No Accounts</AppMenuItem>
-        </AppNavDropdown>;
+                >{account}</KitMonoMenuItem>)}
+            <KitMenuItem divider/>
+            <KitMenuItem disabled={!selectedAccount}
+                         onClick={() => viewAccountOnEtherscan(selectedAccount)}>View Selected Account on Etherscan</KitMenuItem>
+        </KitNavDropdown>
+        : <KitNavDropdown title='Accounts' id='account-dropdown'>
+            <KitMenuItem disabled={true}>No Accounts</KitMenuItem>
+        </KitNavDropdown>;
 };

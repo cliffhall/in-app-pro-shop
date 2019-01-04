@@ -3,15 +3,15 @@ import {HollowDotsSpinner} from "react-epic-spinners";
 import {ControlLabel, FormGroup, Glyphicon} from "react-bootstrap";
 
 import {
-    AppButton,
-    AppForm,
-    AppFormControl,
-    AppHelpBlock,
-    AppSlidingWell,
-    AppToggleButton,
-    AppToggleButtonGroup,
+    KitButton,
+    KitForm,
+    KitFormControl,
+    KitHelpBlock,
+    KitSlidingWell,
+    KitToggleButton,
+    KitToggleButtonGroup,
     FlexChild
-} from "./styled";
+} from "./theme";
 import {CONTRACTS, CURRENCIES} from "../constants";
 import FormControl from "react-bootstrap/es/FormControl";
 
@@ -64,12 +64,12 @@ export default function ShopForm(props) {
         fiatChanged(selection);
     };
 
-    return <FlexChild><AppSlidingWell><AppForm>
+    return <FlexChild><KitSlidingWell><KitForm>
         <h2>Create&nbsp;a&nbsp;New&nbsp;Shop</h2>
         <FormGroup
             controlId='nameField'
             validationState={getNameValidationState()}>
-            <AppFormControl
+            <KitFormControl
                 disabled={creatingShop}
                 type="text"
                 bsSize='large'
@@ -78,13 +78,13 @@ export default function ShopForm(props) {
             />
             <FormControl.Feedback />
             {(getNameValidationState() === ERROR)
-                ? <AppHelpBlock>Enter at least 3 characters</AppHelpBlock>
+                ? <KitHelpBlock>Enter at least 3 characters</KitHelpBlock>
                 : null}
         </FormGroup>
         <FormGroup
             controlId='descField'
             validationState={getDescValidationState()}>
-            <AppFormControl
+            <KitFormControl
                 disabled={creatingShop}
                 componentClass="textarea"
                 bsSize='large'
@@ -93,27 +93,27 @@ export default function ShopForm(props) {
             />
             <FormControl.Feedback />
             {(getDescValidationState() === ERROR)
-                ? <AppHelpBlock>Enter at least 5 characters</AppHelpBlock>
+                ? <KitHelpBlock>Enter at least 5 characters</KitHelpBlock>
                 : null}
         </FormGroup>
 
         <FormGroup>
             <ControlLabel>Fiat Currency for Prices</ControlLabel>
             <br/>
-            <AppToggleButtonGroup
+            <KitToggleButtonGroup
                 type="radio"
                 name="shopCurrency"
                 onChange={handleFiatChange}
                 value={fiat}>
-                {Object.values(CURRENCIES).map(sym => <AppToggleButton key={sym.symbol} value={sym.symbol}><Glyphicon glyph={sym.icon} /> - {sym.symbol}</AppToggleButton>)}
-            </AppToggleButtonGroup>
+                {Object.values(CURRENCIES).map(sym => <KitToggleButton key={sym.symbol} value={sym.symbol}><Glyphicon glyph={sym.icon} /> - {sym.symbol}</KitToggleButton>)}
+            </KitToggleButtonGroup>
         </FormGroup>
         {creatingShop
             ? <HollowDotsSpinner color='black'/>
-            : <AppButton
+            : <KitButton
                 bsSize='large'
                 disabled={isSubmitDisabled()}
-                onClick={handleSubmit}>Create</AppButton>}
+                onClick={handleSubmit}>Create</KitButton>}
 
-    </AppForm></AppSlidingWell></FlexChild>;
+    </KitForm></KitSlidingWell></FlexChild>;
 };

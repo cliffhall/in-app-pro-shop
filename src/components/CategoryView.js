@@ -5,12 +5,12 @@ import {connect} from "react-redux";
 import ItemList from "./ItemList";
 import ItemForm from "./ItemForm";
 import {
-    AppPanel,
-    AppPanelHeading,
-    AppPanelTitle,
-    AppPanelBody,
-    AppButton
-} from "./styled";
+    KitPanel,
+    KitPanelHeading,
+    KitPanelTitle,
+    KitPanelBody,
+    KitButton
+} from "./theme";
 import {
     priceChanged,
     descChanged,
@@ -62,23 +62,23 @@ class CategoryView extends Component {
             skuFormDisplayed
         } = this.props;
 
-        return  <React.Fragment><AppPanel>
-            <AppPanelHeading>
-                <AppPanelTitle>
+        return  <React.Fragment><KitPanel>
+            <KitPanelHeading>
+                <KitPanelTitle>
                     {skuType.name}
                     <div className="pull-right">
                         {skuTypeFormDisplayed || skuFormDisplayed
                             ? null
-                            : <AppButton onClick={this.handleToggleForm}>Add Item</AppButton>}
+                            : <KitButton onClick={this.handleToggleForm}>Add Item</KitButton>}
                     </div>
-                </AppPanelTitle>
+                </KitPanelTitle>
                 {skuType.description}
-            </AppPanelHeading>
-            <AppPanelBody>
+            </KitPanelHeading>
+            <KitPanelBody>
                 <ItemList {...this.props}/>
                 {skuFormDisplayed && selectedSKUTypeId === skuType.skuTypeId ? <ItemForm {...this.props}/> : null}
-            </AppPanelBody>
-        </AppPanel>
+            </KitPanelBody>
+        </KitPanel>
             <div>&nbsp;</div>
         </React.Fragment>;
     }

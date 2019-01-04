@@ -115,6 +115,10 @@ A React/Redux application for maintaining Shops and checking/withdrawing Shop ow
 |   +---+ abi (compiled Solidity contracts)
 |   |
 |   +---+ components (React app UI components)
+|   |   |
+|   |   +---+ theme (Application theme config)
+|   |       |
+|   |       + ---+ kit (Styled component kit)
 |   |
 |   +---+ constants (Contracts, Events, and other constants)
 |   |
@@ -123,8 +127,6 @@ A React/Redux application for maintaining Shops and checking/withdrawing Shop ow
 |   +---+ services (JS code for persistence and retrieval)
 |   |
 |   +---+ store (Redux store, actions, reducers, and tests)
-|   |
-|   +---+ styles (Styled components)
 |   |
 |   +---+ index.js (React app bootstrap)
 |

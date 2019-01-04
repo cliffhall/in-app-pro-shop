@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const AppWrapper = styled.section`
+export const KitWrapper = styled.section`
   padding: 75px;
   -webkit-touch-callout: none;
     -webkit-user-select: none; 

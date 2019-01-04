@@ -3,14 +3,14 @@ import {Checkbox, FormGroup} from "react-bootstrap";
 import {HollowDotsSpinner} from "react-epic-spinners";
 
 import {
-    AppButton,
-    AppCurrencyInput,
-    AppForm,
-    AppFormControl,
-    AppHelpBlock,
-    AppSlidingWell,
+    KitButton,
+    KitCurrencyInput,
+    KitForm,
+    KitFormControl,
+    KitHelpBlock,
+    KitSlidingWell,
     FlexChild
-} from "./styled";
+} from "./theme";
 import {CONTRACTS} from "../constants";
 import FormControl from "react-bootstrap/es/FormControl";
 
@@ -101,15 +101,15 @@ export default function ItemForm(props) {
     };
 
     return <FlexChild>
-        <AppSlidingWell>
-            <AppForm>
+        <KitSlidingWell>
+            <KitForm>
 
                 <h2>Add Item</h2>
 
                 <FormGroup
                     controlId='nameField'
                     validationState={getNameValidationState()}>
-                    <AppFormControl
+                    <KitFormControl
                         disabled={creatingSKU}
                         type="text"
                         bsSize='large'
@@ -119,14 +119,14 @@ export default function ItemForm(props) {
                     />
                     <FormControl.Feedback />
                     {(getNameValidationState() === ERROR)
-                        ? <AppHelpBlock>Enter at least 3 characters</AppHelpBlock>
+                        ? <KitHelpBlock>Enter at least 3 characters</KitHelpBlock>
                         : null}
                 </FormGroup>
 
                 <FormGroup
                     controlId='descField'
                     validationState={getDescValidationState()}>
-                    <AppFormControl
+                    <KitFormControl
                         disabled={creatingSKU}
                         componentClass="textarea"
                         bsSize='large'
@@ -136,19 +136,19 @@ export default function ItemForm(props) {
                     />
                     <FormControl.Feedback />
                     {(getDescValidationState() === ERROR)
-                        ? <AppHelpBlock>Enter at least 5 characters</AppHelpBlock>
+                        ? <KitHelpBlock>Enter at least 5 characters</KitHelpBlock>
                         : null}
                 </FormGroup>
 
                 <FormGroup
                     controlId='priceField'
                     validationState={getPriceValidationState()}>
-                    <AppCurrencyInput placeholder={`Price (${shop.fiat})`}
+                    <KitCurrencyInput placeholder={`Price (${shop.fiat})`}
                                       className='form-control input-lg'
                                       onChange={handlePriceChange}/>
                     <FormControl.Feedback />
                     {(getPriceValidationState() === ERROR)
-                        ? <AppHelpBlock>Enter a non-negative numeric value</AppHelpBlock>
+                        ? <KitHelpBlock>Enter a non-negative numeric value</KitHelpBlock>
                         : null}
                 </FormGroup>
 
@@ -168,7 +168,7 @@ export default function ItemForm(props) {
                     ? <FormGroup
                         controlId='limitField'
                         validationState={getLimitValidationState()}>
-                        <AppFormControl
+                        <KitFormControl
                             disabled={creatingSKU}
                             type="text"
                             bsSize='large'
@@ -177,26 +177,26 @@ export default function ItemForm(props) {
                         />
                         <FormControl.Feedback />
                         {(getLimitValidationState() === ERROR)
-                            ? <AppHelpBlock>Enter a positive numeric value</AppHelpBlock>
+                            ? <KitHelpBlock>Enter a positive numeric value</KitHelpBlock>
                             : null}
                     </FormGroup>
                     : null}
 
                 {creatingSKU
                     ? <HollowDotsSpinner color='black'/>
-                    : <AppButton
+                    : <KitButton
                         bsSize='large'
                         disabled={isSubmitDisabled()}
-                        onClick={handleSubmit}>Create</AppButton>}
+                        onClick={handleSubmit}>Create</KitButton>}
 
                 <span>&nbsp;</span>
 
-                <AppButton
+                <KitButton
                     onClick={toggleForm}
-                    bsSize='large'>Cancel</AppButton>
+                    bsSize='large'>Cancel</KitButton>
 
 
-            </AppForm>
-        </AppSlidingWell>
+            </KitForm>
+        </KitSlidingWell>
     </FlexChild>;
 };

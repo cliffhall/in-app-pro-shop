@@ -3,13 +3,13 @@ import {FormGroup, FormControl} from "react-bootstrap";
 import {HollowDotsSpinner} from "react-epic-spinners";
 
 import {
-    AppButton,
-    AppForm,
-    AppFormControl,
-    AppHelpBlock,
-    AppSlidingWell,
+    KitButton,
+    KitForm,
+    KitFormControl,
+    KitHelpBlock,
+    KitSlidingWell,
     FlexChild
-} from "./styled";
+} from "./theme";
 import {CONTRACTS} from "../constants";
 
 export default function CategoryForm(props) {
@@ -58,15 +58,15 @@ export default function CategoryForm(props) {
     };
 
     return <FlexChild>
-        <AppSlidingWell>
-            <AppForm>
+        <KitSlidingWell>
+            <KitForm>
                 <h2>
                     Add Category
                 </h2>
                 <FormGroup
                     controlId='nameField'
                     validationState={getNameValidationState()}>
-                    <AppFormControl
+                    <KitFormControl
                         disabled={creatingSKUType}
                         type="text"
                         bsSize='large'
@@ -76,14 +76,14 @@ export default function CategoryForm(props) {
                     />
                     <FormControl.Feedback />
                     {(getNameValidationState() === ERROR)
-                        ? <AppHelpBlock>Enter at least 3 characters</AppHelpBlock>
+                        ? <KitHelpBlock>Enter at least 3 characters</KitHelpBlock>
                         : null}
                 </FormGroup>
 
                 <FormGroup
                     controlId='descField'
                     validationState={getDescValidationState()}>
-                    <AppFormControl
+                    <KitFormControl
                         disabled={creatingSKUType}
                         componentClass="textarea"
                         bsSize='large'
@@ -93,24 +93,24 @@ export default function CategoryForm(props) {
                     />
                     <FormControl.Feedback />
                     {(getDescValidationState() === ERROR)
-                        ? <AppHelpBlock>Enter at least 5 characters</AppHelpBlock>
+                        ? <KitHelpBlock>Enter at least 5 characters</KitHelpBlock>
                         : null}
                 </FormGroup>
 
                 {creatingSKUType
                     ? <HollowDotsSpinner color='black'/>
-                    : <AppButton
+                    : <KitButton
                         bsSize='large'
                         disabled={isSubmitDisabled()}
-                        onClick={handleSubmit}>Create</AppButton>}
+                        onClick={handleSubmit}>Create</KitButton>}
 
                 <span>&nbsp;</span>
 
-                <AppButton
+                <KitButton
                     onClick={toggleTypeForm}
-                    bsSize='large'>Cancel</AppButton>
+                    bsSize='large'>Cancel</KitButton>
 
-            </AppForm>
-        </AppSlidingWell>
+            </KitForm>
+        </KitSlidingWell>
     </FlexChild>;
 };

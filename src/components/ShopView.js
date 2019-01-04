@@ -5,11 +5,11 @@ import CategoryList from "./CategoryList";
 import CategoryForm from "./CategoryForm";
 import {
     AppSlidingPanel,
-    AppPanelHeading,
-    AppPanelTitle,
-    AppPanelBody,
-    AppButton
-} from "./styled";
+    KitPanelHeading,
+    KitPanelTitle,
+    KitPanelBody,
+    KitButton
+} from "./theme";
 import {toggleTypeForm, createNewSKUType, nameChanged, descChanged} from "../store/sku_type/SKUTypeActions";
 
 class ShopView extends Component {
@@ -26,21 +26,21 @@ class ShopView extends Component {
         } = this.props;
 
         return  <AppSlidingPanel>
-                    <AppPanelHeading>
-                        <AppPanelTitle>
+                    <KitPanelHeading>
+                        <KitPanelTitle>
                             {shop.name}
                             <div className="pull-right">
                             {!skuTypesFetched || skuTypeFormDisplayed || skuFormDisplayed
                                 ? null
-                                : <AppButton onClick={toggleTypeForm}>Add Category</AppButton>}
+                                : <KitButton onClick={toggleTypeForm}>Add Category</KitButton>}
                             </div>
-                        </AppPanelTitle>
+                        </KitPanelTitle>
                         {shop.description}
-                    </AppPanelHeading>
-                    <AppPanelBody>
+                    </KitPanelHeading>
+                    <KitPanelBody>
                         <CategoryList {...this.props}/>
                         {skuTypeFormDisplayed ? <CategoryForm {...this.props}/> : null}
-                    </AppPanelBody>
+                    </KitPanelBody>
                 </AppSlidingPanel>;
     }
 }

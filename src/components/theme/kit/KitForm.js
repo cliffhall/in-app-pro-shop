@@ -13,7 +13,7 @@ const StyledBootstrapForm = styled(Form)`
     
 `;
 
-export class AppForm extends Component {
+export class KitForm extends Component {
     render() {
         const {...props} = this.props;
         return <StyledBootstrapForm {...props}/>
@@ -26,7 +26,7 @@ const StyledBootstrapFormControl = styled(FormControl)`
     resize: none;
 `;
 
-export class AppFormControl extends Component {
+export class KitFormControl extends Component {
     render() {
         const {...props} = this.props;
         return <StyledBootstrapFormControl {...props}/>
@@ -40,7 +40,7 @@ const StyledBootstrapCurrencyInput = styled(CurrencyInput)`
     
 `;
 
-export class AppCurrencyInput extends Component {
+export class KitCurrencyInput extends Component {
     render() {
         const {...props} = this.props;
         return <StyledBootstrapCurrencyInput {...props}/>
@@ -56,7 +56,7 @@ const StyledBootstrapHelpBlock = styled(HelpBlock)`
     
 `;
 
-export class AppHelpBlock extends Component {
+export class KitHelpBlock extends Component {
     render() {
         const {...props} = this.props;
         return <StyledBootstrapHelpBlock {...props}/>
