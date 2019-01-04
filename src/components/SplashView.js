@@ -3,11 +3,11 @@ import {connect} from "react-redux";
 import {AtomSpinner} from "react-epic-spinners";
 
 import {
-    AppSlidingWell,
-    AppWell,
+    KitSlidingWell,
+    KitWell,
     FlexChild,
     FlexRow
-} from "./styled";
+} from "./theme";
 import ShopForm from "./ShopForm";
 import {createNewShop, nameChanged, descChanged, fiatChanged} from "../store/shop/ShopActions";
 
@@ -49,16 +49,16 @@ class SplashView extends Component {
         const {initialized} = this.props;
         return <FlexChild>
             {initialized
-                ? <AppSlidingWell>
+                ? <KitSlidingWell>
                     <h2>Connect an Ethereum Account</h2>
                     <p>In order to use this Dapp, you must use a browser plugin (e.g., Metamask) or an Ethereum-aware browser (e.g., Trust)</p>
                     <p>You'll need to configure your plugin or browser with one or more accounts that you'll use to maintain Shops, withdraw balances, and make test purchases.</p>
                     <p>If you have an appropriate browser / plugin with configured accounts, be sure you're signed in.</p>
-                  </AppSlidingWell>
-                : <AppWell>
+                  </KitSlidingWell>
+                : <KitWell>
                     <h2>Connect&nbsp;to&nbsp;Ether&nbsp;...&nbsp;</h2>
                     <AtomSpinner color='red'/>
-                  </AppWell>
+                  </KitWell>
             }
         </FlexChild>;
     };

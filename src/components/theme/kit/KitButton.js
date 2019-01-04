@@ -21,7 +21,7 @@ const StyledBootstrapButton = styled(Button)`
 
 `;
 
-export class AppButton extends Component {
+export class KitButton extends Component {
     render() {
         const {...props} = this.props;
         return <StyledBootstrapButton {...props}/>
@@ -42,14 +42,14 @@ const StyledBootstrapToggleButton = styled(ToggleButton)`
     }
 `;
 
-export class AppToggleButton extends Component {
+export class KitToggleButton extends Component {
     render() {
         const {...props} = this.props;
         return <StyledBootstrapToggleButton {...props}/>
     }
 }
 
-export const AppToggleButtonGroup = styled(ToggleButtonGroup)`
+export const KitToggleButtonGroup = styled(ToggleButtonGroup)`
     
     &&& .active {
         background-image: unset;

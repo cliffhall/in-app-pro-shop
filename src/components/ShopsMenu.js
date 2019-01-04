@@ -1,5 +1,5 @@
 import React from "react";
-import {AppMenuItem, AppNavDropdown} from "./styled";
+import {KitMenuItem, KitNavDropdown} from "./theme";
 
 export default function ShopsMenu(props) {
 
@@ -12,19 +12,19 @@ export default function ShopsMenu(props) {
     } = props;
 
     // Render the menu
-    return <AppNavDropdown
+    return <KitNavDropdown
             disabled={creatingShop}
             title={`Shops (${shops.length})`}
             id='shop-dropdown'>
             {shops.length
                 ? shops.map(
-                    shop => <AppMenuItem
+                    shop => <KitMenuItem
                         key={shop.shopId}
                         active={shop.shopId === selectedShopId}
                         onSelect={() => selectShop(shop.shopId)}
-                    >{shop.name}</AppMenuItem>)
-                : <AppMenuItem disabled={true}>No Shops</AppMenuItem>}
-            <AppMenuItem divider/>
-            <AppMenuItem onClick={() => selectShop(null)} disabled={!selectedShopId}>Create Shop</AppMenuItem>
-        </AppNavDropdown>;
+                    >{shop.name}</KitMenuItem>)
+                : <KitMenuItem disabled={true}>No Shops</KitMenuItem>}
+            <KitMenuItem divider/>
+            <KitMenuItem onClick={() => selectShop(null)} disabled={!selectedShopId}>Create Shop</KitMenuItem>
+        </KitNavDropdown>;
 };

@@ -3,7 +3,6 @@ import {Component} from "react";
 import {Table} from "react-bootstrap";
 import styled from "styled-components";
 
-
 const StyledBootstrapTable = styled(Table)`
 
     &&& {
@@ -26,7 +25,7 @@ const StyledBootstrapTable = styled(Table)`
 
 `;
 
-export class AppTable extends Component {
+export class KitTable extends Component {
     render() {
         const {...props} = this.props;
         return <StyledBootstrapTable {...props}/>

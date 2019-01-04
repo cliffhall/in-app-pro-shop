@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {ThemeProvider} from "styled-components";
 
-import theme from "./styled/theme";
+import theme from "./theme/theme";
 import ShopView from "./ShopView";
 import SplashView from "./SplashView";
 import NavigationBar from "./NavigationBar";
@@ -12,7 +12,7 @@ import {getSKUTypes} from "../store/sku_type/SKUTypeActions";
 import {getShopBalance, getShops} from "../store/shop/ShopActions";
 import {accountsFetched, selectAccount} from "../store/account/AccountActions";
 
-import {AppWrapper} from "./styled";
+import {KitWrapper} from "./theme";
 
 class App extends Component {
 
@@ -70,10 +70,10 @@ class App extends Component {
     };
 
     render() { return <ThemeProvider theme={this.props.theme}>
-        <AppWrapper>
+        <KitWrapper>
             {this.renderNavigation()}
             {this.renderAppContent()}
-        </AppWrapper>
+        </KitWrapper>
     </ThemeProvider>;
     }
 }

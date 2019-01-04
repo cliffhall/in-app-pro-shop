@@ -26,18 +26,18 @@ const StyledBootstrapWell = styled(Well)`
     }    
 `;
 
-export class AppWell extends Component {
+export class KitWell extends Component {
     render() {
         const {...props} = this.props;
         return <StyledBootstrapWell {...props}/>
     }
 }
 
-const SlidingBootstrapWell = styled(AppWell)`
+const SlidingBootstrapWell = styled(KitWell)`
     animation: ${slideInLeft} .23s ease-out;
 `;
 
-export class AppSlidingWell extends Component {
+export class KitSlidingWell extends Component {
     render() {
         const {...props} = this.props;
         return <SlidingBootstrapWell {...props}/>

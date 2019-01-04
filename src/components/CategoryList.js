@@ -2,7 +2,7 @@ import React from "react";
 import {AtomSpinner} from "react-epic-spinners";
 
 import CategoryView from "./CategoryView";
-import {AppPanelGroup, AppWell} from "./styled";
+import {KitPanelGroup, KitWell} from "./theme";
 
 export default function CategoryList(props) {
 
@@ -10,14 +10,14 @@ export default function CategoryList(props) {
     const {skuTypesFetched, skuTypes, drizzle, shop} = props;
 
     // Render the SKU Type list(or a message and spinner if still fetching
-    return <AppPanelGroup id="skuTypes">
+    return <KitPanelGroup id="skuTypes">
         {
             skuTypesFetched
                 ? skuTypes.map( skuType => <CategoryView drizzle={drizzle} key={skuType.skuTypeId} skuType={skuType} shop={shop}/> )
-                : <AppWell>
+                : <KitWell>
                     <h2>Fetching Categories</h2>
                     <AtomSpinner color='red'/>
-                </AppWell>
+                </KitWell>
         }
-    </AppPanelGroup>
+    </KitPanelGroup>
 };

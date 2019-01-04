@@ -2,7 +2,7 @@ import React from "react";
 import {Glyphicon} from "react-bootstrap";
 
 import {CURRENCIES, CONTRACTS} from "../constants";
-import {AppMenuItem, AppMonoMenuItem, AppNavDropdown} from "./styled";
+import {KitMenuItem, KitMonoMenuItem, KitNavDropdown} from "./theme";
 
 export default function BalanceMenu(props) {
 
@@ -26,12 +26,12 @@ export default function BalanceMenu(props) {
     };
 
     // Render the menu
-    return <AppNavDropdown
+    return <KitNavDropdown
         title={`Balance`}
         id='shop-dropdown'>
-        <AppMonoMenuItem header>AVAILABLE: <Glyphicon glyph={CURRENCIES[shop.fiat].icon}/>{selectedShopBalance}</AppMonoMenuItem>
+        <KitMonoMenuItem header>AVAILABLE: <Glyphicon glyph={CURRENCIES[shop.fiat].icon}/>{selectedShopBalance}</KitMonoMenuItem>
         {canWithdraw()
-            ? <><AppMenuItem divider/><AppMenuItem onClick={() => handleWithdrawShopBalance()}>Withdraw Shop Balance</AppMenuItem></>
+            ? <><KitMenuItem divider/><KitMenuItem onClick={() => handleWithdrawShopBalance()}>Withdraw Shop Balance</KitMenuItem></>
             : null}
-    </AppNavDropdown>;
+    </KitNavDropdown>;
 };

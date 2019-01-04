@@ -43,7 +43,7 @@ const StyledBootstrapNavbar = styled(Navbar)`
     }
 `;
 
-export class AppNavbar extends Component {
+export class KitNavbar extends Component {
     render() {
         const {...props} = this.props;
         return (
@@ -60,7 +60,7 @@ const StyledBootstrapNavbarHeader = styled(Navbar.Header)`
     }
 `;
 
-export class AppNavbarHeader extends Component {
+export class KitNavbarHeader extends Component {
     render() {
         const {...props} = this.props;
         return <StyledBootstrapNavbarHeader {...props}/>
@@ -75,7 +75,7 @@ const StyledBootstrapNavbarBrand = styled(Navbar.Brand)`
     }
 `;
 
-export class AppNavbarBrand extends Component {
+export class KitNavbarBrand extends Component {
     render() {
         const {...props} = this.props;
         return <StyledBootstrapNavbarBrand {...props}/>
@@ -100,7 +100,7 @@ const StyledBootstrapNav = styled(Nav)`
     
 `;
 
-export class AppNav extends Component {
+export class KitNav extends Component {
     render() {
         const {...props} = this.props;
         return <StyledBootstrapNav {...props}/>
@@ -151,7 +151,7 @@ const StyledBootstrapNavDropdown = styled(NavDropdown)`
 
 `;
 
-export class AppNavDropdown extends Component {
+export class KitNavDropdown extends Component {
     render() {
         const {...props} = this.props;
         return <StyledBootstrapNavDropdown {...props}/>
@@ -173,14 +173,14 @@ const StyledBootstrapMenuItem = styled(MenuItem)`
     }
 `;
 
-export class AppMenuItem extends Component {
+export class KitMenuItem extends Component {
     render() {
         const {...props} = this.props;
         return <StyledBootstrapMenuItem {...props}/>
     }
 }
 
-const StyledBootstrapMonoMenuItem = styled(AppMenuItem)`
+const StyledBootstrapMonoMenuItem = styled(KitMenuItem)`
 
     font-family: 'PT Mono', monospace;
     text-align: right;
@@ -190,7 +190,7 @@ const StyledBootstrapMonoMenuItem = styled(AppMenuItem)`
 
 `;
 
-export class AppMonoMenuItem extends Component {
+export class KitMonoMenuItem extends Component {
     render() {
         const {...props} = this.props;
         return <StyledBootstrapMonoMenuItem {...props}/>
