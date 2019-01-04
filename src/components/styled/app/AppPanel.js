@@ -1,7 +1,7 @@
+import React from "react";
+import {Component} from "react";
 import styled from "styled-components";
 import {Panel, PanelGroup} from "react-bootstrap";
-import {Component} from "react";
-import React from "react";
 
 import {slideInUp} from '../animations';
 

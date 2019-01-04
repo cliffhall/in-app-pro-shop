@@ -1,13 +1,12 @@
-import styled from "styled-components";
-import {Well} from "react-bootstrap";
-import {Component} from "react";
 import React from "react";
+import {Component} from "react";
+import {Well} from "react-bootstrap";
+import styled from "styled-components";
 
-import {slideInLeft} from '../animations';
+import {slideInLeft} from "../animations";
 
 const navbarImageColorTop = props => props.theme.well.top;
 const navbarImageColorBottom = props => props.theme.well.bottom;
-
 
 const StyledBootstrapWell = styled(Well)`
 

@@ -4,7 +4,7 @@ import {AtomSpinner} from "react-epic-spinners";
 
 import ItemView from "./ItemView";
 import {CURRENCIES} from "../constants";
-import {AppPanelGroup, AppTable, AppWell} from "../styles";
+import {AppPanelGroup, AppTable, AppWell} from "./styled";
 
 export default function ItemList(props) {
     const {skusFetched, skuType, shop, skus} = props;

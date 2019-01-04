@@ -11,7 +11,7 @@ import {
     AppToggleButton,
     AppToggleButtonGroup,
     FlexChild
-} from "../styles";
+} from "./styled";
 import {CONTRACTS, CURRENCIES} from "../constants";
 import FormControl from "react-bootstrap/es/FormControl";
 

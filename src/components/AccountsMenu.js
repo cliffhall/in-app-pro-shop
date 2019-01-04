@@ -1,5 +1,6 @@
 import React from "react";
-import {AppMenuItem, AppMonoMenuItem, AppNavDropdown} from "../styles";
+
+import {AppMenuItem, AppMonoMenuItem, AppNavDropdown} from "./styled";
 
 export default function AccountsMenu(props) {
 

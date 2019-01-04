@@ -1,5 +1,5 @@
 import React from "react";
-import {AppMenuItem, AppNavDropdown} from "../styles";
+import {AppMenuItem, AppNavDropdown} from "./styled";
 
 export default function ShopsMenu(props) {
 

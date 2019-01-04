@@ -2,7 +2,7 @@ import React from "react";
 import {AtomSpinner} from "react-epic-spinners";
 
 import CategoryView from "./CategoryView";
-import {AppPanelGroup, AppWell} from "../styles";
+import {AppPanelGroup, AppWell} from "./styled";
 
 export default function CategoryList(props) {
 

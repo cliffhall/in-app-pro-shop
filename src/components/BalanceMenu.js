@@ -1,7 +1,8 @@
 import React from "react";
 import {Glyphicon} from "react-bootstrap";
-import {AppMenuItem, AppMonoMenuItem, AppNavDropdown} from "../styles";
+
 import {CURRENCIES, CONTRACTS} from "../constants";
+import {AppMenuItem, AppMonoMenuItem, AppNavDropdown} from "./styled";
 
 export default function BalanceMenu(props) {
 
