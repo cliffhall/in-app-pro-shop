@@ -14,7 +14,7 @@ class NavigationBar extends Component {
     // Render the Navbar
     render() {
 
-        const {initialized, accounts, selectedShopBalance} = this.props;
+        const {initialized, shops, selectedShopBalance} = this.props;
 
         return <KitNavbar fixedTop={true} collapseOnSelect>
             <KitNavbarHeader>
@@ -28,7 +28,7 @@ class NavigationBar extends Component {
             <Navbar.Collapse>
                 <KitNav pullRight>
                 {selectedShopBalance ? <BalanceMenu {...this.props}/> : null}
-                {accounts ? <ShopsMenu {...this.props}/> : null}
+                {shops ? <ShopsMenu {...this.props}/> : null}
                 {initialized ? <AccountsMenu {...this.props}/> : null}
                 </KitNav>
             </Navbar.Collapse>
@@ -40,7 +40,7 @@ const mapStateToProps = (state) => ({
     accounts: state.accountState.accounts,
     selectedAccount: state.accountState.selectedAccount,
     shops: state.shopState.shops,
-    shop: state.shopState.shops.find(shop => shop.shopId === state.shopState.selectedShopId),
+    shop: state.shopState.shops ? state.shopState.shops.find(shop => shop.shopId === state.shopState.selectedShopId) : null,
     selectedShopId: state.shopState.selectedShopId,
     creatingShop: state.shopState.creatingShop,
     shopBalanceFetched: state.shopState.shopBalanceFetched,

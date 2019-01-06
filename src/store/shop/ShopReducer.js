@@ -30,11 +30,11 @@ const INITIAL_STATE = {
 
     fetchingIds: false,
     idsFetched: false,
-    ids:[],
+    ids: null,
 
     fetchingShops: false,
     shopsFetched: false,
-    shops:[],
+    shops: null,
 
     selectedShopId: null,
     fetchingShopBalance: false,
