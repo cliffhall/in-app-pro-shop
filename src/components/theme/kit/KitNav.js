@@ -3,11 +3,13 @@ import styled from "styled-components";
 import { Navbar, Nav, NavDropdown, MenuItem } from "react-bootstrap";
 
 import * as variables from "../variables";
+import {slideInRight} from "../animations";
 
 const navbarImageColorLeft = props => props.theme.navbar.left;
 const navbarImageColorRight = props => props.theme.navbar.right;
 
 const StyledBootstrapNavbar = styled(Navbar)`
+
         align-items: center;
         background-image: linear-gradient(to right, ${navbarImageColorLeft}, ${navbarImageColorRight});
         background-color: ${props => props.theme.navbar.bg}; 
@@ -41,6 +43,7 @@ const StyledBootstrapNavbar = styled(Navbar)`
             }
         }
     }
+    
 `;
 
 export class KitNavbar extends Component {
@@ -55,9 +58,11 @@ export class KitNavbar extends Component {
 }
 
 const StyledBootstrapNavbarHeader = styled(Navbar.Header)`
+
     &&& {
         flex-grow: 2;
     }
+    
 `;
 
 export class KitNavbarHeader extends Component {
@@ -68,11 +73,13 @@ export class KitNavbarHeader extends Component {
 }
 
 const StyledBootstrapNavbarBrand = styled(Navbar.Brand)`
+
     &&& {
         color: ${props => props.theme.navbar.brand};
         text-shadow: 0 1px 0 rgba(19, 16, 16, 0.75);
         font-family: 'Raleway Semi-Bold', sans-serif;
     }
+    
 `;
 
 export class KitNavbarBrand extends Component {
@@ -108,8 +115,10 @@ export class KitNav extends Component {
 }
 
 const StyledBootstrapNavDropdown = styled(NavDropdown)`
+
     font-family: 'Raleway Semi-Bold', sans-serif;
     font-size: 14px;
+    animation: ${slideInRight} .23s ease;
     
     &&& .dropdown-toggle {
         color: ${props => props.theme.navbar.button};
@@ -148,7 +157,7 @@ const StyledBootstrapNavDropdown = styled(NavDropdown)`
     &&& .disabled > a:focus {
         outline: none;
     }
-
+    
 `;
 
 export class KitNavDropdown extends Component {
@@ -171,6 +180,7 @@ const StyledBootstrapMenuItem = styled(MenuItem)`
     &&& a {
         color: ${props => props.theme.menuitem.button};
     }
+    
 `;
 
 export class KitMenuItem extends Component {

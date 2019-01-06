@@ -3,7 +3,7 @@ import {Component} from "react";
 import {Well} from "react-bootstrap";
 import styled from "styled-components";
 
-import {slideInLeft} from "../animations";
+import {slideInRight} from "../animations";
 
 const navbarImageColorTop = props => props.theme.well.top;
 const navbarImageColorBottom = props => props.theme.well.bottom;
@@ -34,7 +34,7 @@ export class KitWell extends Component {
 }
 
 const SlidingBootstrapWell = styled(KitWell)`
-    animation: ${slideInLeft} .23s ease-out;
+    animation: ${slideInRight} .23s ease;
 `;
 
 export class KitSlidingWell extends Component {

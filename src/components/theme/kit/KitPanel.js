@@ -26,7 +26,7 @@ export class KitPanel extends Component {
 }
 
 const SlidingBootstrapPanel = styled(KitPanel)`
-    animation: ${slideInUp} .23s ease-out;
+    animation: ${slideInUp} .23s ease;
 `;
 
 export class AppSlidingPanel extends Component {

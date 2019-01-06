@@ -40,7 +40,7 @@ export const getShops = (contract, owner) => {
         });
 
         // Fetch the shops
-        let shops = [];
+        let shops;
         if (ids && ids.length) {
 
             dispatch({

@@ -1,6 +1,6 @@
 import {keyframes} from "styled-components";
 
-export const slideInLeft = keyframes`
+export const slideInRight = keyframes`
       from {
         -webkit-transform: translate3d(100%, 0, 0);
         transform: translate3d(100%, 0, 0);
