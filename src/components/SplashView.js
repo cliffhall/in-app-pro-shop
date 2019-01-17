@@ -6,7 +6,8 @@ import {
     KitSlidingWell,
     KitWell,
     FlexChild,
-    FlexRow
+    FlexRow,
+    KitFooter
 } from "./theme";
 import ShopForm from "./ShopForm";
 import {createNewShop, nameChanged, descChanged, fiatChanged} from "../store/shop/ShopActions";
@@ -67,13 +68,19 @@ class SplashView extends Component {
 
         const {selectedAccount} = this.props;
 
-        return  <FlexRow>
-            {this.renderSplashContent()}
-            {!selectedAccount
-                ? this.renderNoAccountContent()
-                : <ShopForm {...this.props}/>
-            }
-        </FlexRow>
+        return  <>
+            <FlexRow>
+                {this.renderSplashContent()}
+                {!selectedAccount
+                    ? this.renderNoAccountContent()
+                    : <ShopForm {...this.props}/>
+                }
+            </FlexRow>
+            <KitFooter>
+                Copyright © 2018 Futurescale, Inc.
+            </KitFooter>
+        </>
+
     }
 }
 

@@ -1,6 +1,7 @@
 import {injectGlobal} from "styled-components";
 
 import {KitTable} from "./kit/KitTable";
+import {KitFooter} from "./kit/KitFooter";
 import {KitWrapper} from "./kit/KitWrapper";
 import {FlexRow, FlexChild} from "./kit/KitFlex";
 import {KitWell, KitSlidingWell} from "./kit/KitWell";
@@ -35,7 +36,8 @@ export {
     KitForm,
     KitFormControl,
     KitCurrencyInput,
-    KitHelpBlock
+    KitHelpBlock,
+    KitFooter
 }
 
 injectGlobal`
