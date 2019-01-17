@@ -17,9 +17,9 @@
     "type": "git",
     "url": "git+https://github.com/cliffhall/in-app-pro-shop.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "UNLICENSED",
+  "keywords": ["blockchain", "ethereum", "in-app purchase", "erc721", "react", "redux", "javascript", "solidity" ],
+  "author": "Cliff Hall",
+  "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/cliffhall/in-app-pro-shop/issues"
   },
