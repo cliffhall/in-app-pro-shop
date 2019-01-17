@@ -30,7 +30,7 @@ Meanwhile, in the wider gaming world, consider that Fortnite managed to
 sell [over 1 billion dollars in in-game purchases](https://www.gamesindustry.biz/articles/2018-07-17-fortnite-has-earned-usd1-billion-from-in-game-purchases-alone) in less than a year
 from it's inception.
 
-Games like Fortnite are 'walled gardens'; all the assets that gamers purchase
+Many game platforms are 'walled gardens'; all the assets that gamers purchase
 live on servers of the company who wrote the game. With Ethereum, those
 assets could live on the public blockchain, and be sold and traded like
 CryptoKitties or any other NFT. When you get tired of playing a game after
