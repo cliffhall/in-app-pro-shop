@@ -11,14 +11,21 @@
             gtag('config', '{{ site.google_analytics }}');
         </script>
         {% endif %}
-        <meta charset="UTF-8">
 
-        {% seo %}
-        <link href="favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-        <link href="favicon.ico" rel="icon" type="image/x-icon"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- META DATA / SEO -->
+        <meta charset="UTF-8">
         <meta name="theme-color" content="#157878">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        {% seo %}
+        <meta name="description" content="{{ site.description }}">
+        <meta name="author" content="Cliff Hall">
+        <meta name="robots" content="nocache"/>
+        <link rel="publisher" href="http://futurescale.com"/>
+        <link rel="canonical" href="https://in-app-pro-shop.futurescale.com/" />
+        <link href="favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+        <link href="favicon.ico" rel="icon" type="image/x-icon"/>
         <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     </head>
     <body>
