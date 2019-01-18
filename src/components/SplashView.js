@@ -77,7 +77,7 @@ class SplashView extends Component {
                 }
             </FlexRow>
             <KitFooter>
-                Copyright © 2018 Futurescale, Inc.
+                Copyright © 2018 &nbsp; <img src="futurescale.png"/> &nbsp; Futurescale, Inc.
             </KitFooter>
         </>
 
