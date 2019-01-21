@@ -45,11 +45,9 @@ incorporate existing smart contracts that already live on the blockchain.
 For instance, Loom network's [CryptoZombies](https://cryptozombies.io/)
 feed on [CryptoKitties](https://www.cryptokitties.co/) which are
 [non-fungible tokens](https://en.wikipedia.org/wiki/Non-fungible_token)
-created by another app entirely.
-
-Game developers could choose to allow assets from other games to be
-used in their own, simply by choosing to support those NFTs, the way
-CryptoKities can be used in various games in the
+created by another app entirely. Game developers could choose to allow
+assets from other games to be used in their own, simply by choosing to
+support those NFTs, the way CryptoKities can be used in various games in the
 ['Kittyverse'](https://medium.com/cryptokitties/welcome-to-the-kittyverse-kittybattles-and-kittyhats-9e83bb1ded88)
 
 You still need to write a great game or application, but while those that
