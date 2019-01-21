@@ -1,9 +1,3 @@
-# In-App Pro Shop
-An Ethereum blockchain-based system for in-app purchases implemented as ERC-721 non-fungible tokens.
-
-## Status
-Work in progress. 
-
 ## Goal
 The goal of In-App Pro Shop is to allow Ethereum developers to add in-app
 purchases quickly with an existing system, and also to make it easy for
