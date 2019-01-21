@@ -5,26 +5,32 @@ An Ethereum blockchain-based system for in-app purchases implemented as ERC-721 
 Work in progress.
 
 ## Goal
-The goal of In-App Pro Shop is to allow Ethereum developers to add in-app
-purchases quickly with an existing system, and also to make it easy for
-them to support assets from other apps if they so choose.
+In-App Pro Shop aims to help Ethereum developers to easily support in-app
+purchases, freeing them to focus their energies on creating a better
+product for their users.
 
-Using smart contracts that live on the blockchain and a web-based maintenance
-application, it implements a franchise system, whereby anyone can create a Shop,
-define and categorize the [SKU](https://en.wikipedia.org/wiki/Stock_keeping_unit)s
-that identify the products they will sell, and integrate that Shop into their application.
+Using smart contracts that live on the blockchain and a web-based
+maintenance application, IAPS implements a franchise system, whereby
+anyone can create a Shop, define and categorize the
+[SKU](https://en.wikipedia.org/wiki/Stock_keeping_unit)s that identify
+the products they will sell, and integrate that Shop into their
+application.
 
-Their applications can then interact with the In-App Pro Shop smart contracts
-to allow users to purchase items, which are minted as [ERC-721 non-fungible tokens](http://erc721.org/).
+Those applications can then interact with the In-App Pro Shop smart
+contracts to allow users to purchase items, which are minted as
+[ERC-721 non-fungible tokens](http://erc721.org/).
 
-A small percentage of each sale goes to the franchise owner [Futurescale, Inc.](http://futurescale.com),
-and the rest is immediately available for withdrawal by the Shop Owner.
+A small percentage (3%) of each sale goes to the Franchise Owner
+[Futurescale, Inc.](http://futurescale.com), and the rest is immediately
+available for withdrawal by the Shop Owner.
 
 ## Background
 An interesting potential for apps built on Ethereum is that they can
 incorporate existing smart contracts that already live on the blockchain.
-For instance, Loom network's [CryptoZombies](https://cryptozombies.io/) feed on [CryptoKitties](https://www.cryptokitties.co/)
-which are [non-fungible tokens](https://en.wikipedia.org/wiki/Non-fungible_token) created by another app entirely.
+For instance, Loom network's [CryptoZombies](https://cryptozombies.io/)
+feed on [CryptoKitties](https://www.cryptokitties.co/) which are
+[non-fungible tokens](https://en.wikipedia.org/wiki/Non-fungible_token)
+created by another app entirely.
 
 Meanwhile, in the wider gaming world, consider that Fortnite managed to
 sell [over 1 billion dollars in in-game purchases](https://www.gamesindustry.biz/articles/2018-07-17-fortnite-has-earned-usd1-billion-from-in-game-purchases-alone) in less than a year
