@@ -1,5 +1,5 @@
 ## Goal
-In-App Pro Shop aims to help Ethereum developers to easily support in-app
+In-App Pro Shop aims to help Ethereum developers easily support in-app
 purchases, freeing them to focus their energies on creating a better
 product for their users.
 
