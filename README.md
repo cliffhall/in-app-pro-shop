@@ -11,10 +11,8 @@ product for their users.
 
 Using smart contracts that live on the blockchain and a web-based
 maintenance application, IAPS implements a franchise system, whereby
-anyone can create a Shop, define and categorize the
-[SKU](https://en.wikipedia.org/wiki/Stock_keeping_unit)s that identify
-the products they will sell, and integrate that Shop into their
-application.
+anyone can create a Shop, define and categorize the items they will
+sell, and quickly integrate that Shop into their application.
 
 Those applications can then interact with the In-App Pro Shop smart
 contracts to allow users to purchase items, which are minted as
