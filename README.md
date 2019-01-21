@@ -48,7 +48,7 @@ feed on [CryptoKitties](https://www.cryptokitties.co/) which are
 created by another app entirely. Game developers could choose to allow
 assets from other games to be used in their own, simply by choosing to
 support those NFTs, the way CryptoKities can be used in various games in the
-['Kittyverse'](https://medium.com/cryptokitties/welcome-to-the-kittyverse-kittybattles-and-kittyhats-9e83bb1ded88)
+['Kittyverse'](https://medium.com/cryptokitties/welcome-to-the-kittyverse-kittybattles-and-kittyhats-9e83bb1ded88).
 
 You still need to write a great game or application, but while those that
 serve their users in this way may not extract the maximum revenue from
