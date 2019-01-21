@@ -29,8 +29,8 @@ game. That's good for the company; they're the only source of magic
 swords. But for the players, frankly, it sucks.
 
 With Ethereum, those assets could live on the public blockchain, and
-actually be *owned* by the users, who could sell or trade them like C
-ryptoKitties or any other NFT. When a player tires of a game after a year
+actually be *owned* by the users, who could sell or trade them like
+CryptoKitties or any other NFT. When a player tires of a game after a year
 or two, she could sell all her assets to other players to recoup her
 investment.
 
