@@ -7,5 +7,7 @@ $(window).load(function() {
         animationSpeed: 600,
         touch: true,
         itemHeight: 200,
+        prevText: "",
+        nextText: "",
     });
 });
