@@ -1,5 +1,6 @@
 ---
 layout: post
+category: doc
 title: Splash / New Shop Page
 ---
 

@@ -1,9 +1,9 @@
 <div>
     <div class="flexslider">
         <ul class="slides">
-            {% for page in site.posts %}
+            {% for page in site.categories.doc %}
             <li>
-                <a href="{{post.url}}">
+                <a href="{{ site.url }}{{ page.permalink }}">
                     <img src="{{ page.image-slider }}">
                     <p class="flex-caption">{{ page.excerpt }}</p>
                 </a>
