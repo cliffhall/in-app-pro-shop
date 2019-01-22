@@ -1,5 +1,6 @@
 ---
 layout: post
+category: doc
 title: Add Category
 ---
 
