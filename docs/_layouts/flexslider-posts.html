@@ -1,0 +1,14 @@
+<div>
+    <div class="flexslider">
+        <ul class="slides">
+            {% for page in site.posts %}
+            <li>
+                <a href="{{post.url}}">
+                    <img src="{{ page.image-slider }}">
+                    <p class="flex-caption">{{ page.excerpt }}</p>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
