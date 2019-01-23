@@ -5,6 +5,6 @@ title: Add Category
 ---
 
 ![Add Category](/assets/img/Add_Category.png)
-Add a Category to a Shop
+*Creating a Shop Category* - Click "Add Category", and in the form, add a name and description, click "Create".
 
 
