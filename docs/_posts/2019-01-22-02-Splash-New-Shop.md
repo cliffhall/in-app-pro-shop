@@ -5,3 +5,5 @@ title: Splash / New Shop Page
 ---
 
 ![Splash / New Shop Page](/assets/img/02_-_Splash_-_New_Shop.png)
+
+To create a shop, just add a name and description and click 'Create'.
