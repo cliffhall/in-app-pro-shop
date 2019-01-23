@@ -4,6 +4,9 @@ An Ethereum blockchain-based system for in-app purchases implemented as ERC-721 
 ## Status
 Work in progress.
 
+Next step is deploying to Ropsten or Rinkby testnet. Meanwhile developers
+can run locally on Ganache to integrate with their apps or games.
+
 ## Goal
 In-App Pro Shop aims to help Ethereum developers easily support in-app
 purchases, freeing them to focus their energies on creating a better
