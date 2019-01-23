@@ -5,5 +5,5 @@ title: Accounts Menu
 ---
 
 ![Accounts Menu](/assets/img/Accounts_Menu.png)
-Select Which Account Will Own Your Shop
+*Select the Ethereum Account* - Ganache provides 10, MetaMask only its current selection.
 
