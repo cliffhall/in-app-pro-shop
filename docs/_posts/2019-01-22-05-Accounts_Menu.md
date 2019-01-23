@@ -4,4 +4,4 @@ category: doc
 title: Accounts Menu
 ---
 
-![Accounts Menu](/assets/img/03_-_Accounts_Menu.png)
+![Accounts Menu](/assets/img/Accounts_Menu.png)
