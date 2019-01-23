@@ -3,10 +3,7 @@
         <ul class="slides">
             {% for page in site.categories.doc %}
             <li>
-                <a href="{{ site.url }}{{ page.permalink }}">
-                    <img src="{{ page.image-slider }}">
-                    <p class="flex-caption">{{ page.excerpt }}</p>
-                </a>
+                <img src="{{ page.image-slider }}">
             </li>
             {% endfor %}
         </ul>
