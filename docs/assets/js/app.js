@@ -1,7 +1,8 @@
 // Initialise FlexSlider for Carousels
 $(window).load(function() {
     $('.flexslider').flexslider({
-        animation: "fade",
+        animation: "slide",
+        direction: "vertical",
         directionNav: true,
         slideshowSpeed: 5000,
         animationSpeed: 600,
