@@ -37,3 +37,16 @@
   background-image: unset;
   border-color: #adadad;
 }
+
+.flex-design {
+  background: #FBEBD1;
+  border-radius: 10px;
+  padding: 5%;
+}
+
+.flex-design:hover {
+  border-color: #1a222c;
+  background-color: #FBEBD1;
+  background-image: linear-gradient(to bottom,#fff,#FBEBD1);
+
+}
