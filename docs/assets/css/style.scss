@@ -18,15 +18,17 @@
 }
 
 .project-tagline {
+  color: #325bec;
   margin-bottom: 2rem;
   font-weight: normal;
-
 }
 
 .btn {
   color: #092e90;
   background-color: #FBEBD1;
   background-image: linear-gradient(to bottom,#fff,#FBEBD1);
+  text-shadow: 0 1px 0 #fff;
+
 }
 
 .btn:hover{
