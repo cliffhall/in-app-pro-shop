@@ -35,7 +35,6 @@
     "react-dom": "^16.4.0",
     "react-epic-spinners": "^0.2.1",
     "react-redux": "^5.0.7",
-    "react-router-dom": "^4.3.1",
     "react-scripts": "^2.0.4",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.6",
