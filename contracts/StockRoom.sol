@@ -12,7 +12,7 @@ contract StockRoom is SKUFactory {
     /**
      * @notice Set the address of the FiatContract contract
      */
-    function setFiatContractAddress(address _address) external onlySysAdmin {
+    function setFiatContractAddress(address _address) external whenPaused onlySysAdmin {
         FiatContractInterface candidateContract = FiatContractInterface(_address);
 
         // Verify that we have the appropriate address

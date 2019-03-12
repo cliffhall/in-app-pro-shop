@@ -8,6 +8,10 @@ contract('ShopFactory', function(accounts) {
     before(async () => {
         // Get the contract instance for this suite
         contract  = await StockRoom.new();
+
+        // Unpause the contract
+        await contract.unpause();
+
     });
 
     it("should allow anyone to create a shop", async function() {

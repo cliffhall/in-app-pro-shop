@@ -30,6 +30,7 @@ contract ItemFactory is ProShopBase {
     )
         public
         payable
+        whenNotPaused
         returns (uint256)
     {
         // Make sure the item can be minted

@@ -43,6 +43,10 @@ contract('ProShop', function(accounts) {
         contract = await ProShop.new();
         await contract.setStockRoomContractAddress(stockRoom.address);
 
+        // Unpause the contracts
+        await stockRoom.unpause();
+        await contract.unpause();
+
         // Invoke the function with 'call' to get the return value of the transaction
         // NOTE: this doesn't actually write the data
         shopId = (await stockRoom.createShop.call(shopName, shopDesc, shopFiat, {from: shopOwner})).toNumber();

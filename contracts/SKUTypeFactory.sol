@@ -24,6 +24,7 @@ contract SKUTypeFactory is ShopFactory {
         string _desc
     )
         external
+        whenNotPaused
         onlyShopOwner(_shopId)
         returns(uint256)
     {
