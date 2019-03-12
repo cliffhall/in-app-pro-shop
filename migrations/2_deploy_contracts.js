@@ -25,7 +25,8 @@ module.exports = deployer => {
         console.log('Setting StockRoom Contract address');
         await proShop.setStockRoomContractAddress(stockRoom.address);
 
-        // Unpause the ProShop contract
+        // Unpause the contracts
         await proShop.unpause();
+        await stockRoom.unpause();
     });
 };
