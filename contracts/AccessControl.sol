@@ -15,6 +15,7 @@ contract AccessControl is RBAC {
     constructor() public {
         paused = true; // Start paused. un-paused after full migration
         addRole(msg.sender, ROLE_SYS_ADMIN);
+        addRole(msg.sender, ROLE_SHOP_OWNER);
         addRole(msg.sender, ROLE_FRANCHISE_OWNER);
     }
 
