@@ -17,6 +17,9 @@ contract('SKUTypeFactory', function(accounts) {
         // Get the contract instance for this suite
         contract = await StockRoom.new();
 
+        // Unpause the contracts
+        await contract.unpause();
+
         // Get the Shop ID (using call, to avoid receiving a transaction)
         shopId = (await contract.createShop.call(shopName, shopDesc, shopFiat, {from: shopOwner})).toNumber();
 

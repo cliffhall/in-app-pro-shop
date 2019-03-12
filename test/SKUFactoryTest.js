@@ -35,6 +35,9 @@ contract('SKUFactory', function(accounts) {
         contract = await StockRoom.new();
         await contract.setFiatContractAddress(fiatContract.address);
 
+        // Unpause the contracts
+        await contract.unpause();
+
         // Get the Shop ID to be created
         shopId = (await contract.createShop.call(shopName, shopDesc, shopFiat, {from: shopOwner})).toNumber();
 

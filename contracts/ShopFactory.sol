@@ -24,6 +24,7 @@ contract ShopFactory is StockRoomBase {
         string _fiat
     )
         external
+        whenNotPaused
         returns (uint256)
     {
         // Get Shop ID and owner address

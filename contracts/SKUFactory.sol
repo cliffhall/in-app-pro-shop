@@ -29,6 +29,7 @@ contract SKUFactory is SKUTypeFactory {
         uint256 _limit
     )
         public
+        whenNotPaused
         onlyShopOwner(_shopId)
         returns(uint256)
     {

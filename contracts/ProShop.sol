@@ -39,7 +39,11 @@ contract ProShop is ItemFactory {
     /**
      * @notice Allow a shop owner to withdraw the accumulated balance of their shop, if any
      */
-    function withdrawShopBalance(uint256 _shopId) external onlyShopOwner(_shopId) {
+    function withdrawShopBalance(uint256 _shopId)
+        external
+        whenNotPaused
+        onlyShopOwner(_shopId)
+    {
         uint256 amount = shopBalances[_shopId];
         require(address(this).balance >= amount);
         shopBalances[_shopId] = 0;
@@ -50,7 +54,11 @@ contract ProShop is ItemFactory {
     /**
      * @notice Allow the franchise owner to withdraw their accumulated balance, if any
      */
-    function withdrawFranchiseBalance() external onlyFranchiseOwner() {
+    function withdrawFranchiseBalance()
+        external
+        whenNotPaused
+        onlyFranchiseOwner
+    {
         require(address(this).balance >= franchiseBalance);
         uint256 amount = franchiseBalance;
         franchiseBalance = 0;
