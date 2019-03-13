@@ -45,7 +45,7 @@ contract ProShop is ItemFactory {
         onlyShopOwner(_shopId)
     {
         uint256 amount = shopBalances[_shopId];
-        require(address(this).balance >= amount);
+        require(amount > 0 && address(this).balance >= amount);
         shopBalances[_shopId] = 0;
         msg.sender.transfer(amount);
         emit ShopBalanceWithdrawn(_shopId, amount);
@@ -59,8 +59,8 @@ contract ProShop is ItemFactory {
         whenNotPaused
         onlyFranchiseOwner
     {
-        require(address(this).balance >= franchiseBalance);
         uint256 amount = franchiseBalance;
+        require(amount > 0 && address(this).balance >= amount);
         franchiseBalance = 0;
         msg.sender.transfer(amount);
         emit FranchiseBalanceWithdrawn(amount);
