@@ -12246,8 +12246,139 @@
       "links": {},
       "address": "0x22740ab6785e553b041ad47ab5575d244fde22fe",
       "transactionHash": "0xe57e2bc7bf2b9a54f3c0e0d942e65c105ae5c6a6a66dc7f2f6a93f118844e56e"
+    },
+    "1553634897157": {
+      "events": {
+        "0xd69554e5413a4863105d3af271dbb7053ecbdb96c22b4ed508331bbb4a993a63": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "shopId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "skuId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "name": "NewSKU",
+          "type": "event"
+        },
+        "0x984e9c57bf3c704c112a30dea33416efd7969f90a14a69b9cb3842db1fdb5c7a": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "shopId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "skuTypeId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "name": "NewSKUType",
+          "type": "event"
+        },
+        "0x6483fc0067ba37ac182934414561e6a0483fe2c28473508471330bc69afee817": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "shopId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "name": "NewShop",
+          "type": "event"
+        },
+        "0x450db8da6efbe9c22f2347f7c2021231df1fc58d3ae9a2fa75d39fa446199305": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "newContract",
+              "type": "address"
+            }
+          ],
+          "name": "ContractUpgrade",
+          "type": "event"
+        },
+        "0xab35696f06e428ebc5ceba8cd17f8fed287baf43440206d1943af1ee53e6d267": {
+          "anonymous": false,
+          "inputs": [],
+          "name": "ContractPaused",
+          "type": "event"
+        },
+        "0x0e5e3b3fb504c22cf5c42fa07d521225937514c654007e1f12646f89768d6f94": {
+          "anonymous": false,
+          "inputs": [],
+          "name": "ContractUnpaused",
+          "type": "event"
+        },
+        "0xbfec83d64eaa953f2708271a023ab9ee82057f8f3578d548c1a4ba0b5b700489": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "operator",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "role",
+              "type": "string"
+            }
+          ],
+          "name": "RoleAdded",
+          "type": "event"
+        },
+        "0xd211483f91fc6eff862467f8de606587a30c8fc9981056f051b897a418df803a": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "operator",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "role",
+              "type": "string"
+            }
+          ],
+          "name": "RoleRemoved",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x22740ab6785e553b041ad47ab5575d244fde22fe",
+      "transactionHash": "0xe57e2bc7bf2b9a54f3c0e0d942e65c105ae5c6a6a66dc7f2f6a93f118844e56e"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2019-03-18T18:32:15.218Z"
+  "updatedAt": "2019-03-26T21:15:21.709Z"
 }

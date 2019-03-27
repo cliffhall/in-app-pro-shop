@@ -18,7 +18,7 @@ const drizzleOptions = {
         StockRoom
     ],
     events: {
-        ProSHop: [
+        ProShop: [
             'NewItem',
             'ShopBalanceWithdrawn',
             'FranchiseBalanceWithdrawn'
