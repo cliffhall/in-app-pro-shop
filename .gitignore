@@ -49,3 +49,8 @@ build/*
 # Node #
 ########
 node_modules
+
+# Firebase #
+############
+.firebase
+.firebase/*
