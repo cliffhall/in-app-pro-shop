@@ -11,23 +11,34 @@
     "ganache:start": "ganache-cli -p 7545 -d -m 'cabbage inflict doctor valve address roast bring club fiber celery lab render' -l 8000000",
     "app:start": "react-app-rewired start",
     "app:build": "react-app-rewired build",
+    "app:build:testenv": "env-cmd .env.test npm run app:build",
     "app:test": "react-app-rewired test --env=jsdom"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cliffhall/in-app-pro-shop.git"
   },
-  "keywords": ["blockchain", "ethereum", "in-app purchase", "erc721", "react", "redux", "javascript", "solidity" ],
+  "keywords": [
+    "blockchain",
+    "ethereum",
+    "in-app purchase",
+    "erc721",
+    "react",
+    "redux",
+    "javascript",
+    "solidity"
+  ],
   "author": "Cliff Hall",
   "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/cliffhall/in-app-pro-shop/issues"
   },
-  "homepage": "https://github.com/cliffhall/in-app-pro-shop#readme",
+  "homepage": "https://iaps-test.futurescale.com",
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "drizzle": "^1.2.4",
+    "drizzle": "^1.4.0",
     "drizzle-react": "^1.2.0",
+    "env-cmd": "^8.0.2",
     "openzeppelin-solidity": "1.11.0",
     "react": "^16.4.0",
     "react-bootstrap": "^0.32.4",
@@ -40,6 +51,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "styled-components": "^3.4.6",
+    "truffle-hdwallet-provider": "^1.0.6",
     "web3": "^1.0.0-beta.35"
   },
   "devDependencies": {
