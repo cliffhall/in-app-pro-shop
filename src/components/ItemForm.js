@@ -189,12 +189,14 @@ export default function ItemForm(props) {
                         disabled={isSubmitDisabled()}
                         onClick={handleSubmit}>Create</KitButton>}
 
-                <span>&nbsp;</span>
-
-                <KitButton
-                    onClick={toggleForm}
-                    bsSize='large'>Cancel</KitButton>
-
+                {creatingSKU
+                    ? null
+                    : <>
+                        <span>&nbsp;</span>
+                        <KitButton
+                            onClick={toggleForm}
+                            bsSize='large'>Cancel</KitButton>
+                    </>}
 
             </KitForm>
         </KitSlidingWell>
