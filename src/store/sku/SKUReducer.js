@@ -10,6 +10,7 @@ import {
     LIMITED_CHANGED,
     LIMIT_CHANGED,
     TOGGLE_FORM,
+    CREATING_SKU,
     SKU_CREATED
 } from "../sku/SKUActions";
 
@@ -153,6 +154,14 @@ function skuReducer(state=INITIAL_STATE, action) {
                 }
             };
             break;
+
+        case CREATING_SKU:
+            reduced = {
+                ...state,
+                creatingSKU: action.creatingSKU
+            };
+            break;
+
 
         case SKU_CREATED:
             reduced = {

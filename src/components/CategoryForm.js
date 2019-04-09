@@ -104,11 +104,14 @@ export default function CategoryForm(props) {
                         disabled={isSubmitDisabled()}
                         onClick={handleSubmit}>Create</KitButton>}
 
-                <span>&nbsp;</span>
-
-                <KitButton
-                    onClick={toggleTypeForm}
-                    bsSize='large'>Cancel</KitButton>
+                {creatingSKUType
+                    ? null
+                    : <>
+                        <span>&nbsp;</span>
+                        <KitButton
+                            onClick={toggleTypeForm}
+                            bsSize='large'>Cancel</KitButton>
+                      </>}
 
             </KitForm>
         </KitSlidingWell>
