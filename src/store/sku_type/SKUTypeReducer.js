@@ -6,6 +6,7 @@ import {
     TOGGLE_FORM,
     NAME_CHANGED,
     DESC_CHANGED,
+    CREATING_SKU_TYPE,
     SKU_TYPE_CREATED,
     SKU_TYPE_SELECTED
 } from './SKUTypeActions';
@@ -109,6 +110,13 @@ function SKUTypeReducer(state=INITIAL_STATE, action) {
                     ...state.newSKUType,
                     description: action.description,
                 }
+            };
+            break;
+
+        case CREATING_SKU_TYPE:
+            reduced = {
+                ...state,
+                creatingSKUType: action.creatingSKUType
             };
             break;
 
