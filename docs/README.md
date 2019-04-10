@@ -196,6 +196,18 @@ Runs all tests found in the /src tree
 
 ```npm run app:test```
 
+# Technical Discussion
+<img align="left" width="400" height="400" src="assets/img/Building-on-Ethereum.png" alt="Building on Ethereum">
+Building on Ethereum: An eight part series discussing the various aspects of building a project like this.
+* [Part 1 – Decisions](http://cliffordhall.com/2019/01/building-on-ethereum-part-1)
+* [Part 2 – Functionality](http://cliffordhall.com/2019/02/building-on-ethereum-part-2)
+* [Part 3 – Setup and Test](http://cliffordhall.com/2019/02/building-on-ethereum-part-3)
+* [Part 4 – Writing Contracts](http://cliffordhall.com/2019/03/building-on-ethereum-part-4)
+* [Part 5 – Writing Tests](http://cliffordhall.com/2019/03/building-on-ethereum-part-5)
+* [Part 6 – Bootstrapping the Client](http://cliffordhall.com/2019/03/building-on-ethereum-part-6)
+* [Part 7 – Finishing the Client](http://cliffordhall.com/2019/04/building-on-ethereum-part-7)
+* [Part 8 – Deployment](http://cliffordhall.com/2019/04/building-on-ethereum-part-8)
+
 # License
 * In-App Pro Shop - Copyright © 2018-Present Futurescale, Inc.
 * All rights reserved.
