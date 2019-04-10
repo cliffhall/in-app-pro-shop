@@ -34,7 +34,7 @@ const INITIAL_STATE = {
 
     fetchingShops: false,
     shopsFetched: false,
-    shops: null,
+    shops: [],
 
     selectedShopId: null,
     fetchingShopBalance: false,
@@ -83,7 +83,7 @@ function shopReducer(state=INITIAL_STATE, action) {
                 ...state,
                 fetchingShops: action.fetchingShops,
                 shopsFetched: action.shopsFetched,
-                shops: action.shops
+                shops: action.shops ? action.shops : []
             };
             break;
 
