@@ -28,7 +28,7 @@ class NavigationBar extends Component {
             <Navbar.Collapse>
                 <KitNav pullRight>
                 {selectedShopBalance ? <BalanceMenu {...this.props}/> : null}
-                {shops ? <ShopsMenu {...this.props}/> : null}
+                {(shops && shops.length) ? <ShopsMenu {...this.props}/> : null}
                 {initialized ? <AccountsMenu {...this.props}/> : null}
                 </KitNav>
             </Navbar.Collapse>

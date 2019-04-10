@@ -6,7 +6,7 @@ export default function AccountsMenu(props) {
 
     // Get the salient props
     const {accounts, selectedAccount, selectAccount, creatingShop} = props;
-    const {networkId} = props.drizzleState.web3.networkId;
+    const {networkId} = props.drizzleState.web3;
 
     const renderEtherscanMenuItem = () => {
         let url;

@@ -14,8 +14,7 @@ module.exports = {
             gas: 8000000
         },
         ropsten: {
-            provider: () => new HDWalletProvider(mnemonic, "wss://ropsten.infura.io/v3/4ded77f972874ae8b44aeb237dbe846b", 1),
-            websockets: true,
+            provider: () => new HDWalletProvider(mnemonic, "https://ropsten.infura.io/v3/4ded77f972874ae8b44aeb237dbe846b", 1),
             network_id: "3"
         }
     }
