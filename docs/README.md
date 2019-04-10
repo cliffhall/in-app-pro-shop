@@ -197,8 +197,9 @@ Runs all tests found in the /src tree
 ```npm run app:test```
 
 # Technical Discussion
-<img align="left" width="400" height="400" src="assets/img/Building-on-Ethereum.png" alt="Building on Ethereum">
-Building on Ethereum: An eight part series discussing the various aspects of building a project like this.
+![Building on Ethereum](assets/img/Building-on-Ethereum.png)
+### Building on Ethereum
+An eight part series discussing the various aspects of building a project like this.
 * [Part 1 – Decisions](http://cliffordhall.com/2019/01/building-on-ethereum-part-1)
 * [Part 2 – Functionality](http://cliffordhall.com/2019/02/building-on-ethereum-part-2)
 * [Part 3 – Setup and Test](http://cliffordhall.com/2019/02/building-on-ethereum-part-3)
