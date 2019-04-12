@@ -4,7 +4,7 @@ const HDWalletProvider = require("truffle-hdwallet-provider");
 // Replace with your MetaMask Seed Phrase
 const mnemonic = 'cabbage inflict doctor valve address roast bring club fiber celery lab render';
 
-// Use your project id
+// Use your Infura project id
 const url = 'https://ropsten.infura.io/v3/4ded77f972874ae8b44aeb237dbe846b';
 
 module.exports = {
