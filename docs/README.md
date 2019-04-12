@@ -206,7 +206,7 @@ An eight part series discussing the various aspects of building a project like t
 * [Part 4 – Writing Contracts](http://cliffordhall.com/2019/03/building-on-ethereum-part-4)
 * [Part 5 – Writing Tests](http://cliffordhall.com/2019/03/building-on-ethereum-part-5)
 * [Part 6 – Bootstrapping the Client](http://cliffordhall.com/2019/03/building-on-ethereum-part-6)
-* [Part 7 – Finishing the Client](http://cliffordhall.com/2019/04/building-on-ethereum-part-7)
+* [Part 7 – Client to Contract Communications](http://cliffordhall.com/2019/04/building-on-ethereum-part-7)
 * [Part 8 – Deployment](http://cliffordhall.com/2019/04/building-on-ethereum-part-8)
 
 # License
