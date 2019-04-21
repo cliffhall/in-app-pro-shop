@@ -48,11 +48,10 @@ every signup, they will almost certainly be rewarded by a grateful and
 loyal user base.
 
 ## Testing on Ropsten
-In order to run the app against the Ropsten testnet, you need to do
-three things:
-1 Install [MetaMask](https://metamask.io/)
-2 Get some Ether from the [Faucet](https://faucet.metamask.io/)
-3 Visit the [test installation](https://iaps-test.futurescale.com)
+In order to run the app against the Ropsten testnet, do this:
+* Install [MetaMask](https://metamask.io/)
+* Get some Ether from the [Faucet](https://faucet.metamask.io/)
+* Visit the [test installation](https://iaps-test.futurescale.com)
 
 ## Technical Discussion
 ![Building on Ethereum](assets/img/Building-on-Ethereum.png)
