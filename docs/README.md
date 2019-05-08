@@ -56,12 +56,13 @@ In order to run the app against the Ropsten testnet, do this:
 ## Technical Discussion
 ![Building on Ethereum](assets/img/Building-on-Ethereum.png)
 ### Building on Ethereum
-An eight part series discussing the various aspects of building a non-trivial project with Solidity and React.
-* [Part 1 – Decisions](http://cliffordhall.com/2019/01/building-on-ethereum-part-1)
-* [Part 2 – Functionality](http://cliffordhall.com/2019/02/building-on-ethereum-part-2)
-* [Part 3 – Setup and Test](http://cliffordhall.com/2019/02/building-on-ethereum-part-3)
-* [Part 4 – Writing Contracts](http://cliffordhall.com/2019/03/building-on-ethereum-part-4)
-* [Part 5 – Writing Tests](http://cliffordhall.com/2019/03/building-on-ethereum-part-5)
-* [Part 6 – Bootstrapping the Client](http://cliffordhall.com/2019/03/building-on-ethereum-part-6)
-* [Part 7 – Client to Contract Communications](http://cliffordhall.com/2019/04/building-on-ethereum-part-7)
-* [Part 8 – Deployment](http://cliffordhall.com/2019/04/building-on-ethereum-part-8)
+An eight-part [web series](http://cliffordhall.com/building-on-ethereum) discussing the various aspects of building a non-trivial project with Solidity and React.
+
+* Part 1 – Decisions
+* Part 2 – Functionality
+* Part 3 – Setup and Test
+* Part 4 – Writing Contracts
+* Part 5 – Writing Tests
+* Part 6 – Bootstrapping the Client
+* Part 7 – Client to Contract Communications
+* Part 8 – Deployment
