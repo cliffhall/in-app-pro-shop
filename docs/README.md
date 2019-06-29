@@ -76,3 +76,4 @@ An eight-part [web series](http://cliffordhall.com/building-on-ethereum) discuss
 * Part 6 – Bootstrapping the Client
 * Part 7 – Client to Contract Communications
 * Part 8 – Deployment
+
