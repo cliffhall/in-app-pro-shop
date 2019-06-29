@@ -13,8 +13,17 @@ contracts to allow users to purchase items, which are minted as
 [ERC-721 non-fungible tokens](http://erc721.org/).
 
 A small percentage (3%) of each sale goes to the Franchise Owner
-[Futurescale, Inc.](http://futurescale.com), and the rest is immediately
-available for withdrawal by the Shop Owner.
+(the contract deployer), and the rest is immediately available for
+withdrawal by the Shop Owner.
+
+Prices are set in a stable fiat currency (USD, EUR, or GBP) so that
+sudden swings in ETH price don't make items to expensive or cheap,
+keeping the market stable for the Shop Owner.
+
+Current Fiat currency quotes are retrieved from [Fiat Contract](https://fiatcontract.com/)
+at time of sale, in order to ensure the purchaser has sent the
+appropriate amount of ether for the transaction.
+
 
 ## Background
 In-App purchases are an undeniably huge potential revenue stream for any
