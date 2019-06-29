@@ -66,6 +66,20 @@ serve their users in this way may not extract the maximum revenue from
 every signup, they will almost certainly be rewarded by a grateful and
 loyal user base.
 
+## Technical Discussion
+![Building on Ethereum](assets/img/Building-on-Ethereum.png)
+### Building on Ethereum
+An eight-part [web series](http://cliffordhall.com/building-on-ethereum) discussing the various aspects of building a non-trivial project with Solidity and React.
+
+* Part 1 – Decisions
+* Part 2 – Functionality
+* Part 3 – Setup and Test
+* Part 4 – Writing Contracts
+* Part 5 – Writing Tests
+* Part 6 – Bootstrapping the Client
+* Part 7 – Client to Contract Communications
+* Part 8 – Deployment
+
 ## Architecture / Stack
 The _In App Pro Shop_ project is composed of:
 
