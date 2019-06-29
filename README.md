@@ -67,7 +67,7 @@ every signup, they will almost certainly be rewarded by a grateful and
 loyal user base.
 
 ## Technical Discussion
-![Building on Ethereum](assets/img/Building-on-Ethereum.png)
+![Building on Ethereum](docs/assets/img/Building-on-Ethereum.png)
 ### Building on Ethereum
 An eight-part [web series](http://cliffordhall.com/building-on-ethereum) discussing the various aspects of building a non-trivial project with Solidity and React.
 
