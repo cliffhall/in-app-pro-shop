@@ -12,7 +12,7 @@ Those applications can then interact with the In-App Pro Shop smart
 contracts to allow users to purchase items, which are minted as
 [ERC-721 non-fungible tokens](http://erc721.org/).
 
-A small percentage (3%) of each sale goes to the Franchise Owner
+A configurable percentage of each sale goes to the Franchise Owner
 (the contract deployer), and the rest is immediately available for
 withdrawal by the Shop Owner. Anyone can create a Shop, and so the
 system demonstrates an Ethereum-based franchise revenue model.
