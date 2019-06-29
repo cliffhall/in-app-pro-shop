@@ -14,7 +14,8 @@ contracts to allow users to purchase items, which are minted as
 
 A small percentage (3%) of each sale goes to the Franchise Owner
 (the contract deployer), and the rest is immediately available for
-withdrawal by the Shop Owner.
+withdrawal by the Shop Owner. Anyone can create a Shop, and so the
+system demonstrates an Ethereum-based franchise revenue model.
 
 Prices are set in a stable fiat currency (USD, EUR, or GBP) so that
 sudden swings in ETH price don't make items to expensive or cheap,
