@@ -80,7 +80,7 @@ contract StockRoom is SKUFactory {
     // @notice Get a SKU's properties by ID
     function getSKU(uint256 _skuId) external view returns (uint256, uint256, uint256, uint256, string, string, bool, bool, uint256)
     {
-        require(_skuId <= skus.length);
+        require(_skuId < skus.length);
         SKU memory sku = skus[_skuId];
         return (
             sku.shopId,
@@ -102,7 +102,7 @@ contract StockRoom is SKUFactory {
 
     // @notice Get a SKUTypes properties by ID
     function getSKUType(uint256 _skuTypeId) external view returns (uint256, uint256, string, string) {
-        require(_skuTypeId <= skuTypes.length);
+        require(_skuTypeId < skuTypes.length);
         SKUType memory skuType = skuTypes[_skuTypeId];
         return (
             skuType.shopId,
@@ -119,7 +119,7 @@ contract StockRoom is SKUFactory {
 
     // @notice Get a Shop's properties by ID
     function getShop(uint256 _shopId) external view returns (address, uint256, string, string, string) {
-        require(_shopId <= shops.length);
+        require(_shopId < shops.length);
         Shop memory shop = shops[_shopId];
         return (
             shop.owner,
@@ -132,7 +132,7 @@ contract StockRoom is SKUFactory {
 
     // @notice Get a Shop's owner
     function getShopOwner(uint256 _shopId) external view returns (address) {
-        require(_shopId <= shops.length);
+        require(_shopId < shops.length);
         return shops[_shopId].owner;
     }
 
