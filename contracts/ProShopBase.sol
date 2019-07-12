@@ -1,7 +1,6 @@
 pragma solidity ^0.4.24;
 
 import "openzeppelin-solidity/contracts/token/ERC721/ERC721Token.sol";
-import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 import "./AccessControl.sol";
 import "./StockRoomInterface.sol";
 
@@ -11,8 +10,6 @@ import "./StockRoomInterface.sol";
  * @notice Defines collections, mappings, and structs for the sales side of the In-game Pro Shop System
  */
 contract ProShopBase is ERC721Token, AccessControl {
-
-    using SafeMath for uint256;
 
     constructor() public ERC721Token(TOKEN_NAME, TOKEN_SYMBOL) {}
 

@@ -1,6 +1,7 @@
 pragma solidity ^0.4.24;
 
 import "openzeppelin-solidity/contracts/ownership/RBAC/RBAC.sol";
+import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 
 
 /**
@@ -8,6 +9,8 @@ import "openzeppelin-solidity/contracts/ownership/RBAC/RBAC.sol";
  * @notice Role-based access control and related functions, function modifiers, and events
  */
 contract AccessControl is RBAC {
+
+    using SafeMath for uint256;
 
     /**
      * @dev constructor. Sets msg.sender as system admin by default
