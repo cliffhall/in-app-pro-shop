@@ -7,7 +7,7 @@ module.exports = deployer => {
 
         // Deploy and initialize the third-party FiatContract with currency quotes
         const fiatContract = await deployer.deploy(FiatContract);
-        const ethQuote = 1000000000000000000;
+        const ethQuote = 1000000000000000;
         const usdQuote = 33652131190000;
         const eurQuote = 40154176530000;
         const gbpQuote = 44664290720000;
