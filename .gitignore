@@ -54,3 +54,7 @@ node_modules
 ############
 .firebase
 .firebase/*
+
+# Keys #
+########
+.project_keys

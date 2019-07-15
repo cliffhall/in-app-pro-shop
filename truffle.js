@@ -1,12 +1,11 @@
 const path = require('path');
 const HDWalletProvider = require("truffle-hdwallet-provider");
 
-// Replace with your MetaMask Seed Phrase
-//const mnemonic = 'cabbage inflict doctor valve address roast bring club fiber celery lab render';
-const mnemonic = 'cry crisp noble verb alpha edge invite deer crane fetch quality doctor';
+// MetaMask or Ganache Seed Phrase
+const keys = require('./.project_keys');
 
-// Use your Infura project id
-const url = 'https://ropsten.infura.io/v3/4ded77f972874ae8b44aeb237dbe846b';
+// Infura URL
+const url = `https://ropsten.infura.io/v3/${keys.infura_project}`;
 
 module.exports = {
     contracts_build_directory: path.join(__dirname, "src/abi"),
@@ -19,7 +18,7 @@ module.exports = {
             gas: 8000000
         },
         ropsten: {
-            provider: () => new HDWalletProvider(mnemonic, url, 1),
+            provider: () => new HDWalletProvider(keys.mnemonic, url, 1),
             network_id: "3"
         }
     }
