@@ -17312,10 +17312,426 @@
       "links": {},
       "address": "0x1B4F519377a0d5866F9D2B806560eF0655c81E9d",
       "transactionHash": "0xebd950c8cb78326f7913c2e4a29f749f312351e70e5e16236117ede53e4d9f71"
+    },
+    "1564156784480": {
+      "events": {
+        "0x592c5dcdfb4d2a25a617213d5be7a565bbe25e31a758a8ba959f62215e4ffec1": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "shopId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "ShopBalanceWithdrawn",
+          "type": "event",
+          "signature": "0x592c5dcdfb4d2a25a617213d5be7a565bbe25e31a758a8ba959f62215e4ffec1"
+        },
+        "0x6a1a85b0a91cce0ab00cf08540a801804bd573bbcfa5bbd3a081522e38440ca6": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "FranchiseBalanceWithdrawn",
+          "type": "event",
+          "signature": "0x6a1a85b0a91cce0ab00cf08540a801804bd573bbcfa5bbd3a081522e38440ca6"
+        },
+        "0x3210ade2d42380eb21f74419d934cd7b57aea57c0ce9a7b8afe59336780a07da": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "shopId",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "name": "skuId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "itemId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "fee",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "net",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewItem",
+          "type": "event",
+          "signature": "0x3210ade2d42380eb21f74419d934cd7b57aea57c0ce9a7b8afe59336780a07da"
+        },
+        "0x450db8da6efbe9c22f2347f7c2021231df1fc58d3ae9a2fa75d39fa446199305": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "newContract",
+              "type": "address"
+            }
+          ],
+          "name": "ContractUpgrade",
+          "type": "event",
+          "signature": "0x450db8da6efbe9c22f2347f7c2021231df1fc58d3ae9a2fa75d39fa446199305"
+        },
+        "0xab35696f06e428ebc5ceba8cd17f8fed287baf43440206d1943af1ee53e6d267": {
+          "anonymous": false,
+          "inputs": [],
+          "name": "ContractPaused",
+          "type": "event",
+          "signature": "0xab35696f06e428ebc5ceba8cd17f8fed287baf43440206d1943af1ee53e6d267"
+        },
+        "0x0e5e3b3fb504c22cf5c42fa07d521225937514c654007e1f12646f89768d6f94": {
+          "anonymous": false,
+          "inputs": [],
+          "name": "ContractUnpaused",
+          "type": "event",
+          "signature": "0x0e5e3b3fb504c22cf5c42fa07d521225937514c654007e1f12646f89768d6f94"
+        },
+        "0xbfec83d64eaa953f2708271a023ab9ee82057f8f3578d548c1a4ba0b5b700489": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "operator",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "role",
+              "type": "string"
+            }
+          ],
+          "name": "RoleAdded",
+          "type": "event",
+          "signature": "0xbfec83d64eaa953f2708271a023ab9ee82057f8f3578d548c1a4ba0b5b700489"
+        },
+        "0xd211483f91fc6eff862467f8de606587a30c8fc9981056f051b897a418df803a": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "operator",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "role",
+              "type": "string"
+            }
+          ],
+          "name": "RoleRemoved",
+          "type": "event",
+          "signature": "0xd211483f91fc6eff862467f8de606587a30c8fc9981056f051b897a418df803a"
+        },
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_from",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_to",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_tokenId",
+              "type": "uint256"
+            }
+          ],
+          "name": "Transfer",
+          "type": "event",
+          "signature": "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"
+        },
+        "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_owner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_approved",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_tokenId",
+              "type": "uint256"
+            }
+          ],
+          "name": "Approval",
+          "type": "event",
+          "signature": "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925"
+        },
+        "0x17307eab39ab6107e8899845ad3d59bd9653f200f220920489ca2b5937696c31": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_owner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_operator",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_approved",
+              "type": "bool"
+            }
+          ],
+          "name": "ApprovalForAll",
+          "type": "event",
+          "signature": "0x17307eab39ab6107e8899845ad3d59bd9653f200f220920489ca2b5937696c31"
+        }
+      },
+      "links": {},
+      "address": "0x39Cf75a35df11D2f6240a217BFd0794f71cad2f3",
+      "transactionHash": "0x2a9ae719078faa0659844ac4fccb6ffbce07ae5b5842c8119904ad10f6482889"
+    },
+    "1564251389548": {
+      "events": {
+        "0x592c5dcdfb4d2a25a617213d5be7a565bbe25e31a758a8ba959f62215e4ffec1": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "shopId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "ShopBalanceWithdrawn",
+          "type": "event",
+          "signature": "0x592c5dcdfb4d2a25a617213d5be7a565bbe25e31a758a8ba959f62215e4ffec1"
+        },
+        "0x6a1a85b0a91cce0ab00cf08540a801804bd573bbcfa5bbd3a081522e38440ca6": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "FranchiseBalanceWithdrawn",
+          "type": "event",
+          "signature": "0x6a1a85b0a91cce0ab00cf08540a801804bd573bbcfa5bbd3a081522e38440ca6"
+        },
+        "0x3210ade2d42380eb21f74419d934cd7b57aea57c0ce9a7b8afe59336780a07da": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "shopId",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "name": "skuId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "itemId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "fee",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "net",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewItem",
+          "type": "event",
+          "signature": "0x3210ade2d42380eb21f74419d934cd7b57aea57c0ce9a7b8afe59336780a07da"
+        },
+        "0x450db8da6efbe9c22f2347f7c2021231df1fc58d3ae9a2fa75d39fa446199305": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "newContract",
+              "type": "address"
+            }
+          ],
+          "name": "ContractUpgrade",
+          "type": "event",
+          "signature": "0x450db8da6efbe9c22f2347f7c2021231df1fc58d3ae9a2fa75d39fa446199305"
+        },
+        "0xab35696f06e428ebc5ceba8cd17f8fed287baf43440206d1943af1ee53e6d267": {
+          "anonymous": false,
+          "inputs": [],
+          "name": "ContractPaused",
+          "type": "event",
+          "signature": "0xab35696f06e428ebc5ceba8cd17f8fed287baf43440206d1943af1ee53e6d267"
+        },
+        "0x0e5e3b3fb504c22cf5c42fa07d521225937514c654007e1f12646f89768d6f94": {
+          "anonymous": false,
+          "inputs": [],
+          "name": "ContractUnpaused",
+          "type": "event",
+          "signature": "0x0e5e3b3fb504c22cf5c42fa07d521225937514c654007e1f12646f89768d6f94"
+        },
+        "0xbfec83d64eaa953f2708271a023ab9ee82057f8f3578d548c1a4ba0b5b700489": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "operator",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "role",
+              "type": "string"
+            }
+          ],
+          "name": "RoleAdded",
+          "type": "event",
+          "signature": "0xbfec83d64eaa953f2708271a023ab9ee82057f8f3578d548c1a4ba0b5b700489"
+        },
+        "0xd211483f91fc6eff862467f8de606587a30c8fc9981056f051b897a418df803a": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "operator",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "role",
+              "type": "string"
+            }
+          ],
+          "name": "RoleRemoved",
+          "type": "event",
+          "signature": "0xd211483f91fc6eff862467f8de606587a30c8fc9981056f051b897a418df803a"
+        },
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_from",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_to",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_tokenId",
+              "type": "uint256"
+            }
+          ],
+          "name": "Transfer",
+          "type": "event",
+          "signature": "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"
+        },
+        "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_owner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_approved",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_tokenId",
+              "type": "uint256"
+            }
+          ],
+          "name": "Approval",
+          "type": "event",
+          "signature": "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925"
+        },
+        "0x17307eab39ab6107e8899845ad3d59bd9653f200f220920489ca2b5937696c31": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_owner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_operator",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_approved",
+              "type": "bool"
+            }
+          ],
+          "name": "ApprovalForAll",
+          "type": "event",
+          "signature": "0x17307eab39ab6107e8899845ad3d59bd9653f200f220920489ca2b5937696c31"
+        }
+      },
+      "links": {},
+      "address": "0x1D90c55DFA48ec6Ca4527d3E5357AEEB6181E909",
+      "transactionHash": "0xeb09332597ef545f916147514773e30318d64c78efcc6c9b87c7860deab1cd34"
     }
   },
   "schemaVersion": "3.0.11",
-  "updatedAt": "2019-07-15T19:18:57.182Z",
+  "updatedAt": "2019-07-27T18:21:52.509Z",
   "devdoc": {
     "methods": {
       "approve(address,uint256)": {

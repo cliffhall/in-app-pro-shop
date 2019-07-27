@@ -52,7 +52,7 @@
     "redux-thunk": "^2.2.0",
     "styled-components": "^3.4.6",
     "truffle-hdwallet-provider": "^1.0.6",
-    "web3": "^1.0.0-beta.35"
+    "web3": "^1.0.0-beta.55"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -63,7 +63,7 @@
     "react-app-rewired": "^1.6.2",
     "redux-mock-store": "^1.5.3",
     "regenerator-runtime": "^0.12.1",
-    "truffle-contract": "^3.0.6"
+    "truffle-contract": "^3.0.7"
   },
   "jest": {
     "collectCoverageFrom": [
