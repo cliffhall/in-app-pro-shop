@@ -2,11 +2,13 @@
 An Ethereum blockchain-based system for in-app purchases implemented as ERC-721 non-fungible tokens.
 
 ## Status
-Work in progress.
+* Fully open-sourced.
+* Deployed to Ropsten testnet.
+* Developers can run locally on Ganache to integrate with their apps or games.
 
-Next step is deploying to Ropsten or Rinkby testnet. Meanwhile developers
-can run locally on Ganache to integrate with their apps or games. Video(s)
-to help with that coming soon. Feedback welcome!
+Omitted is the approach to making tokens unique. This can be done in a number of
+was, and so this project does not offer a prescriptive solution, since your
+each project may have different requirements.
 
 ## Goal
 In-App Pro Shop aims to help Ethereum developers easily support in-app
