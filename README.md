@@ -7,8 +7,8 @@ An Ethereum blockchain-based system for in-app purchases implemented as ERC-721 
 * Developers can run locally on Ganache to integrate with their apps or games.
 
 Omitted is the approach to making tokens unique. This can be done in a number of
-was, and so this project does not offer a prescriptive solution, since your
-each project may have different requirements.
+ways. This project does not offer a prescriptive solution, since each project may
+have different requirements.
 
 ## Goal
 In-App Pro Shop aims to help Ethereum developers easily support in-app
