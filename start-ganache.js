@@ -1,7 +1,7 @@
 const {spawn} = require('child_process');
 const keys = require('./.project_keys');
 
-const ganache = spawn('npx',['ganache-cli', '-p 7545', '-d', `-m '${keys.mnemonic}`, '-l 8000000']);
+const ganache = spawn('npx',['ganache-cli', '-p 8545', '-d', `-m '${keys.mnemonic}`, '-l 8000000']);
 
 ganache.stdout.on('data', (data) => {
     console.log(`${data}`);

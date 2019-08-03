@@ -10428,10 +10428,87 @@
       "links": {},
       "address": "0x0811386fEbDb923Bf130F9f6630E66240b63B877",
       "transactionHash": "0x49668ab48666804651b5f5bc99f9a84020834b40e34aa7fd4de219e6fbc828de"
+    },
+    "1564847617631": {
+      "events": {
+        "0xd766911918e4a4ff28516cc02a5ae3c2096061ee7408787974101985cf9e0628": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "token",
+              "type": "string"
+            }
+          ],
+          "name": "NewPrice",
+          "type": "event",
+          "signature": "0xd766911918e4a4ff28516cc02a5ae3c2096061ee7408787974101985cf9e0628"
+        },
+        "0x8c8f94f5f1a74ad515cd6e033cb9e9cfae911da33cb003cf67cc57b444fd3dd3": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "id",
+              "type": "uint256"
+            }
+          ],
+          "name": "DeletePrice",
+          "type": "event",
+          "signature": "0x8c8f94f5f1a74ad515cd6e033cb9e9cfae911da33cb003cf67cc57b444fd3dd3"
+        },
+        "0xb8240a65b4ca0c774d05dbd16bac0fc0f6e4631fe1d2b0a8a069a73c768582e1": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "id",
+              "type": "uint256"
+            }
+          ],
+          "name": "UpdatedPrice",
+          "type": "event",
+          "signature": "0xb8240a65b4ca0c774d05dbd16bac0fc0f6e4631fe1d2b0a8a069a73c768582e1"
+        },
+        "0xbb23a8e369bdbb341ed2a26729ed4c9e616f51e510b78ef899f5c1791b50de9c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "id",
+              "type": "uint256"
+            }
+          ],
+          "name": "RequestUpdate",
+          "type": "event",
+          "signature": "0xbb23a8e369bdbb341ed2a26729ed4c9e616f51e510b78ef899f5c1791b50de9c"
+        },
+        "0x187f451f92c6a4236353b5331d5fb67bdbfcc66b54367037fba41d6bcef08ce7": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "from",
+              "type": "address"
+            }
+          ],
+          "name": "Donation",
+          "type": "event",
+          "signature": "0x187f451f92c6a4236353b5331d5fb67bdbfcc66b54367037fba41d6bcef08ce7"
+        }
+      },
+      "links": {},
+      "address": "0x0811386fEbDb923Bf130F9f6630E66240b63B877",
+      "transactionHash": "0x49668ab48666804651b5f5bc99f9a84020834b40e34aa7fd4de219e6fbc828de"
     }
   },
   "schemaVersion": "3.0.11",
-  "updatedAt": "2019-07-27T18:21:52.570Z",
+  "updatedAt": "2019-08-03T15:58:20.129Z",
   "devdoc": {
     "methods": {}
   },

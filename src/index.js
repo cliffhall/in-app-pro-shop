@@ -32,7 +32,7 @@ const drizzleOptions = {
     web3:{
         fallback: {
             type: 'ws',
-            url: 'wss://127.0.0.1:7545'
+            url: 'wss://127.0.0.1:8545'
         }
     }
 };
