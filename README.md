@@ -91,13 +91,10 @@ Two stratified sets of Solidity contracts, ending with *ProShop.sol* and *StockR
 #### Dependencies
 * [Openzepplin-Solidity](https://github.com/OpenZeppelin/openzeppelin-solidity) base contracts for ERC721 tokens, role-based access control, safe math, and more.
 * [FiatContract](https://fiatcontract.com) external contract dependency for getting current ETH -> USD/EUR/GBP quotes from the blockchain.
-* [Ganache-CLI](https://github.com/trufflesuite/ganache-cli) for running a local blockchain.
 * [Truffle](https://github.com/trufflesuite/truffle) for compiling, testing, and migrating contracts to the blockchain.
 
 #### Stockroom Contract Structure
 ```
-* RBAC (Open Zepplin contract for implementing role-based access)
-:
 * AccessControl (Role-based access, SafeMath, contract pause, unpause, upgrade)
 :
 * StockRoomBase (Structs, state vars, and mappings related to Shops, SKU Types, and SKUs)
@@ -113,11 +110,10 @@ Two stratified sets of Solidity contracts, ending with *ProShop.sol* and *StockR
 
 #### ProShop Contract Structure
 ```
-* ERC721Token (Open Zepplin contract for implementing ERC-721 non-fungible tokens)
-:
-:  * RBAC (Open Zepplin contract for implementing role-based access)
-:  :
-:..* AccessControl (Role-based access, SafeMath, contract pause, unpause, upgrade)
+* ERC721Full (Open Zepplin contract for implementing ERC-721 non-fungible tokens)
+:  
+:  * AccessControl (Role-based access, SafeMath, contract pause, unpause, upgrade)
+:..:
 :
 * ProShopBase (Structs, state vars, and mappings related to Items and balances)
 :
@@ -177,18 +173,13 @@ A React/Redux application for maintaining Shops and checking/withdrawing Shop ow
 
 #  Developer Setup
 ### Build / Run / Deploy Prerequisites
- * [Node](https://nodejs.org/en/download/) 8.11 or above (also installs npm)
+ * [Node](https://nodejs.org/en/download/) 10.x or above (also installs npm) 
+ * [DO NOT INSTALL VERSION 12](https://github.com/trufflesuite/truffle/issues/2070)!
 
 ### Install Node modules
 * ```cd path/to/in-app-pro-shop``` (instructions in this document will assume you are at this path)
 
 * ``` npm install```
-
-### Install Ganache CLI
-* ```npm install -g ganache-cli```
-
-### Install Truffle
-* ```npm install -g truffle```
 
 # Development Tasks
 ## Blockchain
