@@ -1,6 +1,8 @@
 const StockRoom = artifacts.require("./StockRoom.sol");
 const FiatContract = artifacts.require("./FiatContract.sol");
 const exceptions = require ("./util/Exceptions");
+const truffleAssert = require('truffle-assertions');
+const BN = require('bn.js');
 
 contract('SKUFactory', function(accounts) {
 
@@ -39,7 +41,7 @@ contract('SKUFactory', function(accounts) {
         await contract.unpause();
 
         // Get the Shop ID to be created
-        shopId = (await contract.createShop.call(shopName, shopDesc, shopFiat, {from: shopOwner}));
+        shopId = (await contract.createShop.call(shopName, shopDesc, shopFiat, {from: shopOwner})).toNumber();
 
         // Now call the function for real and write the data
         await contract.createShop(shopName, shopDesc, shopFiat, {from: shopOwner});
@@ -60,20 +62,19 @@ contract('SKUFactory', function(accounts) {
 
     it("should allow a shop owner to create a SKU of an existing SKU Type for their Shop", async function() {
 
-        // First, get the skuTypeID with a call so it doesn't return a transaction
-        const skuId = await contract.createSKU.call(shopId, skuTypeId, skuPrice, skuName, skuDesc, consumable, limited, limit, {from: shopOwner});
+        const skuId = 0;
 
-        // Listen for NewSKU event (filter events by shopId)
-        /* When Ganache 7.0 comes out we can move to web3 ^1.2.x and rework events. for now, tests are broken
-        let event = contract.NewSKU({shopId: shopId});
-        contract.NewSKU().watch((err,response) => {
-            assert.equal(response.args.shopId, shopId, "Shop ID wasn't correct");
-            assert.equal(response.args.skuId, skuId, "SKU ID wasn't correct");
-            assert.equal(response.args.name, skuName, "SKU Name wasn't correct");
-        });
-        */
-        // Now do it for real
-        await contract.createSKU(shopId, skuTypeId, skuPrice, skuName, skuDesc, consumable, limited, limit, {from: shopOwner});
+        // Create SKU
+        const result = await contract.createSKU(shopId, skuTypeId, skuPrice, skuName, skuDesc, consumable, limited, limit, {from: shopOwner});
+
+        // Test that appropriate event was emitted
+        truffleAssert.eventEmitted(result, 'NewSKU', (event) => {
+            return (
+                event.name === skuName &&
+                event.skuId.toNumber() === skuId &&
+                event.shopId.toNumber() === shopId
+            );
+        }, 'NewSKU event should be emitted with correct info');
 
         // Get the count of SKUs for the Shop
         const skuIds = await contract.getSKUIds(shopId);

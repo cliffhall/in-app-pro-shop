@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.0;
 
 import "./SKUTypeFactory.sol";
 
@@ -22,8 +22,8 @@ contract SKUFactory is SKUTypeFactory {
         uint256 _shopId,
         uint256 _skuTypeId,
         uint256 _price,
-        string _name,
-        string _desc,
+        string memory _name,
+        string memory _desc,
         bool _consumable,
         bool _limited,
         uint256 _limit

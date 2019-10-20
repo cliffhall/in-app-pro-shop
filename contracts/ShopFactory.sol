@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.0;
 
 import "./StockRoomBase.sol";
 
@@ -19,9 +19,9 @@ contract ShopFactory is StockRoomBase {
      * @notice Create a Shop
      */
     function createShop(
-        string _name,
-        string _desc,
-        string _fiat
+        string calldata _name,
+        string calldata _desc,
+        string calldata _fiat
     )
         external
         whenNotPaused
@@ -40,8 +40,8 @@ contract ShopFactory is StockRoomBase {
         // Add Shop ID to Owner's Shops list
         ownedShops[owner].push(shopId);
 
-        // Give the owner the ROLE_SHOP_OWNER role
-        addRole(owner, ROLE_SHOP_OWNER);
+        // Give the shopOwners role to the owner
+        if (!shopOwners.has(owner))shopOwners.add(owner);
 
         // Send an event with the name of the new shop
         emit NewShop(owner, shopId, _name);

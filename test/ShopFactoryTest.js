@@ -1,4 +1,6 @@
 const StockRoom = artifacts.require("./StockRoom.sol");
+const truffleAssert = require('truffle-assertions');
+const BN = require('bn.js');
 
 contract('ShopFactory', function(accounts) {
 
@@ -20,24 +22,19 @@ contract('ShopFactory', function(accounts) {
         const shopName = "Barely Legal Pawn";
         const shopDesc = "Great stuff, cheap!";
         const shopFiat = "USD";
-
-        // Get the Shop ID (using call, to avoid receiving a transaction)
-        const shopId = (await contract.createShop.call(shopName, shopDesc, shopFiat, {from: shopOwner}));
-        assert.equal(shopId, 0, "Shop id wasn't returned");
-
-        // Listen for NewShop event (owner is indexed)
-        /* When Ganache 7.0 is released, we can move to web3 1.2.x and rework event tests, broken for now
-        let event = contract.NewShop({owner: shopOwner, name: shopName});
-        event.watch((err,response) => {
-            assert.equal(response.args.owner, shopOwner, "Shop owner was wrong");
-            assert.equal(response.args.shopId, shopId, "Shop ID was wrong");
-            assert.equal(response.args.name, shopName, "Shop Name was wrong");
-            event.stopWatching();
-        });
-        */
+        const shopId = 0;
 
         // Now call the function for real and write the data
-        await contract.createShop(shopName, shopDesc, shopFiat, {from: shopOwner});
+        const result = await contract.createShop(shopName, shopDesc, shopFiat, {from: shopOwner});
+
+        // Test that appropriate event was emitted
+        truffleAssert.eventEmitted(result, 'NewShop', (event) => {
+            return (
+                event.owner === shopOwner &&
+                event.name === shopName &&
+                event.shopId.toNumber() === shopId
+            );
+        }, 'NewShop event should be emitted with correct info');
 
         // Make sure the shop count for this owner is correct
         const shopIds = await contract.getShopIds(shopOwner);
@@ -51,13 +48,19 @@ contract('ShopFactory', function(accounts) {
         const shopName = "Fairly Regal Pawn";
         const shopDesc = "Cheap stuff, pricey!";
         const shopFiat = "USD";
-
-        // Get the Shop ID (using call, to avoid receiving a transaction)
-        const shopId = (await contract.createShop.call(shopName, shopDesc, shopFiat, {from: shopOwner}));
-        assert.equal(shopId, 1, "Shop id wasn't returned");
+        const shopId = 1;
 
         // Now call the function for real and write the data
-        await contract.createShop(shopName, shopDesc, shopFiat, {from: shopOwner});
+        const result = await contract.createShop(shopName, shopDesc, shopFiat, {from: shopOwner});
+
+        // Test that appropriate event was emitted
+        truffleAssert.eventEmitted(result, 'NewShop', (event) => {
+            return (
+                event.owner === shopOwner &&
+                event.name === shopName &&
+                event.shopId.toNumber() === shopId
+            );
+        }, 'NewShop event should be emitted with correct info');
 
         // Make sure the owner's Shop count is correct
         const shopIds = await contract.getShopIds(shopOwner);

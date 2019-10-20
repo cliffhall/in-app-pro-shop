@@ -2,13 +2,105 @@
   "contractName": "StockRoomBase",
   "abi": [
     {
+      "anonymous": false,
+      "inputs": [],
+      "name": "ContractPaused",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "ContractUnpaused",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newContract",
+          "type": "address"
+        }
+      ],
+      "name": "ContractUpgrade",
+      "type": "event"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "newContractAddress",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "constant": true,
       "inputs": [
         {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "ownedShops",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "pause",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "paused",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "uint256",
           "name": "",
           "type": "uint256"
         },
         {
+          "internalType": "uint256",
           "name": "",
           "type": "uint256"
         }
@@ -16,6 +108,7 @@
       "name": "shopSKUTypes",
       "outputs": [
         {
+          "internalType": "uint256",
           "name": "",
           "type": "uint256"
         }
@@ -28,37 +121,22 @@
       "constant": true,
       "inputs": [
         {
-          "name": "_operator",
-          "type": "address"
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
         },
         {
-          "name": "_role",
-          "type": "string"
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
         }
       ],
-      "name": "checkRole",
-      "outputs": [],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "_operator",
-          "type": "address"
-        },
-        {
-          "name": "_role",
-          "type": "string"
-        }
-      ],
-      "name": "hasRole",
+      "name": "shopSKUs",
       "outputs": [
         {
+          "internalType": "uint256",
           "name": "",
-          "type": "bool"
+          "type": "uint256"
         }
       ],
       "payable": false,
@@ -69,6 +147,7 @@
       "constant": true,
       "inputs": [
         {
+          "internalType": "uint256",
           "name": "",
           "type": "uint256"
         }
@@ -76,6 +155,7 @@
       "name": "shopToOwner",
       "outputs": [
         {
+          "internalType": "address",
           "name": "",
           "type": "address"
         }
@@ -88,6 +168,110 @@
       "constant": true,
       "inputs": [
         {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "shops",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "shopId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "fiat",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "skuTypeSKUs",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "skuTypes",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "shopId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "skuTypeId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "description",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "uint256",
           "name": "",
           "type": "uint256"
         }
@@ -95,38 +279,47 @@
       "name": "skus",
       "outputs": [
         {
+          "internalType": "uint256",
           "name": "shopId",
           "type": "uint256"
         },
         {
+          "internalType": "uint256",
           "name": "skuId",
           "type": "uint256"
         },
         {
+          "internalType": "uint256",
           "name": "skuTypeId",
           "type": "uint256"
         },
         {
+          "internalType": "uint256",
           "name": "price",
           "type": "uint256"
         },
         {
+          "internalType": "string",
           "name": "name",
           "type": "string"
         },
         {
+          "internalType": "string",
           "name": "description",
           "type": "string"
         },
         {
+          "internalType": "bool",
           "name": "consumable",
           "type": "bool"
         },
         {
+          "internalType": "bool",
           "name": "limited",
           "type": "bool"
         },
         {
+          "internalType": "uint256",
           "name": "limit",
           "type": "uint256"
         }
@@ -145,79 +338,27 @@
       "type": "function"
     },
     {
-      "constant": true,
+      "constant": false,
       "inputs": [
         {
-          "name": "",
+          "internalType": "address",
+          "name": "_newAddress",
           "type": "address"
-        },
-        {
-          "name": "",
-          "type": "uint256"
         }
       ],
-      "name": "ownedShops",
-      "outputs": [
-        {
-          "name": "",
-          "type": "uint256"
-        }
-      ],
+      "name": "upgradeContract",
+      "outputs": [],
       "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "name": "skuTypes",
-      "outputs": [
-        {
-          "name": "shopId",
-          "type": "uint256"
-        },
-        {
-          "name": "skuTypeId",
-          "type": "uint256"
-        },
-        {
-          "name": "name",
-          "type": "string"
-        },
-        {
-          "name": "description",
-          "type": "string"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
+      "stateMutability": "nonpayable",
       "type": "function"
     },
     {
       "constant": true,
       "inputs": [],
-      "name": "ROLE_SYS_ADMIN",
+      "name": "upgraded",
       "outputs": [
         {
-          "name": "",
-          "type": "string"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [],
-      "name": "paused",
-      "outputs": [
-        {
+          "internalType": "bool",
           "name": "",
           "type": "bool"
         }
@@ -225,259 +366,55 @@
       "payable": false,
       "stateMutability": "view",
       "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "",
-          "type": "uint256"
-        },
-        {
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "name": "skuTypeSKUs",
-      "outputs": [
-        {
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [],
-      "name": "newContractAddress",
-      "outputs": [
-        {
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "name": "shops",
-      "outputs": [
-        {
-          "name": "owner",
-          "type": "address"
-        },
-        {
-          "name": "shopId",
-          "type": "uint256"
-        },
-        {
-          "name": "name",
-          "type": "string"
-        },
-        {
-          "name": "description",
-          "type": "string"
-        },
-        {
-          "name": "fiat",
-          "type": "string"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": false,
-      "inputs": [
-        {
-          "name": "_newAddress",
-          "type": "address"
-        }
-      ],
-      "name": "setNewAddress",
-      "outputs": [],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [],
-      "name": "ROLE_SHOP_OWNER",
-      "outputs": [
-        {
-          "name": "",
-          "type": "string"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": false,
-      "inputs": [],
-      "name": "pause",
-      "outputs": [],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "",
-          "type": "uint256"
-        },
-        {
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "name": "shopSKUs",
-      "outputs": [
-        {
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [],
-      "name": "ROLE_FRANCHISE_OWNER",
-      "outputs": [
-        {
-          "name": "",
-          "type": "string"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "name": "newContract",
-          "type": "address"
-        }
-      ],
-      "name": "ContractUpgrade",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [],
-      "name": "ContractPaused",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [],
-      "name": "ContractUnpaused",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "name": "operator",
-          "type": "address"
-        },
-        {
-          "indexed": false,
-          "name": "role",
-          "type": "string"
-        }
-      ],
-      "name": "RoleAdded",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "name": "operator",
-          "type": "address"
-        },
-        {
-          "indexed": false,
-          "name": "role",
-          "type": "string"
-        }
-      ],
-      "name": "RoleRemoved",
-      "type": "event"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.4.26+commit.4563c3fc\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"uint256\"},{\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"shopSKUTypes\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"_operator\",\"type\":\"address\"},{\"name\":\"_role\",\"type\":\"string\"}],\"name\":\"checkRole\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"_operator\",\"type\":\"address\"},{\"name\":\"_role\",\"type\":\"string\"}],\"name\":\"hasRole\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"shopToOwner\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"skus\",\"outputs\":[{\"name\":\"shopId\",\"type\":\"uint256\"},{\"name\":\"skuId\",\"type\":\"uint256\"},{\"name\":\"skuTypeId\",\"type\":\"uint256\"},{\"name\":\"price\",\"type\":\"uint256\"},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"description\",\"type\":\"string\"},{\"name\":\"consumable\",\"type\":\"bool\"},{\"name\":\"limited\",\"type\":\"bool\"},{\"name\":\"limit\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"},{\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"ownedShops\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"skuTypes\",\"outputs\":[{\"name\":\"shopId\",\"type\":\"uint256\"},{\"name\":\"skuTypeId\",\"type\":\"uint256\"},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"description\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"ROLE_SYS_ADMIN\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"uint256\"},{\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"skuTypeSKUs\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"newContractAddress\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"shops\",\"outputs\":[{\"name\":\"owner\",\"type\":\"address\"},{\"name\":\"shopId\",\"type\":\"uint256\"},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"description\",\"type\":\"string\"},{\"name\":\"fiat\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_newAddress\",\"type\":\"address\"}],\"name\":\"setNewAddress\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"ROLE_SHOP_OWNER\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"uint256\"},{\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"shopSKUs\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"ROLE_FRANCHISE_OWNER\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"newContract\",\"type\":\"address\"}],\"name\":\"ContractUpgrade\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[],\"name\":\"ContractPaused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[],\"name\":\"ContractUnpaused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"role\",\"type\":\"string\"}],\"name\":\"RoleAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"role\",\"type\":\"string\"}],\"name\":\"RoleRemoved\",\"type\":\"event\"}],\"devdoc\":{\"methods\":{\"checkRole(address,string)\":{\"details\":\"reverts if addr does not have role\",\"params\":{\"_operator\":\"address\",\"_role\":\"the name of the role // reverts\"}},\"hasRole(address,string)\":{\"details\":\"determine if addr has role\",\"params\":{\"_operator\":\"address\",\"_role\":\"the name of the role\"},\"return\":\"bool\"},\"pause()\":{\"details\":\"called by the system administrator to pause, triggers stopped state\"},\"setNewAddress(address)\":{\"details\":\"Used to mark the smart contract as upgraded, in case there is a serious     breaking bug. This method only keeps track of the new contract and emits     a message indicating that the new address is set. It's up to clients of     contract to update to the new contract address in that case.     This contract will be paused indefinitely if such an upgrade takes place.\",\"params\":{\"_newAddress\":\"address of new contract\"}},\"unpause()\":{\"details\":\"called by the ystem administrator to un-pause, returns to normal state\"}},\"title\":\"StockRoomBase\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/cliff/Documents/in-app-pro-shop/contracts/StockRoomBase.sol\":\"StockRoomBase\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/cliff/Documents/in-app-pro-shop/contracts/AccessControl.sol\":{\"keccak256\":\"0x248b37d08a3411ecaa68eb94d6ce92b20e80c3333ce48385fdba5da157a93d0f\",\"urls\":[\"bzzr://4ad90424a2b9b4c15e59901dcdf21d486f281f39dc2020bac21d78a6b80aa23c\"]},\"/Users/cliff/Documents/in-app-pro-shop/contracts/FiatContractInterface.sol\":{\"keccak256\":\"0xb83e63f4193f824ce26a3de1f224298e403b71dc89ea0cf1eb1ffdb338e5657c\",\"urls\":[\"bzzr://30a802a33999e237094a08108bc2408bf1068f85ca310d312f0cf9eceecd70cc\"]},\"/Users/cliff/Documents/in-app-pro-shop/contracts/StockRoomBase.sol\":{\"keccak256\":\"0x585f66717f89971d5288b9cb16c461701a30a701186b58c80ede79a9bdba4893\",\"urls\":[\"bzzr://790cd25f53e5c51ed5b201e85a60ed138f10f7df7f5be495664627016a6a0ab7\"]},\"openzeppelin-solidity/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x1f9e2b6c3c6ed1da96f19351b227b3bfdf2c6206950c14ca3790b31f66e7f959\",\"urls\":[\"bzzr://98935650c667c3649059cc41a246d9535c18cb29fa826acee9092e130fb220f5\"]},\"openzeppelin-solidity/contracts/ownership/RBAC/RBAC.sol\":{\"keccak256\":\"0xa26e63f8c248dfe193410d4974e4e1d60ad8e4814a694c1e5293148fc45a4fc0\",\"urls\":[\"bzzr://2e1b3e9dbcc7821aea9fb363a60b61881dd72c130709f8c9ab044403f97f2781\"]},\"openzeppelin-solidity/contracts/ownership/RBAC/Roles.sol\":{\"keccak256\":\"0x787adb0f56fe9b776485d629f0bf1229d0dce6f5723570c52dde6a51799ac85b\",\"urls\":[\"bzzr://5c7166970973bcb5c52cf98028bb6712ca6c5dcd8d82959c37c94966a44ba2b7\"]}},\"version\":1}",
-  "bytecode": "0x60806040526000600160006101000a81548160ff02191690831515021790555060018060006101000a81548160ff02191690831515021790555062000089336040805190810160405280601181526020017f726f6c652f73797374656d2d61646d696e000000000000000000000000000000815250620000df640100000000026401000000009004565b620000d9336040805190810160405280601481526020017f726f6c652f6672616e63686973652d6f776e6572000000000000000000000000815250620000df640100000000026401000000009004565b62000286565b6200016e826000836040518082805190602001908083835b6020831015156200011e5780518252602082019150602081019050602083039250620000f7565b6001836020036101000a038019825116818451168082178552505050505050905001915050908152602001604051809103902062000228640100000000026200157d179091906401000000009004565b8173ffffffffffffffffffffffffffffffffffffffff167fbfec83d64eaa953f2708271a023ab9ee82057f8f3578d548c1a4ba0b5b700489826040518080602001828103825283818151815260200191508051906020019080838360005b83811015620001e9578082015181840152602081019050620001cc565b50505050905090810190601f168015620002175780820380516001836020036101000a031916815260200191505b509250505060405180910390a25050565b60018260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055505050565b61160780620002966000396000f3006080604052600436106100fc576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806301ba7539146101015780630988ca8c1461014c578063217fe6c6146101d55780632cf0d92a1461027657806335007f0e146102e35780633f4ba83a1461042e57806351b4fc7e14610445578063531e005b146104a657806356de8ccd146105c65780635c975abb146106565780635ded461a146106855780636af04a57146106d0578063713aca741461072757806371587988146108df5780637e1ae976146109225780638456cb59146109b257806391033940146109c9578063cb1b200114610a14575b600080fd5b34801561010d57600080fd5b506101366004803603810190808035906020019092919080359060200190929190505050610aa4565b6040518082815260200191505060405180910390f35b34801561015857600080fd5b506101d3600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509192919290505050610ad4565b005b3480156101e157600080fd5b5061025c600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509192919290505050610b55565b604051808215151515815260200191505060405180910390f35b34801561028257600080fd5b506102a160048036038101908080359060200190929190505050610bdc565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156102ef57600080fd5b5061030e60048036038101908080359060200190929190505050610c0f565b604051808a815260200189815260200188815260200187815260200180602001806020018615151515815260200185151515158152602001848152602001838103835288818151815260200191508051906020019080838360005b83811015610384578082015181840152602081019050610369565b50505050905090810190601f1680156103b15780820380516001836020036101000a031916815260200191505b50838103825287818151815260200191508051906020019080838360005b838110156103ea5780820151818401526020810190506103cf565b50505050905090810190601f1680156104175780820380516001836020036101000a031916815260200191505b509b50505050505050505050505060405180910390f35b34801561043a57600080fd5b50610443610db6565b005b34801561045157600080fd5b50610490600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610e59565b6040518082815260200191505060405180910390f35b3480156104b257600080fd5b506104d160048036038101908080359060200190929190505050610e89565b604051808581526020018481526020018060200180602001838103835285818151815260200191508051906020019080838360005b83811015610521578082015181840152602081019050610506565b50505050905090810190601f16801561054e5780820380516001836020036101000a031916815260200191505b50838103825284818151815260200191508051906020019080838360005b8381101561058757808201518184015260208101905061056c565b50505050905090810190601f1680156105b45780820380516001836020036101000a031916815260200191505b50965050505050505060405180910390f35b3480156105d257600080fd5b506105db610ff8565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561061b578082015181840152602081019050610600565b50505050905090810190601f1680156106485780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b34801561066257600080fd5b5061066b611031565b604051808215151515815260200191505060405180910390f35b34801561069157600080fd5b506106ba6004803603810190808035906020019092919080359060200190929190505050611044565b6040518082815260200191505060405180910390f35b3480156106dc57600080fd5b506106e5611074565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561073357600080fd5b5061075260048036038101908080359060200190929190505050611099565b604051808673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001858152602001806020018060200180602001848103845287818151815260200191508051906020019080838360005b838110156107d25780820151818401526020810190506107b7565b50505050905090810190601f1680156107ff5780820380516001836020036101000a031916815260200191505b50848103835286818151815260200191508051906020019080838360005b8381101561083857808201518184015260208101905061081d565b50505050905090810190601f1680156108655780820380516001836020036101000a031916815260200191505b50848103825285818151815260200191508051906020019080838360005b8381101561089e578082015181840152602081019050610883565b50505050905090810190601f1680156108cb5780820380516001836020036101000a031916815260200191505b509850505050505050505060405180910390f35b3480156108eb57600080fd5b50610920600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506112c6565b005b34801561092e57600080fd5b506109376113c6565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561097757808201518184015260208101905061095c565b50505050905090810190601f1680156109a45780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b3480156109be57600080fd5b506109c76113ff565b005b3480156109d557600080fd5b506109fe60048036038101908080359060200190929190803590602001909291905050506114a2565b6040518082815260200191505060405180910390f35b348015610a2057600080fd5b50610a296114d2565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610a69578082015181840152602081019050610a4e565b50505050905090810190601f168015610a965780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b600860205281600052604060002081815481101515610abf57fe5b90600052602060002001600091509150505481565b610b51826000836040518082805190602001908083835b602083101515610b105780518252602082019150602081019050602083039250610aeb565b6001836020036101000a038019825116818451168082178552505050505050905001915050908152602001604051809103902061150b90919063ffffffff16565b5050565b6000610bd4836000846040518082805190602001908083835b602083101515610b935780518252602082019150602081019050602083039250610b6e565b6001836020036101000a038019825116818451168082178552505050505050905001915050908152602001604051809103902061152490919063ffffffff16565b905092915050565b60066020528060005260406000206000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600581815481101515610c1e57fe5b9060005260206000209060080201600091509050806000015490806001015490806002015490806003015490806004018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610ce25780601f10610cb757610100808354040283529160200191610ce2565b820191906000526020600020905b815481529060010190602001808311610cc557829003601f168201915b505050505090806005018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610d805780601f10610d5557610100808354040283529160200191610d80565b820191906000526020600020905b815481529060010190602001808311610d6357829003601f168201915b5050505050908060060160009054906101000a900460ff16908060060160019054906101000a900460ff16908060070154905089565b610df5336040805190810160405280601181526020017f726f6c652f73797374656d2d61646d696e000000000000000000000000000000815250610ad4565b600160009054906101000a900460ff161515610e1057600080fd5b6000600160006101000a81548160ff0219169083151502179055507f0e5e3b3fb504c22cf5c42fa07d521225937514c654007e1f12646f89768d6f9460405160405180910390a1565b600760205281600052604060002081815481101515610e7457fe5b90600052602060002001600091509150505481565b600481815481101515610e9857fe5b9060005260206000209060040201600091509050806000015490806001015490806002018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610f505780601f10610f2557610100808354040283529160200191610f50565b820191906000526020600020905b815481529060010190602001808311610f3357829003601f168201915b505050505090806003018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610fee5780601f10610fc357610100808354040283529160200191610fee565b820191906000526020600020905b815481529060010190602001808311610fd157829003601f168201915b5050505050905084565b6040805190810160405280601181526020017f726f6c652f73797374656d2d61646d696e00000000000000000000000000000081525081565b600160009054906101000a900460ff1681565b60096020528160005260406000208181548110151561105f57fe5b90600052602060002001600091509150505481565b6001809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6003818154811015156110a857fe5b90600052602060002090600502016000915090508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1690806001015490806002018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156111805780601f1061115557610100808354040283529160200191611180565b820191906000526020600020905b81548152906001019060200180831161116357829003601f168201915b505050505090806003018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561121e5780601f106111f35761010080835404028352916020019161121e565b820191906000526020600020905b81548152906001019060200180831161120157829003601f168201915b505050505090806004018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156112bc5780601f10611291576101008083540402835291602001916112bc565b820191906000526020600020905b81548152906001019060200180831161129f57829003601f168201915b5050505050905085565b611305336040805190810160405280601181526020017f726f6c652f73797374656d2d61646d696e000000000000000000000000000000815250610ad4565b600160009054906101000a900460ff16151561132057600080fd5b806001806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055507f450db8da6efbe9c22f2347f7c2021231df1fc58d3ae9a2fa75d39fa44619930581604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a150565b6040805190810160405280600f81526020017f726f6c652f73686f702d6f776e6572000000000000000000000000000000000081525081565b61143e336040805190810160405280601181526020017f726f6c652f73797374656d2d61646d696e000000000000000000000000000000815250610ad4565b600160009054906101000a900460ff1615151561145a57600080fd5b60018060006101000a81548160ff0219169083151502179055507fab35696f06e428ebc5ceba8cd17f8fed287baf43440206d1943af1ee53e6d26760405160405180910390a1565b600a602052816000526040600020818154811015156114bd57fe5b90600052602060002001600091509150505481565b6040805190810160405280601481526020017f726f6c652f6672616e63686973652d6f776e657200000000000000000000000081525081565b6115158282611524565b151561152057600080fd5b5050565b60008260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff16905092915050565b60018260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff02191690831515021790555050505600a165627a7a723058204cd0aca6ee9b1bbe654ec1b3b6983f348a93d44ce994827fbfb97806e124370e0029",
-  "deployedBytecode": "0x6080604052600436106100fc576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806301ba7539146101015780630988ca8c1461014c578063217fe6c6146101d55780632cf0d92a1461027657806335007f0e146102e35780633f4ba83a1461042e57806351b4fc7e14610445578063531e005b146104a657806356de8ccd146105c65780635c975abb146106565780635ded461a146106855780636af04a57146106d0578063713aca741461072757806371587988146108df5780637e1ae976146109225780638456cb59146109b257806391033940146109c9578063cb1b200114610a14575b600080fd5b34801561010d57600080fd5b506101366004803603810190808035906020019092919080359060200190929190505050610aa4565b6040518082815260200191505060405180910390f35b34801561015857600080fd5b506101d3600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509192919290505050610ad4565b005b3480156101e157600080fd5b5061025c600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509192919290505050610b55565b604051808215151515815260200191505060405180910390f35b34801561028257600080fd5b506102a160048036038101908080359060200190929190505050610bdc565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156102ef57600080fd5b5061030e60048036038101908080359060200190929190505050610c0f565b604051808a815260200189815260200188815260200187815260200180602001806020018615151515815260200185151515158152602001848152602001838103835288818151815260200191508051906020019080838360005b83811015610384578082015181840152602081019050610369565b50505050905090810190601f1680156103b15780820380516001836020036101000a031916815260200191505b50838103825287818151815260200191508051906020019080838360005b838110156103ea5780820151818401526020810190506103cf565b50505050905090810190601f1680156104175780820380516001836020036101000a031916815260200191505b509b50505050505050505050505060405180910390f35b34801561043a57600080fd5b50610443610db6565b005b34801561045157600080fd5b50610490600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610e59565b6040518082815260200191505060405180910390f35b3480156104b257600080fd5b506104d160048036038101908080359060200190929190505050610e89565b604051808581526020018481526020018060200180602001838103835285818151815260200191508051906020019080838360005b83811015610521578082015181840152602081019050610506565b50505050905090810190601f16801561054e5780820380516001836020036101000a031916815260200191505b50838103825284818151815260200191508051906020019080838360005b8381101561058757808201518184015260208101905061056c565b50505050905090810190601f1680156105b45780820380516001836020036101000a031916815260200191505b50965050505050505060405180910390f35b3480156105d257600080fd5b506105db610ff8565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561061b578082015181840152602081019050610600565b50505050905090810190601f1680156106485780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b34801561066257600080fd5b5061066b611031565b604051808215151515815260200191505060405180910390f35b34801561069157600080fd5b506106ba6004803603810190808035906020019092919080359060200190929190505050611044565b6040518082815260200191505060405180910390f35b3480156106dc57600080fd5b506106e5611074565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561073357600080fd5b5061075260048036038101908080359060200190929190505050611099565b604051808673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001858152602001806020018060200180602001848103845287818151815260200191508051906020019080838360005b838110156107d25780820151818401526020810190506107b7565b50505050905090810190601f1680156107ff5780820380516001836020036101000a031916815260200191505b50848103835286818151815260200191508051906020019080838360005b8381101561083857808201518184015260208101905061081d565b50505050905090810190601f1680156108655780820380516001836020036101000a031916815260200191505b50848103825285818151815260200191508051906020019080838360005b8381101561089e578082015181840152602081019050610883565b50505050905090810190601f1680156108cb5780820380516001836020036101000a031916815260200191505b509850505050505050505060405180910390f35b3480156108eb57600080fd5b50610920600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506112c6565b005b34801561092e57600080fd5b506109376113c6565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561097757808201518184015260208101905061095c565b50505050905090810190601f1680156109a45780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b3480156109be57600080fd5b506109c76113ff565b005b3480156109d557600080fd5b506109fe60048036038101908080359060200190929190803590602001909291905050506114a2565b6040518082815260200191505060405180910390f35b348015610a2057600080fd5b50610a296114d2565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610a69578082015181840152602081019050610a4e565b50505050905090810190601f168015610a965780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b600860205281600052604060002081815481101515610abf57fe5b90600052602060002001600091509150505481565b610b51826000836040518082805190602001908083835b602083101515610b105780518252602082019150602081019050602083039250610aeb565b6001836020036101000a038019825116818451168082178552505050505050905001915050908152602001604051809103902061150b90919063ffffffff16565b5050565b6000610bd4836000846040518082805190602001908083835b602083101515610b935780518252602082019150602081019050602083039250610b6e565b6001836020036101000a038019825116818451168082178552505050505050905001915050908152602001604051809103902061152490919063ffffffff16565b905092915050565b60066020528060005260406000206000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600581815481101515610c1e57fe5b9060005260206000209060080201600091509050806000015490806001015490806002015490806003015490806004018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610ce25780601f10610cb757610100808354040283529160200191610ce2565b820191906000526020600020905b815481529060010190602001808311610cc557829003601f168201915b505050505090806005018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610d805780601f10610d5557610100808354040283529160200191610d80565b820191906000526020600020905b815481529060010190602001808311610d6357829003601f168201915b5050505050908060060160009054906101000a900460ff16908060060160019054906101000a900460ff16908060070154905089565b610df5336040805190810160405280601181526020017f726f6c652f73797374656d2d61646d696e000000000000000000000000000000815250610ad4565b600160009054906101000a900460ff161515610e1057600080fd5b6000600160006101000a81548160ff0219169083151502179055507f0e5e3b3fb504c22cf5c42fa07d521225937514c654007e1f12646f89768d6f9460405160405180910390a1565b600760205281600052604060002081815481101515610e7457fe5b90600052602060002001600091509150505481565b600481815481101515610e9857fe5b9060005260206000209060040201600091509050806000015490806001015490806002018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610f505780601f10610f2557610100808354040283529160200191610f50565b820191906000526020600020905b815481529060010190602001808311610f3357829003601f168201915b505050505090806003018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610fee5780601f10610fc357610100808354040283529160200191610fee565b820191906000526020600020905b815481529060010190602001808311610fd157829003601f168201915b5050505050905084565b6040805190810160405280601181526020017f726f6c652f73797374656d2d61646d696e00000000000000000000000000000081525081565b600160009054906101000a900460ff1681565b60096020528160005260406000208181548110151561105f57fe5b90600052602060002001600091509150505481565b6001809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6003818154811015156110a857fe5b90600052602060002090600502016000915090508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1690806001015490806002018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156111805780601f1061115557610100808354040283529160200191611180565b820191906000526020600020905b81548152906001019060200180831161116357829003601f168201915b505050505090806003018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561121e5780601f106111f35761010080835404028352916020019161121e565b820191906000526020600020905b81548152906001019060200180831161120157829003601f168201915b505050505090806004018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156112bc5780601f10611291576101008083540402835291602001916112bc565b820191906000526020600020905b81548152906001019060200180831161129f57829003601f168201915b5050505050905085565b611305336040805190810160405280601181526020017f726f6c652f73797374656d2d61646d696e000000000000000000000000000000815250610ad4565b600160009054906101000a900460ff16151561132057600080fd5b806001806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055507f450db8da6efbe9c22f2347f7c2021231df1fc58d3ae9a2fa75d39fa44619930581604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a150565b6040805190810160405280600f81526020017f726f6c652f73686f702d6f776e6572000000000000000000000000000000000081525081565b61143e336040805190810160405280601181526020017f726f6c652f73797374656d2d61646d696e000000000000000000000000000000815250610ad4565b600160009054906101000a900460ff1615151561145a57600080fd5b60018060006101000a81548160ff0219169083151502179055507fab35696f06e428ebc5ceba8cd17f8fed287baf43440206d1943af1ee53e6d26760405160405180910390a1565b600a602052816000526040600020818154811015156114bd57fe5b90600052602060002001600091509150505481565b6040805190810160405280601481526020017f726f6c652f6672616e63686973652d6f776e657200000000000000000000000081525081565b6115158282611524565b151561152057600080fd5b5050565b60008260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff16905092915050565b60018260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff02191690831515021790555050505600a165627a7a723058204cd0aca6ee9b1bbe654ec1b3b6983f348a93d44ce994827fbfb97806e124370e0029",
-  "sourceMap": "236:2594:11:-;;;1052:5:0;1031:26;;;;;;;;;;;;;;;;;;;;472:4;463:6;;:13;;;;;;;;;;;;;;;;;;534:35;542:10;554:14;;;;;;;;;;;;;;;;;;534:7;;;:35;;;:::i;:::-;579:41;587:10;599:20;;;;;;;;;;;;;;;;;;579:7;;;:41;;;:::i;:::-;236:2594:11;;1457:141:17;1528:27;1545:9;1528:5;1534;1528:12;;;;;;;;;;;;;36:153:-1;66:2;61:3;58:11;51:19;36:153;;;182:3;176:10;171:3;164:23;98:2;93:3;89:12;82:19;;123:2;118:3;114:12;107:19;;148:2;143:3;139:12;132:19;;36:153;;;274:1;267:3;263:2;259:12;254:3;250:22;246:30;315:4;311:9;305:3;299:10;295:26;356:4;350:3;344:10;340:21;389:7;380;377:20;372:3;365:33;3:399;;;1528:12:17;;;;;;;;;;;;;;;;;;;;;:16;;;;;;:27;;;;;:::i;:::-;1576:9;1566:27;;;1587:5;1566:27;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;1566:27:17;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1457:141;;:::o;321:96:18:-;408:4;388;:11;;:17;400:4;388:17;;;;;;;;;;;;;;;;:24;;;;;;;;;;;;;;;;;;321:96;;:::o;236:2594:11:-;;;;;;;",
-  "deployedSourceMap": "236:2594:11:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1099:50;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1099:50:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;947:114:17;;8:9:-1;5:2;;;30:1;27;20:12;5:2;947:114:17;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1201:136;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1201:136:17;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;850:47:11;;8:9:-1;5:2;;;30:1;27;20:12;5:2;850:47:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;762:17;;8:9:-1;5:2;;;30:1;27;20:12;5:2;762:17:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;762:17:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;762:17:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3239:114:0;;8:9:-1;5:2;;;30:1;27;20:12;5:2;3239:114:0;;;;;;980:48:11;;8:9:-1;5:2;;;30:1;27;20:12;5:2;980:48:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;683:25;;8:9:-1;5:2;;;30:1;27;20:12;5:2;683:25:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;683:25:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;683:25:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1257:59:0;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1257:59:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;1257:59:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1031:26;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1031:26:0;;;;;;;;;;;;;;;;;;;;;;;;;;;1219:49:11;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1219:49:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1149:33:0;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1149:33:0;;;;;;;;;;;;;;;;;;;;;;;;;;;605:19:11;;8:9:-1;5:2;;;30:1;27;20:12;5:2;605:19:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;605:19:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;605:19:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;605:19:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2751:169:0;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2751:169:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;1373:58;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1373:58:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;1373:58:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3022:112;;8:9:-1;5:2;;;30:1;27;20:12;5:2;3022:112:0;;;;;;1334:46:11;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1334:46:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1492:68:0;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1492:68:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;1492:68:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1099:50:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;947:114:17:-;1027:29;1046:9;1027:5;1033;1027:12;;;;;;;;;;;;;36:153:-1;66:2;61:3;58:11;51:19;36:153;;;182:3;176:10;171:3;164:23;98:2;93:3;89:12;82:19;;123:2;118:3;114:12;107:19;;148:2;143:3;139:12;132:19;;36:153;;;274:1;267:3;263:2;259:12;254:3;250:22;246:30;315:4;311:9;305:3;299:10;295:26;356:4;350:3;344:10;340:21;389:7;380;377:20;372:3;365:33;3:399;;;1027:12:17;;;;;;;;;;;;;;;;;;;;;:18;;:29;;;;:::i;:::-;947:114;;:::o;1201:136::-;1284:4;1305:27;1322:9;1305:5;1311;1305:12;;;;;;;;;;;;;36:153:-1;66:2;61:3;58:11;51:19;36:153;;;182:3;176:10;171:3;164:23;98:2;93:3;89:12;82:19;;123:2;118:3;114:12;107:19;;148:2;143:3;139:12;132:19;;36:153;;;274:1;267:3;263:2;259:12;254:3;250:22;246:30;315:4;311:9;305:3;299:10;295:26;356:4;350:3;344:10;340:21;389:7;380;377:20;372:3;365:33;3:399;;;1305:12:17;;;;;;;;;;;;;;;;;;;;;:16;;:27;;;;:::i;:::-;1298:34;;1201:136;;;;:::o;850:47:11:-;;;;;;;;;;;;;;;;;;;;;;:::o;762:17::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;3239:114:0:-;1678:37;1688:10;1700:14;;;;;;;;;;;;;;;;;;1678:9;:37::i;:::-;2235:6;;;;;;;;;;;2227:15;;;;;;;;3308:5;3299:6;;:14;;;;;;;;;;;;;;;;;;3328:18;;;;;;;;;;3239:114::o;980:48:11:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;683:25::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;1257:59:0:-;;;;;;;;;;;;;;;;;;;;:::o;1031:26::-;;;;;;;;;;;;;:::o;1219:49:11:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;1149:33:0:-;;;;;;;;;;;;;:::o;605:19:11:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;2751:169:0:-;1678:37;1688:10;1700:14;;;;;;;;;;;;;;;;;;1678:9;:37::i;:::-;2235:6;;;;;;;;;;;2227:15;;;;;;;;2859:11;2838:18;;:32;;;;;;;;;;;;;;;;;;2885:28;2901:11;2885:28;;;;;;;;;;;;;;;;;;;;;;2751:169;:::o;1373:58::-;;;;;;;;;;;;;;;;;;;;:::o;3022:112::-;1678:37;1688:10;1700:14;;;;;;;;;;;;;;;;;;1678:9;:37::i;:::-;2065:6;;;;;;;;;;;2064:7;2056:16;;;;;;;;3092:4;3083:6;;:13;;;;;;;;;;;;;;;;;;3111:16;;;;;;;;;;3022:112::o;1334:46:11:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;1492:68:0:-;;;;;;;;;;;;;;;;;;;;:::o;658:107:18:-;744:15;748:4;754;744:3;:15::i;:::-;736:24;;;;;;;;658:107;;:::o;843:124::-;924:4;945;:11;;:17;957:4;945:17;;;;;;;;;;;;;;;;;;;;;;;;;938:24;;843:124;;;;:::o;321:96::-;408:4;388;:11;;:17;400:4;388:17;;;;;;;;;;;;;;;;:24;;;;;;;;;;;;;;;;;;321:96;;:::o",
-  "source": "pragma solidity ^0.4.24;\n\nimport \"./AccessControl.sol\";\nimport \"./FiatContractInterface.sol\";\n\n\n/**\n * @title StockRoomBase\n * @notice Defines collections, mappings, and structs for the StockRoom side of the In-game Pro Shop System\n */\ncontract StockRoomBase is AccessControl {\n\n    FiatContractInterface internal fiatContract;\n\n    /**\n     * @dev modifier to scope access to owner of given shop\n     */\n    modifier onlyShopOwner(uint256 _shopId) {\n        address owner = shopToOwner[_shopId];\n        require(msg.sender == owner);\n        _;\n    }\n\n    /**\n     * @notice All of the Shops\n     */\n    Shop[] public shops;\n\n    /**\n     * @notice All of the SKU Types\n     */\n    SKUType[] public skuTypes;\n\n    /**\n     * @notice All of the SKUs\n     */\n    SKU[] public skus;\n\n    /**\n     * @dev Mapping of Shop ID to Owner Address\n     */\n    mapping (uint256 => address) public shopToOwner;\n\n    /**\n     * @dev Mapping of Owner Address to list of owned Shops\n     */\n    mapping (address => uint256[]) public ownedShops;\n\n    /**\n     * @dev Mapping of Shop ID to SKU Type list\n     */\n    mapping (uint256 => uint256[]) public shopSKUTypes;\n\n    /**\n     * @dev Mapping of SKU Type ID to SKU list\n     */\n    mapping (uint256 => uint256[]) public skuTypeSKUs;\n\n    /**\n     * @dev Mapping of Shop ID to SKU list\n     */\n    mapping (uint256 => uint256[]) public shopSKUs;\n\n    /**\n     * @notice Structure of a Pro Shop\n     */\n    struct Shop {\n\n        // Owner of the item\n        address owner;\n\n        // The id of this shop\n        uint256 shopId;\n\n        // Name of the item\n        string name;\n\n        // Description of the shop\n        string description;\n\n        // Fiat currency for prices\n        string fiat;\n    }\n\n    /**\n     * @notice the attributes of an item\n     */\n    struct SKUType {\n\n        // ID of the Shop this SKU Type belongs to\n        uint256 shopId;\n\n        // ID of the SKU Type\n        uint256 skuTypeId;\n\n        // Name of the SKU Type\n        string name;\n\n        // Description of the SKU Type (optional)\n        string description;\n    }\n\n    /**\n     * @notice Structure of a Pro Shop SKU (Shopkeeping Unit)\n     */\n    struct SKU {\n\n        // The shop this SKU belongs to\n        uint256 shopId;\n\n        // The id of this SKU\n        uint256 skuId;\n\n        // Type of the SKU\n        uint256 skuTypeId;\n\n        // Price of the SKU\n        uint256 price;\n\n        // Name of the item\n        string name;\n\n        // Description of the SKU\n        string description;\n\n        // Can it be consumed (used up)\n        bool consumable;\n\n        // Is there a limit to the number of Items that can\n        // be minted from this SKU?\n        bool limited;\n\n        // If limited, what is the maximum number that\n        // can be created?\n        uint256 limit;\n\n    }\n\n}\n",
-  "sourcePath": "/Users/cliff/Documents/in-app-pro-shop/contracts/StockRoomBase.sol",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[],\"name\":\"ContractPaused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[],\"name\":\"ContractUnpaused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"newContract\",\"type\":\"address\"}],\"name\":\"ContractUpgrade\",\"type\":\"event\"},{\"constant\":true,\"inputs\":[],\"name\":\"newContractAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"ownedShops\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"shopSKUTypes\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"shopSKUs\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"shopToOwner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"shops\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"shopId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"description\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"fiat\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"skuTypeSKUs\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"skuTypes\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"shopId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"skuTypeId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"description\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"skus\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"shopId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"skuId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"skuTypeId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"description\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"consumable\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"limited\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"limit\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"_newAddress\",\"type\":\"address\"}],\"name\":\"upgradeContract\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"upgraded\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"pause()\":{\"details\":\"called by the system administrator to pause, triggers stopped state\"},\"unpause()\":{\"details\":\"called by the ystem administrator to un-pause, returns to normal state\"},\"upgradeContract(address)\":{\"details\":\"called by a system administrator to  mark the smart contract as upgraded,     in case there is a serious breaking bug. This method stores the new contract     address and emits an event to that effect. Clients of the contract should     update to the new contract address upon receiving this event.     *      This contract will remain paused indefinitely after such an upgrade.\",\"params\":{\"_newAddress\":\"address of new contract\"}}},\"title\":\"StockRoomBase\"},\"userdoc\":{\"methods\":{},\"notice\":\"Defines collections, mappings, and structs for the StockRoom side of the In-game Pro Shop System\"}},\"settings\":{\"compilationTarget\":{\"/Users/cliffhall/Projects/in-app-pro-shop/contracts/StockRoomBase.sol\":\"StockRoomBase\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/cliffhall/Projects/in-app-pro-shop/contracts/AccessControl.sol\":{\"keccak256\":\"0xb4fa8d146fa7837c9b7f78b2bf83e43a0a75d2157f8cec908a5541cd19702bec\",\"urls\":[\"bzz-raw://70ee2d9866838766ef23cda6d7673ebaf60275e95516e0d404832585cc8a5edf\",\"dweb:/ipfs/QmVmrZQyo2YyHAz5BVyvcbbdrq8k3yDR8XuzX11GR3BcvF\"]},\"/Users/cliffhall/Projects/in-app-pro-shop/contracts/FiatContractInterface.sol\":{\"keccak256\":\"0xccb70e01a82c6a60862969bb3662bdbe6eca66943f8e734e3f8562628385d541\",\"urls\":[\"bzz-raw://6a672e03b632ed510a80a88cb09de372ea661f8c53bc150ad0c0a68f09a3cc57\",\"dweb:/ipfs/QmTq9N5adjQHroozzHzUnLns9g8MPQqkEc2PxUoWWbuNjY\"]},\"/Users/cliffhall/Projects/in-app-pro-shop/contracts/StockRoomBase.sol\":{\"keccak256\":\"0xb4f427bd8aa851fd7f2fb7960beec9e7abf74c8f79d6d187542aaf6f49fe64cc\",\"urls\":[\"bzz-raw://3a7959bb03e8a2ccae51b020f1a281bde038062b7474d70ffdc504f02248d120\",\"dweb:/ipfs/QmYvhfoHjUzA7ZYZPcixj9aAmYKszvA98invtyrQw91ZKg\"]},\"openzeppelin-solidity/contracts/access/Roles.sol\":{\"keccak256\":\"0xb002c378d7b82a101bd659c341518953ca0919d342c0a400196982c0e7e7bcdb\",\"urls\":[\"bzz-raw://00a788c4631466c220b385bdd100c571d24b2deccd657615cfbcef6cadf669a4\",\"dweb:/ipfs/QmTEwDbjJNxmMNCDMqtuou3dyM8Wtp8Q9NFvn7SAVM7Jf3\"]},\"openzeppelin-solidity/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x4ccf2d7b51873db1ccfd54ca2adae5eac3b184f9699911ed4490438419f1c690\",\"urls\":[\"bzz-raw://d62d769b2219d5de39013093412623e624fa887f871826ea3bae6052ee893610\",\"dweb:/ipfs/QmV3yVktya1s617QmuzQR2CfuJgUi3dR2xEZY9ecmqZ2G1\"]}},\"version\":1}",
+  "bytecode": "0x60806040526000600360006101000a81548160ff0219169083151502179055506000600360016101000a81548160ff0219169083151502179055506001600360016101000a81548160ff02191690831515021790555061006d33600061008a60201b61112c1790919060201c565b61008533600161008a60201b61112c1790919060201c565b610249565b61009a828261016b60201b60201c565b1561010d576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252601f8152602001807f526f6c65733a206163636f756e7420616c72656164792068617320726f6c650081525060200191505060405180910390fd5b60018260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055505050565b60008073ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff1614156101f2576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260228152602001806114b66022913960400191505060405180910390fd5b8260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff16905092915050565b61125e806102586000396000f3fe608060405234801561001057600080fd5b50600436106100ea5760003560e01c80635ded461a1161008c5780638456cb59116100665780638456cb59146106f357806391033940146106fd578063c28de2cd14610749578063eb2c02231461076b576100ea565b80635ded461a146104a45780636af04a57146104f0578063713aca741461053a576100ea565b80633f4ba83a116100c85780633f4ba83a146102f557806351b4fc7e146102ff578063531e005b146103615780635c975abb14610482576100ea565b806301ba7539146100ef5780632cf0d92a1461013b57806335007f0e146101a9575b600080fd5b6101256004803603604081101561010557600080fd5b8101908080359060200190929190803590602001909291905050506107af565b6040518082815260200191505060405180910390f35b6101676004803603602081101561015157600080fd5b81019080803590602001909291905050506107dd565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6101d5600480360360208110156101bf57600080fd5b8101908080359060200190929190505050610810565b604051808a815260200189815260200188815260200187815260200180602001806020018615151515815260200185151515158152602001848152602001838103835288818151815260200191508051906020019080838360005b8381101561024b578082015181840152602081019050610230565b50505050905090810190601f1680156102785780820380516001836020036101000a031916815260200191505b50838103825287818151815260200191508051906020019080838360005b838110156102b1578082015181840152602081019050610296565b50505050905090810190601f1680156102de5780820380516001836020036101000a031916815260200191505b509b50505050505050505050505060405180910390f35b6102fd6109b5565b005b61034b6004803603604081101561031557600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610a4e565b6040518082815260200191505060405180910390f35b61038d6004803603602081101561037757600080fd5b8101908080359060200190929190505050610a7c565b604051808581526020018481526020018060200180602001838103835285818151815260200191508051906020019080838360005b838110156103dd5780820151818401526020810190506103c2565b50505050905090810190601f16801561040a5780820380516001836020036101000a031916815260200191505b50838103825284818151815260200191508051906020019080838360005b83811015610443578082015181840152602081019050610428565b50505050905090810190601f1680156104705780820380516001836020036101000a031916815260200191505b50965050505050505060405180910390f35b61048a610be9565b604051808215151515815260200191505060405180910390f35b6104da600480360360408110156104ba57600080fd5b810190808035906020019092919080359060200190929190505050610bfc565b6040518082815260200191505060405180910390f35b6104f8610c2a565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6105666004803603602081101561055057600080fd5b8101908080359060200190929190505050610c50565b604051808673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001858152602001806020018060200180602001848103845287818151815260200191508051906020019080838360005b838110156105e65780820151818401526020810190506105cb565b50505050905090810190601f1680156106135780820380516001836020036101000a031916815260200191505b50848103835286818151815260200191508051906020019080838360005b8381101561064c578082015181840152602081019050610631565b50505050905090810190601f1680156106795780820380516001836020036101000a031916815260200191505b50848103825285818151815260200191508051906020019080838360005b838110156106b2578082015181840152602081019050610697565b50505050905090810190601f1680156106df5780820380516001836020036101000a031916815260200191505b509850505050505050505060405180910390f35b6106fb610e7b565b005b6107336004803603604081101561071357600080fd5b810190808035906020019092919080359060200190929190505050610efb565b6040518082815260200191505060405180910390f35b610751610f29565b604051808215151515815260200191505060405180910390f35b6107ad6004803603602081101561078157600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610f3c565b005b600a60205281600052604060002081815481106107c857fe5b90600052602060002001600091509150505481565b60086020528060005260406000206000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6007818154811061081d57fe5b9060005260206000209060080201600091509050806000015490806001015490806002015490806003015490806004018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156108e15780601f106108b6576101008083540402835291602001916108e1565b820191906000526020600020905b8154815290600101906020018083116108c457829003601f168201915b505050505090806005018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561097f5780601f106109545761010080835404028352916020019161097f565b820191906000526020600020905b81548152906001019060200180831161096257829003601f168201915b5050505050908060060160009054906101000a900460ff16908060060160019054906101000a900460ff16908060070154905089565b6109c933600061104e90919063ffffffff16565b6109d257600080fd5b600360019054906101000a900460ff166109eb57600080fd5b600360009054906101000a900460ff1615610a0557600080fd5b6000600360016101000a81548160ff0219169083151502179055507f0e5e3b3fb504c22cf5c42fa07d521225937514c654007e1f12646f89768d6f9460405160405180910390a1565b60096020528160005260406000208181548110610a6757fe5b90600052602060002001600091509150505481565b60068181548110610a8957fe5b9060005260206000209060040201600091509050806000015490806001015490806002018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610b415780601f10610b1657610100808354040283529160200191610b41565b820191906000526020600020905b815481529060010190602001808311610b2457829003601f168201915b505050505090806003018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610bdf5780601f10610bb457610100808354040283529160200191610bdf565b820191906000526020600020905b815481529060010190602001808311610bc257829003601f168201915b5050505050905084565b600360019054906101000a900460ff1681565b600b6020528160005260406000208181548110610c1557fe5b90600052602060002001600091509150505481565b600360029054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60058181548110610c5d57fe5b90600052602060002090600502016000915090508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1690806001015490806002018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610d355780601f10610d0a57610100808354040283529160200191610d35565b820191906000526020600020905b815481529060010190602001808311610d1857829003601f168201915b505050505090806003018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610dd35780601f10610da857610100808354040283529160200191610dd3565b820191906000526020600020905b815481529060010190602001808311610db657829003601f168201915b505050505090806004018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610e715780601f10610e4657610100808354040283529160200191610e71565b820191906000526020600020905b815481529060010190602001808311610e5457829003601f168201915b5050505050905085565b610e8f33600061104e90919063ffffffff16565b610e9857600080fd5b600360019054906101000a900460ff1615610eb257600080fd5b6001600360016101000a81548160ff0219169083151502179055507fab35696f06e428ebc5ceba8cd17f8fed287baf43440206d1943af1ee53e6d26760405160405180910390a1565b600c6020528160005260406000208181548110610f1457fe5b90600052602060002001600091509150505481565b600360009054906101000a900460ff1681565b610f5033600061104e90919063ffffffff16565b610f5957600080fd5b600360019054906101000a900460ff16610f7257600080fd5b600360009054906101000a900460ff1615610f8c57600080fd5b6001600360006101000a81548160ff02191690831515021790555080600360026101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055507f450db8da6efbe9c22f2347f7c2021231df1fc58d3ae9a2fa75d39fa44619930581604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a150565b60008073ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff1614156110d5576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260228152602001806112086022913960400191505060405180910390fd5b8260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff16905092915050565b611136828261104e565b156111a9576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252601f8152602001807f526f6c65733a206163636f756e7420616c72656164792068617320726f6c650081525060200191505060405180910390fd5b60018260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff021916908315150217905550505056fe526f6c65733a206163636f756e7420697320746865207a65726f2061646472657373a265627a7a72315820f44afba989d852b0ec0f24ff834a62e3865700b4759513de74bec79dfb3474f164736f6c634300050c0032526f6c65733a206163636f756e7420697320746865207a65726f2061646472657373",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100ea5760003560e01c80635ded461a1161008c5780638456cb59116100665780638456cb59146106f357806391033940146106fd578063c28de2cd14610749578063eb2c02231461076b576100ea565b80635ded461a146104a45780636af04a57146104f0578063713aca741461053a576100ea565b80633f4ba83a116100c85780633f4ba83a146102f557806351b4fc7e146102ff578063531e005b146103615780635c975abb14610482576100ea565b806301ba7539146100ef5780632cf0d92a1461013b57806335007f0e146101a9575b600080fd5b6101256004803603604081101561010557600080fd5b8101908080359060200190929190803590602001909291905050506107af565b6040518082815260200191505060405180910390f35b6101676004803603602081101561015157600080fd5b81019080803590602001909291905050506107dd565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6101d5600480360360208110156101bf57600080fd5b8101908080359060200190929190505050610810565b604051808a815260200189815260200188815260200187815260200180602001806020018615151515815260200185151515158152602001848152602001838103835288818151815260200191508051906020019080838360005b8381101561024b578082015181840152602081019050610230565b50505050905090810190601f1680156102785780820380516001836020036101000a031916815260200191505b50838103825287818151815260200191508051906020019080838360005b838110156102b1578082015181840152602081019050610296565b50505050905090810190601f1680156102de5780820380516001836020036101000a031916815260200191505b509b50505050505050505050505060405180910390f35b6102fd6109b5565b005b61034b6004803603604081101561031557600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610a4e565b6040518082815260200191505060405180910390f35b61038d6004803603602081101561037757600080fd5b8101908080359060200190929190505050610a7c565b604051808581526020018481526020018060200180602001838103835285818151815260200191508051906020019080838360005b838110156103dd5780820151818401526020810190506103c2565b50505050905090810190601f16801561040a5780820380516001836020036101000a031916815260200191505b50838103825284818151815260200191508051906020019080838360005b83811015610443578082015181840152602081019050610428565b50505050905090810190601f1680156104705780820380516001836020036101000a031916815260200191505b50965050505050505060405180910390f35b61048a610be9565b604051808215151515815260200191505060405180910390f35b6104da600480360360408110156104ba57600080fd5b810190808035906020019092919080359060200190929190505050610bfc565b6040518082815260200191505060405180910390f35b6104f8610c2a565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6105666004803603602081101561055057600080fd5b8101908080359060200190929190505050610c50565b604051808673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001858152602001806020018060200180602001848103845287818151815260200191508051906020019080838360005b838110156105e65780820151818401526020810190506105cb565b50505050905090810190601f1680156106135780820380516001836020036101000a031916815260200191505b50848103835286818151815260200191508051906020019080838360005b8381101561064c578082015181840152602081019050610631565b50505050905090810190601f1680156106795780820380516001836020036101000a031916815260200191505b50848103825285818151815260200191508051906020019080838360005b838110156106b2578082015181840152602081019050610697565b50505050905090810190601f1680156106df5780820380516001836020036101000a031916815260200191505b509850505050505050505060405180910390f35b6106fb610e7b565b005b6107336004803603604081101561071357600080fd5b810190808035906020019092919080359060200190929190505050610efb565b6040518082815260200191505060405180910390f35b610751610f29565b604051808215151515815260200191505060405180910390f35b6107ad6004803603602081101561078157600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610f3c565b005b600a60205281600052604060002081815481106107c857fe5b90600052602060002001600091509150505481565b60086020528060005260406000206000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6007818154811061081d57fe5b9060005260206000209060080201600091509050806000015490806001015490806002015490806003015490806004018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156108e15780601f106108b6576101008083540402835291602001916108e1565b820191906000526020600020905b8154815290600101906020018083116108c457829003601f168201915b505050505090806005018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561097f5780601f106109545761010080835404028352916020019161097f565b820191906000526020600020905b81548152906001019060200180831161096257829003601f168201915b5050505050908060060160009054906101000a900460ff16908060060160019054906101000a900460ff16908060070154905089565b6109c933600061104e90919063ffffffff16565b6109d257600080fd5b600360019054906101000a900460ff166109eb57600080fd5b600360009054906101000a900460ff1615610a0557600080fd5b6000600360016101000a81548160ff0219169083151502179055507f0e5e3b3fb504c22cf5c42fa07d521225937514c654007e1f12646f89768d6f9460405160405180910390a1565b60096020528160005260406000208181548110610a6757fe5b90600052602060002001600091509150505481565b60068181548110610a8957fe5b9060005260206000209060040201600091509050806000015490806001015490806002018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610b415780601f10610b1657610100808354040283529160200191610b41565b820191906000526020600020905b815481529060010190602001808311610b2457829003601f168201915b505050505090806003018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610bdf5780601f10610bb457610100808354040283529160200191610bdf565b820191906000526020600020905b815481529060010190602001808311610bc257829003601f168201915b5050505050905084565b600360019054906101000a900460ff1681565b600b6020528160005260406000208181548110610c1557fe5b90600052602060002001600091509150505481565b600360029054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60058181548110610c5d57fe5b90600052602060002090600502016000915090508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1690806001015490806002018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610d355780601f10610d0a57610100808354040283529160200191610d35565b820191906000526020600020905b815481529060010190602001808311610d1857829003601f168201915b505050505090806003018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610dd35780601f10610da857610100808354040283529160200191610dd3565b820191906000526020600020905b815481529060010190602001808311610db657829003601f168201915b505050505090806004018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610e715780601f10610e4657610100808354040283529160200191610e71565b820191906000526020600020905b815481529060010190602001808311610e5457829003601f168201915b5050505050905085565b610e8f33600061104e90919063ffffffff16565b610e9857600080fd5b600360019054906101000a900460ff1615610eb257600080fd5b6001600360016101000a81548160ff0219169083151502179055507fab35696f06e428ebc5ceba8cd17f8fed287baf43440206d1943af1ee53e6d26760405160405180910390a1565b600c6020528160005260406000208181548110610f1457fe5b90600052602060002001600091509150505481565b600360009054906101000a900460ff1681565b610f5033600061104e90919063ffffffff16565b610f5957600080fd5b600360019054906101000a900460ff16610f7257600080fd5b600360009054906101000a900460ff1615610f8c57600080fd5b6001600360006101000a81548160ff02191690831515021790555080600360026101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055507f450db8da6efbe9c22f2347f7c2021231df1fc58d3ae9a2fa75d39fa44619930581604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a150565b60008073ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff1614156110d5576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260228152602001806112086022913960400191505060405180910390fd5b8260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff16905092915050565b611136828261104e565b156111a9576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252601f8152602001807f526f6c65733a206163636f756e7420616c72656164792068617320726f6c650081525060200191505060405180910390fd5b60018260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff021916908315150217905550505056fe526f6c65733a206163636f756e7420697320746865207a65726f2061646472657373a265627a7a72315820f44afba989d852b0ec0f24ff834a62e3865700b4759513de74bec79dfb3474f164736f6c634300050c0032",
+  "sourceMap": "235:2594:11:-;;;1152:5:0;1129:28;;;;;;;;;;;;;;;;;;;;1270:5;1249:26;;;;;;;;;;;;;;;;;;;;592:4;583:6;;:13;;;;;;;;;;;;;;;;;;654:22;665:10;654:6;:10;;;;;;:22;;;;:::i;:::-;686:25;700:10;686:9;:13;;;;;;:25;;;;:::i;:::-;235:2594:11;;260:175:13;337:18;341:4;347:7;337:3;;;:18;;:::i;:::-;336:19;328:63;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;424:4;401;:11;;:20;413:7;401:20;;;;;;;;;;;;;;;;:27;;;;;;;;;;;;;;;;;;260:175;;:::o;779:200::-;851:4;894:1;875:21;;:7;:21;;;;867:68;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;952:4;:11;;:20;964:7;952:20;;;;;;;;;;;;;;;;;;;;;;;;;945:27;;779:200;;;;:::o;235:2594:11:-;;;;;;;",
+  "deployedSourceMap": "235:2594:11:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;235:2594:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1098:50;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1098:50:11;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;849:47;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;849:47:11;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;761:17;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;761:17:11;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;761:17:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;761:17:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3295:130:0;;;:::i;:::-;;979:48:11;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;979:48:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;682:25;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;682:25:11;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;682:25:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;682:25:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1249:26:0;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;1218:49:11;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1218:49:11;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;1367:33:0;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;604:19:11;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;604:19:11;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;604:19:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;604:19:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;604:19:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3078:112:0;;;:::i;:::-;;1333:46:11;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1333:46:11;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;1129:28:0;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;2764:212;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;2764:212:0;;;;;;;;;;;;;;;;;;;:::i;:::-;;1098:50:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;849:47::-;;;;;;;;;;;;;;;;;;;;;;:::o;761:17::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;3295:130:0:-;1526:22;1537:10;1526:6;:10;;:22;;;;:::i;:::-;1518:31;;;;;;2056:6;;;;;;;;;;;2048:15;;;;;;2235:8;;;;;;;;;;;2234:9;2226:18;;;;;;3380:5;3371:6;;:14;;;;;;;;;;;;;;;;;;3400:18;;;;;;;;;;3295:130::o;979:48:11:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;682:25::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;1249:26:0:-;;;;;;;;;;;;;:::o;1218:49:11:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;1367:33:0:-;;;;;;;;;;;;;:::o;604:19:11:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;3078:112:0:-;1526:22;1537:10;1526:6;:10;;:22;;;;:::i;:::-;1518:31;;;;;;1886:6;;;;;;;;;;;1885:7;1877:16;;;;;;3148:4;3139:6;;:13;;;;;;;;;;;;;;;;;;3167:16;;;;;;;;;;3078:112::o;1333:46:11:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;1129:28:0:-;;;;;;;;;;;;;:::o;2764:212::-;1526:22;1537:10;1526:6;:10;;:22;;;;:::i;:::-;1518:31;;;;;;2056:6;;;;;;;;;;;2048:15;;;;;;2235:8;;;;;;;;;;;2234:9;2226:18;;;;;;2880:4;2869:8;;:15;;;;;;;;;;;;;;;;;;2915:11;2894:18;;:32;;;;;;;;;;;;;;;;;;2941:28;2957:11;2941:28;;;;;;;;;;;;;;;;;;;;;;2764:212;:::o;779:200:13:-;851:4;894:1;875:21;;:7;:21;;;;867:68;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;952:4;:11;;:20;964:7;952:20;;;;;;;;;;;;;;;;;;;;;;;;;945:27;;779:200;;;;:::o;260:175::-;337:18;341:4;347:7;337:3;:18::i;:::-;336:19;328:63;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;424:4;401;:11;;:20;413:7;401:20;;;;;;;;;;;;;;;;:27;;;;;;;;;;;;;;;;;;260:175;;:::o",
+  "source": "pragma solidity ^0.5.0;\n\nimport \"./AccessControl.sol\";\nimport \"./FiatContractInterface.sol\";\n\n\n/**\n * @title StockRoomBase\n * @notice Defines collections, mappings, and structs for the StockRoom side of the In-game Pro Shop System\n */\ncontract StockRoomBase is AccessControl {\n\n    FiatContractInterface internal fiatContract;\n\n    /**\n     * @dev modifier to scope access to owner of given shop\n     */\n    modifier onlyShopOwner(uint256 _shopId) {\n        address owner = shopToOwner[_shopId];\n        require(msg.sender == owner);\n        _;\n    }\n\n    /**\n     * @notice All of the Shops\n     */\n    Shop[] public shops;\n\n    /**\n     * @notice All of the SKU Types\n     */\n    SKUType[] public skuTypes;\n\n    /**\n     * @notice All of the SKUs\n     */\n    SKU[] public skus;\n\n    /**\n     * @dev Mapping of Shop ID to Owner Address\n     */\n    mapping (uint256 => address) public shopToOwner;\n\n    /**\n     * @dev Mapping of Owner Address to list of owned Shops\n     */\n    mapping (address => uint256[]) public ownedShops;\n\n    /**\n     * @dev Mapping of Shop ID to SKU Type list\n     */\n    mapping (uint256 => uint256[]) public shopSKUTypes;\n\n    /**\n     * @dev Mapping of SKU Type ID to SKU list\n     */\n    mapping (uint256 => uint256[]) public skuTypeSKUs;\n\n    /**\n     * @dev Mapping of Shop ID to SKU list\n     */\n    mapping (uint256 => uint256[]) public shopSKUs;\n\n    /**\n     * @notice Structure of a Pro Shop\n     */\n    struct Shop {\n\n        // Owner of the item\n        address owner;\n\n        // The id of this shop\n        uint256 shopId;\n\n        // Name of the item\n        string name;\n\n        // Description of the shop\n        string description;\n\n        // Fiat currency for prices\n        string fiat;\n    }\n\n    /**\n     * @notice the attributes of an item\n     */\n    struct SKUType {\n\n        // ID of the Shop this SKU Type belongs to\n        uint256 shopId;\n\n        // ID of the SKU Type\n        uint256 skuTypeId;\n\n        // Name of the SKU Type\n        string name;\n\n        // Description of the SKU Type (optional)\n        string description;\n    }\n\n    /**\n     * @notice Structure of a Pro Shop SKU (Shopkeeping Unit)\n     */\n    struct SKU {\n\n        // The shop this SKU belongs to\n        uint256 shopId;\n\n        // The id of this SKU\n        uint256 skuId;\n\n        // Type of the SKU\n        uint256 skuTypeId;\n\n        // Price of the SKU\n        uint256 price;\n\n        // Name of the item\n        string name;\n\n        // Description of the SKU\n        string description;\n\n        // Can it be consumed (used up)\n        bool consumable;\n\n        // Is there a limit to the number of Items that can\n        // be minted from this SKU?\n        bool limited;\n\n        // If limited, what is the maximum number that\n        // can be created?\n        uint256 limit;\n\n    }\n\n}\n",
+  "sourcePath": "/Users/cliffhall/Projects/in-app-pro-shop/contracts/StockRoomBase.sol",
   "ast": {
-    "absolutePath": "/Users/cliff/Documents/in-app-pro-shop/contracts/StockRoomBase.sol",
+    "absolutePath": "/Users/cliffhall/Projects/in-app-pro-shop/contracts/StockRoomBase.sol",
     "exportedSymbols": {
       "StockRoomBase": [
-        1789
+        1636
       ]
     },
-    "id": 1790,
+    "id": 1637,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1691,
+        "id": 1538,
         "literals": [
           "solidity",
           "^",
-          "0.4",
-          ".24"
+          "0.5",
+          ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:11"
+        "src": "0:23:11"
       },
       {
-        "absolutePath": "/Users/cliff/Documents/in-app-pro-shop/contracts/AccessControl.sol",
+        "absolutePath": "/Users/cliffhall/Projects/in-app-pro-shop/contracts/AccessControl.sol",
         "file": "./AccessControl.sol",
-        "id": 1692,
+        "id": 1539,
         "nodeType": "ImportDirective",
-        "scope": 1790,
-        "sourceUnit": 137,
-        "src": "26:29:11",
+        "scope": 1637,
+        "sourceUnit": 161,
+        "src": "25:29:11",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/Users/cliff/Documents/in-app-pro-shop/contracts/FiatContractInterface.sol",
+        "absolutePath": "/Users/cliffhall/Projects/in-app-pro-shop/contracts/FiatContractInterface.sol",
         "file": "./FiatContractInterface.sol",
-        "id": 1693,
+        "id": 1540,
         "nodeType": "ImportDirective",
-        "scope": 1790,
-        "sourceUnit": 501,
-        "src": "56:37:11",
+        "scope": 1637,
+        "sourceUnit": 347,
+        "src": "55:37:11",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -487,59 +424,57 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 1694,
+              "id": 1541,
               "name": "AccessControl",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 136,
-              "src": "262:13:11",
+              "referencedDeclaration": 160,
+              "src": "261:13:11",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_AccessControl_$136",
+                "typeIdentifier": "t_contract$_AccessControl_$160",
                 "typeString": "contract AccessControl"
               }
             },
-            "id": 1695,
+            "id": 1542,
             "nodeType": "InheritanceSpecifier",
-            "src": "262:13:11"
+            "src": "261:13:11"
           }
         ],
         "contractDependencies": [
-          136,
-          2248
+          160
         ],
         "contractKind": "contract",
         "documentation": "@title StockRoomBase\n@notice Defines collections, mappings, and structs for the StockRoom side of the In-game Pro Shop System",
         "fullyImplemented": true,
-        "id": 1789,
+        "id": 1636,
         "linearizedBaseContracts": [
-          1789,
-          136,
-          2248
+          1636,
+          160
         ],
         "name": "StockRoomBase",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 1697,
+            "id": 1544,
             "name": "fiatContract",
             "nodeType": "VariableDeclaration",
-            "scope": 1789,
-            "src": "283:43:11",
+            "scope": 1636,
+            "src": "282:43:11",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_FiatContractInterface_$500",
+              "typeIdentifier": "t_contract$_FiatContractInterface_$346",
               "typeString": "contract FiatContractInterface"
             },
             "typeName": {
               "contractScope": null,
-              "id": 1696,
+              "id": 1543,
               "name": "FiatContractInterface",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 500,
-              "src": "283:21:11",
+              "referencedDeclaration": 346,
+              "src": "282:21:11",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_FiatContractInterface_$500",
+                "typeIdentifier": "t_contract$_FiatContractInterface_$346",
                 "typeString": "contract FiatContractInterface"
               }
             },
@@ -548,22 +483,22 @@
           },
           {
             "body": {
-              "id": 1715,
+              "id": 1562,
               "nodeType": "Block",
-              "src": "449:102:11",
+              "src": "448:102:11",
               "statements": [
                 {
                   "assignments": [
-                    1702
+                    1549
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1702,
+                      "id": 1549,
                       "name": "owner",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1716,
-                      "src": "459:13:11",
+                      "scope": 1562,
+                      "src": "458:13:11",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -571,10 +506,11 @@
                         "typeString": "address"
                       },
                       "typeName": {
-                        "id": 1701,
+                        "id": 1548,
                         "name": "address",
                         "nodeType": "ElementaryTypeName",
-                        "src": "459:7:11",
+                        "src": "458:7:11",
+                        "stateMutability": "nonpayable",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -584,31 +520,31 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1706,
+                  "id": 1553,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 1703,
+                      "id": 1550,
                       "name": "shopToOwner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1729,
-                      "src": "475:11:11",
+                      "referencedDeclaration": 1576,
+                      "src": "474:11:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
                         "typeString": "mapping(uint256 => address)"
                       }
                     },
-                    "id": 1705,
+                    "id": 1552,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 1704,
+                      "id": 1551,
                       "name": "_shopId",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1699,
-                      "src": "487:7:11",
+                      "referencedDeclaration": 1546,
+                      "src": "486:7:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -619,14 +555,14 @@
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "IndexAccess",
-                    "src": "475:20:11",
+                    "src": "474:20:11",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "459:36:11"
+                  "src": "458:36:11"
                 },
                 {
                   "expression": {
@@ -638,7 +574,7 @@
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         },
-                        "id": 1711,
+                        "id": 1558,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -647,18 +583,18 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 1708,
+                            "id": 1555,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 3487,
-                            "src": "513:3:11",
+                            "referencedDeclaration": 3397,
+                            "src": "512:3:11",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 1709,
+                          "id": 1556,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -666,28 +602,28 @@
                           "memberName": "sender",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": null,
-                          "src": "513:10:11",
+                          "src": "512:10:11",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_address",
-                            "typeString": "address"
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
                           }
                         },
                         "nodeType": "BinaryOperation",
                         "operator": "==",
                         "rightExpression": {
                           "argumentTypes": null,
-                          "id": 1710,
+                          "id": 1557,
                           "name": "owner",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1702,
-                          "src": "527:5:11",
+                          "referencedDeclaration": 1549,
+                          "src": "526:5:11",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
                           }
                         },
-                        "src": "513:19:11",
+                        "src": "512:19:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -701,21 +637,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 1707,
+                      "id": 1554,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        3490,
-                        3491
+                        3400,
+                        3401
                       ],
-                      "referencedDeclaration": 3490,
-                      "src": "505:7:11",
+                      "referencedDeclaration": 3400,
+                      "src": "504:7:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 1712,
+                    "id": 1559,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -723,38 +659,38 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "505:28:11",
+                    "src": "504:28:11",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1713,
+                  "id": 1560,
                   "nodeType": "ExpressionStatement",
-                  "src": "505:28:11"
+                  "src": "504:28:11"
                 },
                 {
-                  "id": 1714,
+                  "id": 1561,
                   "nodeType": "PlaceholderStatement",
-                  "src": "543:1:11"
+                  "src": "542:1:11"
                 }
               ]
             },
             "documentation": "@dev modifier to scope access to owner of given shop",
-            "id": 1716,
+            "id": 1563,
             "name": "onlyShopOwner",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 1700,
+              "id": 1547,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1699,
+                  "id": 1546,
                   "name": "_shopId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1716,
-                  "src": "432:15:11",
+                  "scope": 1563,
+                  "src": "431:15:11",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -762,10 +698,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1698,
+                    "id": 1545,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "432:7:11",
+                    "src": "431:7:11",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -775,43 +711,43 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "431:17:11"
+              "src": "430:17:11"
             },
-            "src": "409:142:11",
+            "src": "408:142:11",
             "visibility": "internal"
           },
           {
             "constant": false,
-            "id": 1719,
+            "id": 1566,
             "name": "shops",
             "nodeType": "VariableDeclaration",
-            "scope": 1789,
-            "src": "605:19:11",
+            "scope": 1636,
+            "src": "604:19:11",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_struct$_Shop_$1760_storage_$dyn_storage",
+              "typeIdentifier": "t_array$_t_struct$_Shop_$1607_storage_$dyn_storage",
               "typeString": "struct StockRoomBase.Shop[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 1717,
+                "id": 1564,
                 "name": "Shop",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 1760,
-                "src": "605:4:11",
+                "referencedDeclaration": 1607,
+                "src": "604:4:11",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Shop_$1760_storage_ptr",
+                  "typeIdentifier": "t_struct$_Shop_$1607_storage_ptr",
                   "typeString": "struct StockRoomBase.Shop"
                 }
               },
-              "id": 1718,
+              "id": 1565,
               "length": null,
               "nodeType": "ArrayTypeName",
-              "src": "605:6:11",
+              "src": "604:6:11",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_struct$_Shop_$1760_storage_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_struct$_Shop_$1607_storage_$dyn_storage_ptr",
                 "typeString": "struct StockRoomBase.Shop[]"
               }
             },
@@ -820,36 +756,36 @@
           },
           {
             "constant": false,
-            "id": 1722,
+            "id": 1569,
             "name": "skuTypes",
             "nodeType": "VariableDeclaration",
-            "scope": 1789,
-            "src": "683:25:11",
+            "scope": 1636,
+            "src": "682:25:11",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_struct$_SKUType_$1769_storage_$dyn_storage",
+              "typeIdentifier": "t_array$_t_struct$_SKUType_$1616_storage_$dyn_storage",
               "typeString": "struct StockRoomBase.SKUType[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 1720,
+                "id": 1567,
                 "name": "SKUType",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 1769,
-                "src": "683:7:11",
+                "referencedDeclaration": 1616,
+                "src": "682:7:11",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_SKUType_$1769_storage_ptr",
+                  "typeIdentifier": "t_struct$_SKUType_$1616_storage_ptr",
                   "typeString": "struct StockRoomBase.SKUType"
                 }
               },
-              "id": 1721,
+              "id": 1568,
               "length": null,
               "nodeType": "ArrayTypeName",
-              "src": "683:9:11",
+              "src": "682:9:11",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_struct$_SKUType_$1769_storage_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_struct$_SKUType_$1616_storage_$dyn_storage_ptr",
                 "typeString": "struct StockRoomBase.SKUType[]"
               }
             },
@@ -858,36 +794,36 @@
           },
           {
             "constant": false,
-            "id": 1725,
+            "id": 1572,
             "name": "skus",
             "nodeType": "VariableDeclaration",
-            "scope": 1789,
-            "src": "762:17:11",
+            "scope": 1636,
+            "src": "761:17:11",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_struct$_SKU_$1788_storage_$dyn_storage",
+              "typeIdentifier": "t_array$_t_struct$_SKU_$1635_storage_$dyn_storage",
               "typeString": "struct StockRoomBase.SKU[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 1723,
+                "id": 1570,
                 "name": "SKU",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 1788,
-                "src": "762:3:11",
+                "referencedDeclaration": 1635,
+                "src": "761:3:11",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_SKU_$1788_storage_ptr",
+                  "typeIdentifier": "t_struct$_SKU_$1635_storage_ptr",
                   "typeString": "struct StockRoomBase.SKU"
                 }
               },
-              "id": 1724,
+              "id": 1571,
               "length": null,
               "nodeType": "ArrayTypeName",
-              "src": "762:5:11",
+              "src": "761:5:11",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_struct$_SKU_$1788_storage_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_struct$_SKU_$1635_storage_$dyn_storage_ptr",
                 "typeString": "struct StockRoomBase.SKU[]"
               }
             },
@@ -896,11 +832,11 @@
           },
           {
             "constant": false,
-            "id": 1729,
+            "id": 1576,
             "name": "shopToOwner",
             "nodeType": "VariableDeclaration",
-            "scope": 1789,
-            "src": "850:47:11",
+            "scope": 1636,
+            "src": "849:47:11",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -908,28 +844,29 @@
               "typeString": "mapping(uint256 => address)"
             },
             "typeName": {
-              "id": 1728,
+              "id": 1575,
               "keyType": {
-                "id": 1726,
+                "id": 1573,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
-                "src": "859:7:11",
+                "src": "858:7:11",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
                 }
               },
               "nodeType": "Mapping",
-              "src": "850:28:11",
+              "src": "849:28:11",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
                 "typeString": "mapping(uint256 => address)"
               },
               "valueType": {
-                "id": 1727,
+                "id": 1574,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "870:7:11",
+                "src": "869:7:11",
+                "stateMutability": "nonpayable",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
@@ -941,11 +878,11 @@
           },
           {
             "constant": false,
-            "id": 1734,
+            "id": 1581,
             "name": "ownedShops",
             "nodeType": "VariableDeclaration",
-            "scope": 1789,
-            "src": "980:48:11",
+            "scope": 1636,
+            "src": "979:48:11",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -953,38 +890,38 @@
               "typeString": "mapping(address => uint256[])"
             },
             "typeName": {
-              "id": 1733,
+              "id": 1580,
               "keyType": {
-                "id": 1730,
+                "id": 1577,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "989:7:11",
+                "src": "988:7:11",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "980:30:11",
+              "src": "979:30:11",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_uint256_$dyn_storage_$",
                 "typeString": "mapping(address => uint256[])"
               },
               "valueType": {
                 "baseType": {
-                  "id": 1731,
+                  "id": 1578,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1000:7:11",
+                  "src": "999:7:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
                   }
                 },
-                "id": 1732,
+                "id": 1579,
                 "length": null,
                 "nodeType": "ArrayTypeName",
-                "src": "1000:9:11",
+                "src": "999:9:11",
                 "typeDescriptions": {
                   "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                   "typeString": "uint256[]"
@@ -996,11 +933,11 @@
           },
           {
             "constant": false,
-            "id": 1739,
+            "id": 1586,
             "name": "shopSKUTypes",
             "nodeType": "VariableDeclaration",
-            "scope": 1789,
-            "src": "1099:50:11",
+            "scope": 1636,
+            "src": "1098:50:11",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -1008,38 +945,38 @@
               "typeString": "mapping(uint256 => uint256[])"
             },
             "typeName": {
-              "id": 1738,
+              "id": 1585,
               "keyType": {
-                "id": 1735,
+                "id": 1582,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
-                "src": "1108:7:11",
+                "src": "1107:7:11",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
                 }
               },
               "nodeType": "Mapping",
-              "src": "1099:30:11",
+              "src": "1098:30:11",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_uint256_$dyn_storage_$",
                 "typeString": "mapping(uint256 => uint256[])"
               },
               "valueType": {
                 "baseType": {
-                  "id": 1736,
+                  "id": 1583,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1119:7:11",
+                  "src": "1118:7:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
                   }
                 },
-                "id": 1737,
+                "id": 1584,
                 "length": null,
                 "nodeType": "ArrayTypeName",
-                "src": "1119:9:11",
+                "src": "1118:9:11",
                 "typeDescriptions": {
                   "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                   "typeString": "uint256[]"
@@ -1051,11 +988,11 @@
           },
           {
             "constant": false,
-            "id": 1744,
+            "id": 1591,
             "name": "skuTypeSKUs",
             "nodeType": "VariableDeclaration",
-            "scope": 1789,
-            "src": "1219:49:11",
+            "scope": 1636,
+            "src": "1218:49:11",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -1063,38 +1000,38 @@
               "typeString": "mapping(uint256 => uint256[])"
             },
             "typeName": {
-              "id": 1743,
+              "id": 1590,
               "keyType": {
-                "id": 1740,
+                "id": 1587,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
-                "src": "1228:7:11",
+                "src": "1227:7:11",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
                 }
               },
               "nodeType": "Mapping",
-              "src": "1219:30:11",
+              "src": "1218:30:11",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_uint256_$dyn_storage_$",
                 "typeString": "mapping(uint256 => uint256[])"
               },
               "valueType": {
                 "baseType": {
-                  "id": 1741,
+                  "id": 1588,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1239:7:11",
+                  "src": "1238:7:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
                   }
                 },
-                "id": 1742,
+                "id": 1589,
                 "length": null,
                 "nodeType": "ArrayTypeName",
-                "src": "1239:9:11",
+                "src": "1238:9:11",
                 "typeDescriptions": {
                   "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                   "typeString": "uint256[]"
@@ -1106,11 +1043,11 @@
           },
           {
             "constant": false,
-            "id": 1749,
+            "id": 1596,
             "name": "shopSKUs",
             "nodeType": "VariableDeclaration",
-            "scope": 1789,
-            "src": "1334:46:11",
+            "scope": 1636,
+            "src": "1333:46:11",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -1118,38 +1055,38 @@
               "typeString": "mapping(uint256 => uint256[])"
             },
             "typeName": {
-              "id": 1748,
+              "id": 1595,
               "keyType": {
-                "id": 1745,
+                "id": 1592,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
-                "src": "1343:7:11",
+                "src": "1342:7:11",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
                 }
               },
               "nodeType": "Mapping",
-              "src": "1334:30:11",
+              "src": "1333:30:11",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_uint256_$dyn_storage_$",
                 "typeString": "mapping(uint256 => uint256[])"
               },
               "valueType": {
                 "baseType": {
-                  "id": 1746,
+                  "id": 1593,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1354:7:11",
+                  "src": "1353:7:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
                   }
                 },
-                "id": 1747,
+                "id": 1594,
                 "length": null,
                 "nodeType": "ArrayTypeName",
-                "src": "1354:9:11",
+                "src": "1353:9:11",
                 "typeDescriptions": {
                   "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                   "typeString": "uint256[]"
@@ -1161,15 +1098,15 @@
           },
           {
             "canonicalName": "StockRoomBase.Shop",
-            "id": 1760,
+            "id": 1607,
             "members": [
               {
                 "constant": false,
-                "id": 1751,
+                "id": 1598,
                 "name": "owner",
                 "nodeType": "VariableDeclaration",
-                "scope": 1760,
-                "src": "1494:13:11",
+                "scope": 1607,
+                "src": "1493:13:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1177,10 +1114,11 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1750,
+                  "id": 1597,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1494:7:11",
+                  "src": "1493:7:11",
+                  "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
                     "typeString": "address"
@@ -1191,11 +1129,11 @@
               },
               {
                 "constant": false,
-                "id": 1753,
+                "id": 1600,
                 "name": "shopId",
                 "nodeType": "VariableDeclaration",
-                "scope": 1760,
-                "src": "1549:14:11",
+                "scope": 1607,
+                "src": "1548:14:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1203,10 +1141,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1752,
+                  "id": 1599,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1549:7:11",
+                  "src": "1548:7:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1217,11 +1155,11 @@
               },
               {
                 "constant": false,
-                "id": 1755,
+                "id": 1602,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
-                "scope": 1760,
-                "src": "1602:11:11",
+                "scope": 1607,
+                "src": "1601:11:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1229,10 +1167,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1754,
+                  "id": 1601,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1602:6:11",
+                  "src": "1601:6:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -1243,11 +1181,11 @@
               },
               {
                 "constant": false,
-                "id": 1757,
+                "id": 1604,
                 "name": "description",
                 "nodeType": "VariableDeclaration",
-                "scope": 1760,
-                "src": "1659:18:11",
+                "scope": 1607,
+                "src": "1658:18:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1255,10 +1193,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1756,
+                  "id": 1603,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1659:6:11",
+                  "src": "1658:6:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -1269,11 +1207,11 @@
               },
               {
                 "constant": false,
-                "id": 1759,
+                "id": 1606,
                 "name": "fiat",
                 "nodeType": "VariableDeclaration",
-                "scope": 1760,
-                "src": "1724:11:11",
+                "scope": 1607,
+                "src": "1723:11:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1281,10 +1219,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1758,
+                  "id": 1605,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1724:6:11",
+                  "src": "1723:6:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -1296,21 +1234,21 @@
             ],
             "name": "Shop",
             "nodeType": "StructDefinition",
-            "scope": 1789,
-            "src": "1442:300:11",
+            "scope": 1636,
+            "src": "1441:300:11",
             "visibility": "public"
           },
           {
             "canonicalName": "StockRoomBase.SKUType",
-            "id": 1769,
+            "id": 1616,
             "members": [
               {
                 "constant": false,
-                "id": 1762,
+                "id": 1609,
                 "name": "shopId",
                 "nodeType": "VariableDeclaration",
-                "scope": 1769,
-                "src": "1882:14:11",
+                "scope": 1616,
+                "src": "1881:14:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1318,10 +1256,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1761,
+                  "id": 1608,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1882:7:11",
+                  "src": "1881:7:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1332,11 +1270,11 @@
               },
               {
                 "constant": false,
-                "id": 1764,
+                "id": 1611,
                 "name": "skuTypeId",
                 "nodeType": "VariableDeclaration",
-                "scope": 1769,
-                "src": "1937:17:11",
+                "scope": 1616,
+                "src": "1936:17:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1344,10 +1282,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1763,
+                  "id": 1610,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1937:7:11",
+                  "src": "1936:7:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1358,11 +1296,11 @@
               },
               {
                 "constant": false,
-                "id": 1766,
+                "id": 1613,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
-                "scope": 1769,
-                "src": "1997:11:11",
+                "scope": 1616,
+                "src": "1996:11:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1370,10 +1308,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1765,
+                  "id": 1612,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1997:6:11",
+                  "src": "1996:6:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -1384,11 +1322,11 @@
               },
               {
                 "constant": false,
-                "id": 1768,
+                "id": 1615,
                 "name": "description",
                 "nodeType": "VariableDeclaration",
-                "scope": 1769,
-                "src": "2069:18:11",
+                "scope": 1616,
+                "src": "2068:18:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1396,10 +1334,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1767,
+                  "id": 1614,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2069:6:11",
+                  "src": "2068:6:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -1411,21 +1349,21 @@
             ],
             "name": "SKUType",
             "nodeType": "StructDefinition",
-            "scope": 1789,
-            "src": "1805:289:11",
+            "scope": 1636,
+            "src": "1804:289:11",
             "visibility": "public"
           },
           {
             "canonicalName": "StockRoomBase.SKU",
-            "id": 1788,
+            "id": 1635,
             "members": [
               {
                 "constant": false,
-                "id": 1771,
+                "id": 1618,
                 "name": "shopId",
                 "nodeType": "VariableDeclaration",
-                "scope": 1788,
-                "src": "2240:14:11",
+                "scope": 1635,
+                "src": "2239:14:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1433,10 +1371,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1770,
+                  "id": 1617,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2240:7:11",
+                  "src": "2239:7:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1447,11 +1385,11 @@
               },
               {
                 "constant": false,
-                "id": 1773,
+                "id": 1620,
                 "name": "skuId",
                 "nodeType": "VariableDeclaration",
-                "scope": 1788,
-                "src": "2295:13:11",
+                "scope": 1635,
+                "src": "2294:13:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1459,10 +1397,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1772,
+                  "id": 1619,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2295:7:11",
+                  "src": "2294:7:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1473,11 +1411,11 @@
               },
               {
                 "constant": false,
-                "id": 1775,
+                "id": 1622,
                 "name": "skuTypeId",
                 "nodeType": "VariableDeclaration",
-                "scope": 1788,
-                "src": "2346:17:11",
+                "scope": 1635,
+                "src": "2345:17:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1485,10 +1423,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1774,
+                  "id": 1621,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2346:7:11",
+                  "src": "2345:7:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1499,11 +1437,11 @@
               },
               {
                 "constant": false,
-                "id": 1777,
+                "id": 1624,
                 "name": "price",
                 "nodeType": "VariableDeclaration",
-                "scope": 1788,
-                "src": "2402:13:11",
+                "scope": 1635,
+                "src": "2401:13:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1511,10 +1449,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1776,
+                  "id": 1623,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2402:7:11",
+                  "src": "2401:7:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1525,11 +1463,11 @@
               },
               {
                 "constant": false,
-                "id": 1779,
+                "id": 1626,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
-                "scope": 1788,
-                "src": "2454:11:11",
+                "scope": 1635,
+                "src": "2453:11:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1537,10 +1475,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1778,
+                  "id": 1625,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2454:6:11",
+                  "src": "2453:6:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -1551,11 +1489,11 @@
               },
               {
                 "constant": false,
-                "id": 1781,
+                "id": 1628,
                 "name": "description",
                 "nodeType": "VariableDeclaration",
-                "scope": 1788,
-                "src": "2510:18:11",
+                "scope": 1635,
+                "src": "2509:18:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1563,10 +1501,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1780,
+                  "id": 1627,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2510:6:11",
+                  "src": "2509:6:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -1577,11 +1515,11 @@
               },
               {
                 "constant": false,
-                "id": 1783,
+                "id": 1630,
                 "name": "consumable",
                 "nodeType": "VariableDeclaration",
-                "scope": 1788,
-                "src": "2579:15:11",
+                "scope": 1635,
+                "src": "2578:15:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1589,10 +1527,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 1782,
+                  "id": 1629,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2579:4:11",
+                  "src": "2578:4:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -1603,11 +1541,11 @@
               },
               {
                 "constant": false,
-                "id": 1785,
+                "id": 1632,
                 "name": "limited",
                 "nodeType": "VariableDeclaration",
-                "scope": 1788,
-                "src": "2701:12:11",
+                "scope": 1635,
+                "src": "2700:12:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1615,10 +1553,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 1784,
+                  "id": 1631,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2701:4:11",
+                  "src": "2700:4:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -1629,11 +1567,11 @@
               },
               {
                 "constant": false,
-                "id": 1787,
+                "id": 1634,
                 "name": "limit",
                 "nodeType": "VariableDeclaration",
-                "scope": 1788,
-                "src": "2806:13:11",
+                "scope": 1635,
+                "src": "2805:13:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1641,10 +1579,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1786,
+                  "id": 1633,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2806:7:11",
+                  "src": "2805:7:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1656,57 +1594,57 @@
             ],
             "name": "SKU",
             "nodeType": "StructDefinition",
-            "scope": 1789,
-            "src": "2178:649:11",
+            "scope": 1636,
+            "src": "2177:649:11",
             "visibility": "public"
           }
         ],
-        "scope": 1790,
-        "src": "236:2594:11"
+        "scope": 1637,
+        "src": "235:2594:11"
       }
     ],
-    "src": "0:2831:11"
+    "src": "0:2830:11"
   },
   "legacyAST": {
-    "absolutePath": "/Users/cliff/Documents/in-app-pro-shop/contracts/StockRoomBase.sol",
+    "absolutePath": "/Users/cliffhall/Projects/in-app-pro-shop/contracts/StockRoomBase.sol",
     "exportedSymbols": {
       "StockRoomBase": [
-        1789
+        1636
       ]
     },
-    "id": 1790,
+    "id": 1637,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1691,
+        "id": 1538,
         "literals": [
           "solidity",
           "^",
-          "0.4",
-          ".24"
+          "0.5",
+          ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:11"
+        "src": "0:23:11"
       },
       {
-        "absolutePath": "/Users/cliff/Documents/in-app-pro-shop/contracts/AccessControl.sol",
+        "absolutePath": "/Users/cliffhall/Projects/in-app-pro-shop/contracts/AccessControl.sol",
         "file": "./AccessControl.sol",
-        "id": 1692,
+        "id": 1539,
         "nodeType": "ImportDirective",
-        "scope": 1790,
-        "sourceUnit": 137,
-        "src": "26:29:11",
+        "scope": 1637,
+        "sourceUnit": 161,
+        "src": "25:29:11",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/Users/cliff/Documents/in-app-pro-shop/contracts/FiatContractInterface.sol",
+        "absolutePath": "/Users/cliffhall/Projects/in-app-pro-shop/contracts/FiatContractInterface.sol",
         "file": "./FiatContractInterface.sol",
-        "id": 1693,
+        "id": 1540,
         "nodeType": "ImportDirective",
-        "scope": 1790,
-        "sourceUnit": 501,
-        "src": "56:37:11",
+        "scope": 1637,
+        "sourceUnit": 347,
+        "src": "55:37:11",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -1716,59 +1654,57 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 1694,
+              "id": 1541,
               "name": "AccessControl",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 136,
-              "src": "262:13:11",
+              "referencedDeclaration": 160,
+              "src": "261:13:11",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_AccessControl_$136",
+                "typeIdentifier": "t_contract$_AccessControl_$160",
                 "typeString": "contract AccessControl"
               }
             },
-            "id": 1695,
+            "id": 1542,
             "nodeType": "InheritanceSpecifier",
-            "src": "262:13:11"
+            "src": "261:13:11"
           }
         ],
         "contractDependencies": [
-          136,
-          2248
+          160
         ],
         "contractKind": "contract",
         "documentation": "@title StockRoomBase\n@notice Defines collections, mappings, and structs for the StockRoom side of the In-game Pro Shop System",
         "fullyImplemented": true,
-        "id": 1789,
+        "id": 1636,
         "linearizedBaseContracts": [
-          1789,
-          136,
-          2248
+          1636,
+          160
         ],
         "name": "StockRoomBase",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 1697,
+            "id": 1544,
             "name": "fiatContract",
             "nodeType": "VariableDeclaration",
-            "scope": 1789,
-            "src": "283:43:11",
+            "scope": 1636,
+            "src": "282:43:11",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_FiatContractInterface_$500",
+              "typeIdentifier": "t_contract$_FiatContractInterface_$346",
               "typeString": "contract FiatContractInterface"
             },
             "typeName": {
               "contractScope": null,
-              "id": 1696,
+              "id": 1543,
               "name": "FiatContractInterface",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 500,
-              "src": "283:21:11",
+              "referencedDeclaration": 346,
+              "src": "282:21:11",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_FiatContractInterface_$500",
+                "typeIdentifier": "t_contract$_FiatContractInterface_$346",
                 "typeString": "contract FiatContractInterface"
               }
             },
@@ -1777,22 +1713,22 @@
           },
           {
             "body": {
-              "id": 1715,
+              "id": 1562,
               "nodeType": "Block",
-              "src": "449:102:11",
+              "src": "448:102:11",
               "statements": [
                 {
                   "assignments": [
-                    1702
+                    1549
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1702,
+                      "id": 1549,
                       "name": "owner",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1716,
-                      "src": "459:13:11",
+                      "scope": 1562,
+                      "src": "458:13:11",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -1800,10 +1736,11 @@
                         "typeString": "address"
                       },
                       "typeName": {
-                        "id": 1701,
+                        "id": 1548,
                         "name": "address",
                         "nodeType": "ElementaryTypeName",
-                        "src": "459:7:11",
+                        "src": "458:7:11",
+                        "stateMutability": "nonpayable",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1813,31 +1750,31 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1706,
+                  "id": 1553,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 1703,
+                      "id": 1550,
                       "name": "shopToOwner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1729,
-                      "src": "475:11:11",
+                      "referencedDeclaration": 1576,
+                      "src": "474:11:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
                         "typeString": "mapping(uint256 => address)"
                       }
                     },
-                    "id": 1705,
+                    "id": 1552,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 1704,
+                      "id": 1551,
                       "name": "_shopId",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1699,
-                      "src": "487:7:11",
+                      "referencedDeclaration": 1546,
+                      "src": "486:7:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -1848,14 +1785,14 @@
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "IndexAccess",
-                    "src": "475:20:11",
+                    "src": "474:20:11",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "459:36:11"
+                  "src": "458:36:11"
                 },
                 {
                   "expression": {
@@ -1867,7 +1804,7 @@
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         },
-                        "id": 1711,
+                        "id": 1558,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1876,18 +1813,18 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 1708,
+                            "id": 1555,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 3487,
-                            "src": "513:3:11",
+                            "referencedDeclaration": 3397,
+                            "src": "512:3:11",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 1709,
+                          "id": 1556,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1895,28 +1832,28 @@
                           "memberName": "sender",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": null,
-                          "src": "513:10:11",
+                          "src": "512:10:11",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_address",
-                            "typeString": "address"
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
                           }
                         },
                         "nodeType": "BinaryOperation",
                         "operator": "==",
                         "rightExpression": {
                           "argumentTypes": null,
-                          "id": 1710,
+                          "id": 1557,
                           "name": "owner",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1702,
-                          "src": "527:5:11",
+                          "referencedDeclaration": 1549,
+                          "src": "526:5:11",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
                           }
                         },
-                        "src": "513:19:11",
+                        "src": "512:19:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -1930,21 +1867,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 1707,
+                      "id": 1554,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        3490,
-                        3491
+                        3400,
+                        3401
                       ],
-                      "referencedDeclaration": 3490,
-                      "src": "505:7:11",
+                      "referencedDeclaration": 3400,
+                      "src": "504:7:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 1712,
+                    "id": 1559,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1952,38 +1889,38 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "505:28:11",
+                    "src": "504:28:11",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1713,
+                  "id": 1560,
                   "nodeType": "ExpressionStatement",
-                  "src": "505:28:11"
+                  "src": "504:28:11"
                 },
                 {
-                  "id": 1714,
+                  "id": 1561,
                   "nodeType": "PlaceholderStatement",
-                  "src": "543:1:11"
+                  "src": "542:1:11"
                 }
               ]
             },
             "documentation": "@dev modifier to scope access to owner of given shop",
-            "id": 1716,
+            "id": 1563,
             "name": "onlyShopOwner",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 1700,
+              "id": 1547,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1699,
+                  "id": 1546,
                   "name": "_shopId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1716,
-                  "src": "432:15:11",
+                  "scope": 1563,
+                  "src": "431:15:11",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1991,10 +1928,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1698,
+                    "id": 1545,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "432:7:11",
+                    "src": "431:7:11",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2004,43 +1941,43 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "431:17:11"
+              "src": "430:17:11"
             },
-            "src": "409:142:11",
+            "src": "408:142:11",
             "visibility": "internal"
           },
           {
             "constant": false,
-            "id": 1719,
+            "id": 1566,
             "name": "shops",
             "nodeType": "VariableDeclaration",
-            "scope": 1789,
-            "src": "605:19:11",
+            "scope": 1636,
+            "src": "604:19:11",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_struct$_Shop_$1760_storage_$dyn_storage",
+              "typeIdentifier": "t_array$_t_struct$_Shop_$1607_storage_$dyn_storage",
               "typeString": "struct StockRoomBase.Shop[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 1717,
+                "id": 1564,
                 "name": "Shop",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 1760,
-                "src": "605:4:11",
+                "referencedDeclaration": 1607,
+                "src": "604:4:11",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Shop_$1760_storage_ptr",
+                  "typeIdentifier": "t_struct$_Shop_$1607_storage_ptr",
                   "typeString": "struct StockRoomBase.Shop"
                 }
               },
-              "id": 1718,
+              "id": 1565,
               "length": null,
               "nodeType": "ArrayTypeName",
-              "src": "605:6:11",
+              "src": "604:6:11",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_struct$_Shop_$1760_storage_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_struct$_Shop_$1607_storage_$dyn_storage_ptr",
                 "typeString": "struct StockRoomBase.Shop[]"
               }
             },
@@ -2049,36 +1986,36 @@
           },
           {
             "constant": false,
-            "id": 1722,
+            "id": 1569,
             "name": "skuTypes",
             "nodeType": "VariableDeclaration",
-            "scope": 1789,
-            "src": "683:25:11",
+            "scope": 1636,
+            "src": "682:25:11",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_struct$_SKUType_$1769_storage_$dyn_storage",
+              "typeIdentifier": "t_array$_t_struct$_SKUType_$1616_storage_$dyn_storage",
               "typeString": "struct StockRoomBase.SKUType[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 1720,
+                "id": 1567,
                 "name": "SKUType",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 1769,
-                "src": "683:7:11",
+                "referencedDeclaration": 1616,
+                "src": "682:7:11",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_SKUType_$1769_storage_ptr",
+                  "typeIdentifier": "t_struct$_SKUType_$1616_storage_ptr",
                   "typeString": "struct StockRoomBase.SKUType"
                 }
               },
-              "id": 1721,
+              "id": 1568,
               "length": null,
               "nodeType": "ArrayTypeName",
-              "src": "683:9:11",
+              "src": "682:9:11",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_struct$_SKUType_$1769_storage_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_struct$_SKUType_$1616_storage_$dyn_storage_ptr",
                 "typeString": "struct StockRoomBase.SKUType[]"
               }
             },
@@ -2087,36 +2024,36 @@
           },
           {
             "constant": false,
-            "id": 1725,
+            "id": 1572,
             "name": "skus",
             "nodeType": "VariableDeclaration",
-            "scope": 1789,
-            "src": "762:17:11",
+            "scope": 1636,
+            "src": "761:17:11",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_struct$_SKU_$1788_storage_$dyn_storage",
+              "typeIdentifier": "t_array$_t_struct$_SKU_$1635_storage_$dyn_storage",
               "typeString": "struct StockRoomBase.SKU[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 1723,
+                "id": 1570,
                 "name": "SKU",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 1788,
-                "src": "762:3:11",
+                "referencedDeclaration": 1635,
+                "src": "761:3:11",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_SKU_$1788_storage_ptr",
+                  "typeIdentifier": "t_struct$_SKU_$1635_storage_ptr",
                   "typeString": "struct StockRoomBase.SKU"
                 }
               },
-              "id": 1724,
+              "id": 1571,
               "length": null,
               "nodeType": "ArrayTypeName",
-              "src": "762:5:11",
+              "src": "761:5:11",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_struct$_SKU_$1788_storage_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_struct$_SKU_$1635_storage_$dyn_storage_ptr",
                 "typeString": "struct StockRoomBase.SKU[]"
               }
             },
@@ -2125,11 +2062,11 @@
           },
           {
             "constant": false,
-            "id": 1729,
+            "id": 1576,
             "name": "shopToOwner",
             "nodeType": "VariableDeclaration",
-            "scope": 1789,
-            "src": "850:47:11",
+            "scope": 1636,
+            "src": "849:47:11",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -2137,28 +2074,29 @@
               "typeString": "mapping(uint256 => address)"
             },
             "typeName": {
-              "id": 1728,
+              "id": 1575,
               "keyType": {
-                "id": 1726,
+                "id": 1573,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
-                "src": "859:7:11",
+                "src": "858:7:11",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
                 }
               },
               "nodeType": "Mapping",
-              "src": "850:28:11",
+              "src": "849:28:11",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
                 "typeString": "mapping(uint256 => address)"
               },
               "valueType": {
-                "id": 1727,
+                "id": 1574,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "870:7:11",
+                "src": "869:7:11",
+                "stateMutability": "nonpayable",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
@@ -2170,11 +2108,11 @@
           },
           {
             "constant": false,
-            "id": 1734,
+            "id": 1581,
             "name": "ownedShops",
             "nodeType": "VariableDeclaration",
-            "scope": 1789,
-            "src": "980:48:11",
+            "scope": 1636,
+            "src": "979:48:11",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -2182,38 +2120,38 @@
               "typeString": "mapping(address => uint256[])"
             },
             "typeName": {
-              "id": 1733,
+              "id": 1580,
               "keyType": {
-                "id": 1730,
+                "id": 1577,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "989:7:11",
+                "src": "988:7:11",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "980:30:11",
+              "src": "979:30:11",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_uint256_$dyn_storage_$",
                 "typeString": "mapping(address => uint256[])"
               },
               "valueType": {
                 "baseType": {
-                  "id": 1731,
+                  "id": 1578,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1000:7:11",
+                  "src": "999:7:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
                   }
                 },
-                "id": 1732,
+                "id": 1579,
                 "length": null,
                 "nodeType": "ArrayTypeName",
-                "src": "1000:9:11",
+                "src": "999:9:11",
                 "typeDescriptions": {
                   "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                   "typeString": "uint256[]"
@@ -2225,11 +2163,11 @@
           },
           {
             "constant": false,
-            "id": 1739,
+            "id": 1586,
             "name": "shopSKUTypes",
             "nodeType": "VariableDeclaration",
-            "scope": 1789,
-            "src": "1099:50:11",
+            "scope": 1636,
+            "src": "1098:50:11",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -2237,38 +2175,38 @@
               "typeString": "mapping(uint256 => uint256[])"
             },
             "typeName": {
-              "id": 1738,
+              "id": 1585,
               "keyType": {
-                "id": 1735,
+                "id": 1582,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
-                "src": "1108:7:11",
+                "src": "1107:7:11",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
                 }
               },
               "nodeType": "Mapping",
-              "src": "1099:30:11",
+              "src": "1098:30:11",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_uint256_$dyn_storage_$",
                 "typeString": "mapping(uint256 => uint256[])"
               },
               "valueType": {
                 "baseType": {
-                  "id": 1736,
+                  "id": 1583,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1119:7:11",
+                  "src": "1118:7:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
                   }
                 },
-                "id": 1737,
+                "id": 1584,
                 "length": null,
                 "nodeType": "ArrayTypeName",
-                "src": "1119:9:11",
+                "src": "1118:9:11",
                 "typeDescriptions": {
                   "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                   "typeString": "uint256[]"
@@ -2280,11 +2218,11 @@
           },
           {
             "constant": false,
-            "id": 1744,
+            "id": 1591,
             "name": "skuTypeSKUs",
             "nodeType": "VariableDeclaration",
-            "scope": 1789,
-            "src": "1219:49:11",
+            "scope": 1636,
+            "src": "1218:49:11",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -2292,38 +2230,38 @@
               "typeString": "mapping(uint256 => uint256[])"
             },
             "typeName": {
-              "id": 1743,
+              "id": 1590,
               "keyType": {
-                "id": 1740,
+                "id": 1587,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
-                "src": "1228:7:11",
+                "src": "1227:7:11",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
                 }
               },
               "nodeType": "Mapping",
-              "src": "1219:30:11",
+              "src": "1218:30:11",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_uint256_$dyn_storage_$",
                 "typeString": "mapping(uint256 => uint256[])"
               },
               "valueType": {
                 "baseType": {
-                  "id": 1741,
+                  "id": 1588,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1239:7:11",
+                  "src": "1238:7:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
                   }
                 },
-                "id": 1742,
+                "id": 1589,
                 "length": null,
                 "nodeType": "ArrayTypeName",
-                "src": "1239:9:11",
+                "src": "1238:9:11",
                 "typeDescriptions": {
                   "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                   "typeString": "uint256[]"
@@ -2335,11 +2273,11 @@
           },
           {
             "constant": false,
-            "id": 1749,
+            "id": 1596,
             "name": "shopSKUs",
             "nodeType": "VariableDeclaration",
-            "scope": 1789,
-            "src": "1334:46:11",
+            "scope": 1636,
+            "src": "1333:46:11",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -2347,38 +2285,38 @@
               "typeString": "mapping(uint256 => uint256[])"
             },
             "typeName": {
-              "id": 1748,
+              "id": 1595,
               "keyType": {
-                "id": 1745,
+                "id": 1592,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
-                "src": "1343:7:11",
+                "src": "1342:7:11",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
                 }
               },
               "nodeType": "Mapping",
-              "src": "1334:30:11",
+              "src": "1333:30:11",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_uint256_$dyn_storage_$",
                 "typeString": "mapping(uint256 => uint256[])"
               },
               "valueType": {
                 "baseType": {
-                  "id": 1746,
+                  "id": 1593,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1354:7:11",
+                  "src": "1353:7:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
                   }
                 },
-                "id": 1747,
+                "id": 1594,
                 "length": null,
                 "nodeType": "ArrayTypeName",
-                "src": "1354:9:11",
+                "src": "1353:9:11",
                 "typeDescriptions": {
                   "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                   "typeString": "uint256[]"
@@ -2390,15 +2328,15 @@
           },
           {
             "canonicalName": "StockRoomBase.Shop",
-            "id": 1760,
+            "id": 1607,
             "members": [
               {
                 "constant": false,
-                "id": 1751,
+                "id": 1598,
                 "name": "owner",
                 "nodeType": "VariableDeclaration",
-                "scope": 1760,
-                "src": "1494:13:11",
+                "scope": 1607,
+                "src": "1493:13:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2406,10 +2344,11 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1750,
+                  "id": 1597,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1494:7:11",
+                  "src": "1493:7:11",
+                  "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
                     "typeString": "address"
@@ -2420,11 +2359,11 @@
               },
               {
                 "constant": false,
-                "id": 1753,
+                "id": 1600,
                 "name": "shopId",
                 "nodeType": "VariableDeclaration",
-                "scope": 1760,
-                "src": "1549:14:11",
+                "scope": 1607,
+                "src": "1548:14:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2432,10 +2371,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1752,
+                  "id": 1599,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1549:7:11",
+                  "src": "1548:7:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -2446,11 +2385,11 @@
               },
               {
                 "constant": false,
-                "id": 1755,
+                "id": 1602,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
-                "scope": 1760,
-                "src": "1602:11:11",
+                "scope": 1607,
+                "src": "1601:11:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2458,10 +2397,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1754,
+                  "id": 1601,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1602:6:11",
+                  "src": "1601:6:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -2472,11 +2411,11 @@
               },
               {
                 "constant": false,
-                "id": 1757,
+                "id": 1604,
                 "name": "description",
                 "nodeType": "VariableDeclaration",
-                "scope": 1760,
-                "src": "1659:18:11",
+                "scope": 1607,
+                "src": "1658:18:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2484,10 +2423,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1756,
+                  "id": 1603,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1659:6:11",
+                  "src": "1658:6:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -2498,11 +2437,11 @@
               },
               {
                 "constant": false,
-                "id": 1759,
+                "id": 1606,
                 "name": "fiat",
                 "nodeType": "VariableDeclaration",
-                "scope": 1760,
-                "src": "1724:11:11",
+                "scope": 1607,
+                "src": "1723:11:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2510,10 +2449,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1758,
+                  "id": 1605,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1724:6:11",
+                  "src": "1723:6:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -2525,21 +2464,21 @@
             ],
             "name": "Shop",
             "nodeType": "StructDefinition",
-            "scope": 1789,
-            "src": "1442:300:11",
+            "scope": 1636,
+            "src": "1441:300:11",
             "visibility": "public"
           },
           {
             "canonicalName": "StockRoomBase.SKUType",
-            "id": 1769,
+            "id": 1616,
             "members": [
               {
                 "constant": false,
-                "id": 1762,
+                "id": 1609,
                 "name": "shopId",
                 "nodeType": "VariableDeclaration",
-                "scope": 1769,
-                "src": "1882:14:11",
+                "scope": 1616,
+                "src": "1881:14:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2547,10 +2486,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1761,
+                  "id": 1608,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1882:7:11",
+                  "src": "1881:7:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -2561,11 +2500,11 @@
               },
               {
                 "constant": false,
-                "id": 1764,
+                "id": 1611,
                 "name": "skuTypeId",
                 "nodeType": "VariableDeclaration",
-                "scope": 1769,
-                "src": "1937:17:11",
+                "scope": 1616,
+                "src": "1936:17:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2573,10 +2512,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1763,
+                  "id": 1610,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1937:7:11",
+                  "src": "1936:7:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -2587,11 +2526,11 @@
               },
               {
                 "constant": false,
-                "id": 1766,
+                "id": 1613,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
-                "scope": 1769,
-                "src": "1997:11:11",
+                "scope": 1616,
+                "src": "1996:11:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2599,10 +2538,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1765,
+                  "id": 1612,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1997:6:11",
+                  "src": "1996:6:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -2613,11 +2552,11 @@
               },
               {
                 "constant": false,
-                "id": 1768,
+                "id": 1615,
                 "name": "description",
                 "nodeType": "VariableDeclaration",
-                "scope": 1769,
-                "src": "2069:18:11",
+                "scope": 1616,
+                "src": "2068:18:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2625,10 +2564,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1767,
+                  "id": 1614,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2069:6:11",
+                  "src": "2068:6:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -2640,21 +2579,21 @@
             ],
             "name": "SKUType",
             "nodeType": "StructDefinition",
-            "scope": 1789,
-            "src": "1805:289:11",
+            "scope": 1636,
+            "src": "1804:289:11",
             "visibility": "public"
           },
           {
             "canonicalName": "StockRoomBase.SKU",
-            "id": 1788,
+            "id": 1635,
             "members": [
               {
                 "constant": false,
-                "id": 1771,
+                "id": 1618,
                 "name": "shopId",
                 "nodeType": "VariableDeclaration",
-                "scope": 1788,
-                "src": "2240:14:11",
+                "scope": 1635,
+                "src": "2239:14:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2662,10 +2601,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1770,
+                  "id": 1617,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2240:7:11",
+                  "src": "2239:7:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -2676,11 +2615,11 @@
               },
               {
                 "constant": false,
-                "id": 1773,
+                "id": 1620,
                 "name": "skuId",
                 "nodeType": "VariableDeclaration",
-                "scope": 1788,
-                "src": "2295:13:11",
+                "scope": 1635,
+                "src": "2294:13:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2688,10 +2627,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1772,
+                  "id": 1619,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2295:7:11",
+                  "src": "2294:7:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -2702,11 +2641,11 @@
               },
               {
                 "constant": false,
-                "id": 1775,
+                "id": 1622,
                 "name": "skuTypeId",
                 "nodeType": "VariableDeclaration",
-                "scope": 1788,
-                "src": "2346:17:11",
+                "scope": 1635,
+                "src": "2345:17:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2714,10 +2653,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1774,
+                  "id": 1621,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2346:7:11",
+                  "src": "2345:7:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -2728,11 +2667,11 @@
               },
               {
                 "constant": false,
-                "id": 1777,
+                "id": 1624,
                 "name": "price",
                 "nodeType": "VariableDeclaration",
-                "scope": 1788,
-                "src": "2402:13:11",
+                "scope": 1635,
+                "src": "2401:13:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2740,10 +2679,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1776,
+                  "id": 1623,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2402:7:11",
+                  "src": "2401:7:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -2754,11 +2693,11 @@
               },
               {
                 "constant": false,
-                "id": 1779,
+                "id": 1626,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
-                "scope": 1788,
-                "src": "2454:11:11",
+                "scope": 1635,
+                "src": "2453:11:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2766,10 +2705,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1778,
+                  "id": 1625,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2454:6:11",
+                  "src": "2453:6:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -2780,11 +2719,11 @@
               },
               {
                 "constant": false,
-                "id": 1781,
+                "id": 1628,
                 "name": "description",
                 "nodeType": "VariableDeclaration",
-                "scope": 1788,
-                "src": "2510:18:11",
+                "scope": 1635,
+                "src": "2509:18:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2792,10 +2731,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1780,
+                  "id": 1627,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2510:6:11",
+                  "src": "2509:6:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -2806,11 +2745,11 @@
               },
               {
                 "constant": false,
-                "id": 1783,
+                "id": 1630,
                 "name": "consumable",
                 "nodeType": "VariableDeclaration",
-                "scope": 1788,
-                "src": "2579:15:11",
+                "scope": 1635,
+                "src": "2578:15:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2818,10 +2757,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 1782,
+                  "id": 1629,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2579:4:11",
+                  "src": "2578:4:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -2832,11 +2771,11 @@
               },
               {
                 "constant": false,
-                "id": 1785,
+                "id": 1632,
                 "name": "limited",
                 "nodeType": "VariableDeclaration",
-                "scope": 1788,
-                "src": "2701:12:11",
+                "scope": 1635,
+                "src": "2700:12:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2844,10 +2783,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 1784,
+                  "id": 1631,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2701:4:11",
+                  "src": "2700:4:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -2858,11 +2797,11 @@
               },
               {
                 "constant": false,
-                "id": 1787,
+                "id": 1634,
                 "name": "limit",
                 "nodeType": "VariableDeclaration",
-                "scope": 1788,
-                "src": "2806:13:11",
+                "scope": 1635,
+                "src": "2805:13:11",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2870,10 +2809,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1786,
+                  "id": 1633,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2806:7:11",
+                  "src": "2805:7:11",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -2885,57 +2824,43 @@
             ],
             "name": "SKU",
             "nodeType": "StructDefinition",
-            "scope": 1789,
-            "src": "2178:649:11",
+            "scope": 1636,
+            "src": "2177:649:11",
             "visibility": "public"
           }
         ],
-        "scope": 1790,
-        "src": "236:2594:11"
+        "scope": 1637,
+        "src": "235:2594:11"
       }
     ],
-    "src": "0:2831:11"
+    "src": "0:2830:11"
   },
   "compiler": {
     "name": "solc",
-    "version": "0.4.26+commit.4563c3fc.Emscripten.clang"
+    "version": "0.5.12+commit.7709ece9.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.0.11",
-  "updatedAt": "2019-07-15T18:47:10.521Z",
+  "schemaVersion": "3.0.16",
+  "updatedAt": "2019-10-20T21:32:24.730Z",
   "devdoc": {
     "methods": {
-      "checkRole(address,string)": {
-        "details": "reverts if addr does not have role",
-        "params": {
-          "_operator": "address",
-          "_role": "the name of the role // reverts"
-        }
-      },
-      "hasRole(address,string)": {
-        "details": "determine if addr has role",
-        "params": {
-          "_operator": "address",
-          "_role": "the name of the role"
-        },
-        "return": "bool"
-      },
       "pause()": {
         "details": "called by the system administrator to pause, triggers stopped state"
       },
-      "setNewAddress(address)": {
-        "details": "Used to mark the smart contract as upgraded, in case there is a serious     breaking bug. This method only keeps track of the new contract and emits     a message indicating that the new address is set. It's up to clients of     contract to update to the new contract address in that case.     This contract will be paused indefinitely if such an upgrade takes place.",
+      "unpause()": {
+        "details": "called by the ystem administrator to un-pause, returns to normal state"
+      },
+      "upgradeContract(address)": {
+        "details": "called by a system administrator to  mark the smart contract as upgraded,     in case there is a serious breaking bug. This method stores the new contract     address and emits an event to that effect. Clients of the contract should     update to the new contract address upon receiving this event.     *      This contract will remain paused indefinitely after such an upgrade.",
         "params": {
           "_newAddress": "address of new contract"
         }
-      },
-      "unpause()": {
-        "details": "called by the ystem administrator to un-pause, returns to normal state"
       }
     },
     "title": "StockRoomBase"
   },
   "userdoc": {
-    "methods": {}
+    "methods": {},
+    "notice": "Defines collections, mappings, and structs for the StockRoom side of the In-game Pro Shop System"
   }
 }

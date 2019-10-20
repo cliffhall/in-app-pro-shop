@@ -1,6 +1,6 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.0;
 
-import "openzeppelin-solidity/contracts/token/ERC721/ERC721Token.sol";
+import "openzeppelin-solidity/contracts/token/ERC721/ERC721Full.sol";
 import "./AccessControl.sol";
 import "./StockRoomInterface.sol";
 
@@ -9,9 +9,9 @@ import "./StockRoomInterface.sol";
  * @title ProShopBase
  * @notice Defines collections, mappings, and structs for the sales side of the In-game Pro Shop System
  */
-contract ProShopBase is ERC721Token, AccessControl {
+contract ProShopBase is ERC721Full, AccessControl {
 
-    constructor() public ERC721Token(TOKEN_NAME, TOKEN_SYMBOL) {}
+    constructor() public ERC721Full(TOKEN_NAME, TOKEN_SYMBOL) {}
 
     StockRoomInterface internal stockRoom;
 

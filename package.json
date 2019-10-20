@@ -35,11 +35,11 @@
   },
   "homepage": "https://iaps-test.futurescale.com",
   "dependencies": {
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^3.4.1",
     "drizzle": "^1.4.0",
     "drizzle-react": "^1.2.0",
     "env-cmd": "^8.0.2",
-    "openzeppelin-solidity": "1.11.0",
+    "openzeppelin-solidity": "^2.3.0",
     "react": "^16.4.0",
     "react-bootstrap": "^0.32.4",
     "react-currency-masked-input": "^2.2.0",
@@ -51,19 +51,22 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "styled-components": "^3.4.6",
-    "truffle-hdwallet-provider": "^1.0.6",
-    "web3": "^1.0.0-beta.55"
+    "web3": "^1.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-preset-env": "^1.7.0",
-    "ganache-cli": "^6.2.3",
+    "bn.js": "^5.0.0",
+    "ganache-cli": "^6.7.0",
     "react-app-rewire-styled-components": "^3.0.2",
     "react-app-rewired": "^1.6.2",
     "redux-mock-store": "^1.5.3",
     "regenerator-runtime": "^0.12.1",
-    "truffle-contract": "^3.0.7"
+    "truffle": "^5.0.39",
+    "truffle-assertions": "^0.9.1",
+    "truffle-contract": "^4.0.31",
+    "truffle-hdwallet-provider": "^1.0.14"
   },
   "jest": {
     "collectCoverageFrom": [

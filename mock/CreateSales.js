@@ -4,7 +4,7 @@ const ProShop = artifacts.require("./ProShop.sol");
 
 module.exports = async function(done){
 
-    const itemOwner = '0xF406DF13b7f818ac7d3aA1b5A0e6319e1504B854';
+    const itemOwner = '0xd36159EC25BF0b1239C0c524e2a3C578FEB5Dc8d';
     const shopIds = [0,1];
 
     const fiatPrices = [
