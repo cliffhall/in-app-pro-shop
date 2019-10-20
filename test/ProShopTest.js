@@ -3,6 +3,7 @@ const StockRoom = artifacts.require("./StockRoom.sol");
 const FiatContract = artifacts.require("./FiatContract.sol");
 const exceptions = require ("./util/Exceptions");
 const accounting = require("./util/Accounting");
+const truffleAssert = require('truffle-assertions');
 const BN = require('bn.js');
 
 contract('ProShop', function(accounts) {
@@ -50,19 +51,19 @@ contract('ProShop', function(accounts) {
 
         // Invoke the function with 'call' to get the return value of the transaction
         // NOTE: this doesn't actually write the data
-        shopId = (await stockRoom.createShop.call(shopName, shopDesc, shopFiat, {from: shopOwner}));
+        shopId = (await stockRoom.createShop.call(shopName, shopDesc, shopFiat, {from: shopOwner})).toNumber();
 
         // Now call the function for real and write the data
         await stockRoom.createShop(shopName, shopDesc, shopFiat, {from: shopOwner});
 
         // First, get the skuTypeID with a call so it doesn't return a transaction
-        skuTypeId = (await stockRoom.createSKUType.call(shopId, skuTypeName, skuTypeDesc, {from: shopOwner}));
+        skuTypeId = (await stockRoom.createSKUType.call(shopId, skuTypeName, skuTypeDesc, {from: shopOwner})).toNumber();
 
         // Now do it for real
         await stockRoom.createSKUType(shopId, skuTypeName, skuTypeDesc, {from: shopOwner});
 
         // First, get the skuTypeID with a call so it doesn't return a transaction
-        skuId = (await stockRoom.createSKU.call(shopId, skuTypeId, skuPrice, skuName, skuDesc, consumable, limited, limit, {from: shopOwner}));
+        skuId = (await stockRoom.createSKU.call(shopId, skuTypeId, skuPrice, skuName, skuDesc, consumable, limited, limit, {from: shopOwner})).toNumber();
 
         // Now do it for real
         await stockRoom.createSKU(shopId, skuTypeId, skuPrice, skuName, skuDesc, consumable, limited, limit, {from: shopOwner});
@@ -125,6 +126,13 @@ contract('ProShop', function(accounts) {
 
         // Withdraw and get receipt
         const receipt = await contract.withdrawFranchiseBalance({from: franchiseOwner});
+
+        // Test that appropriate event was emitted
+        truffleAssert.eventEmitted(receipt, 'FranchiseBalanceWithdrawn', (event) => {
+            return (
+                event.amount.toNumber() === withdrawal.toNumber()
+            );
+        }, 'FranchiseBalanceWithdrawn event should be emitted with correct info');
 
         // Calculate the cost of the transaction
         const gasUsed = receipt.receipt.gasUsed;

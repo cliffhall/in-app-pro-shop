@@ -1,5 +1,7 @@
 const StockRoom = artifacts.require("./StockRoom.sol");
 const exceptions = require ("./util/Exceptions");
+const truffleAssert = require('truffle-assertions');
+const BN = require('bn.js');
 
 contract('SKUTypeFactory', function(accounts) {
 
@@ -21,7 +23,7 @@ contract('SKUTypeFactory', function(accounts) {
         await contract.unpause();
 
         // Get the Shop ID (using call, to avoid receiving a transaction)
-        shopId = (await contract.createShop.call(shopName, shopDesc, shopFiat, {from: shopOwner}));
+        shopId = (await contract.createShop.call(shopName, shopDesc, shopFiat, {from: shopOwner})).toNumber();
 
         // Now call the function for real and write the data
         await contract.createShop(shopName, shopDesc, shopFiat, {from: shopOwner});
@@ -36,21 +38,19 @@ contract('SKUTypeFactory', function(accounts) {
 
     it("should allow a shop owner to create a SKU Type for their Shop", async function() {
 
-        // First, get the skuTypeID with a call so it doesn't return a transaction
-        skuTypeId = await contract.createSKUType.call(shopId, skuTypeName, skuTypeDesc, {from: shopOwner});
-
-        // Listen for NewSKUType event (filter events by shopId)
-        /* When Ganache 7.0 comes out we can move to web3 ^1.2.x and rework events. for now, tests are broken
-        let event = contract.NewSKUType({shopId: shopId});
-        event.watch((err,response) => {
-            assert.equal(response.args.shopId, shopId, "Shop ID was wrong");
-            assert.equal(response.args.skuTypeId, skuTypeId, "SKU Type ID was wrong");
-            assert.equal(response.args.name, skuTypeName, "SKU Type Name was wrong");
-        });
-        */
+        const skuTypeId = 0;
 
         // Now do it for real
-        await contract.createSKUType(shopId, skuTypeName, skuTypeDesc, {from: shopOwner});
+        const result = await contract.createSKUType(shopId, skuTypeName, skuTypeDesc, {from: shopOwner});
+
+        // Test that appropriate event was emitted
+        truffleAssert.eventEmitted(result, 'NewSKUType', (event) => {
+            return (
+                event.name === skuTypeName &&
+                event.skuTypeId.toNumber() === skuTypeId &&
+                event.shopId.toNumber() === shopId
+            );
+        }, 'NewSKUType event should be emitted with correct info');
 
         // Get the count of SKUs for the Shop
         const skuTypeIds = await contract.getSKUTypeIds(shopId);

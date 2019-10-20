@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.0;
 
 import "./SKUFactory.sol";
 
@@ -47,7 +47,7 @@ contract StockRoom is SKUFactory {
     }
 
     // @notice get a quote for Ether in the given fiat currency
-    function getQuote(string _fiat) private view returns (uint256) {
+    function getQuote(string memory _fiat) private view returns (uint256) {
         bytes32 fiat = keccak256(abi.encodePacked(_fiat));
         uint256 quote;
         if (fiat == keccak256("USD")) {
@@ -78,7 +78,7 @@ contract StockRoom is SKUFactory {
     }
 
     // @notice Get a SKU's properties by ID
-    function getSKU(uint256 _skuId) external view returns (uint256, uint256, uint256, uint256, string, string, bool, bool, uint256)
+    function getSKU(uint256 _skuId) external view returns (uint256, uint256, uint256, uint256, string memory, string memory, bool, bool, uint256)
     {
         require(_skuId < skus.length);
         SKU memory sku = skus[_skuId];
@@ -101,7 +101,7 @@ contract StockRoom is SKUFactory {
     }
 
     // @notice Get a SKUTypes properties by ID
-    function getSKUType(uint256 _skuTypeId) external view returns (uint256, uint256, string, string) {
+    function getSKUType(uint256 _skuTypeId) external view returns (uint256, uint256, string memory, string memory) {
         require(_skuTypeId < skuTypes.length);
         SKUType memory skuType = skuTypes[_skuTypeId];
         return (
@@ -118,7 +118,7 @@ contract StockRoom is SKUFactory {
     }
 
     // @notice Get a Shop's properties by ID
-    function getShop(uint256 _shopId) external view returns (address, uint256, string, string, string) {
+    function getShop(uint256 _shopId) external view returns (address, uint256, string memory, string memory, string memory) {
         require(_shopId < shops.length);
         Shop memory shop = shops[_shopId];
         return (

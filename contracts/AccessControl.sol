@@ -1,6 +1,6 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.0;
 
-import "openzeppelin-solidity/contracts/ownership/RBAC/RBAC.sol";
+import "openzeppelin-solidity/contracts/access/Roles.sol";
 import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 
 
@@ -8,17 +8,22 @@ import "openzeppelin-solidity/contracts/math/SafeMath.sol";
  * @title AccessControl
  * @notice Role-based access control and related functions, function modifiers, and events
  */
-contract AccessControl is RBAC {
+contract AccessControl {
 
     using SafeMath for uint256;
+    using Roles for Roles.Role;
+
+    Roles.Role internal admins;
+    Roles.Role internal franchise;
+    Roles.Role internal shopOwners;
 
     /**
      * @dev constructor. Sets msg.sender as system admin by default
      */
     constructor() public {
         paused = true; // Start paused. un-paused after full migration
-        addRole(msg.sender, ROLE_SYS_ADMIN);
-        addRole(msg.sender, ROLE_FRANCHISE_OWNER);
+        admins.add(msg.sender);
+        franchise.add(msg.sender);
     }
 
     /**
@@ -37,6 +42,11 @@ contract AccessControl is RBAC {
     event ContractUnpaused();
 
     /**
+     * dev state variable indicating whether the contract has been upgraded
+     */
+    bool public upgraded = false;
+
+    /**
      * @dev state variable indicating whether the contract is paused
      */
     bool public paused = false;
@@ -47,33 +57,18 @@ contract AccessControl is RBAC {
     address public newContractAddress;
 
     /**
-     * Role name for administrator of entire system
-     */
-    string public constant ROLE_SYS_ADMIN = "role/system-admin";
-
-    /**
-     * Role name for shop owners.
-     */
-    string public constant ROLE_SHOP_OWNER = "role/shop-owner";
-
-    /**
-     * Role name for franchise owner.
-     */
-    string public constant ROLE_FRANCHISE_OWNER = "role/franchise-owner";
-
-    /**
      * @dev modifier to scope access to system administrator
      */
     modifier onlySysAdmin() {
-        checkRole(msg.sender, ROLE_SYS_ADMIN);
-        _;
+        require(admins.has(msg.sender));
+    _;
     }
 
     /**
      * @dev modifier to scope access to franchise owner
      */
     modifier onlyFranchiseOwner() {
-        checkRole(msg.sender, ROLE_FRANCHISE_OWNER);
+        require(franchise.has(msg.sender));
         _;
     }
 
@@ -94,15 +89,25 @@ contract AccessControl is RBAC {
     }
 
     /**
-     * @dev Used to mark the smart contract as upgraded, in case there is a serious
-     *      breaking bug. This method only keeps track of the new contract and emits
-     *      a message indicating that the new address is set. It's up to clients of
-     *      contract to update to the new contract address in that case.
-     *      This contract will be paused indefinitely if such an upgrade takes place.
+     * @dev Modifier to make a function callable only when the contract not upgraded.
+     */
+    modifier whenNotUpgraded() {
+        require(!upgraded);
+        _;
+    }
+
+    /**
+     * @dev called by a system administrator to  mark the smart contract as upgraded,
+     *      in case there is a serious breaking bug. This method stores the new contract
+     *      address and emits an event to that effect. Clients of the contract should
+     *      update to the new contract address upon receiving this event.
+     *
+     *      This contract will remain paused indefinitely after such an upgrade.
      *
      * @param _newAddress address of new contract
      */
-    function setNewAddress(address _newAddress) external onlySysAdmin whenPaused {
+    function upgradeContract(address _newAddress) external onlySysAdmin whenPaused whenNotUpgraded {
+        upgraded = true;
         newContractAddress = _newAddress;
         emit ContractUpgrade(_newAddress);
     }
@@ -118,7 +123,7 @@ contract AccessControl is RBAC {
     /**
      * @dev called by the ystem administrator to un-pause, returns to normal state
      */
-    function unpause() public onlySysAdmin whenPaused {
+    function unpause() public onlySysAdmin whenPaused whenNotUpgraded {
         paused = false;
         emit ContractUnpaused();
     }
