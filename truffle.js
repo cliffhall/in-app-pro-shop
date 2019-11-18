@@ -11,7 +11,7 @@ module.exports = {
     contracts_build_directory: path.join(__dirname, "src/abi"),
     compilers: {
         solc: {
-            version: "^0.5.0"
+            version: "^0.5.13"
         }
     },
     networks: {

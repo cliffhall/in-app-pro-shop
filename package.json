@@ -12,7 +12,8 @@
     "app:start": "react-app-rewired start",
     "app:build": "react-app-rewired build",
     "app:build:testenv": "env-cmd .env.test npm run app:build",
-    "domain:test": "npx jest --detectOpenHandles"
+    "domain:test": "npx jest --detectOpenHandles",
+    "truffle:start": "npx truffle console"
   },
   "repository": {
     "type": "git",

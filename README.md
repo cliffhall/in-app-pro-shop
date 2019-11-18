@@ -173,7 +173,7 @@ A React/Redux application for maintaining Shops and checking/withdrawing Shop ow
 
 #  Developer Setup
 ### Build / Run / Deploy Prerequisites
- * [Node](https://nodejs.org/en/download/) 10.x or above (also installs npm) 
+ * [Node](https://nodejs.org/en/download/) 11.x (also installs npm) 
  * [DO NOT INSTALL VERSION 12](https://github.com/trufflesuite/truffle/issues/2070)!
 
 ### Install Node modules
