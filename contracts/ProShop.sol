@@ -45,9 +45,9 @@ contract ProShop is ItemFactory {
         onlyShopOwner(_shopId)
     {
         uint amount = shopBalances[_shopId];
+        address a = address(this);
         require(amount > 0, "Insufficient balance.");
-        // Bizarre error currently being thrown when accessing address(this).balance
-        //require(amount <= address(this).balance, "Insufficient balance.");
+        require(amount <= a.balance, "Insufficient balance.");
         shopBalances[_shopId] = 0;
         msg.sender.transfer(amount);
         emit ShopBalanceWithdrawn(_shopId, amount);
@@ -63,8 +63,8 @@ contract ProShop is ItemFactory {
     {
         uint amount = franchiseBalance;
         require(amount > 0, "Insufficient balance.");
-        // Bizarre error currently being thrown when accessing address(this).balance
-        //require(amount <= address(this).balance, "Insufficient balance.");
+        address a = address(this);
+        require(amount <= a.balance, "Insufficient balance.");
         franchiseBalance = 0;
         msg.sender.transfer(amount);
         emit FranchiseBalanceWithdrawn(amount);
