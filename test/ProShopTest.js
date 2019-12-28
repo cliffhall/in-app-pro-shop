@@ -114,13 +114,6 @@ contract('ProShop', function(accounts) {
         // Get amount to withdraw from the contract
         const withdrawal = new BN(Number(accounting.calcFee(itemAmount, franchiseFeePercent) * 2).toString(),10);
 
-        // Listen for FranchiseBalanceWithdrawn event
-        /* When Ganache-cli version 7.0 is released, upgrade web3 and implement new event watching
-        contract.FranchiseBalanceWithdrawn().watch((err,response) => {
-            assert.equal(response.args.amount, withdrawal);
-        });
-        */
-
         // Get the franchise owner's balance before the withdrawal
         const initial = new BN(await web3.eth.getBalance(franchiseOwner), 10);
 
@@ -130,7 +123,7 @@ contract('ProShop', function(accounts) {
         // Test that appropriate event was emitted
         truffleAssert.eventEmitted(receipt, 'FranchiseBalanceWithdrawn', (event) => {
             return (
-                event.amount.toNumber() === withdrawal.toNumber()
+                event.amount.eq(withdrawal)
             );
         }, 'FranchiseBalanceWithdrawn event should be emitted with correct info');
 
@@ -185,13 +178,6 @@ contract('ProShop', function(accounts) {
 
         // Get amount to withdraw from the contract
         const withdrawal = new BN(Number(accounting.calcNet(itemAmount, franchiseFeePercent) * 2).toString(), 10);
-
-        // Listen for ShopBalanceWithdrawn event
-        /* When Ganache 7.0 comes out we can move to web3 ^1.2.x and rework events. for now, tests are broken
-        contract.ShopBalanceWithdrawn().watch((err,response) => {
-            assert.equal(response.args.shopId, shopId);
-            assert.equal(response.args.amount, withdrawal);
-        });*/
 
         // Get the shop owner's balance before the withdrawal
         const initial = new BN(await web3.eth.getBalance(shopOwner), 10);

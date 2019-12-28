@@ -1,8 +1,10 @@
 const ProShop = artifacts.require("./ProShop.sol");
 const StockRoom = artifacts.require("./StockRoom.sol");
 const FiatContract = artifacts.require("./FiatContract.sol");
+const truffleAssert = require('truffle-assertions');
 const exceptions = require("./util/Exceptions");
 const accounting = require("./util/Accounting");
+const BN = require('bn.js');
 
 contract('ItemFactory', function(accounts) {
 
@@ -84,10 +86,13 @@ contract('ItemFactory', function(accounts) {
     it("should allow a user to create an Item", async function() {
 
         // Calculate fee
-        const fee = accounting.calcFee(itemAmount, franchiseFeePercent);
+        const fee = new BN(String(accounting.calcFee(itemAmount, franchiseFeePercent)), 10);
 
         // Calc net for shop owner
-        const net = accounting.calcNet(itemAmount, franchiseFeePercent);
+        const net = new BN(String(accounting.calcNet(itemAmount, franchiseFeePercent)), 10);
+
+        // Expected Item Amount
+        const amt = new BN(String(itemAmount), 10);
 
         // Make sure canMint function responds properly
         const canMint = await stockRoom.canMintItem(skuId, 0);
@@ -98,18 +103,19 @@ contract('ItemFactory', function(accounts) {
         assert.equal(itemId, 0, "Item id wasn't returned");
 
         // Create the item for real
-        await contract.createItem(shopId, skuId, {from: itemOwner, value: itemAmount});
+        const result = await contract.createItem(shopId, skuId, {from: itemOwner, value: itemAmount});
 
-        // Listen for ShopBalanceWithdrawn event
-        /* When Ganache 7.0 comes out we can move to web3 ^1.2.x and rework events. for now, tests are broken
-        const { returnValues: { response } } = await waitForEvent( contract.events.NewItem({shopId: shopId, skuId: skuId}) );
-        assert.equal(response.args.shopId, shopId);
-        assert.equal(response.args.skuId, skuId);
-        assert.equal(response.args.itemId, itemId);
-        assert.equal(response.args.amount, itemAmount);
-        assert.equal(response.args.fee, fee);
-        assert.equal(response.args.net, net);*/
-
+        // Test that appropriate event was emitted
+        truffleAssert.eventEmitted(result, 'NewItem', (event) => {
+            return (
+                event.shopId.eq(shopId) &&
+                event.skuId.eq(skuId) &&
+                event.itemId.eq(itemId) &&
+                event.amount.eq(amt) &&
+                event.fee.eq(fee) &&
+                event.net.eq(net)
+            )
+        }, 'NewItem event should be emitted with correct info');
 
         // Get the total supply of tokens
         const supply = await contract.totalSupply();
@@ -144,7 +150,7 @@ contract('ItemFactory', function(accounts) {
 
         // Make sure the owner's Shop count is correct
         const count = await contract.getOwnerItemCount(itemOwner);
-        assert.equal(count, 1, "Item count was wrong");
+        assert.equal(count.toNumber(), 1, "Item count was wrong");
 
     });
 

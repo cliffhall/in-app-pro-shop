@@ -1,8 +1,7 @@
 pragma solidity ^0.5.13;
 
-import "openzeppelin-solidity/contracts/access/Roles.sol";
-import "openzeppelin-solidity/contracts/math/SafeMath.sol";
-
+import "@openzeppelin/contracts/access/Roles.sol";
+import "@openzeppelin/contracts/math/SafeMath.sol";
 
 /**
  * @title AccessControl
