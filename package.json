@@ -40,7 +40,7 @@
     "drizzle": "^1.4.0",
     "drizzle-react": "^1.2.0",
     "env-cmd": "^8.0.2",
-    "@openzeppelin/contracts": "^2.4.0",
+    "@openzeppelin/contracts": "^4.4.2",
     "react": "^16.4.0",
     "react-bootstrap": "^0.32.4",
     "react-currency-masked-input": "^2.2.0",
